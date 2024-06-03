@@ -1,32 +1,186 @@
-<%= form_with(model: [@patient, @diagnosis], local: true) do |form| %>
-  <% if @diagnosis.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@diagnosis.errors.count, "error") %> impidieron guardar el diagnóstico:</h2>
-      <ul>
-        <% @diagnosis.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnóstico</title>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+    .container {
+      text-align: center;
+      width: 90%;
+    }
+    .header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      width: 100%;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+    .content {
+      margin-top: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 40px;
+      margin-right: 500px;
+      background-color: #f0f0f0;
+      padding: 20px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 600px;
+    }
+    .details h2 {
+      color: #256490;
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+    .details p {
+      font-size: 1em;
+      margin: 10px 0;
+    }
+    .questions {
+      width: 100%;
+      margin-top: 20px;
+    }
+    .question-group {
+      margin-bottom: 20px;
+    }
+    .field {
+      text-align: left;
+      margin-bottom: 10px;
+    }
+    .actions {
+      margin-top: 20px;
+    }
+    .start-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #256490;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">Evaluación</div>
+    <div class="content">
+      <div class="details">
+        <h2>Evaluación de la deglución a pie de cama</h2>
+        <%= form_with(model: [@patient, @diagnosis], local: true) do |form| %>
+          <% if @diagnosis.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@diagnosis.errors.count, "error") %> impidieron guardar el diagnóstico:</h2>
+              <ul>
+                <% @diagnosis.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="questions">
+            <div class="question-group">
+              <h3>I. Historia médica:</h3>
+              <div class="field">
+                <%= form.label :historia_desde, "¿Desde cuándo ha tenido problemas para tragar?" %>
+                <%= form.text_field :historia_desde %>
+              </div>
+              <div class="field">
+                <%= form.label :historia_peso, "¿Ha notado pérdida de peso no intencional?" %>
+                <%= form.text_field :historia_peso %>
+              </div>
+              <div class="field">
+                <%= form.label :historia_condicion, "¿Tiene alguna condición médica que pueda estar relacionada?" %>
+                <%= form.text_field :historia_condicion %>
+              </div>
+              <div class="field">
+                <%= form.label :historia_cirugias, "¿Ha tenido cirugías recientes?" %>
+                <%= form.text_field :historia_cirugias %>
+              </div>
+            </div>
+            <div class="question-group">
+              <h3>II. Síntomas actuales:</h3>
+              <div class="field">
+                <%= form.label :sintomas_episodios, "¿Ha tenido episodios de atragantamiento o tos al comer o beber?" %>
+                <%= form.text_field :sintomas_episodios %>
+              </div>
+              <div class="field">
+                <%= form.label :sintomas_dificultad, "¿Tiene dificultad para tragar líquidos, sólidos o ambos? (dar ejemplos de comidas: carne, arroz, pan etc)" %>
+                <%= form.text_field :sintomas_dificultad %>
+              </div>
+              <div class="field">
+                <%= form.label :sintomas_atascada, "¿Tiene la sensación de que la comida se le queda atascada en la garganta o el pecho?" %>
+                <%= form.text_field :sintomas_atascada %>
+              </div>
+              <div class="field">
+                <%= form.label :sintomas_dolor, "¿Experimenta dolor al tragar?" %>
+                <%= form.text_field :sintomas_dolor %>
+              </div>
+              <div class="field">
+                <%= form.label :sintomas_frecuencia, "¿Qué tan frecuente tiene problemas para tragar?" %>
+                <%= form.text_field :sintomas_frecuencia %>
+              </div>
+              <div class="field">
+                <%= form.label :sintomas_alimentos_evita, "¿Evita ciertos alimentos debido a la dificultad para tragar?" %>
+                <%= form.text_field :sintomas_alimentos_evita %>
+              </div>
+              <div class="field">
+                <%= form.label :sintomas_cansancio, "¿Se cansa cuando está comiendo o bebiendo?" %>
+                <%= form.text_field :sintomas_cansancio %>
+              </div>
+              <div class="field">
+                <%= form.label :sintomas_tiempo_almuerzo, "¿Cuánto tiempo se demora almorzando?" %>
+                <%= form.text_field :sintomas_tiempo_almuerzo %>
+              </div>
+              <div class="field">
+                <%= form.label :sintomas_nuevo, "¿Ha sentido algo nuevo que no le ocurría antes?" %>
+                <%= form.text_field :sintomas_nuevo %>
+              </div>
+              <div class="field">
+                <%= form.label :sintomas_observaciones, "Observaciones (opcional)" %>
+                <%= form.text_field :sintomas_observaciones %>
+              </div>
+            </div>
+            <div class="field">
+              <%= form.label :severity, "Severidad" %>
+              <%= form.select :severity, ['Leve', 'Moderada', 'Severa'], prompt: 'Seleccione severidad' %>
+            </div>
+  
+            <div class="field">
+              <%= form.label :date, "Fecha" %>
+              <%= form.date_select :date %>
+            </div>
+  
+            <div class="actions">
+              <%= form.submit %>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :description, "Descripción" %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :severity, "Severidad" %>
-    <%= form.select :severity, ['Leve', 'Moderada', 'Severa'], prompt: 'Seleccione severidad' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date, "Fecha" %>
-    <%= form.date_select :date %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
-
+  </body>
+  </html>

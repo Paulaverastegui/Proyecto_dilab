@@ -3051,3 +3051,291 @@ Processing by PagesController#diagnostico as HTML
 Completed 200 OK in 32ms (Views: 22.5ms | ActiveRecord: 0.4ms | Allocations: 10152)
 
 
+Started GET "/patients/1/diagnoses/new" for 127.0.0.1 at 2024-06-03 18:53:23 -0400
+Processing by DiagnosesController#new as HTML
+  Parameters: {"patient_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:29:in `set_patient'
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/new.html.erb within layouts/application
+  Rendered diagnoses/_form.html.erb (Duration: 6.1ms | Allocations: 2852)
+  Rendered diagnoses/new.html.erb within layouts/application (Duration: 8.7ms | Allocations: 3158)
+  Rendered layout layouts/application.html.erb (Duration: 28.6ms | Allocations: 9582)
+Completed 200 OK in 42ms (Views: 30.6ms | ActiveRecord: 0.4ms | Allocations: 12687)
+
+
+Started GET "/diagnostico" for 127.0.0.1 at 2024-06-03 18:54:22 -0400
+Processing by PagesController#diagnostico as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/diagnostico.html.erb within layouts/application
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/pages/diagnostico.html.erb:124:in `each_with_index'
+  Rendered pages/diagnostico.html.erb within layouts/application (Duration: 9.3ms | Allocations: 1141)
+  Rendered layout layouts/application.html.erb (Duration: 49.6ms | Allocations: 7771)
+Completed 200 OK in 93ms (Views: 61.9ms | ActiveRecord: 1.1ms | Allocations: 10223)
+
+
+Started GET "/diagnostico" for 127.0.0.1 at 2024-06-03 18:54:31 -0400
+Processing by PagesController#diagnostico as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/diagnostico.html.erb within layouts/application
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/pages/diagnostico.html.erb:124:in `each_with_index'
+  Rendered pages/diagnostico.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1140)
+  Rendered layout layouts/application.html.erb (Duration: 22.1ms | Allocations: 7771)
+Completed 200 OK in 31ms (Views: 25.2ms | ActiveRecord: 0.4ms | Allocations: 10132)
+
+
+Started GET "/patients/1/diagnoses/new" for 127.0.0.1 at 2024-06-03 18:54:34 -0400
+Processing by DiagnosesController#new as HTML
+  Parameters: {"patient_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:29:in `set_patient'
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/new.html.erb within layouts/application
+  Rendered diagnoses/_form.html.erb (Duration: 17.7ms | Allocations: 2852)
+  Rendered diagnoses/new.html.erb within layouts/application (Duration: 21.4ms | Allocations: 3158)
+  Rendered layout layouts/application.html.erb (Duration: 41.4ms | Allocations: 9582)
+Completed 200 OK in 58ms (Views: 43.3ms | ActiveRecord: 0.4ms | Allocations: 12690)
+
+
+Started GET "/patients/1/diagnoses/new" for 127.0.0.1 at 2024-06-03 19:00:38 -0400
+Processing by DiagnosesController#new as HTML
+  Parameters: {"patient_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (1.9ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:29:in `set_patient'
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/new.html.erb within layouts/application
+  Rendered diagnoses/_form.html.erb (Duration: 51.1ms | Allocations: 4093)
+  Rendered diagnoses/new.html.erb within layouts/application (Duration: 53.8ms | Allocations: 4383)
+  Rendered layout layouts/application.html.erb (Duration: 95.2ms | Allocations: 11012)
+Completed 200 OK in 121ms (Views: 98.6ms | ActiveRecord: 3.5ms | Allocations: 14662)
+
+
+Started GET "/patients/1/diagnoses/new" for 127.0.0.1 at 2024-06-03 19:01:54 -0400
+Processing by DiagnosesController#new as HTML
+  Parameters: {"patient_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:29:in `set_patient'
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/new.html.erb within layouts/application
+  Rendered diagnoses/_form.html.erb (Duration: 6.1ms | Allocations: 3655)
+  Rendered diagnoses/new.html.erb within layouts/application (Duration: 8.5ms | Allocations: 3945)
+  Rendered layout layouts/application.html.erb (Duration: 22.2ms | Allocations: 10563)
+Completed 200 OK in 33ms (Views: 25.8ms | ActiveRecord: 0.3ms | Allocations: 13996)
+
+
+Started GET "/patients/1/diagnoses/new" for 127.0.0.1 at 2024-06-03 19:03:14 -0400
+Processing by DiagnosesController#new as HTML
+  Parameters: {"patient_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:29:in `set_patient'
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/new.html.erb within layouts/application
+  Rendered diagnoses/_form.html.erb (Duration: 7.7ms | Allocations: 3642)
+  Rendered diagnoses/new.html.erb within layouts/application (Duration: 10.8ms | Allocations: 3933)
+  Rendered layout layouts/application.html.erb (Duration: 35.8ms | Allocations: 10534)
+Completed 200 OK in 49ms (Views: 39.4ms | ActiveRecord: 0.4ms | Allocations: 13963)
+
+
+Started GET "/patients/1/diagnoses/new" for 127.0.0.1 at 2024-06-03 19:03:17 -0400
+Processing by DiagnosesController#new as HTML
+  Parameters: {"patient_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:29:in `set_patient'
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/new.html.erb within layouts/application
+  Rendered diagnoses/_form.html.erb (Duration: 7.7ms | Allocations: 2791)
+  Rendered diagnoses/new.html.erb within layouts/application (Duration: 8.4ms | Allocations: 2853)
+  Rendered layout layouts/application.html.erb (Duration: 24.1ms | Allocations: 9119)
+Completed 200 OK in 35ms (Views: 25.5ms | ActiveRecord: 0.5ms | Allocations: 11886)
+
+
+Started GET "/patients/1/diagnoses/new" for 127.0.0.1 at 2024-06-03 19:03:27 -0400
+Processing by DiagnosesController#new as HTML
+  Parameters: {"patient_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:29:in `set_patient'
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/new.html.erb within layouts/application
+  Rendered diagnoses/_form.html.erb (Duration: 4.8ms | Allocations: 2791)
+  Rendered diagnoses/new.html.erb within layouts/application (Duration: 5.1ms | Allocations: 2853)
+  Rendered layout layouts/application.html.erb (Duration: 18.8ms | Allocations: 9133)
+Completed 200 OK in 28ms (Views: 19.5ms | ActiveRecord: 0.4ms | Allocations: 11659)
+
+
+Started GET "/patients/1/diagnoses/new" for 127.0.0.1 at 2024-06-03 19:03:28 -0400
+Processing by DiagnosesController#new as HTML
+  Parameters: {"patient_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:29:in `set_patient'
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/new.html.erb within layouts/application
+  Rendered diagnoses/_form.html.erb (Duration: 9.3ms | Allocations: 3642)
+  Rendered diagnoses/new.html.erb within layouts/application (Duration: 11.8ms | Allocations: 3933)
+  Rendered layout layouts/application.html.erb (Duration: 32.7ms | Allocations: 10557)
+Completed 200 OK in 48ms (Views: 36.7ms | ActiveRecord: 0.5ms | Allocations: 13768)
+
+
+Started GET "/patients/1/diagnoses/new" for 127.0.0.1 at 2024-06-03 19:03:30 -0400
+Processing by DiagnosesController#new as HTML
+  Parameters: {"patient_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:29:in `set_patient'
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/new.html.erb within layouts/application
+  Rendered diagnoses/_form.html.erb (Duration: 3.3ms | Allocations: 2821)
+  Rendered diagnoses/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 2883)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 9166)
+Completed 200 OK in 28ms (Views: 17.5ms | ActiveRecord: 0.5ms | Allocations: 11924)
+
+
+Started GET "/patients/1/diagnoses/new" for 127.0.0.1 at 2024-06-03 19:04:39 -0400
+Processing by DiagnosesController#new as HTML
+  Parameters: {"patient_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:29:in `set_patient'
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/new.html.erb within layouts/application
+  Rendered diagnoses/_form.html.erb (Duration: 15.3ms | Allocations: 3641)
+  Rendered diagnoses/new.html.erb within layouts/application (Duration: 17.9ms | Allocations: 3936)
+  Rendered layout layouts/application.html.erb (Duration: 47.5ms | Allocations: 10553)
+Completed 200 OK in 57ms (Views: 50.1ms | ActiveRecord: 0.3ms | Allocations: 13751)
+
+
+Started GET "/patients/1/diagnoses/new" for 127.0.0.1 at 2024-06-03 19:08:49 -0400
+Processing by DiagnosesController#new as HTML
+  Parameters: {"patient_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:29:in `set_patient'
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/new.html.erb within layouts/application
+  Rendered diagnoses/_form.html.erb (Duration: 11.9ms | Allocations: 5979)
+  Rendered diagnoses/new.html.erb within layouts/application (Duration: 15.3ms | Allocations: 6270)
+  Rendered layout layouts/application.html.erb (Duration: 39.0ms | Allocations: 12874)
+Completed 200 OK in 54ms (Views: 41.3ms | ActiveRecord: 0.5ms | Allocations: 16302)
+
+
+Started GET "/patients/1/diagnoses/new" for 127.0.0.1 at 2024-06-03 19:12:50 -0400
+Processing by DiagnosesController#new as HTML
+  Parameters: {"patient_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:29:in `set_patient'
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/new.html.erb within layouts/application
+  Rendered diagnoses/_form.html.erb (Duration: 14.6ms | Allocations: 5101)
+  Rendered diagnoses/new.html.erb within layouts/application (Duration: 17.5ms | Allocations: 5391)
+  Rendered layout layouts/application.html.erb (Duration: 63.7ms | Allocations: 12009)
+Completed 200 OK in 86ms (Views: 67.5ms | ActiveRecord: 0.6ms | Allocations: 15460)
+
+
+Started GET "/patients/1/diagnoses/new" for 127.0.0.1 at 2024-06-03 19:13:30 -0400
+Processing by DiagnosesController#new as HTML
+  Parameters: {"patient_id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:29:in `set_patient'
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/new.html.erb within layouts/application
+  Rendered diagnoses/_form.html.erb (Duration: 23.7ms | Allocations: 5128)
+  Rendered diagnoses/new.html.erb within layouts/application (Duration: 29.2ms | Allocations: 5422)
+  Rendered layout layouts/application.html.erb (Duration: 55.3ms | Allocations: 12046)
+Completed 200 OK in 158ms (Views: 60.8ms | ActiveRecord: 0.9ms | Allocations: 15474)
+
+
+Started GET "/diagnostico" for 127.0.0.1 at 2024-06-03 19:14:49 -0400
+Processing by PagesController#diagnostico as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/diagnostico.html.erb within layouts/application
+  [1m[36mPatient Load (0.5ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/pages/diagnostico.html.erb:124:in `each_with_index'
+  Rendered pages/diagnostico.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1184)
+  Rendered layout layouts/application.html.erb (Duration: 22.6ms | Allocations: 7831)
+Completed 200 OK in 34ms (Views: 24.7ms | ActiveRecord: 0.8ms | Allocations: 10256)
+
+
+Started GET "/patients/1/diagnoses/new" for 127.0.0.1 at 2024-06-03 19:14:51 -0400
+Processing by DiagnosesController#new as HTML
+  Parameters: {"patient_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:29:in `set_patient'
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/new.html.erb within layouts/application
+  Rendered diagnoses/_form.html.erb (Duration: 14.0ms | Allocations: 5100)
+  Rendered diagnoses/new.html.erb within layouts/application (Duration: 16.0ms | Allocations: 5406)
+  Rendered layout layouts/application.html.erb (Duration: 33.1ms | Allocations: 11846)
+Completed 200 OK in 48ms (Views: 36.6ms | ActiveRecord: 0.4ms | Allocations: 14962)
+
+
+Started GET "/patients/1/diagnoses/new" for 127.0.0.1 at 2024-06-03 19:15:12 -0400
+Processing by DiagnosesController#new as HTML
+  Parameters: {"patient_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:29:in `set_patient'
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/new.html.erb within layouts/application
+  Rendered diagnoses/_form.html.erb (Duration: 5.7ms | Allocations: 3940)
+  Rendered diagnoses/new.html.erb within layouts/application (Duration: 6.1ms | Allocations: 4002)
+  Rendered layout layouts/application.html.erb (Duration: 20.4ms | Allocations: 10268)
+Completed 200 OK in 32ms (Views: 23.5ms | ActiveRecord: 0.4ms | Allocations: 13018)
+
+
+Started GET "/patients/1/diagnoses/new" for 127.0.0.1 at 2024-06-03 19:15:45 -0400
+Processing by DiagnosesController#new as HTML
+  Parameters: {"patient_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:29:in `set_patient'
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/new.html.erb within layouts/application
+  Rendered diagnoses/_form.html.erb (Duration: 12.7ms | Allocations: 5101)
+  Rendered diagnoses/new.html.erb within layouts/application (Duration: 15.4ms | Allocations: 5392)
+  Rendered layout layouts/application.html.erb (Duration: 46.4ms | Allocations: 12011)
+Completed 200 OK in 60ms (Views: 48.9ms | ActiveRecord: 0.4ms | Allocations: 15237)
+
+
+Started GET "/patients/1/diagnoses/new" for 127.0.0.1 at 2024-06-03 19:15:50 -0400
+Processing by DiagnosesController#new as HTML
+  Parameters: {"patient_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:29:in `set_patient'
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/new.html.erb within layouts/application
+  Rendered diagnoses/_form.html.erb (Duration: 9.3ms | Allocations: 5185)
+  Rendered diagnoses/new.html.erb within layouts/application (Duration: 14.7ms | Allocations: 5480)
+  Rendered layout layouts/application.html.erb (Duration: 35.3ms | Allocations: 12102)
+Completed 200 OK in 54ms (Views: 44.1ms | ActiveRecord: 0.4ms | Allocations: 15532)
+
+
+Started GET "/patients/1/diagnoses/new" for 127.0.0.1 at 2024-06-03 19:15:54 -0400
+Processing by DiagnosesController#new as HTML
+  Parameters: {"patient_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:29:in `set_patient'
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/new.html.erb within layouts/application
+  Rendered diagnoses/_form.html.erb (Duration: 6.6ms | Allocations: 5101)
+  Rendered diagnoses/new.html.erb within layouts/application (Duration: 8.7ms | Allocations: 5391)
+  Rendered layout layouts/application.html.erb (Duration: 25.0ms | Allocations: 12009)
+Completed 200 OK in 38ms (Views: 29.0ms | ActiveRecord: 0.3ms | Allocations: 15427)
+
+
