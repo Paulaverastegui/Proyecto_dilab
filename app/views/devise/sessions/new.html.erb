@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log in</title>
+  <style>
+    body {
+      background-color: #256490;
+      color: #FFFFFF;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background-color: #FFFFFF;
+      padding: 20px;
+      border-radius: 10px;
+      color: #256490;
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+    }
+    .field {
+      margin-bottom: 15px;
+    }
+    .actions {
+      margin-top: 20px;
+    }
+    .sign-up-link {
+      margin-top: 20px;
+    }
+    .sign-up-link a {
+      color: #709795;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .sign-up-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Log in</h2>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
+      
+      <div class="actions">
+        <%= f.submit "Log in" %>
+      </div>
+    <% end %>
+
+    <div class="sign-up-link">
+      <%= link_to "Sign up", new_registration_path(resource_name) %>
+    </div>
+  </div>
+</body>
+</html>
+
+

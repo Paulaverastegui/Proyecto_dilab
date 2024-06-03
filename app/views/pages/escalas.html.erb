@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escalas</title>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+    .header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      width: 100%;
+      text-align: center;
+      top: 0;
+      left: 0;
+    }
+    .content {
+      margin-top: 10px; /* Ajuste del margen superior */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    .logo-container {
+      background-color: #A8BDBC;
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px 0;
+    }
+    .logo-container img {
+      width: 80px;
+      height: auto;
+    }
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 250px; 
+      height: 50px; 
+      border: none;
+      cursor: pointer;
+      font-size: 1.2em;
+      margin: 20px 0; 
+      text-decoration: none;
+      border-radius: 30px;
+      background-color: #709795;
+      color: white;
+    }
+    .btn-fils {
+      background-color: #709795;
+    }
+    .btn-fois {
+      background-color: #A8BDBC;
+    }
+    .btn-doss {
+      background-color: #7D9DB7;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">Escalas</div>
+  <div class="content">
+    <div class="logo-container">
+      <img src="<%= asset_path('logoescalas.png') %>" alt="Escalas Logo">
+    </div>
+    <%= link_to home_fils_path, class: 'btn btn-fils' do %>
+      FILS
+    <% end %>
+    <%= link_to '#', class: 'btn btn-fois' do %>
+      FOIS
+    <% end %>
+    <%= link_to '#', class: 'btn btn-doss' do %>
+      DOSS
+    <% end %>
+  </div>
+</body>
+</html>

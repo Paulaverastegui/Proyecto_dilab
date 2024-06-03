@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Degluconversor</title>
+  <style>
+    h1 {
+      font-size: 2em;
+      color: #FFFFFF;
+    }
+
+    label, select {
+      margin-bottom: 1em;
+      display: block;
+    }
+
+    input[type="submit"] {
+      background-color: #709795;
+      color: white;
+      padding: 0.5em 1em;
+      border: none;
+      cursor: pointer;
+    }
+
+    body {
+      background-color: #7D9DB7;
+      font-family: 'Arial', sans-serif;
+      padding: 20px;
+      color: #FFFFFF;
+    }
+  </style>
+</head>
+<body>
+  <h1>Seleccionar Escala</h1>
+  <%= form_with url: '/resultado', method: :post, local: true do %>
+    <div>
+      <label for="tabla_seleccionada">Escala</label>
+      <select name="tabla_seleccionada" id="tabla_seleccionada">
+        <option value="fils">FILS</option>
+        <option value="doss">DOSS</option>
+        <option value="fois">FOIS</option>
+      </select>
+    </div>
+    <div>
+      <label for="nivel_seleccionado">Nivel</label>
+      <select name="nivel_seleccionado" id="nivel_seleccionado">
+        <option value="1">Nivel 1</option>
+        <option value="2">Nivel 2</option>
+        <option value="3">Nivel 3</option>
+        <option value="4">Nivel 4</option>
+      </select>
+    </div>
+    <div>
+      <label for="tabla_destino">Escala Destino</label>
+      <select name="tabla_destino" id="tabla_destino">
+        <option value="fils">FILS</option>
+        <option value="doss">DOSS</option>
+        <option value="fois">FOIS</option>
+      </select>
+    </div>
+    <div>
+      <%= submit_tag "Transformar" %>
+    </div>
+  <% end %>
+</body>
+</html>

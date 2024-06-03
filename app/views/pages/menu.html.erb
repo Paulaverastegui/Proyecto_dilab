@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú</title>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+    .container {
+      text-align: center;
+      width: 100%;
+    }
+    .header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      width: 100%;
+      text-align: center;
+      top: 0;
+      left: 0;
+    }
+    .content {
+      margin-top: 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 250px;
+      height: 80px;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2em;
+      margin: 20px 0;
+      text-decoration: none;
+      border-radius: 30px;
+      background-color: #709795;
+      color: white;
+      padding-left: 20px;
+    }
+    .btn img {
+      margin-right: 10px;
+      width: 50px;
+      height: auto;
+    }
+    .btn-escala {
+      background-color: #A8BDBC;
+    }
+    .btn-degluconversor {
+      background-color: #B5B0C9;
+    }
+    .btn-diagnostico {
+      background-color: #7D9DB7;
+    }
+    .btn-pacientes {
+      background-color: #709795;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">Menú de Inicio</div>
+    <div class="content">
+      <%= link_to escalas_path, class: 'btn btn-escala' do %>
+        <img src="<%= asset_path('logoescalas.png') %>" alt="Escalas Logo">Escalas
+      <% end %>
+      <%= link_to degluconversor_path, class: 'btn btn-degluconversor' do %>
+        <img src="<%= asset_path('logodegluconversor.png') %>" alt="Degluconversor Logo">Degluconversor
+      <% end %>
+      <%= link_to diagnostico_path, class: 'btn btn-escala' do %>
+        <img src="<%= asset_path('logodiagnostico.png') %>" alt="Diagnóstico Logo">Diagnóstico
+      <% end %>
+      <%= link_to mispacientes_path, class: 'btn btn-pacientes' do %>
+        <img src="<%= asset_path('logomispaciente.png') %>" alt="Mis Pacientes Logo">Mis Pacientes
+      <% end %>      
+      <%= button_to(
+        "Log Out",
+        destroy_user_session_path,
+        method: :delete
+      ) %>
+    </div>
+  </div>
+</body>
+</html>

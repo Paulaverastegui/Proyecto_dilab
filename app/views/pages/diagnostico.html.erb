@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnóstico</title>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+    .container {
+      text-align: center;
+      width: 90%;
+    }
+    .header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      width: 100%;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+    .content {
+      margin-top: 120px;
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 45%;
+    }
+    .btn {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      width: 100%;
+      height: 120px;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2em;
+      margin: 20px 0;
+      text-decoration: none;
+      border-radius: 30px;
+      background-color: #709795;
+      color: white;
+      padding: 10px;
+    }
+    .btn span {
+      font-size: 0.8em;
+    }
+    .btn-severe {
+      background-color: #A8BDBC;
+    }
+    .btn-moderate {
+      background-color: #B5B0C9;
+    }
+    .btn-mild {
+      background-color: #7D9DB7;
+    }
+    .details {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 20px;
+      background-color: #f0f0f0;
+      padding: 20px;
+      border-radius: 10px;
+      width: 45%;
+    }
+    .details h2 {
+      color: #256490;
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+    .details p {
+      font-size: 1em;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">Diagnóstico</div>
+    <div class="content">
+      <div class="options">
+        <div class="option">
+          <button class="btn btn-severe" onclick="showDetails('severe')">
+            Disfagia Severa
+            <span>Nada de alimentación vía oral</span>
+          </button>
+        </div>
+        <div class="option">
+          <button class="btn btn-moderate" onclick="showDetails('moderate')">
+            Disfagia Moderada
+            <span>Alimentación por vía oral y alternativa</span>
+          </button>
+        </div>
+        <div class="option">
+          <button class="btn btn-mild" onclick="showDetails('mild')">
+            Disfagia Leve
+            <span>Alimentación por vía oral exclusiva</span>
+          </button>
+        </div>
+      </div>
+      <div id="details" class="details" style="display:none;">
+        <h2 id="details-title"></h2>
+        <p id="details-description"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showDetails(type) {
+      var title = '';
+      var description = '';
+      if (type === 'severe') {
+        title = 'Disfagia Severa';
+        description = 'Nada de alimentación vía oral';
+      } else if (type === 'moderate') {
+        title = 'Disfagia Moderada';
+        description = 'Alimentación por vía oral y alternativa';
+      } else if (type === 'mild') {
+        title = 'Disfagia Leve';
+        description = 'Alimentación por vía oral exclusiva';
+      }
+      document.getElementById('details-title').innerText = title;
+      document.getElementById('details-description').innerText = description;
+      document.getElementById('details').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

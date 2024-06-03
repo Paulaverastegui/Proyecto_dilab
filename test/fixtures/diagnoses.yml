@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  patient: one
+  description: MyText
+  severity: MyString
+  date: 2024-06-03
+
+two:
+  patient: two
+  description: MyText
+  severity: MyString
+  date: 2024-06-03

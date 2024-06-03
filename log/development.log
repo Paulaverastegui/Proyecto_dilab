@@ -1,0 +1,2817 @@
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20240603135824)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime(6), "remember_created_at" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20240603135824"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-06-03 13:58:34.706389"], ["updated_at", "2024-06-03 13:58:34.706389"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2024-06-03 09:59:35 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (10.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 9.0ms | Allocations: 635)
+  Rendered layout layouts/application.html.erb (Duration: 655.6ms | Allocations: 84848)
+Completed 200 OK in 803ms (Views: 675.4ms | ActiveRecord: 0.0ms | Allocations: 92622)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 09:59:37 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /Users/paulaverastegui/.rvm/gems/ruby-3.1.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/paulaverastegui/.rvm/gems/ruby-3.1.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 3.3ms | Allocations: 734)
+  Rendered /Users/paulaverastegui/.rvm/gems/ruby-3.1.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 35.4ms | Allocations: 4909)
+  Rendered layout layouts/application.html.erb (Duration: 41.7ms | Allocations: 6613)
+Completed 200 OK in 76ms (Views: 46.4ms | ActiveRecord: 1.7ms | Allocations: 14798)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-06-03 09:59:47 -0400
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"phverastegui@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "phverastegui@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 13ms (ActiveRecord: 1.6ms | Allocations: 3748)
+
+
+Processing by Devise::SessionsController#new as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"phverastegui@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering /Users/paulaverastegui/.rvm/gems/ruby-3.1.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/paulaverastegui/.rvm/gems/ruby-3.1.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 133)
+  Rendered /Users/paulaverastegui/.rvm/gems/ruby-3.1.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1334)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 2951)
+Completed 200 OK in 905ms (Views: 5.4ms | ActiveRecord: 0.0ms | Allocations: 4775)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2024-06-03 09:59:52 -0400
+Processing by Devise::PasswordsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /Users/paulaverastegui/.rvm/gems/ruby-3.1.0/gems/devise-4.9.4/app/views/devise/passwords/new.html.erb within layouts/application
+  Rendered /Users/paulaverastegui/.rvm/gems/ruby-3.1.0/gems/devise-4.9.4/app/views/devise/shared/_error_messages.html.erb (Duration: 2.1ms | Allocations: 219)
+  Rendered /Users/paulaverastegui/.rvm/gems/ruby-3.1.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 1.6ms | Allocations: 202)
+  Rendered /Users/paulaverastegui/.rvm/gems/ruby-3.1.0/gems/devise-4.9.4/app/views/devise/passwords/new.html.erb within layouts/application (Duration: 13.5ms | Allocations: 1662)
+  Rendered layout layouts/application.html.erb (Duration: 28.9ms | Allocations: 3373)
+Completed 200 OK in 35ms (Views: 32.4ms | ActiveRecord: 0.0ms | Allocations: 4673)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-06-03 09:59:52 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /Users/paulaverastegui/.rvm/gems/ruby-3.1.0/gems/devise-4.9.4/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /Users/paulaverastegui/.rvm/gems/ruby-3.1.0/gems/devise-4.9.4/app/views/devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered /Users/paulaverastegui/.rvm/gems/ruby-3.1.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 99)
+  Rendered /Users/paulaverastegui/.rvm/gems/ruby-3.1.0/gems/devise-4.9.4/app/views/devise/registrations/new.html.erb within layouts/application (Duration: 15.5ms | Allocations: 1873)
+  Rendered layout layouts/application.html.erb (Duration: 33.6ms | Allocations: 3583)
+Completed 200 OK in 48ms (Views: 40.2ms | ActiveRecord: 0.0ms | Allocations: 4886)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-06-03 10:00:03 -0400
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"phverastegui@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "phverastegui@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "phverastegui@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2024-06-03 14:00:03.976182"], ["updated_at", "2024-06-03 14:00:03.976182"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 431ms (ActiveRecord: 4.7ms | Allocations: 10811)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-03 10:00:04 -0400
+Processing by PagesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 66)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 1962)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.0ms | Allocations: 2333)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-03 10:02:10 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 11.6ms | Allocations: 2295)
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 2383)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms | Allocations: 3325)
+
+
+  
+ActionView::Template::Error (The asset "Comienzo.png" is not present in the asset pipeline.
+):
+    47: </head>
+    48: <body>
+    49:   <div class="container">
+    50:     <%= image_tag 'Comienzo.png', alt: 'Logo', class: 'logo' %>
+    51:     <h1>App Fonoaudiólogo</h1>
+    52:     <%= link_to 'Sign in', new_user_session_path %>
+    53:   </div>
+  
+app/views/pages/index.html.erb:50
+Started GET "/" for 127.0.0.1 at 2024-06-03 10:03:10 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 116.9ms | Allocations: 24083)
+  Rendered layout layouts/application.html.erb (Duration: 123.5ms | Allocations: 26047)
+Completed 200 OK in 126ms (Views: 125.2ms | ActiveRecord: 0.0ms | Allocations: 26354)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 10:03:11 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 0.3ms | Allocations: 1787)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-03 10:03:11 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 762)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 2385)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.0ms | Allocations: 2655)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 10:03:13 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 6ms (ActiveRecord: 0.2ms | Allocations: 1451)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-03 10:03:13 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 762)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 2368)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.0ms | Allocations: 2638)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-03 10:07:47 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1184)
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 3152)
+Completed 200 OK in 21ms (Views: 17.5ms | ActiveRecord: 0.0ms | Allocations: 4078)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 10:07:48 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 0.8ms | Allocations: 1648)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-03 10:07:48 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 773)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 2384)
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.0ms | Allocations: 2673)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 10:07:49 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms | Allocations: 1423)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-03 10:07:49 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 773)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 2388)
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.0ms | Allocations: 2658)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 10:07:51 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 0.2ms | Allocations: 1439)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-03 10:07:51 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 773)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 2421)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.0ms | Allocations: 2691)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-03 10:15:37 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 63.4ms | Allocations: 6434)
+  Rendered layout layouts/application.html.erb (Duration: 63.8ms | Allocations: 6522)
+Completed 500 Internal Server Error in 71ms (ActiveRecord: 0.0ms | Allocations: 7427)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `resource' for #<ActionView::Base:0x0000000000ca30>
+
+          '.freeze;@output_buffer.append=  form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| @output_buffer.safe_append='
+                                                    ^^^^^^^^
+Did you mean?  rescue):
+    62:           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    63:         </div>
+    64:         <div class="modal-body">
+    65:           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    66:             <div class="field mb-3">
+    67:               <%= f.label :email %>
+    68:               <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+  
+app/views/pages/index.html.erb:65
+Started GET "/" for 127.0.0.1 at 2024-06-03 10:21:03 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 9698.1ms | Allocations: 132186)
+  Rendered layout layouts/application.html.erb (Duration: 9705.3ms | Allocations: 132296)
+Completed 500 Internal Server Error in 9732ms (ActiveRecord: 0.0ms | Allocations: 136675)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `resource' for #<ActionView::Base:0x0000000000d048>
+
+          '.freeze;@output_buffer.append=  form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| @output_buffer.safe_append='
+                                                    ^^^^^^^^
+Did you mean?  rescue):
+    62:           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    63:         </div>
+    64:         <div class="modal-body">
+    65:           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    66:             <div class="field mb-3">
+    67:               <%= f.label :email %>
+    68:               <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+  
+app/views/pages/index.html.erb:65
+Started GET "/" for 127.0.0.1 at 2024-06-03 10:23:40 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 72.8ms | Allocations: 21331)
+  Rendered layout layouts/application.html.erb (Duration: 73.6ms | Allocations: 21429)
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 1.5ms | Allocations: 22352)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `devise_mapping' for #<ActionView::Base:0x0000000000d3b8>
+
+'.freeze;             if devise_mapping.rememberable? 
+                         ^^^^^^^^^^^^^^):
+    75:               <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+    76:             </div>
+    77: 
+    78:             <% if devise_mapping.rememberable? %>
+    79:               <div class="field mb-3">
+    80:                 <%= f.check_box :remember_me %>
+    81:                 <%= f.label :remember_me, "Guardar información de inicio de sesión" %>
+  
+app/views/pages/index.html.erb:78
+app/views/pages/index.html.erb:67
+Started GET "/" for 127.0.0.1 at 2024-06-03 10:28:45 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 154.2ms | Allocations: 29199)
+  Rendered layout layouts/application.html.erb (Duration: 201.7ms | Allocations: 38896)
+Completed 500 Internal Server Error in 230ms (ActiveRecord: 0.0ms | Allocations: 43288)
+
+
+  
+ActionView::Template::Error (undefined method `javascript_pack_tag' for #<ActionView::Base:0x0000000000d048>
+
+  '.freeze;@output_buffer.append=( javascript_pack_tag 'application' );@output_buffer.safe_append='
+                                   ^^^^^^^^^^^^^^^^^^^
+Did you mean?  javascript_path
+               javascript_tag):
+    3: <head>
+    4:   <title>App</title>
+    5:   <%= stylesheet_link_tag 'application', media: 'all' %>
+    6:   <%= javascript_pack_tag 'application' %>
+    7:   <%= csrf_meta_tags %>
+    8: </head>
+    9: <body>
+  
+app/views/layouts/application.html.erb:6
+Started GET "/" for 127.0.0.1 at 2024-06-03 10:30:34 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 166.6ms | Allocations: 29197)
+  Rendered layout layouts/application.html.erb (Duration: 226.9ms | Allocations: 52386)
+Completed 200 OK in 256ms (Views: 233.4ms | ActiveRecord: 0.0ms | Allocations: 56827)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 10:30:36 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 46ms (ActiveRecord: 3.3ms | Allocations: 9745)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-03 10:30:36 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 909)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 6216)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.0ms | Allocations: 6539)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 10:30:38 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms | Allocations: 1590)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-03 10:30:38 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 791)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 5945)
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.0ms | Allocations: 6215)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 10:30:39 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 10ms (ActiveRecord: 0.2ms | Allocations: 1452)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-03 10:30:39 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 791)
+  Rendered layout layouts/application.html.erb (Duration: 18.1ms | Allocations: 5894)
+Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms | Allocations: 6164)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 10:30:40 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 6ms (ActiveRecord: 0.2ms | Allocations: 1455)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-03 10:30:40 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 791)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 5910)
+Completed 200 OK in 16ms (Views: 14.4ms | ActiveRecord: 0.0ms | Allocations: 6180)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-03 10:33:05 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 9.3ms | Allocations: 1209)
+  Rendered layout layouts/application.html.erb (Duration: 34.1ms | Allocations: 8046)
+Completed 200 OK in 45ms (Views: 41.5ms | ActiveRecord: 0.0ms | Allocations: 9002)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 10:33:07 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 15ms (ActiveRecord: 0.5ms | Allocations: 1620)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-03 10:33:07 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 791)
+  Rendered layout layouts/application.html.erb (Duration: 16.6ms | Allocations: 7410)
+Completed 200 OK in 18ms (Views: 17.2ms | ActiveRecord: 0.0ms | Allocations: 7697)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 10:33:08 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 6ms (ActiveRecord: 0.4ms | Allocations: 1473)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-03 10:33:08 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 791)
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 7331)
+Completed 200 OK in 20ms (Views: 19.1ms | ActiveRecord: 0.0ms | Allocations: 7599)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 10:33:10 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 6ms (ActiveRecord: 0.2ms | Allocations: 1454)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-03 10:33:10 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 791)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 7298)
+Completed 200 OK in 17ms (Views: 16.7ms | ActiveRecord: 0.0ms | Allocations: 7566)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-03 10:38:20 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 8.3ms | Allocations: 1215)
+  Rendered layout layouts/application.html.erb (Duration: 30.2ms | Allocations: 8134)
+Completed 200 OK in 39ms (Views: 36.6ms | ActiveRecord: 0.0ms | Allocations: 9291)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 10:38:22 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/menu
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 19ms (ActiveRecord: 2.3ms | Allocations: 4688)
+
+
+Started GET "/menu" for 127.0.0.1 at 2024-06-03 10:38:22 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 25.0ms | Allocations: 5749)
+  Rendered layout layouts/application.html.erb (Duration: 26.7ms | Allocations: 5843)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 0.2ms | Allocations: 7519)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `escalas_path' for #<ActionView::Base:0x00000000011d50>
+
+      '.freeze;@output_buffer.append=  link_to escalas_path, class: 'btn btn-escala' do @output_buffer.safe_append='
+                                               ^^^^^^^^^^^^
+Did you mean?  escape_javascript):
+    76:   <div class="container">
+    77:     <div class="header">Menú de Inicio</div>
+    78:     <div class="content">
+    79:       <%= link_to escalas_path, class: 'btn btn-escala' do %>
+    80:         <img src="<%= asset_path('logoescalas.png') %>" alt="Escalas Logo">Escalas
+    81:       <% end %>
+    82:       <%= link_to degluconversor_path, class: 'btn btn-degluconversor' do %>
+  
+app/views/pages/menu.html.erb:79
+Started GET "/menu" for 127.0.0.1 at 2024-06-03 10:40:50 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 18.0ms | Allocations: 5510)
+  Rendered layout layouts/application.html.erb (Duration: 18.4ms | Allocations: 5598)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 2.8ms | Allocations: 11767)
+
+
+  
+ActionView::Template::Error (The asset "logocerrarsesion.png" is not present in the asset pipeline.
+):
+    89:         <img src="<%= asset_path('logomispaciente.png') %>" alt="Mis Pacientes Logo">Mis Pacientes
+    90:       <% end %>
+    91:       <%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-pacientes' do %>
+    92:         <img src="<%= asset_path('logocerrarsesion.png') %>" alt="Cerrar Sesión Logo">Cerrar Sesión
+    93:       <% end %>
+    94:     </div>
+    95:   </div>
+  
+app/views/pages/menu.html.erb:92
+app/views/pages/menu.html.erb:91
+Started GET "/menu" for 127.0.0.1 at 2024-06-03 10:42:28 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 184.6ms | Allocations: 36688)
+  Rendered layout layouts/application.html.erb (Duration: 207.9ms | Allocations: 43267)
+Completed 200 OK in 215ms (Views: 209.6ms | ActiveRecord: 0.5ms | Allocations: 45025)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2024-06-03 10:42:31 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  
+Started GET "/users/sign_out" for 127.0.0.1 at 2024-06-03 10:43:09 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  
+Started GET "/users/sign_out" for 127.0.0.1 at 2024-06-03 10:44:32 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  
+Started GET "/users/sign_out" for 127.0.0.1 at 2024-06-03 10:46:33 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  
+Started GET "/" for 127.0.0.1 at 2024-06-03 13:05:25 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 143.0ms | Allocations: 29383)
+  Rendered layout layouts/application.html.erb (Duration: 161.6ms | Allocations: 36334)
+Completed 200 OK in 193ms (Views: 170.7ms | ActiveRecord: 0.0ms | Allocations: 40798)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 13:05:26 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 7.3ms | Allocations: 733)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 34.5ms | Allocations: 4075)
+  Rendered layout layouts/application.html.erb (Duration: 72.6ms | Allocations: 10694)
+Completed 200 OK in 131ms (Views: 87.5ms | ActiveRecord: 1.7ms | Allocations: 18480)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 13:05:33 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 131)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1197)
+  Rendered layout layouts/application.html.erb (Duration: 20.1ms | Allocations: 7653)
+Completed 200 OK in 22ms (Views: 20.9ms | ActiveRecord: 0.0ms | Allocations: 8391)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 13:05:47 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 8.2ms | Allocations: 1564)
+  Rendered layout layouts/application.html.erb (Duration: 35.7ms | Allocations: 8359)
+Completed 200 OK in 48ms (Views: 43.1ms | ActiveRecord: 0.0ms | Allocations: 9750)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-06-03 13:05:57 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"phverastegui@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "phverastegui@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/menu
+Completed 303 See Other in 416ms (ActiveRecord: 1.8ms | Allocations: 5926)
+
+
+Started GET "/menu" for 127.0.0.1 at 2024-06-03 13:05:57 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 117.2ms | Allocations: 8656)
+  Rendered layout layouts/application.html.erb (Duration: 117.7ms | Allocations: 8745)
+Completed 500 Internal Server Error in 124ms (ActiveRecord: 0.2ms | Allocations: 10967)
+
+
+  
+ActionView::Template::Error (undefined method `stringify_keys' for "/users/sign_out":String
+
+            html_options = html_options.stringify_keys
+                                       ^^^^^^^^^^^^^^^):
+    88:       <%= link_to '#', class: 'btn btn-pacientes' do %>
+    89:         <img src="<%= asset_path('logomispaciente.png') %>" alt="Mis Pacientes Logo">Mis Pacientes
+    90:       <% end %>
+    91:       <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete do %>
+    92:         <img src="<%= asset_path('logocerrarsesion.png') %>" alt="Cerrar Sesión Logo">Cerrar Sesión
+    93:       <% end %>
+    94:       
+  
+app/views/pages/menu.html.erb:91
+Started GET "/menu" for 127.0.0.1 at 2024-06-03 13:08:01 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 14.6ms | Allocations: 3439)
+  Rendered layout layouts/application.html.erb (Duration: 41.8ms | Allocations: 10104)
+Completed 200 OK in 53ms (Views: 45.5ms | ActiveRecord: 0.2ms | Allocations: 12530)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2024-06-03 13:08:03 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 26ms (ActiveRecord: 0.2ms | Allocations: 5081)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-03 13:08:03 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1137)
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | Allocations: 7709)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.0ms | Allocations: 8096)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 13:08:30 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1522)
+  Rendered layout layouts/application.html.erb (Duration: 23.7ms | Allocations: 8317)
+Completed 200 OK in 32ms (Views: 29.9ms | ActiveRecord: 0.0ms | Allocations: 9719)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-06-03 13:08:35 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"phverastegui@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "phverastegui@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/menu
+Completed 303 See Other in 404ms (ActiveRecord: 0.2ms | Allocations: 2855)
+
+
+Started GET "/menu" for 127.0.0.1 at 2024-06-03 13:08:35 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 8.8ms | Allocations: 3420)
+  Rendered layout layouts/application.html.erb (Duration: 19.4ms | Allocations: 9800)
+Completed 200 OK in 25ms (Views: 21.4ms | ActiveRecord: 0.1ms | Allocations: 11742)
+
+
+Started GET "/escalas" for 127.0.0.1 at 2024-06-03 13:08:39 -0400
+Processing by PagesController#escalas as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/escalas.html.erb within layouts/application
+  Rendered pages/escalas.html.erb within layouts/application (Duration: 1.3ms | Allocations: 88)
+  Rendered layout layouts/application.html.erb (Duration: 18.9ms | Allocations: 6549)
+Completed 200 OK in 24ms (Views: 19.6ms | ActiveRecord: 0.2ms | Allocations: 8343)
+
+
+Started GET "/escalas" for 127.0.0.1 at 2024-06-03 13:10:06 -0400
+Processing by PagesController#escalas as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/escalas.html.erb within layouts/application
+  Rendered pages/escalas.html.erb within layouts/application (Duration: 16.3ms | Allocations: 1383)
+  Rendered layout layouts/application.html.erb (Duration: 95.3ms | Allocations: 7975)
+Completed 200 OK in 135ms (Views: 106.9ms | ActiveRecord: 1.0ms | Allocations: 9981)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 13:10:08 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.9ms | Allocations: 226)
+  Rendered layout layouts/application.html.erb (Duration: 21.7ms | Allocations: 6688)
+Completed 200 OK in 30ms (Views: 22.4ms | ActiveRecord: 2.2ms | Allocations: 8450)
+
+
+Started GET "/degluconversor" for 127.0.0.1 at 2024-06-03 13:10:17 -0400
+Processing by PagesController#degluconversor as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/degluconversor.html.erb within layouts/application
+  Rendered pages/degluconversor.html.erb within layouts/application (Duration: 2.5ms | Allocations: 477)
+  Rendered layout layouts/application.html.erb (Duration: 16.7ms | Allocations: 6939)
+Completed 200 OK in 25ms (Views: 18.4ms | ActiveRecord: 0.2ms | Allocations: 8511)
+
+
+Started POST "/resultado" for 127.0.0.1 at 2024-06-03 13:10:22 -0400
+Processing by PagesController#resultado as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"2", "tabla_destino"=>"doss", "commit"=>"Transformar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/resultado.html.erb within layouts/application
+  Rendered pages/resultado.html.erb within layouts/application (Duration: 0.8ms | Allocations: 88)
+  Rendered layout layouts/application.html.erb (Duration: 19.6ms | Allocations: 6561)
+Completed 200 OK in 27ms (Views: 20.5ms | ActiveRecord: 0.2ms | Allocations: 8174)
+
+
+Started GET "/diagnostico" for 127.0.0.1 at 2024-06-03 13:10:27 -0400
+Processing by PagesController#diagnostico as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/diagnostico.html.erb within layouts/application
+  Rendered pages/diagnostico.html.erb within layouts/application (Duration: 1.2ms | Allocations: 322)
+  Rendered layout layouts/application.html.erb (Duration: 19.2ms | Allocations: 6784)
+Completed 200 OK in 24ms (Views: 20.2ms | ActiveRecord: 0.1ms | Allocations: 8345)
+
+
+Started GET "/escalas" for 127.0.0.1 at 2024-06-03 13:11:35 -0400
+Processing by PagesController#escalas as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/escalas.html.erb within layouts/application
+  Rendered pages/escalas.html.erb within layouts/application (Duration: 5.8ms | Allocations: 832)
+  Rendered layout layouts/application.html.erb (Duration: 32.4ms | Allocations: 7162)
+Completed 200 OK in 42ms (Views: 33.6ms | ActiveRecord: 0.2ms | Allocations: 8716)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 13:11:37 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 0.7ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 6467)
+Completed 200 OK in 33ms (Views: 21.1ms | ActiveRecord: 0.2ms | Allocations: 8021)
+
+
+Started GET "/diagnostico" for 127.0.0.1 at 2024-06-03 13:11:48 -0400
+Processing by PagesController#diagnostico as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/diagnostico.html.erb within layouts/application
+  Rendered pages/diagnostico.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 6467)
+Completed 200 OK in 23ms (Views: 16.9ms | ActiveRecord: 0.2ms | Allocations: 8018)
+
+
+Started GET "/escalas" for 127.0.0.1 at 2024-06-03 13:11:54 -0400
+Processing by PagesController#escalas as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/escalas.html.erb within layouts/application
+  Rendered pages/escalas.html.erb within layouts/application (Duration: 4.2ms | Allocations: 830)
+  Rendered layout layouts/application.html.erb (Duration: 22.9ms | Allocations: 7160)
+Completed 200 OK in 30ms (Views: 23.8ms | ActiveRecord: 0.2ms | Allocations: 8711)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 13:11:56 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 17.6ms | Allocations: 6467)
+Completed 200 OK in 25ms (Views: 19.7ms | ActiveRecord: 0.2ms | Allocations: 8024)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 13:12:16 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.3ms | Allocations: 347)
+  Rendered layout layouts/application.html.erb (Duration: 28.8ms | Allocations: 7202)
+Completed 200 OK in 38ms (Views: 32.0ms | ActiveRecord: 0.4ms | Allocations: 9232)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 13:12:49 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.5ms | Allocations: 350)
+  Rendered layout layouts/application.html.erb (Duration: 21.2ms | Allocations: 7214)
+Completed 200 OK in 31ms (Views: 24.6ms | ActiveRecord: 0.2ms | Allocations: 9448)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2024-06-03 13:13:19 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 13ms (ActiveRecord: 0.2ms | Allocations: 2040)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-03 13:13:19 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1020)
+  Rendered layout layouts/application.html.erb (Duration: 22.6ms | Allocations: 7539)
+Completed 200 OK in 25ms (Views: 23.2ms | ActiveRecord: 0.0ms | Allocations: 7873)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 13:14:06 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.9ms | Allocations: 1523)
+  Rendered layout layouts/application.html.erb (Duration: 30.8ms | Allocations: 8148)
+Completed 200 OK in 38ms (Views: 34.7ms | ActiveRecord: 0.0ms | Allocations: 9290)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-06-03 13:14:13 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"phverastegui@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "phverastegui@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/menu
+Completed 303 See Other in 409ms (ActiveRecord: 0.5ms | Allocations: 2838)
+
+
+Started GET "/menu" for 127.0.0.1 at 2024-06-03 13:14:13 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 9.4ms | Allocations: 3204)
+  Rendered layout layouts/application.html.erb (Duration: 21.8ms | Allocations: 9534)
+Completed 200 OK in 26ms (Views: 22.4ms | ActiveRecord: 0.1ms | Allocations: 11142)
+
+
+Started GET "/escalas" for 127.0.0.1 at 2024-06-03 13:14:17 -0400
+Processing by PagesController#escalas as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/escalas.html.erb within layouts/application
+  Rendered pages/escalas.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1163)
+  Rendered layout layouts/application.html.erb (Duration: 21.5ms | Allocations: 7493)
+Completed 200 OK in 27ms (Views: 22.5ms | ActiveRecord: 0.2ms | Allocations: 9053)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 13:14:18 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 18.9ms | Allocations: 6467)
+Completed 200 OK in 27ms (Views: 19.6ms | ActiveRecord: 0.6ms | Allocations: 8030)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 13:17:09 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 0.8ms | Allocations: 355)
+  Rendered layout layouts/application.html.erb (Duration: 150.8ms | Allocations: 7203)
+Completed 200 OK in 159ms (Views: 154.9ms | ActiveRecord: 0.1ms | Allocations: 9241)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 13:18:35 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.0ms | Allocations: 357)
+  Rendered layout layouts/application.html.erb (Duration: 19.3ms | Allocations: 7205)
+Completed 200 OK in 29ms (Views: 23.2ms | ActiveRecord: 0.3ms | Allocations: 9417)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 13:20:11 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.3ms | Allocations: 361)
+  Rendered layout layouts/application.html.erb (Duration: 25.1ms | Allocations: 7318)
+Completed 200 OK in 36ms (Views: 27.4ms | ActiveRecord: 0.1ms | Allocations: 9552)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 13:21:58 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 0.9ms | Allocations: 360)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 7221)
+Completed 200 OK in 23ms (Views: 18.3ms | ActiveRecord: 0.2ms | Allocations: 9455)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 13:22:30 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.2ms | Allocations: 359)
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 7307)
+Completed 200 OK in 20ms (Views: 16.8ms | ActiveRecord: 0.1ms | Allocations: 9531)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 13:22:32 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 6474)
+Completed 200 OK in 16ms (Views: 11.5ms | ActiveRecord: 0.2ms | Allocations: 8241)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 13:23:03 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.2ms | Allocations: 358)
+  Rendered layout layouts/application.html.erb (Duration: 14.1ms | Allocations: 7206)
+Completed 200 OK in 22ms (Views: 17.7ms | ActiveRecord: 0.2ms | Allocations: 9229)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 13:23:10 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.0ms | Allocations: 359)
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 7207)
+Completed 200 OK in 20ms (Views: 16.0ms | ActiveRecord: 0.2ms | Allocations: 9431)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 13:27:05 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.0ms | Allocations: 360)
+  Rendered layout layouts/application.html.erb (Duration: 24.2ms | Allocations: 7208)
+Completed 200 OK in 35ms (Views: 26.6ms | ActiveRecord: 1.1ms | Allocations: 9459)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 13:27:16 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.3ms | Allocations: 359)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 7207)
+Completed 200 OK in 23ms (Views: 19.0ms | ActiveRecord: 0.1ms | Allocations: 9440)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 13:28:48 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.0ms | Allocations: 361)
+  Rendered layout layouts/application.html.erb (Duration: 21.1ms | Allocations: 7325)
+Completed 200 OK in 28ms (Views: 24.5ms | ActiveRecord: 0.2ms | Allocations: 9562)
+
+
+Started GET "/menu" for 127.0.0.1 at 2024-06-03 13:31:24 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 50.1ms | Allocations: 3229)
+  Rendered layout layouts/application.html.erb (Duration: 109.7ms | Allocations: 9656)
+Completed 200 OK in 152ms (Views: 133.8ms | ActiveRecord: 0.3ms | Allocations: 11455)
+
+
+Started GET "/escalas" for 127.0.0.1 at 2024-06-03 13:31:27 -0400
+Processing by PagesController#escalas as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/escalas.html.erb within layouts/application
+  Rendered pages/escalas.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1165)
+  Rendered layout layouts/application.html.erb (Duration: 146.4ms | Allocations: 7536)
+Completed 200 OK in 157ms (Views: 149.2ms | ActiveRecord: 0.3ms | Allocations: 9126)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 13:31:28 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 23.9ms | Allocations: 6526)
+Completed 200 OK in 32ms (Views: 25.6ms | ActiveRecord: 0.3ms | Allocations: 8092)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 13:46:04 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/menu
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 279ms (ActiveRecord: 48.4ms | Allocations: 1713)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 13:50:42 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/menu
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 68ms (ActiveRecord: 1.6ms | Allocations: 1459)
+
+
+Started GET "/menu" for 127.0.0.1 at 2024-06-03 13:50:42 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 83.6ms | Allocations: 2726)
+  Rendered layout layouts/application.html.erb (Duration: 146.7ms | Allocations: 9063)
+Completed 200 OK in 247ms (Views: 226.6ms | ActiveRecord: 0.3ms | Allocations: 10643)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2024-06-03 13:50:46 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 25ms (ActiveRecord: 0.2ms | Allocations: 1834)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-03 13:50:46 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 19.5ms | Allocations: 1005)
+  Rendered layout layouts/application.html.erb (Duration: 46.8ms | Allocations: 7508)
+Completed 200 OK in 55ms (Views: 47.6ms | ActiveRecord: 0.0ms | Allocations: 7829)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 13:51:18 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 15.4ms | Allocations: 1522)
+  Rendered layout layouts/application.html.erb (Duration: 53.9ms | Allocations: 8140)
+Completed 200 OK in 78ms (Views: 72.4ms | ActiveRecord: 0.0ms | Allocations: 9282)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-06-03 13:51:24 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"phverastegui@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "phverastegui@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/menu
+Completed 303 See Other in 560ms (ActiveRecord: 3.2ms | Allocations: 2904)
+
+
+Started GET "/menu" for 127.0.0.1 at 2024-06-03 13:51:25 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 11.1ms | Allocations: 2749)
+  Rendered layout layouts/application.html.erb (Duration: 40.3ms | Allocations: 9186)
+Completed 200 OK in 47ms (Views: 42.0ms | ActiveRecord: 0.1ms | Allocations: 10742)
+
+
+Started GET "/escalas" for 127.0.0.1 at 2024-06-03 13:51:34 -0400
+Processing by PagesController#escalas as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/escalas.html.erb within layouts/application
+  Rendered pages/escalas.html.erb within layouts/application (Duration: 6.5ms | Allocations: 833)
+  Rendered layout layouts/application.html.erb (Duration: 34.7ms | Allocations: 7260)
+Completed 200 OK in 53ms (Views: 36.3ms | ActiveRecord: 0.1ms | Allocations: 8822)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 13:51:36 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 31.1ms | Allocations: 6497)
+Completed 200 OK in 36ms (Views: 32.9ms | ActiveRecord: 0.1ms | Allocations: 8048)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 13:51:45 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/menu
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 7ms (ActiveRecord: 0.2ms | Allocations: 1471)
+
+
+Started GET "/menu" for 127.0.0.1 at 2024-06-03 13:51:45 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 31.4ms | Allocations: 2732)
+  Rendered layout layouts/application.html.erb (Duration: 61.8ms | Allocations: 9134)
+Completed 200 OK in 94ms (Views: 85.2ms | ActiveRecord: 0.4ms | Allocations: 10700)
+
+
+Started GET "/degluconversor" for 127.0.0.1 at 2024-06-03 13:51:47 -0400
+Processing by PagesController#degluconversor as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/degluconversor.html.erb within layouts/application
+  Rendered pages/degluconversor.html.erb within layouts/application (Duration: 5.5ms | Allocations: 459)
+  Rendered layout layouts/application.html.erb (Duration: 41.7ms | Allocations: 6920)
+Completed 200 OK in 50ms (Views: 43.2ms | ActiveRecord: 0.2ms | Allocations: 8493)
+
+
+Started GET "/degluconversor" for 127.0.0.1 at 2024-06-03 13:52:01 -0400
+Processing by PagesController#degluconversor as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/degluconversor.html.erb within layouts/application
+  Rendered pages/degluconversor.html.erb within layouts/application (Duration: 0.5ms | Allocations: 216)
+  Rendered layout layouts/application.html.erb (Duration: 25.5ms | Allocations: 6684)
+Completed 200 OK in 36ms (Views: 26.9ms | ActiveRecord: 0.6ms | Allocations: 8238)
+
+
+Started GET "/diagnostico" for 127.0.0.1 at 2024-06-03 13:52:12 -0400
+Processing by PagesController#diagnostico as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/diagnostico.html.erb within layouts/application
+  Rendered pages/diagnostico.html.erb within layouts/application (Duration: 2.2ms | Allocations: 321)
+  Rendered layout layouts/application.html.erb (Duration: 21.2ms | Allocations: 6783)
+Completed 200 OK in 34ms (Views: 22.7ms | ActiveRecord: 0.3ms | Allocations: 8355)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2024-06-03 13:52:54 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 11ms (ActiveRecord: 0.1ms | Allocations: 1791)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-03 13:52:54 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 798)
+  Rendered layout layouts/application.html.erb (Duration: 70.8ms | Allocations: 7296)
+Completed 200 OK in 74ms (Views: 72.4ms | ActiveRecord: 0.0ms | Allocations: 7564)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePatients (20240603193436)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "patients" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "rut" varchar, "birthdate" date, "sex" varchar, "email" varchar, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_623f05c630"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_patients_on_user_id" ON "patients" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20240603193436"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDiagnoses (20240603193602)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "diagnoses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "patient_id" integer NOT NULL, "description" text, "severity" varchar, "date" date, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_b4ae3dea5a"
+FOREIGN KEY ("patient_id")
+  REFERENCES "patients" ("id")
+)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_diagnoses_on_patient_id" ON "diagnoses" ("patient_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20240603193602"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2024-06-03 15:46:03 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 268.5ms | Allocations: 29365)
+  Rendered layout layouts/application.html.erb (Duration: 298.7ms | Allocations: 36444)
+Completed 200 OK in 329ms (Views: 306.2ms | ActiveRecord: 0.0ms | Allocations: 40933)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 15:46:05 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 24.0ms | Allocations: 3221)
+  Rendered layout layouts/application.html.erb (Duration: 42.9ms | Allocations: 9965)
+Completed 200 OK in 83ms (Views: 51.6ms | ActiveRecord: 1.4ms | Allocations: 17322)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-06-03 15:46:11 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"phverastegui@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "phverastegui@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/menu
+Completed 303 See Other in 453ms (ActiveRecord: 1.6ms | Allocations: 5980)
+
+
+Started GET "/menu" for 127.0.0.1 at 2024-06-03 15:46:12 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 13.0ms | Allocations: 3450)
+  Rendered layout layouts/application.html.erb (Duration: 22.8ms | Allocations: 9796)
+Completed 200 OK in 30ms (Views: 24.0ms | ActiveRecord: 0.2ms | Allocations: 11727)
+
+
+Started GET "/diagnostico" for 127.0.0.1 at 2024-06-03 15:46:16 -0400
+Processing by PagesController#diagnostico as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/diagnostico.html.erb within layouts/application
+  Rendered pages/diagnostico.html.erb within layouts/application (Duration: 2.2ms | Allocations: 324)
+  Rendered layout layouts/application.html.erb (Duration: 19.2ms | Allocations: 6791)
+Completed 200 OK in 25ms (Views: 20.1ms | ActiveRecord: 0.2ms | Allocations: 8360)
+
+
+Started GET "/menu" for 127.0.0.1 at 2024-06-03 15:52:40 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 12.6ms | Allocations: 3482)
+  Rendered layout layouts/application.html.erb (Duration: 36.3ms | Allocations: 10148)
+Completed 200 OK in 95ms (Views: 38.7ms | ActiveRecord: 1.6ms | Allocations: 15864)
+
+
+Started GET "/mispacientes?class=btn+btn-pacientes" for 127.0.0.1 at 2024-06-03 15:52:48 -0400
+Processing by PagesController#mispacientes as HTML
+  Parameters: {"class"=>"btn btn-pacientes"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/mispacientes.html.erb within layouts/application
+  Rendered pages/mispacientes.html.erb within layouts/application (Duration: 15.3ms | Allocations: 3168)
+  Rendered layout layouts/application.html.erb (Duration: 33.4ms | Allocations: 9604)
+Completed 200 OK in 46ms (Views: 34.7ms | ActiveRecord: 0.3ms | Allocations: 11355)
+
+
+Started GET "/menu" for 127.0.0.1 at 2024-06-03 15:55:31 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 11.5ms | Allocations: 3450)
+  Rendered layout layouts/application.html.erb (Duration: 31.2ms | Allocations: 10011)
+Completed 200 OK in 49ms (Views: 33.5ms | ActiveRecord: 2.3ms | Allocations: 16181)
+
+
+Started GET "/mispacientes" for 127.0.0.1 at 2024-06-03 15:55:34 -0400
+Processing by PagesController#mispacientes as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/mispacientes.html.erb within layouts/application
+  Rendered pages/mispacientes.html.erb within layouts/application (Duration: 10.2ms | Allocations: 3167)
+  Rendered layout layouts/application.html.erb (Duration: 28.1ms | Allocations: 9499)
+Completed 200 OK in 39ms (Views: 29.2ms | ActiveRecord: 0.5ms | Allocations: 11262)
+
+
+Started GET "/mispacientes" for 127.0.0.1 at 2024-06-03 15:57:06 -0400
+Processing by PagesController#mispacientes as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/mispacientes.html.erb within layouts/application
+  Rendered pages/mispacientes.html.erb within layouts/application (Duration: 5.2ms | Allocations: 2109)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 2197)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 2.5ms | Allocations: 8194)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass
+
+'.freeze; @patients.each do |patient| 
+                   ^^^^^):
+    2: 
+    3: <%= link_to 'Agregar Nuevo Paciente', new_patient_path, class: 'btn btn-pacientes' %>
+    4: 
+    5: <% @patients.each do |patient| %>
+    6:   <div class="patient-box">
+    7:     <h3><%= patient.name %></h3>
+    8:     <%= link_to "Ver Detalles", patient_path(patient), class: 'btn btn-ver-detalles' %>
+  
+app/views/pages/mispacientes.html.erb:5
+Started GET "/mispacientes" for 127.0.0.1 at 2024-06-03 16:03:06 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/mispacientes"):
+  
+Started GET "/mispacientes" for 127.0.0.1 at 2024-06-03 16:03:26 -0400
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.8ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/patients/index.html.erb:5
+  Rendered patients/index.html.erb within layouts/application (Duration: 23.1ms | Allocations: 3343)
+  Rendered layout layouts/application.html.erb (Duration: 55.4ms | Allocations: 10337)
+Completed 200 OK in 144ms (Views: 57.7ms | ActiveRecord: 3.5ms | Allocations: 20983)
+
+
+Started GET "/patients/new" for 127.0.0.1 at 2024-06-03 16:03:28 -0400
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 28.2ms | Allocations: 4630)
+  Rendered patients/new.html.erb within layouts/application (Duration: 30.5ms | Allocations: 4904)
+  Rendered layout layouts/application.html.erb (Duration: 45.8ms | Allocations: 11481)
+Completed 200 OK in 77ms (Views: 46.5ms | ActiveRecord: 0.5ms | Allocations: 18549)
+
+
+Started GET "/patients/new" for 127.0.0.1 at 2024-06-03 16:13:13 -0400
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 25.5ms | Allocations: 5735)
+  Rendered patients/new.html.erb within layouts/application (Duration: 33.5ms | Allocations: 7210)
+  Rendered layout layouts/application.html.erb (Duration: 34.5ms | Allocations: 7295)
+Completed 500 Internal Server Error in 59ms (ActiveRecord: 2.1ms | Allocations: 10157)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"patients", :id=>nil}, missing required keys: [:id]):
+    74:   <div class="container">
+    75:     <h1>Nuevo Diagnóstico para <%= @patient.name %></h1>
+    76:     <%= render 'form' %>
+    77:     <%= link_to 'Volver', patient_path(@patient), class: 'btn' %>
+    78:   </div>
+    79: </body>
+    80: </html>
+  
+app/views/patients/new.html.erb:77
+Started GET "/patients/new" for 127.0.0.1 at 2024-06-03 16:13:37 -0400
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 6.2ms | Allocations: 5694)
+  Rendered patients/new.html.erb within layouts/application (Duration: 7.4ms | Allocations: 6054)
+  Rendered layout layouts/application.html.erb (Duration: 30.9ms | Allocations: 12964)
+Completed 200 OK in 41ms (Views: 34.0ms | ActiveRecord: 0.2ms | Allocations: 15639)
+
+
+Started GET "/patients/new" for 127.0.0.1 at 2024-06-03 16:13:53 -0400
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 5.9ms | Allocations: 3603)
+  Rendered patients/new.html.erb within layouts/application (Duration: 8.0ms | Allocations: 3960)
+  Rendered layout layouts/application.html.erb (Duration: 19.8ms | Allocations: 10762)
+Completed 200 OK in 27ms (Views: 22.1ms | ActiveRecord: 0.1ms | Allocations: 13403)
+
+
+Started GET "/patients/new" for 127.0.0.1 at 2024-06-03 16:13:54 -0400
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 4.4ms | Allocations: 2922)
+  Rendered patients/new.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2982)
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 9443)
+Completed 200 OK in 23ms (Views: 17.5ms | ActiveRecord: 0.2ms | Allocations: 11422)
+
+
+Started GET "/patients/new" for 127.0.0.1 at 2024-06-03 16:14:26 -0400
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 6.7ms | Allocations: 5695)
+  Rendered patients/new.html.erb within layouts/application (Duration: 9.4ms | Allocations: 6052)
+  Rendered layout layouts/application.html.erb (Duration: 26.5ms | Allocations: 12854)
+Completed 200 OK in 41ms (Views: 32.7ms | ActiveRecord: 0.1ms | Allocations: 15312)
+
+
+Started GET "/patients/new" for 127.0.0.1 at 2024-06-03 16:17:24 -0400
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 8.2ms | Allocations: 5221)
+  Rendered patients/new.html.erb within layouts/application (Duration: 11.2ms | Allocations: 5578)
+  Rendered layout layouts/application.html.erb (Duration: 24.9ms | Allocations: 12381)
+Completed 200 OK in 35ms (Views: 28.7ms | ActiveRecord: 0.1ms | Allocations: 15023)
+
+
+Started GET "/patients/new" for 127.0.0.1 at 2024-06-03 16:17:26 -0400
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 12.9ms | Allocations: 4561)
+  Rendered patients/new.html.erb within layouts/application (Duration: 13.4ms | Allocations: 4621)
+  Rendered layout layouts/application.html.erb (Duration: 24.0ms | Allocations: 11190)
+Completed 200 OK in 32ms (Views: 25.5ms | ActiveRecord: 0.2ms | Allocations: 13190)
+
+
+Started GET "/mispacientes" for 127.0.0.1 at 2024-06-03 16:17:58 -0400
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (3.0ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/patients/index.html.erb:5
+  Rendered patients/index.html.erb within layouts/application (Duration: 7.5ms | Allocations: 929)
+  Rendered layout layouts/application.html.erb (Duration: 34.2ms | Allocations: 7498)
+Completed 200 OK in 41ms (Views: 32.0ms | ActiveRecord: 3.2ms | Allocations: 9140)
+
+
+Started GET "/mispacientes" for 127.0.0.1 at 2024-06-03 16:18:01 -0400
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/patients/index.html.erb:5
+  Rendered patients/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 676)
+  Rendered layout layouts/application.html.erb (Duration: 19.7ms | Allocations: 7137)
+Completed 200 OK in 25ms (Views: 20.3ms | ActiveRecord: 0.4ms | Allocations: 8731)
+
+
+Started GET "/menu" for 127.0.0.1 at 2024-06-03 16:18:20 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 282.5ms | Allocations: 31824)
+  Rendered layout layouts/application.html.erb (Duration: 302.4ms | Allocations: 38514)
+Completed 200 OK in 359ms (Views: 310.1ms | ActiveRecord: 2.2ms | Allocations: 52757)
+
+
+Started GET "/mispacientes" for 127.0.0.1 at 2024-06-03 16:18:24 -0400
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/patients/index.html.erb:5
+  Rendered patients/index.html.erb within layouts/application (Duration: 11.2ms | Allocations: 2914)
+  Rendered layout layouts/application.html.erb (Duration: 25.6ms | Allocations: 9591)
+Completed 200 OK in 51ms (Views: 28.3ms | ActiveRecord: 1.3ms | Allocations: 14802)
+
+
+Started GET "/patients/new" for 127.0.0.1 at 2024-06-03 16:18:25 -0400
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 17.5ms | Allocations: 6334)
+  Rendered patients/new.html.erb within layouts/application (Duration: 25.3ms | Allocations: 6737)
+  Rendered layout layouts/application.html.erb (Duration: 40.7ms | Allocations: 13321)
+Completed 200 OK in 64ms (Views: 41.3ms | ActiveRecord: 0.8ms | Allocations: 20144)
+
+
+Started GET "/patients/new" for 127.0.0.1 at 2024-06-03 16:19:58 -0400
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 7.2ms | Allocations: 5216)
+  Rendered patients/new.html.erb within layouts/application (Duration: 9.4ms | Allocations: 5574)
+  Rendered layout layouts/application.html.erb (Duration: 35.8ms | Allocations: 12386)
+Completed 200 OK in 45ms (Views: 38.7ms | ActiveRecord: 0.2ms | Allocations: 15081)
+
+
+Started GET "/patients/new" for 127.0.0.1 at 2024-06-03 16:24:06 -0400
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 36.2ms | Allocations: 4878)
+  Rendered patients/new.html.erb within layouts/application (Duration: 38.4ms | Allocations: 5235)
+  Rendered layout layouts/application.html.erb (Duration: 155.0ms | Allocations: 12037)
+Completed 200 OK in 168ms (Views: 159.3ms | ActiveRecord: 0.1ms | Allocations: 14676)
+
+
+Started GET "/patients/new" for 127.0.0.1 at 2024-06-03 16:25:59 -0400
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 12.9ms | Allocations: 5224)
+  Rendered patients/new.html.erb within layouts/application (Duration: 15.8ms | Allocations: 5591)
+  Rendered layout layouts/application.html.erb (Duration: 45.3ms | Allocations: 12413)
+Completed 200 OK in 57ms (Views: 48.2ms | ActiveRecord: 0.3ms | Allocations: 15089)
+
+
+Started GET "/patients/new" for 127.0.0.1 at 2024-06-03 16:26:02 -0400
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 4.7ms | Allocations: 4560)
+  Rendered patients/new.html.erb within layouts/application (Duration: 5.0ms | Allocations: 4620)
+  Rendered layout layouts/application.html.erb (Duration: 17.7ms | Allocations: 11081)
+Completed 200 OK in 24ms (Views: 18.5ms | ActiveRecord: 0.2ms | Allocations: 13044)
+
+
+Started GET "/patients/new" for 127.0.0.1 at 2024-06-03 16:29:06 -0400
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 10.8ms | Allocations: 5220)
+  Rendered patients/new.html.erb within layouts/application (Duration: 18.6ms | Allocations: 5577)
+  Rendered layout layouts/application.html.erb (Duration: 79.4ms | Allocations: 12379)
+Completed 200 OK in 94ms (Views: 84.9ms | ActiveRecord: 0.1ms | Allocations: 14801)
+
+
+Started GET "/patients/new" for 127.0.0.1 at 2024-06-03 16:29:08 -0400
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 5.9ms | Allocations: 4560)
+  Rendered patients/new.html.erb within layouts/application (Duration: 6.3ms | Allocations: 4620)
+  Rendered layout layouts/application.html.erb (Duration: 29.4ms | Allocations: 11081)
+Completed 200 OK in 42ms (Views: 30.3ms | ActiveRecord: 0.8ms | Allocations: 13056)
+
+
+Started GET "/patients/new" for 127.0.0.1 at 2024-06-03 16:30:05 -0400
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 7.2ms | Allocations: 5220)
+  Rendered patients/new.html.erb within layouts/application (Duration: 9.4ms | Allocations: 5578)
+  Rendered layout layouts/application.html.erb (Duration: 41.0ms | Allocations: 12387)
+Completed 200 OK in 55ms (Views: 45.4ms | ActiveRecord: 0.2ms | Allocations: 14803)
+
+
+Started GET "/patients/new" for 127.0.0.1 at 2024-06-03 16:30:06 -0400
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 6.0ms | Allocations: 4560)
+  Rendered patients/new.html.erb within layouts/application (Duration: 6.9ms | Allocations: 4620)
+  Rendered layout layouts/application.html.erb (Duration: 23.1ms | Allocations: 11081)
+Completed 200 OK in 29ms (Views: 24.3ms | ActiveRecord: 0.2ms | Allocations: 13053)
+
+
+Started GET "/patients/new" for 127.0.0.1 at 2024-06-03 16:30:08 -0400
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 4.9ms | Allocations: 4560)
+  Rendered patients/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 4620)
+  Rendered layout layouts/application.html.erb (Duration: 24.6ms | Allocations: 11137)
+Completed 200 OK in 34ms (Views: 25.4ms | ActiveRecord: 0.2ms | Allocations: 12894)
+
+
+Started GET "/patients/new" for 127.0.0.1 at 2024-06-03 16:30:09 -0400
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 3.6ms | Allocations: 4560)
+  Rendered patients/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 4620)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 11098)
+Completed 200 OK in 22ms (Views: 17.1ms | ActiveRecord: 0.2ms | Allocations: 12841)
+
+
+Started GET "/patients/new" for 127.0.0.1 at 2024-06-03 16:30:30 -0400
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 6.8ms | Allocations: 5219)
+  Rendered patients/new.html.erb within layouts/application (Duration: 8.0ms | Allocations: 5582)
+  Rendered layout layouts/application.html.erb (Duration: 23.4ms | Allocations: 12384)
+Completed 200 OK in 31ms (Views: 25.9ms | ActiveRecord: 0.1ms | Allocations: 14800)
+
+
+Started GET "/patients/new" for 127.0.0.1 at 2024-06-03 16:30:59 -0400
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 6.0ms | Allocations: 5219)
+  Rendered patients/new.html.erb within layouts/application (Duration: 9.4ms | Allocations: 5566)
+  Rendered layout layouts/application.html.erb (Duration: 20.3ms | Allocations: 12368)
+Completed 200 OK in 28ms (Views: 23.1ms | ActiveRecord: 0.1ms | Allocations: 15018)
+
+
+Started GET "/patients/new" for 127.0.0.1 at 2024-06-03 16:31:11 -0400
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 5.5ms | Allocations: 5219)
+  Rendered patients/new.html.erb within layouts/application (Duration: 7.0ms | Allocations: 5565)
+  Rendered layout layouts/application.html.erb (Duration: 26.2ms | Allocations: 12367)
+Completed 200 OK in 34ms (Views: 28.5ms | ActiveRecord: 0.1ms | Allocations: 14996)
+
+
+Started GET "/patients/new" for 127.0.0.1 at 2024-06-03 16:31:45 -0400
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 5.3ms | Allocations: 5219)
+  Rendered patients/new.html.erb within layouts/application (Duration: 6.6ms | Allocations: 5567)
+  Rendered layout layouts/application.html.erb (Duration: 22.1ms | Allocations: 12416)
+Completed 200 OK in 33ms (Views: 25.2ms | ActiveRecord: 0.3ms | Allocations: 15081)
+
+
+Started GET "/patients/new" for 127.0.0.1 at 2024-06-03 16:32:21 -0400
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 13.4ms | Allocations: 5219)
+  Rendered patients/new.html.erb within layouts/application (Duration: 15.7ms | Allocations: 5566)
+  Rendered layout layouts/application.html.erb (Duration: 32.8ms | Allocations: 12368)
+Completed 200 OK in 44ms (Views: 37.6ms | ActiveRecord: 0.2ms | Allocations: 15000)
+
+
+Started GET "/patients/new" for 127.0.0.1 at 2024-06-03 16:34:01 -0400
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 9.5ms | Allocations: 5220)
+  Rendered patients/new.html.erb within layouts/application (Duration: 11.2ms | Allocations: 5569)
+  Rendered layout layouts/application.html.erb (Duration: 34.0ms | Allocations: 12433)
+Completed 200 OK in 43ms (Views: 37.0ms | ActiveRecord: 0.2ms | Allocations: 15059)
+
+
+Started POST "/patients" for 127.0.0.1 at 2024-06-03 16:34:24 -0400
+Processing by PatientsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "patient"=>{"name"=>"Ingrid Grunewald", "rut"=>"102428218", "birthdate(1i)"=>"1968", "birthdate(2i)"=>"9", "birthdate(3i)"=>"7", "sex"=>"Femenino", "email"=>""}, "commit"=>"Guardar"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/patients_controller.rb:15:in `create'
+  [1m[36mPatient Create (8.9ms)[0m  [1m[32mINSERT INTO "patients" ("name", "rut", "birthdate", "sex", "email", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Ingrid Grunewald"], ["rut", "102428218"], ["birthdate", "1968-09-07"], ["sex", "Femenino"], ["email", ""], ["user_id", 1], ["created_at", "2024-06-03 20:34:24.309615"], ["updated_at", "2024-06-03 20:34:24.309615"]]
+  ↳ app/controllers/patients_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/patients_controller.rb:15:in `create'
+Redirected to http://127.0.0.1:3000/patients
+Completed 302 Found in 39ms (ActiveRecord: 11.0ms | Allocations: 5390)
+
+
+Started GET "/patients" for 127.0.0.1 at 2024-06-03 16:34:24 -0400
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/patients/index.html.erb:5
+  Rendered patients/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1030)
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 7612)
+Completed 200 OK in 25ms (Views: 20.7ms | ActiveRecord: 0.3ms | Allocations: 9360)
+
+
+Started GET "/patients" for 127.0.0.1 at 2024-06-03 16:37:05 -0400
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/patients/index.html.erb:5
+  Rendered patients/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1145)
+  Rendered layout layouts/application.html.erb (Duration: 31.6ms | Allocations: 7964)
+Completed 200 OK in 46ms (Views: 36.1ms | ActiveRecord: 0.4ms | Allocations: 10242)
+
+
+Started GET "/patients/new" for 127.0.0.1 at 2024-06-03 16:37:06 -0400
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 11.4ms | Allocations: 5163)
+  Rendered patients/new.html.erb within layouts/application (Duration: 13.1ms | Allocations: 5479)
+  Rendered layout layouts/application.html.erb (Duration: 33.1ms | Allocations: 11940)
+Completed 200 OK in 40ms (Views: 34.0ms | ActiveRecord: 0.1ms | Allocations: 13891)
+
+
+Started GET "/patients/new" for 127.0.0.1 at 2024-06-03 16:37:41 -0400
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 6.1ms | Allocations: 5189)
+  Rendered patients/new.html.erb within layouts/application (Duration: 8.3ms | Allocations: 5537)
+  Rendered layout layouts/application.html.erb (Duration: 24.6ms | Allocations: 12386)
+Completed 200 OK in 35ms (Views: 28.7ms | ActiveRecord: 0.2ms | Allocations: 14802)
+
+
+Started GET "/patients/new" for 127.0.0.1 at 2024-06-03 16:37:57 -0400
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 6.1ms | Allocations: 5219)
+  Rendered patients/new.html.erb within layouts/application (Duration: 8.1ms | Allocations: 5566)
+  Rendered layout layouts/application.html.erb (Duration: 21.7ms | Allocations: 12368)
+Completed 200 OK in 30ms (Views: 24.1ms | ActiveRecord: 0.2ms | Allocations: 15003)
+
+
+Started GET "/patients" for 127.0.0.1 at 2024-06-03 16:54:40 -0400
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (1.4ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/patients/index.html.erb:5
+  Rendered patients/index.html.erb within layouts/application (Duration: 12.7ms | Allocations: 1194)
+  Rendered layout layouts/application.html.erb (Duration: 64.2ms | Allocations: 8075)
+Completed 200 OK in 123ms (Views: 80.9ms | ActiveRecord: 3.7ms | Allocations: 10742)
+
+
+Started GET "/patients" for 127.0.0.1 at 2024-06-03 16:54:59 -0400
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/patients/index.html.erb:41
+  Rendered patients/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1200)
+  Rendered layout layouts/application.html.erb (Duration: 29.6ms | Allocations: 8074)
+Completed 200 OK in 44ms (Views: 34.4ms | ActiveRecord: 0.3ms | Allocations: 10461)
+
+
+Started GET "/patients/1" for 127.0.0.1 at 2024-06-03 16:55:33 -0400
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for PatientsController):
+  
+actionpack (7.0.8.3) lib/abstract_controller/base.rb:146:in `process'
+actionview (7.0.8.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.8.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.8.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.8.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.8.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.8.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.8.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.8.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.8.3) lib/action_dispatch/routing/route_set.rb:852:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.9) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.9) lib/rack/etag.rb:27:in `call'
+rack (2.2.9) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.9) lib/rack/head.rb:12:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.9) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.9) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.8.3) lib/active_record/migration.rb:638:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.8.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.8.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.8.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.8.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.8.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.8.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.9) lib/rack/method_override.rb:24:in `call'
+rack (2.2.9) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.8.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.9) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/host_authorization.rb:138:in `call'
+railties (7.0.8.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.8) lib/puma/configuration.rb:252:in `call'
+puma (5.6.8) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.8) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.8) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.8) lib/puma/server.rb:443:in `process_client'
+puma (5.6.8) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/patients" for 127.0.0.1 at 2024-06-03 16:57:02 -0400
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/patients/index.html.erb:44
+  Rendered patients/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1202)
+  Rendered layout layouts/application.html.erb (Duration: 18.5ms | Allocations: 8081)
+Completed 200 OK in 28ms (Views: 21.6ms | ActiveRecord: 0.5ms | Allocations: 10563)
+
+
+Started GET "/patients" for 127.0.0.1 at 2024-06-03 16:57:29 -0400
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/patients/index.html.erb:44
+  Rendered patients/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1200)
+  Rendered layout layouts/application.html.erb (Duration: 23.9ms | Allocations: 8074)
+Completed 200 OK in 35ms (Views: 27.7ms | ActiveRecord: 0.3ms | Allocations: 10488)
+
+
+Started GET "/patients/1" for 127.0.0.1 at 2024-06-03 16:57:33 -0400
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for PatientsController):
+  
+actionpack (7.0.8.3) lib/abstract_controller/base.rb:146:in `process'
+actionview (7.0.8.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.8.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.8.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.8.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.8.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.8.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.8.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.8.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.8.3) lib/action_dispatch/routing/route_set.rb:852:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.9) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.9) lib/rack/etag.rb:27:in `call'
+rack (2.2.9) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.9) lib/rack/head.rb:12:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.9) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.9) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.8.3) lib/active_record/migration.rb:638:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.8.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.8.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.8.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.8.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.8.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.8.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.9) lib/rack/method_override.rb:24:in `call'
+rack (2.2.9) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.8.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.9) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/host_authorization.rb:138:in `call'
+railties (7.0.8.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.8) lib/puma/configuration.rb:252:in `call'
+puma (5.6.8) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.8) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.8) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.8) lib/puma/server.rb:443:in `process_client'
+puma (5.6.8) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/patients" for 127.0.0.1 at 2024-06-03 16:57:46 -0400
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/patients/index.html.erb:44
+  Rendered patients/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1200)
+  Rendered layout layouts/application.html.erb (Duration: 19.6ms | Allocations: 8081)
+Completed 200 OK in 27ms (Views: 22.3ms | ActiveRecord: 0.3ms | Allocations: 10446)
+
+
+Started GET "/patients" for 127.0.0.1 at 2024-06-03 16:58:01 -0400
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/patients/index.html.erb:44
+  Rendered patients/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1200)
+  Rendered layout layouts/application.html.erb (Duration: 17.3ms | Allocations: 8072)
+Completed 200 OK in 27ms (Views: 22.3ms | ActiveRecord: 0.3ms | Allocations: 10444)
+
+
+Started GET "/patients" for 127.0.0.1 at 2024-06-03 16:58:03 -0400
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/patients/index.html.erb:44
+  Rendered patients/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 738)
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | Allocations: 7199)
+Completed 200 OK in 21ms (Views: 15.3ms | ActiveRecord: 0.3ms | Allocations: 8937)
+
+
+Started GET "/patients" for 127.0.0.1 at 2024-06-03 17:42:40 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (1.7ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/patients/index.html.erb:44
+  Rendered patients/index.html.erb within layouts/application (Duration: 28.2ms | Allocations: 8109)
+  Rendered layout layouts/application.html.erb (Duration: 315.8ms | Allocations: 42919)
+Completed 200 OK in 392ms (Views: 321.5ms | ActiveRecord: 4.4ms | Allocations: 59921)
+
+
+Started GET "/patients/new" for 127.0.0.1 at 2024-06-03 17:49:14 -0400
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered patients/_form.html.erb (Duration: 42.7ms | Allocations: 8723)
+  Rendered patients/new.html.erb within layouts/application (Duration: 44.7ms | Allocations: 9100)
+  Rendered layout layouts/application.html.erb (Duration: 72.2ms | Allocations: 15681)
+Completed 200 OK in 87ms (Views: 73.2ms | ActiveRecord: 1.9ms | Allocations: 18097)
+
+
+Started POST "/patients" for 127.0.0.1 at 2024-06-03 17:49:39 -0400
+Processing by PatientsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "patient"=>{"name"=>"Alicia Garcia", "rut"=>"208096079", "birthdate(1i)"=>"2002", "birthdate(2i)"=>"1", "birthdate(3i)"=>"2", "sex"=>"Femenino", "email"=>""}, "commit"=>"Guardar"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/patients_controller.rb:15:in `create'
+  [1m[36mPatient Create (8.5ms)[0m  [1m[32mINSERT INTO "patients" ("name", "rut", "birthdate", "sex", "email", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Alicia Garcia"], ["rut", "208096079"], ["birthdate", "2002-01-02"], ["sex", "Femenino"], ["email", ""], ["user_id", 1], ["created_at", "2024-06-03 21:49:39.799035"], ["updated_at", "2024-06-03 21:49:39.799035"]]
+  ↳ app/controllers/patients_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/patients_controller.rb:15:in `create'
+Redirected to http://127.0.0.1:3000/patients
+Completed 302 Found in 25ms (ActiveRecord: 10.4ms | Allocations: 5361)
+
+
+Started GET "/patients" for 127.0.0.1 at 2024-06-03 17:49:39 -0400
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  [1m[36mPatient Load (0.5ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/patients/index.html.erb:44
+  Rendered patients/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 869)
+  Rendered layout layouts/application.html.erb (Duration: 18.2ms | Allocations: 7437)
+Completed 200 OK in 26ms (Views: 18.5ms | ActiveRecord: 1.6ms | Allocations: 9097)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2024-06-03 18:01:57 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 61ms (ActiveRecord: 2.1ms | Allocations: 3358)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-03 18:01:57 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 16.4ms | Allocations: 1244)
+  Rendered layout layouts/application.html.erb (Duration: 36.8ms | Allocations: 7876)
+Completed 200 OK in 48ms (Views: 44.7ms | ActiveRecord: 0.0ms | Allocations: 8756)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 18:01:59 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 39.0ms | Allocations: 2535)
+  Rendered layout layouts/application.html.erb (Duration: 184.2ms | Allocations: 9170)
+Completed 200 OK in 207ms (Views: 190.3ms | ActiveRecord: 0.0ms | Allocations: 10675)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-06-03 18:02:09 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"phverastegui@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "phverastegui@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/menu
+Completed 303 See Other in 780ms (ActiveRecord: 0.7ms | Allocations: 4259)
+
+
+Started GET "/menu" for 127.0.0.1 at 2024-06-03 18:02:09 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 76.7ms | Allocations: 3451)
+  Rendered layout layouts/application.html.erb (Duration: 134.9ms | Allocations: 9798)
+Completed 200 OK in 169ms (Views: 136.7ms | ActiveRecord: 0.2ms | Allocations: 11666)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-03 18:03:32 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1209)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:11
+  Rendered layout layouts/application.html.erb (Duration: 25.9ms | Allocations: 9471)
+Completed 200 OK in 32ms (Views: 30.1ms | ActiveRecord: 0.2ms | Allocations: 10412)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2024-06-03 18:03:35 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 7ms (ActiveRecord: 0.2ms | Allocations: 1871)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-03 18:03:35 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 794)
+  Rendered layout layouts/application.html.erb (Duration: 16.2ms | Allocations: 7468)
+Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.0ms | Allocations: 7749)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-03 18:05:15 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 7.7ms | Allocations: 1204)
+  Rendered layout layouts/application.html.erb (Duration: 32.8ms | Allocations: 7976)
+Completed 200 OK in 38ms (Views: 35.8ms | ActiveRecord: 0.0ms | Allocations: 8911)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 18:05:16 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.8ms | Allocations: 1522)
+  Rendered layout layouts/application.html.erb (Duration: 26.6ms | Allocations: 8140)
+Completed 200 OK in 40ms (Views: 33.7ms | ActiveRecord: 0.0ms | Allocations: 9312)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-06-03 18:05:18 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms | Allocations: 456)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1020)
+  Rendered layout layouts/application.html.erb (Duration: 28.1ms | Allocations: 7473)
+Completed 200 OK in 32ms (Views: 29.7ms | ActiveRecord: 0.0ms | Allocations: 8003)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 18:06:17 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1019)
+  Rendered layout layouts/application.html.erb (Duration: 27.5ms | Allocations: 7473)
+Completed 200 OK in 30ms (Views: 28.2ms | ActiveRecord: 0.0ms | Allocations: 8094)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-06-03 18:06:24 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"phverastegui@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "phverastegui@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/menu
+Completed 303 See Other in 587ms (ActiveRecord: 0.3ms | Allocations: 2715)
+
+
+Started GET "/menu" for 127.0.0.1 at 2024-06-03 18:06:24 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 8.6ms | Allocations: 3213)
+  Rendered layout layouts/application.html.erb (Duration: 24.8ms | Allocations: 9543)
+Completed 200 OK in 29ms (Views: 25.4ms | ActiveRecord: 0.1ms | Allocations: 11152)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2024-06-03 18:06:39 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 6ms (ActiveRecord: 0.1ms | Allocations: 1828)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-03 18:06:39 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1205)
+  Rendered layout layouts/application.html.erb (Duration: 18.2ms | Allocations: 8010)
+Completed 200 OK in 25ms (Views: 22.6ms | ActiveRecord: 0.0ms | Allocations: 8945)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 18:06:40 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1725)
+  Rendered layout layouts/application.html.erb (Duration: 22.9ms | Allocations: 8451)
+Completed 200 OK in 38ms (Views: 31.2ms | ActiveRecord: 0.0ms | Allocations: 9631)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 18:07:02 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1662)
+  Rendered layout layouts/application.html.erb (Duration: 16.6ms | Allocations: 8461)
+Completed 200 OK in 22ms (Views: 20.2ms | ActiveRecord: 0.0ms | Allocations: 9932)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 18:07:18 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1660)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 8455)
+Completed 200 OK in 22ms (Views: 20.5ms | ActiveRecord: 0.0ms | Allocations: 9919)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 18:08:08 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1664)
+  Rendered layout layouts/application.html.erb (Duration: 22.3ms | Allocations: 8459)
+Completed 200 OK in 30ms (Views: 26.9ms | ActiveRecord: 0.0ms | Allocations: 9932)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-06-03 18:08:11 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.6ms | Allocations: 214)
+  Rendered devise/shared/_links.html.erb (Duration: 2.5ms | Allocations: 567)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 9.3ms | Allocations: 2657)
+  Rendered layout layouts/application.html.erb (Duration: 20.0ms | Allocations: 9286)
+Completed 200 OK in 24ms (Views: 22.6ms | ActiveRecord: 0.0ms | Allocations: 10586)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-06-03 18:08:57 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 78)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1188)
+  Rendered layout layouts/application.html.erb (Duration: 41.2ms | Allocations: 7734)
+Completed 200 OK in 44ms (Views: 41.9ms | ActiveRecord: 0.0ms | Allocations: 8385)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-06-03 18:09:06 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"phverastegui@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "phverastegui@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mrollback transaction[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.7ms | Allocations: 498)
+  Rendered devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 78)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2178)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 8644)
+Completed 422 Unprocessable Entity in 441ms (Views: 17.1ms | ActiveRecord: 1.4ms | Allocations: 14371)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-06-03 18:09:22 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 3.1ms | Allocations: 209)
+  Rendered devise/shared/_links.html.erb (Duration: 2.2ms | Allocations: 488)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 14.5ms | Allocations: 2535)
+  Rendered layout layouts/application.html.erb (Duration: 43.2ms | Allocations: 9338)
+Completed 200 OK in 53ms (Views: 48.4ms | ActiveRecord: 0.0ms | Allocations: 10656)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-06-03 18:09:56 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.9ms | Allocations: 209)
+  Rendered devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 488)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 6.8ms | Allocations: 2531)
+  Rendered layout layouts/application.html.erb (Duration: 20.9ms | Allocations: 9443)
+Completed 200 OK in 27ms (Views: 25.2ms | ActiveRecord: 0.0ms | Allocations: 10848)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-06-03 18:10:53 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1507)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 1596)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 2983)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regístrate</title>
+  <style>
+    body {
+      background-color: #256490;
+      color: #FFFFFF;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background-color: #FFFFFF;
+      padding: 20px;
+      border-radius: 10px;
+      color: #256490;
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+    }
+    .field {
+      margin-bottom: 15px;
+    }
+    .actions {
+      margin-top: 20px;
+    }
+    .links {
+      margin-top: 20px;
+    }
+    .links a {
+      color: #709795;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Regístrate</h2>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :Correo %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :Contraseña %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :Repite tu contraseña %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
+    <% end %>
+
+    <div class="links">
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</body>
+</html>
+
+
+):
+1:    <!DOCTYPE html>
+2:    <html lang="es">
+3:    <head>
+4:      <meta charset="UTF-8">
+5:      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+6:      <title>Regístrate</title>
+7:      <style>
+8:        body {
+9:          background-color: #256490;
+10:          color: #FFFFFF;
+11:          font-family: 'Arial', sans-serif;
+12:          display: flex;
+13:          justify-content: center;
+14:          align-items: center;
+15:          height: 100vh;
+16:          margin: 0;
+17:        }
+18:        .container {
+19:          background-color: #FFFFFF;
+20:          padding: 20px;
+21:          border-radius: 10px;
+22:          color: #256490;
+23:          text-align: center;
+24:          width: 90%;
+25:          max-width: 400px;
+26:        }
+27:        .field {
+28:          margin-bottom: 15px;
+29:        }
+30:        .actions {
+31:          margin-top: 20px;
+32:        }
+33:        .links {
+34:          margin-top: 20px;
+35:        }
+36:        .links a {
+37:          color: #709795;
+38:          text-decoration: none;
+39:          font-weight: bold;
+40:        }
+41:        .links a:hover {
+42:          text-decoration: underline;
+43:        }
+44:      </style>
+45:    </head>
+46:    <body>
+47:      <div class="container">
+48:        <h2>Regístrate</h2>
+49:    
+50:        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+51:          <%= render "devise/shared/error_messages", resource: resource %>
+52:    
+53:          <div class="field">
+54:            <%= f.label :Correo %><br />
+55:            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+56:          </div>
+57:    
+58:          <div class="field">
+59:            <%= f.label :Contraseña %>
+60:            <% if @minimum_password_length %>
+61:              <em>(<%= @minimum_password_length %> characters minimum)</em>
+62:            <% end %><br />
+63:            <%= f.password_field :password, autocomplete: "new-password" %>
+64:          </div>
+65:    
+66:          <div class="field">
+67:            <%= f.label :Repite tu contraseña %><br />
+68:            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+69:          </div>
+70:    
+71:          <div class="actions">
+72:            <%= f.submit "Sign up" %>
+73:          </div>
+74:        <% end %>
+75:    
+76:        <div class="links">
+77:          <%= render "devise/shared/links" %>
+78:        </div>
+79:      </div>
+80:    </body>
+81:    </html>
+  
+app/views/devise/registrations/new.html.erb:67: syntax error, unexpected local variable or method, expecting ')'
+app/views/devise/registrations/new.html.erb:67: syntax error, unexpected local variable or method, expecting ')'
+app/views/devise/registrations/new.html.erb:67: syntax error, unexpected local variable or method, expecting ')'
+app/views/devise/registrations/new.html.erb:67: syntax error, unexpected local variable or method, expecting ')'
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-06-03 18:11:17 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.8ms | Allocations: 209)
+  Rendered devise/shared/_links.html.erb (Duration: 3.1ms | Allocations: 488)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 10.7ms | Allocations: 2559)
+  Rendered layout layouts/application.html.erb (Duration: 25.6ms | Allocations: 9470)
+Completed 200 OK in 32ms (Views: 29.5ms | ActiveRecord: 0.0ms | Allocations: 10874)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-06-03 18:11:38 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1486)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 1575)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 2951)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regístrate</title>
+  <style>
+    body {
+      background-color: #256490;
+      color: #FFFFFF;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background-color: #FFFFFF;
+      padding: 20px;
+      border-radius: 10px;
+      color: #256490;
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+    }
+    .field {
+      margin-bottom: 15px;
+    }
+    .actions {
+      margin-top: 20px;
+    }
+    .links {
+      margin-top: 20px;
+    }
+    .links a {
+      color: #709795;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Regístrate</h2>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :Correo %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :Contraseña %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.label : Repite tu contraseña %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
+    <% end %>
+
+    <div class="links">
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</body>
+</html>
+
+
+):
+1:    <!DOCTYPE html>
+2:    <html lang="es">
+3:    <head>
+4:      <meta charset="UTF-8">
+5:      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+6:      <title>Regístrate</title>
+7:      <style>
+8:        body {
+9:          background-color: #256490;
+10:          color: #FFFFFF;
+11:          font-family: 'Arial', sans-serif;
+12:          display: flex;
+13:          justify-content: center;
+14:          align-items: center;
+15:          height: 100vh;
+16:          margin: 0;
+17:        }
+18:        .container {
+19:          background-color: #FFFFFF;
+20:          padding: 20px;
+21:          border-radius: 10px;
+22:          color: #256490;
+23:          text-align: center;
+24:          width: 90%;
+25:          max-width: 400px;
+26:        }
+27:        .field {
+28:          margin-bottom: 15px;
+29:        }
+30:        .actions {
+31:          margin-top: 20px;
+32:        }
+33:        .links {
+34:          margin-top: 20px;
+35:        }
+36:        .links a {
+37:          color: #709795;
+38:          text-decoration: none;
+39:          font-weight: bold;
+40:        }
+41:        .links a:hover {
+42:          text-decoration: underline;
+43:        }
+44:      </style>
+45:    </head>
+46:    <body>
+47:      <div class="container">
+48:        <h2>Regístrate</h2>
+49:    
+50:        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+51:          <%= render "devise/shared/error_messages", resource: resource %>
+52:    
+53:          <div class="field">
+54:            <%= f.label :Correo %><br />
+55:            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+56:          </div>
+57:    
+58:          <div class="field">
+59:            <%= f.label :Contraseña %>
+60:            <% if @minimum_password_length %>
+61:              <em>(<%= @minimum_password_length %> characters minimum)</em>
+62:            <% end %><br />
+63:            <%= f.password_field :password, autocomplete: "new-password" %>
+64:          </div>
+65:    
+66:          <div class="field">
+67:            <%= f.label : Repite tu contraseña %><br />
+68:            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+69:          </div>
+70:    
+71:          <div class="actions">
+72:            <%= f.submit "Sign up" %>
+73:          </div>
+74:        <% end %>
+75:    
+76:        <div class="links">
+77:          <%= render "devise/shared/links" %>
+78:        </div>
+79:      </div>
+80:    </body>
+81:    </html>
+  
+app/views/devise/registrations/new.html.erb:67: syntax error, unexpected ':'
+app/views/devise/registrations/new.html.erb:67: syntax error, unexpected ':'
+app/views/devise/registrations/new.html.erb:67: syntax error, unexpected ':'
+app/views/devise/registrations/new.html.erb:67: syntax error, unexpected ':'
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-06-03 18:11:51 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1485)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | Allocations: 1574)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 2959)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regístrate</title>
+  <style>
+    body {
+      background-color: #256490;
+      color: #FFFFFF;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background-color: #FFFFFF;
+      padding: 20px;
+      border-radius: 10px;
+      color: #256490;
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+    }
+    .field {
+      margin-bottom: 15px;
+    }
+    .actions {
+      margin-top: 20px;
+    }
+    .links {
+      margin-top: 20px;
+    }
+    .links a {
+      color: #709795;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Regístrate</h2>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :Correo %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :Contraseña %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.label : Contraseña %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
+    <% end %>
+
+    <div class="links">
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</body>
+</html>
+
+
+):
+1:    <!DOCTYPE html>
+2:    <html lang="es">
+3:    <head>
+4:      <meta charset="UTF-8">
+5:      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+6:      <title>Regístrate</title>
+7:      <style>
+8:        body {
+9:          background-color: #256490;
+10:          color: #FFFFFF;
+11:          font-family: 'Arial', sans-serif;
+12:          display: flex;
+13:          justify-content: center;
+14:          align-items: center;
+15:          height: 100vh;
+16:          margin: 0;
+17:        }
+18:        .container {
+19:          background-color: #FFFFFF;
+20:          padding: 20px;
+21:          border-radius: 10px;
+22:          color: #256490;
+23:          text-align: center;
+24:          width: 90%;
+25:          max-width: 400px;
+26:        }
+27:        .field {
+28:          margin-bottom: 15px;
+29:        }
+30:        .actions {
+31:          margin-top: 20px;
+32:        }
+33:        .links {
+34:          margin-top: 20px;
+35:        }
+36:        .links a {
+37:          color: #709795;
+38:          text-decoration: none;
+39:          font-weight: bold;
+40:        }
+41:        .links a:hover {
+42:          text-decoration: underline;
+43:        }
+44:      </style>
+45:    </head>
+46:    <body>
+47:      <div class="container">
+48:        <h2>Regístrate</h2>
+49:    
+50:        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+51:          <%= render "devise/shared/error_messages", resource: resource %>
+52:    
+53:          <div class="field">
+54:            <%= f.label :Correo %><br />
+55:            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+56:          </div>
+57:    
+58:          <div class="field">
+59:            <%= f.label :Contraseña %>
+60:            <% if @minimum_password_length %>
+61:              <em>(<%= @minimum_password_length %> characters minimum)</em>
+62:            <% end %><br />
+63:            <%= f.password_field :password, autocomplete: "new-password" %>
+64:          </div>
+65:    
+66:          <div class="field">
+67:            <%= f.label : Contraseña %><br />
+68:            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+69:          </div>
+70:    
+71:          <div class="actions">
+72:            <%= f.submit "Sign up" %>
+73:          </div>
+74:        <% end %>
+75:    
+76:        <div class="links">
+77:          <%= render "devise/shared/links" %>
+78:        </div>
+79:      </div>
+80:    </body>
+81:    </html>
+  
+app/views/devise/registrations/new.html.erb:67: syntax error, unexpected ':'
+app/views/devise/registrations/new.html.erb:67: syntax error, unexpected ':'
+app/views/devise/registrations/new.html.erb:67: syntax error, unexpected ':'
+app/views/devise/registrations/new.html.erb:67: syntax error, unexpected ':'
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-06-03 18:12:06 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 2.2ms | Allocations: 209)
+  Rendered devise/shared/_links.html.erb (Duration: 1.9ms | Allocations: 488)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 10.8ms | Allocations: 2576)
+  Rendered layout layouts/application.html.erb (Duration: 25.9ms | Allocations: 9487)
+Completed 200 OK in 32ms (Views: 29.9ms | ActiveRecord: 0.0ms | Allocations: 10895)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-06-03 18:12:29 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.5ms | Allocations: 209)
+  Rendered devise/shared/_links.html.erb (Duration: 1.9ms | Allocations: 488)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 9.7ms | Allocations: 2589)
+  Rendered layout layouts/application.html.erb (Duration: 26.6ms | Allocations: 9500)
+Completed 200 OK in 35ms (Views: 33.8ms | ActiveRecord: 0.0ms | Allocations: 10910)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-06-03 18:12:44 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.7ms | Allocations: 209)
+  Rendered devise/shared/_links.html.erb (Duration: 6.8ms | Allocations: 488)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 13.3ms | Allocations: 2558)
+  Rendered layout layouts/application.html.erb (Duration: 40.7ms | Allocations: 9361)
+Completed 200 OK in 55ms (Views: 53.3ms | ActiveRecord: 0.0ms | Allocations: 10782)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-06-03 18:12:50 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"", "password"=>"[FILTERED]", "confirmación_contraseña"=>""}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :confirmación_contraseña. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x0000000114a266f0>, params: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"", "password"=>"[FILTERED]", "confirmación_contraseña"=>""}, "commit"=>"Sign up", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 3.6ms | Allocations: 813)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 78)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 9.0ms | Allocations: 2530)
+  Rendered layout layouts/application.html.erb (Duration: 33.0ms | Allocations: 8983)
+Completed 422 Unprocessable Entity in 42ms (Views: 33.8ms | ActiveRecord: 0.0ms | Allocations: 11258)
+
+

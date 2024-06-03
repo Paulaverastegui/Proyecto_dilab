@@ -1,0 +1,26 @@
+<h1>Diagnósticos de <%= @patient.name %></h1>
+
+<%= link_to 'Nuevo Diagnóstico', new_patient_diagnosis_path(@patient) %>
+<%= link_to 'Volver a Pacientes', patients_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descripción</th>
+      <th>Severidad</th>
+      <th>Fecha</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @diagnoses.each do |diagnosis| %>
+      <tr>
+        <td><%= diagnosis.description %></td>
+        <td><%= diagnosis.severity %></td>
+        <td><%= diagnosis.date %></td>
+        <td><%= link_to 'Ver', patient_diagnosis_path(@patient, diagnosis) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

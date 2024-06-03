@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis Pacientes</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #256490;
+      color: #FFFFFF;
+      font-family: 'Arial', sans-serif;
+    }
+    .container {
+      margin-top: 50px;
+    }
+    .patient-box {
+      background-color: #FFFFFF;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .patient-name {
+      color: #709795; /* Color blanco para el nombre del paciente */
+    }
+    .btn {
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    .btn-pacientes {
+      background-color: #709795;
+      color: #FFFFFF;
+    }
+    .btn-ver-detalles {
+      background-color: #256490;
+      color: #FFFFFF;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Mis Pacientes</h1>
+    <%= link_to 'Agregar Nuevo Paciente', new_patient_path, class: 'btn btn-pacientes' %>
+    <% @patients.each do |patient| %>
+      <div class="patient-box">
+        <h3 class="patient-name"><%= patient.name %></h3>
+        <%= link_to "Ver Detalles", patient_path(patient), class: 'btn btn-ver-detalles' %>
+      </div>
+    <% end %>
+  </div>
+</body>
+</html>
+
+
+
