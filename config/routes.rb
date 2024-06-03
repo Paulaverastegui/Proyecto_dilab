@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'home/fils', to: 'pages#fils'
   get 'diagnostico', to: 'pages#diagnostico'
   get 'mispacientes', to: 'patients#index', as: :mispacientes
+  get 'diagnostico/:patient_id', to: 'pages#diagnostico', as: :diagnostico_patient
+
 
 
   resources :patients do

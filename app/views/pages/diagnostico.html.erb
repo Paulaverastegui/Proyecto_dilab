@@ -35,62 +35,74 @@
     .content {
       margin-top: 120px;
       display: flex;
-      width: 100%;
-      justify-content: space-between;
-    }
-    .options {
-      display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      width: 45%;
-    }
-    .btn {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      width: 100%;
-      height: 120px;
-      border: none;
-      cursor: pointer;
-      font-size: 1.2em;
-      margin: 20px 0;
-      text-decoration: none;
-      border-radius: 30px;
-      background-color: #709795;
-      color: white;
-      padding: 10px;
-    }
-    .btn span {
-      font-size: 0.8em;
-    }
-    .btn-severe {
-      background-color: #A8BDBC;
-    }
-    .btn-moderate {
-      background-color: #B5B0C9;
-    }
-    .btn-mild {
-      background-color: #7D9DB7;
+      align-items: center;
     }
     .details {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      margin-top: 20px;
+      align-items: center;
+      margin-top: 40px;
       background-color: #f0f0f0;
       padding: 20px;
       border-radius: 10px;
-      width: 45%;
+      width: 100%;
+      max-width: 600px;
     }
     .details h2 {
       color: #256490;
       font-size: 1.5em;
       margin-bottom: 10px;
     }
+    .details ol {
+      text-align: left;
+      padding-left: 20px;
+    }
+    .details ol li {
+      list-style-type: none;
+      counter-increment: step-counter;
+      margin-bottom: 10px;
+    }
+    .details ol li:before {
+      content: counter(step-counter);
+      background-color: #256490;
+      color: white;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      display: inline-block;
+      margin-right: 10px;
+    }
     .details p {
       font-size: 1em;
       margin: 10px 0;
+    }
+    .patients-list {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 600px;
+      margin-top: 20px;
+    }
+    .patient-item {
+      background-color: #709795;
+      color: white;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      text-align: left;
+      cursor: pointer;
+    }
+    .start-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #256490;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
     }
   </style>
 </head>
@@ -98,51 +110,28 @@
   <div class="container">
     <div class="header">Diagnóstico</div>
     <div class="content">
-      <div class="options">
-        <div class="option">
-          <button class="btn btn-severe" onclick="showDetails('severe')">
-            Disfagia Severa
-            <span>Nada de alimentación vía oral</span>
-          </button>
-        </div>
-        <div class="option">
-          <button class="btn btn-moderate" onclick="showDetails('moderate')">
-            Disfagia Moderada
-            <span>Alimentación por vía oral y alternativa</span>
-          </button>
-        </div>
-        <div class="option">
-          <button class="btn btn-mild" onclick="showDetails('mild')">
-            Disfagia Leve
-            <span>Alimentación por vía oral exclusiva</span>
-          </button>
-        </div>
+      <div class="details">
+        <h2>¿Qué es una evaluación de la deglución a pie de cama?</h2>
+        <ol>
+          <li>El paciente se sienta erguido en una cama o silla.</li>
+          <li>El profesional de la salud puede hacerle preguntas sobre sus síntomas y por cuánto tiempo ha tenido problemas para tragar. Tal vez le pida que haga ciertos movimientos, como cerrar los labios o hacer sobresalir la mandíbula.</li>
+          <li>Le dará diferentes alimentos y bebidas para tragar, como agua y otros líquidos, además de alimentos blandos y sólidos.</li>
+          <li>Por último, es posible que el fonoaudiólogo le pida al paciente que trague distintas sustancias. Pueden variar de agua a líquidos más espesos, alimentos en puré y hasta alimentos comunes. Se observará si tiene problemas para masticar, tragar o respirar.</li>
+        </ol>
       </div>
-      <div id="details" class="details" style="display:none;">
-        <h2 id="details-title"></h2>
-        <p id="details-description"></p>
+      <div class="patients-list">
+        <h3>Seleccione un paciente para comenzar el diagnóstico:</h3>
+        <% @patients.each_with_index do |patient, index| %>
+          <div class="patient-item" data-number="<%= index + 1 %>">
+            <%= link_to patient.name, new_patient_diagnosis_path(patient), class: 'start-button' %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
-
-  <script>
-    function showDetails(type) {
-      var title = '';
-      var description = '';
-      if (type === 'severe') {
-        title = 'Disfagia Severa';
-        description = 'Nada de alimentación vía oral';
-      } else if (type === 'moderate') {
-        title = 'Disfagia Moderada';
-        description = 'Alimentación por vía oral y alternativa';
-      } else if (type === 'mild') {
-        title = 'Disfagia Leve';
-        description = 'Alimentación por vía oral exclusiva';
-      }
-      document.getElementById('details-title').innerText = title;
-      document.getElementById('details-description').innerText = description;
-      document.getElementById('details').style.display = 'block';
-    }
-  </script>
 </body>
 </html>
+
+
+
+
