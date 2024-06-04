@@ -157,6 +157,21 @@
       display: none; /* Oculta por defecto */
     }
 
+    .squares-container-4 {
+      display: flex;
+      justify-content: space-between;
+      display: none; /* Oculta por defecto */
+      width: 100%;
+    }
+    .circles-container-4 {
+      width: 95%;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 60px;
+      margin-bottom: 30px; /* Espacio entre los círculos y los cuadrados */
+      display: none; /* Oculta por defecto */
+    }
+
     
   </style>
 </head>
@@ -171,7 +186,7 @@
           </button>
         </div>
         <div class="option">
-          <button class="btn btn-moderate" onclick="showDetails('moderate')" data-number="4-6">
+          <button class="btn btn-moderate" onclick="showDetails('moderate')" data-number="4-7">
             <span>Ingesta por vía oral exclusiva</span>
             
           </button>
@@ -191,6 +206,18 @@
           <div class="square"></div>
           <div class="square"></div>
         </div>
+        <div class="circles-container-4">
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
+        <div class="squares-container-4">
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+        </div>
       </div>
 
     </div>
@@ -204,16 +231,16 @@
       var squares = [];
     
       if (type === 'severe') {
-        title = 'Dependiente de vía alternativa de alimantación';
+        title = 'Dependiente de vía alternativa de alimentación';
         circles = ['1', '2', '3'];
         squares = [
-          'Nada por vía oral, solo vía alternativa. ',
-          'Dependiente de alguna vía alternativa y mínima vía oral de alimentos o líquidos',
-          'Dependiente de vía alternativa con consistente vía oral de alimentos o líquidos'
+          'Nada por vía oral, solo vía alternativa.',
+          'Dependiente de alguna vía alternativa y mínima vía oral de alimentos o líquidos.',
+          'Dependiente de vía alternativa con consistente vía oral de alimentos o líquidos.'
         ];
       } else if (type === 'moderate') {
         title = 'Ingesta por vía oral exclusiva';
-        circles = ['4', '5', '6','10'];
+        circles = ['4', '5', '6', '7'];
         squares = [
           'Vía oral total de una única consistencia.',
           'Vía oral total con múltiples consistencias, pero con necesidades de preparación especial o compensaciones.',
@@ -221,27 +248,33 @@
           'Vía oral total sin restricciones.'
         ];
       }
+    
       document.getElementById('details-title').innerText = title;
       document.getElementById('details-description').innerText = description;
     
       // Actualizar los círculos
-      var circleElements = document.querySelectorAll('.circle');
-      for (var i = 0; i < circles.length; i++) {
-        circleElements[i].innerText = circles[i];
+      var circleElements = type === 'severe' ? document.querySelectorAll('.circles-container .circle') : document.querySelectorAll('.circles-container-4 .circle');
+      for (var i = 0; i < circleElements.length; i++) {
+        circleElements[i].innerText = circles[i] || '';
       }
     
       // Actualizar los cuadrados
-      var squareElements = document.querySelectorAll('.square');
-      for (var i = 0; i < squares.length; i++) {
-        squareElements[i].innerText = squares[i];
+      var squareElements = type === 'severe' ? document.querySelectorAll('.squares-container .square') : document.querySelectorAll('.squares-container-4 .square');
+      for (var i = 0; i < squareElements.length; i++) {
+        squareElements[i].innerText = squares[i] || '';
       }
     
       // Mostrar u ocultar los contenedores según sea necesario
-      document.querySelector('.circles-container').style.display = type === 'severe' || type === 'moderate' ? 'flex' : 'none';
-      document.querySelector('.squares-container').style.display = type === 'severe' || type === 'moderate' ? 'flex' : 'none';
-    } 
+      document.querySelector('.circles-container').style.display = type === 'severe' ? 'flex' : 'none';
+      document.querySelector('.squares-container').style.display = type === 'severe' ? 'flex' : 'none';
+    
+      document.querySelector('.circles-container-4').style.display = type === 'moderate' ? 'flex' : 'none';
+      document.querySelector('.squares-container-4').style.display = type === 'moderate' ? 'flex' : 'none';
+    }
+  
+
+
   </script>
 
 </body>
 </html>
-#falta nivel 7 que se vea

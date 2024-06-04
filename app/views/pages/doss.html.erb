@@ -63,6 +63,7 @@
       padding: 10px 10px 10px 60px;
       position: relative;
       box-sizing: border-box;
+      text-align: center;
     }
     .btn span {
       font-size: 0.8em;
@@ -112,8 +113,8 @@
       margin: 10px 0;
     }
     .square {
-      width: 150px; /* Ampliado para acomodar más texto */
-      height: auto; /* Permitir que el tamaño varíe según el contenido */
+      width: calc(100% / 3 - 10px); /* Ajuste para 3 cuadrados en una fila con espacios */
+      height: auto; 
       background-color: #FFFFFF;
       border: 2px solid #256490;
       box-sizing: border-box;
@@ -123,15 +124,22 @@
       justify-content: center;
       text-align: center;
       padding: 10px;
-      font-size: 0.8em; /* Ajusta el tamaño de la letra según sea necesario */
-      color: #000000; /* Color de la letra negra */
+      font-size: 0.8em; 
+      color: #000000;
     }
+    
     .squares-container {
       display: flex;
       justify-content: space-between;
-      display: none; /* Oculta por defecto */
+      display: none;
       width: 100%;
+      flex-wrap: nowrap;
     }
+    
+    .squares-container-2 .square {
+      width: calc(50% - 10px); /* Ajuste para 2 cuadrados en una fila con espacios */
+    }
+    
     
     .circle {
       width: 80px;
@@ -147,7 +155,6 @@
       margin-top: -30px; /* Alineado con la parte superior de los cuadrados */
       margin-left: 15px; /* Espacio entre los círculos y los cuadrados */
     }
-
     .circles-container {
       width: 95%;
       display: flex;
@@ -156,15 +163,20 @@
       margin-bottom: 30px; /* Espacio entre los círculos y los cuadrados */
       display: none; /* Oculta por defecto */
     }
-
     .title-container {
       display: flex;
       justify-content: center; /* Centra horizontalmente */
       margin-bottom: 20px; /* Espacio debajo del título */
     }
-
-
-    
+   
+    .circles-container-2 {
+      width: 95%;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 60px;
+      margin-bottom: 30px; /* Espacio entre los círculos y los cuadrados */
+      display: none; /* Oculta por defecto */
+    }
   </style>
 </head>
 <body>
@@ -174,7 +186,7 @@
       <div class="options">
         <div class="option">
           <button class="btn btn-severe" onclick="showDetails('severe')" data-number="1-2">
-            Vía oral suspencida
+            Vía oral suspendida
             <span>Nada de nutrición oral</span>
           </button>
         </div>
@@ -182,7 +194,6 @@
           <button class="btn btn-moderate" onclick="showDetails('moderate')" data-number="3-5">
             Nutrición vía oral
             <span>Dieta modificada y/o independencia</span>
-            
           </button>
         </div>
         <div class="option">
@@ -195,20 +206,14 @@
       <div id="details" class="details">
         <h2 id="details-title">Presiona cualquiera de los niveles para obtener más detalles</h2>
         <p id="details-description"></p>
-        <div class="circles-container">
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-        </div>
-        <div class="squares-container">
-          <div class="square"></div>
-          <div class="square"></div>
-          <div class="square"></div>
-        </div>
+        <div class="circles-container"></div>
+        <div class="squares-container"></div>
+        <div class="circles-container-2"></div>
+        <div class="squares-container-2"></div>
       </div>
-
     </div>
   </div>
+
 
   <script>
     function showDetails(type) {
@@ -216,9 +221,9 @@
       var description = '';
       var circles = [];
       var squares = [];
-    
+      
       if (type === 'severe') {
-        title = 'Vía oral suspencida';
+        title = 'Vía oral suspendida';
         description = 'Nada de nutrición oral';
         circles = ['1', '2'];
         squares = [
@@ -228,46 +233,80 @@
       } else if (type === 'moderate') {
         title = 'Nutrición vía oral';
         description = 'Dieta modificada y/o independencia';
-        circles = ['3','4','5'];
+        circles = ['3', '4', '5'];
         squares = [
-            'Disfagia moderada: total asistencia, supervisión o estrategias, restricción de dos o más consistencias.',
-            'Disfagia leve/moderada: supervisión intermitente, restricción de una o dos consistencias.',
-            'Disfagia leve: supervisión a distancia, puede necesitar de restricciones de una consistencia.'
+          'Disfagia moderada: total asistencia, supervisión o estrategias, restricción de dos o más consistencias.',
+          'Disfagia leve/moderada: supervisión intermitente, restricción de una o dos consistencias.',
+          'Disfagia leve: supervisión a distancia, puede necesitar de restricciones de una consistencia.'
         ];
-
       } else if (type === 'mild') {
         title = 'Nutrición por vía oral';
         description = 'Dieta normal';
-        circles = ['6','7'];
+        circles = ['6', '7'];
         squares = [
-          'Con límites funcionales/independencia modificada: Dieta normal, deglución funcional.El paciente puede tener un leve retraso en la fase oral o faríngea, retención o restos cubriendo la epiglotis, pero consigue despejarlo espontáneamente. Puede necesitar tiempo adicional en las comidas. No hay aspiraciones ni penetraciones en ninguna consistencia.',
-          'Normalidad en todas las situaciones: Dieta normal, sin necesidad de estrategias o tiempo adicional.'
+          'Con límites funcionales/independencia modificada: Dieta normal, deglución funcional. El paciente puede tener un leve retraso en la fase oral o faríngea, que no compromete significativamente la seguridad, sin restricciones dietéticas. ',
+          'Deglución funcional: No presenta disfagia.'
         ];
       }
-    
+      
       document.getElementById('details-title').innerText = title;
       document.getElementById('details-description').innerText = description;
+      
+      var circlesContainer = document.querySelector('.circles-container');
+      var circlesContainer2 = document.querySelector('.circles-container-2');
+      var squaresContainer = document.querySelector('.squares-container');
+      var squaresContainer2 = document.querySelector('.squares-container-2');
+      
+      // Limpia los contenedores antes de agregar nuevos elementos
+      circlesContainer.innerHTML = '';
+      circlesContainer2.innerHTML = '';
+      squaresContainer.innerHTML = '';
+      squaresContainer2.innerHTML = '';
+      
+      // Lógica para mostrar los contenedores correctos según el nivel
+      if (type === 'moderate') {
+        circlesContainer2.style.display = 'none';
+        squaresContainer2.style.display = 'none';
+        circlesContainer.style.display = 'flex';
+        squaresContainer.style.display = 'flex';
     
-      // Actualizar los círculos
-      var circleElements = document.querySelectorAll('.circle');
-      for (var i = 0; i < circles.length; i++) {
-        circleElements[i].innerText = circles[i];
+        circles.forEach(function(text) {
+          var circle = document.createElement('div');
+          circle.className = 'circle';
+          circle.innerText = text;
+          circlesContainer.appendChild(circle);
+        });
+    
+        squares.forEach(function(text) {
+          var square = document.createElement('div');
+          square.className = 'square';
+          square.innerText = text;
+          squaresContainer.appendChild(square);
+        });
+      } else {
+        circlesContainer.style.display = 'none';
+        squaresContainer.style.display = 'none';
+        circlesContainer2.style.display = 'flex';
+        squaresContainer2.style.display = 'flex';
+    
+        circles.forEach(function(text) {
+          var circle = document.createElement('div');
+          circle.className = 'circle';
+          circle.innerText = text;
+          circlesContainer2.appendChild(circle);
+        });
+    
+        squares.forEach(function(text) {
+          var square = document.createElement('div');
+          square.className = 'square';
+          square.innerText = text;
+          squaresContainer2.appendChild(square);
+        });
       }
-    
-      // Actualizar los cuadrados
-      var squareElements = document.querySelectorAll('.square');
-      for (var i = 0; i < squares.length; i++) {
-        squareElements[i].innerText = squares[i];
-      }
-    
-      // Mostrar u ocultar los contenedores según sea necesario
-      document.querySelector('.circles-container').style.display = type === 'severe' || type === 'moderate' ? 'flex' : 'none';
-      document.querySelector('.squares-container').style.display = type === 'severe' || type === 'moderate' ? 'flex' : 'none';
     }
   
+    
   </script>
 </body>
 </html>
 
-#no se ve nivel 6-7
-#casos que son solo 2 cuadrados
