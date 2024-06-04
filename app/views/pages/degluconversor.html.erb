@@ -5,63 +5,122 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Degluconversor</title>
   <style>
-    h1 {
-      font-size: 2em;
-      color: #FFFFFF;
+    body {
+      background-color: #FFFFFF;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
     }
-
-    label, select {
+    .container {
+      text-align: center;
+      width: 50%;
+      max-width: 500px;
+      background-color: #F0F0F0;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin: auto;
+      margin-top: 150px; /* para dejar espacio debajo de la barra */
+    }
+    .header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2em;
+      margin-bottom: 20px;
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
+      width: 100%;
+      text-align: center;
+    }
+    h1 {
+      font-size: 1.5em;
+      color: #256490;
+      margin-bottom: 20px;
+    }
+    label {
+      margin-bottom: 0.5em;
+      display: block;
+      color: #256490;
+      font-size: 1em;
+      text-align: left;
+    }
+    select {
       margin-bottom: 1em;
       display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      border: 2px solid #256490;
+      border-radius: 10px;
+      box-sizing: border-box;
     }
-
-    input[type="submit"] {
+    input[type="submit"], .submit-button {
       background-color: #709795;
       color: white;
       padding: 0.5em 1em;
       border: none;
       cursor: pointer;
+      font-size: 1em;
+      border-radius: 10px;
+      margin-top: 20px;
+      width: 100%;
+    }
+    .form-group {
+      margin-bottom: 20px;
     }
 
-    body {
-      background-color: #7D9DB7;
-      font-family: 'Arial', sans-serif;
-      padding: 20px;
-      color: #FFFFFF;
+    .degluconversor-header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2.5em;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      width: 100%;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999; /* asegura que esté por encima de todo */
     }
   </style>
 </head>
 <body>
-  <h1>Seleccionar Escala</h1>
-  <%= form_with url: '/resultado', method: :post, local: true do %>
-    <div>
-      <label for="tabla_seleccionada">Escala</label>
-      <select name="tabla_seleccionada" id="tabla_seleccionada">
-        <option value="fils">FILS</option>
-        <option value="doss">DOSS</option>
-        <option value="fois">FOIS</option>
-      </select>
+  <div class="degluconversor-header">Degluconversor</div>
+    <div class="container">
+      <h1>Seleccionar Escala</h1>
+      <form action="/resultado" method="post">
+        <div class="form-group">
+          <label for="tabla_seleccionada">Escala</label>
+          <select name="tabla_seleccionada" id="tabla_seleccionada">
+            <option value="fils">FILS</option>
+            <option value="doss">DOSS</option>
+            <option value="fois">FOIS</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="nivel_seleccionado">Nivel</label>
+          <select name="nivel_seleccionado" id="nivel_seleccionado">
+            <option value="1">Nivel 1</option>
+            <option value="2">Nivel 2</option>
+            <option value="3">Nivel 3</option>
+            <option value="4">Nivel 4</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="tabla_destino">Escala Destino</label>
+          <select name="tabla_destino" id="tabla_destino">
+            <option value="fils">FILS</option>
+            <option value="doss">DOSS</option>
+            <option value="fois">FOIS</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <input type="submit" class="submit-button" value="Transformar">
+        </div>
+      </form>
     </div>
-    <div>
-      <label for="nivel_seleccionado">Nivel</label>
-      <select name="nivel_seleccionado" id="nivel_seleccionado">
-        <option value="1">Nivel 1</option>
-        <option value="2">Nivel 2</option>
-        <option value="3">Nivel 3</option>
-        <option value="4">Nivel 4</option>
-      </select>
-    </div>
-    <div>
-      <label for="tabla_destino">Escala Destino</label>
-      <select name="tabla_destino" id="tabla_destino">
-        <option value="fils">FILS</option>
-        <option value="doss">DOSS</option>
-        <option value="fois">FOIS</option>
-      </select>
-    </div>
-    <div>
-      <%= submit_tag "Transformar" %>
-    </div>
-  <% end %>
 </body>
 </html>
+
+
