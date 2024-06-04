@@ -3339,3 +3339,970 @@ Processing by DiagnosesController#new as HTML
 Completed 200 OK in 38ms (Views: 29.0ms | ActiveRecord: 0.3ms | Allocations: 15427)
 
 
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2024-06-03 19:38:02 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 5340.7ms | Allocations: 119177)
+  Rendered layout layouts/application.html.erb (Duration: 5350.3ms | Allocations: 125807)
+Completed 200 OK in 5380ms (Views: 5357.8ms | ActiveRecord: 0.0ms | Allocations: 133618)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 19:38:10 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 18.6ms | Allocations: 4182)
+  Rendered layout layouts/application.html.erb (Duration: 25.4ms | Allocations: 10424)
+Completed 200 OK in 51ms (Views: 28.9ms | ActiveRecord: 0.6ms | Allocations: 17974)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-06-03 19:38:15 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 2.2ms | Allocations: 221)
+  Rendered devise/shared/_links.html.erb (Duration: 2.2ms | Allocations: 567)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 10.7ms | Allocations: 2840)
+  Rendered layout layouts/application.html.erb (Duration: 17.5ms | Allocations: 9078)
+Completed 200 OK in 23ms (Views: 20.9ms | ActiveRecord: 0.0ms | Allocations: 10372)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-06-03 19:38:32 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"agh@uc.cl", "password"=>"[FILTERED]", "confirmación_contraseña"=>"frambuesa"}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :confirmación_contraseña. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007f2acf57dba8>, params: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"agh@uc.cl", "password"=>"[FILTERED]", "confirmación_contraseña"=>"frambuesa"}, "commit"=>"Sign up", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "agh@uc.cl"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "agh@uc.cl"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2024-06-03 23:38:32.602033"], ["updated_at", "2024-06-03 23:38:32.602033"]]
+  [1m[36mTRANSACTION (8.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://127.0.0.1:3000/menu
+Completed 303 See Other in 329ms (ActiveRecord: 9.6ms | Allocations: 11843)
+
+
+Started GET "/menu" for 127.0.0.1 at 2024-06-03 19:38:32 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 4.5ms | Allocations: 2845)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 8798)
+Completed 200 OK in 19ms (Views: 12.6ms | ActiveRecord: 0.5ms | Allocations: 10932)
+
+
+Started GET "/escalas" for 127.0.0.1 at 2024-06-03 19:38:37 -0400
+Processing by PagesController#escalas as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/escalas.html.erb within layouts/application
+  Rendered pages/escalas.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1042)
+  Rendered layout layouts/application.html.erb (Duration: 17.4ms | Allocations: 6981)
+Completed 200 OK in 26ms (Views: 18.1ms | ActiveRecord: 0.3ms | Allocations: 8571)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 19:38:39 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.7ms | Allocations: 335)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 6419)
+Completed 200 OK in 18ms (Views: 11.4ms | ActiveRecord: 0.6ms | Allocations: 8034)
+
+
+Started GET "/degluconversor" for 127.0.0.1 at 2024-06-03 19:38:50 -0400
+Processing by PagesController#degluconversor as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/degluconversor.html.erb within layouts/application
+  Rendered pages/degluconversor.html.erb within layouts/application (Duration: 2.8ms | Allocations: 469)
+  Rendered layout layouts/application.html.erb (Duration: 29.9ms | Allocations: 6554)
+Completed 200 OK in 34ms (Views: 30.5ms | ActiveRecord: 0.3ms | Allocations: 8119)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-03 20:27:46 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 74.5ms | Allocations: 26978)
+  Rendered layout layouts/application.html.erb (Duration: 85.9ms | Allocations: 33689)
+Completed 200 OK in 97ms (Views: 88.4ms | ActiveRecord: 0.0ms | Allocations: 38180)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 20:27:47 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/menu
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 17ms (ActiveRecord: 0.7ms | Allocations: 9255)
+
+
+Started GET "/menu" for 127.0.0.1 at 2024-06-03 20:27:47 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 4.1ms | Allocations: 2930)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 8884)
+Completed 200 OK in 16ms (Views: 12.1ms | ActiveRecord: 0.1ms | Allocations: 10759)
+
+
+Started GET "/escalas" for 127.0.0.1 at 2024-06-03 20:27:51 -0400
+Processing by PagesController#escalas as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/escalas.html.erb within layouts/application
+  Rendered pages/escalas.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1042)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 6981)
+Completed 200 OK in 16ms (Views: 12.3ms | ActiveRecord: 0.1ms | Allocations: 8556)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 20:27:52 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.6ms | Allocations: 335)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 6404)
+Completed 200 OK in 17ms (Views: 12.1ms | ActiveRecord: 0.2ms | Allocations: 7988)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-03 20:50:52 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 90.9ms | Allocations: 27376)
+  Rendered layout layouts/application.html.erb (Duration: 98.9ms | Allocations: 34081)
+Completed 200 OK in 109ms (Views: 101.9ms | ActiveRecord: 0.0ms | Allocations: 38571)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 20:50:55 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/menu
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 24ms (ActiveRecord: 1.8ms | Allocations: 9240)
+
+
+Started GET "/menu" for 127.0.0.1 at 2024-06-03 20:50:55 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2930)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 8884)
+Completed 200 OK in 18ms (Views: 12.6ms | ActiveRecord: 0.4ms | Allocations: 10741)
+
+
+Started GET "/escalas" for 127.0.0.1 at 2024-06-03 20:50:56 -0400
+Processing by PagesController#escalas as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/escalas.html.erb within layouts/application
+  Rendered pages/escalas.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1042)
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 6981)
+Completed 200 OK in 19ms (Views: 13.0ms | ActiveRecord: 0.2ms | Allocations: 8559)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 20:50:58 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.3ms | Allocations: 344)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 6415)
+Completed 200 OK in 15ms (Views: 10.3ms | ActiveRecord: 0.2ms | Allocations: 7987)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-03 20:55:14 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 97.2ms | Allocations: 27359)
+  Rendered layout layouts/application.html.erb (Duration: 109.3ms | Allocations: 34073)
+Completed 200 OK in 123ms (Views: 114.1ms | ActiveRecord: 0.0ms | Allocations: 38566)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 20:55:15 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/menu
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 17ms (ActiveRecord: 0.7ms | Allocations: 9255)
+
+
+Started GET "/menu" for 127.0.0.1 at 2024-06-03 20:55:15 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 3.8ms | Allocations: 2930)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 8884)
+Completed 200 OK in 15ms (Views: 12.2ms | ActiveRecord: 0.2ms | Allocations: 10753)
+
+
+Started GET "/escalas" for 127.0.0.1 at 2024-06-03 20:55:16 -0400
+Processing by PagesController#escalas as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/escalas.html.erb within layouts/application
+  Rendered pages/escalas.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1061)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 7000)
+Completed 200 OK in 14ms (Views: 9.8ms | ActiveRecord: 0.1ms | Allocations: 8545)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 20:55:19 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 2.1ms | Allocations: 344)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 6415)
+Completed 200 OK in 14ms (Views: 9.0ms | ActiveRecord: 0.3ms | Allocations: 7972)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 20:56:33 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.6ms | Allocations: 583)
+  Rendered layout layouts/application.html.erb (Duration: 72.0ms | Allocations: 33353)
+Completed 200 OK in 99ms (Views: 75.4ms | ActiveRecord: 0.5ms | Allocations: 45784)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-03 20:56:35 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1105)
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 7300)
+Completed 200 OK in 16ms (Views: 15.1ms | ActiveRecord: 0.0ms | Allocations: 7708)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-03 20:56:37 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/menu
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 10ms (ActiveRecord: 1.2ms | Allocations: 2111)
+
+
+Started GET "/menu" for 127.0.0.1 at 2024-06-03 20:56:37 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 3.8ms | Allocations: 2930)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 8882)
+Completed 200 OK in 15ms (Views: 11.8ms | ActiveRecord: 0.1ms | Allocations: 10559)
+
+
+Started GET "/escalas" for 127.0.0.1 at 2024-06-03 20:56:38 -0400
+Processing by PagesController#escalas as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/escalas.html.erb within layouts/application
+  Rendered pages/escalas.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1062)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 7001)
+Completed 200 OK in 20ms (Views: 12.4ms | ActiveRecord: 0.4ms | Allocations: 8567)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 20:56:39 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 6074)
+Completed 200 OK in 18ms (Views: 14.3ms | ActiveRecord: 0.2ms | Allocations: 7613)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 20:56:51 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 6077)
+Completed 200 OK in 10ms (Views: 6.9ms | ActiveRecord: 0.1ms | Allocations: 7646)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 20:57:28 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 0.3ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 6187)
+Completed 200 OK in 13ms (Views: 8.4ms | ActiveRecord: 0.2ms | Allocations: 7752)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 20:59:42 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.3ms | Allocations: 364)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 6826)
+Completed 200 OK in 24ms (Views: 17.1ms | ActiveRecord: 0.8ms | Allocations: 8873)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 20:59:57 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.1ms | Allocations: 362)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 6913)
+Completed 200 OK in 19ms (Views: 12.0ms | ActiveRecord: 0.4ms | Allocations: 9178)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 21:02:13 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.7ms | Allocations: 360)
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 6819)
+Completed 200 OK in 21ms (Views: 15.7ms | ActiveRecord: 0.3ms | Allocations: 9057)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 21:05:01 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.1ms | Allocations: 362)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 6828)
+Completed 200 OK in 20ms (Views: 14.6ms | ActiveRecord: 0.2ms | Allocations: 9043)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 21:05:15 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.4ms | Allocations: 362)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 6818)
+Completed 200 OK in 21ms (Views: 15.3ms | ActiveRecord: 0.4ms | Allocations: 9065)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 21:05:28 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.4ms | Allocations: 362)
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 6818)
+Completed 200 OK in 25ms (Views: 20.0ms | ActiveRecord: 0.2ms | Allocations: 9044)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 21:10:03 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.4ms | Allocations: 362)
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 6818)
+Completed 200 OK in 21ms (Views: 17.3ms | ActiveRecord: 0.2ms | Allocations: 9083)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 21:23:42 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.3ms | Allocations: 384)
+  Rendered layout layouts/application.html.erb (Duration: 13.7ms | Allocations: 6840)
+Completed 200 OK in 27ms (Views: 16.3ms | ActiveRecord: 1.3ms | Allocations: 9249)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 21:24:32 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 0.9ms | Allocations: 387)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 6956)
+Completed 200 OK in 18ms (Views: 13.3ms | ActiveRecord: 0.3ms | Allocations: 9181)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 21:28:18 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.4ms | Allocations: 387)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 6848)
+Completed 200 OK in 23ms (Views: 16.6ms | ActiveRecord: 0.3ms | Allocations: 9083)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 21:30:34 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.1ms | Allocations: 408)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 6959)
+Completed 200 OK in 19ms (Views: 12.5ms | ActiveRecord: 0.1ms | Allocations: 9168)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 21:32:01 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.1ms | Allocations: 406)
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 6865)
+Completed 200 OK in 18ms (Views: 13.1ms | ActiveRecord: 0.1ms | Allocations: 9109)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 21:32:21 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.0ms | Allocations: 404)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 6870)
+Completed 200 OK in 20ms (Views: 15.1ms | ActiveRecord: 0.1ms | Allocations: 9133)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 21:33:04 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 2.1ms | Allocations: 408)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 6864)
+Completed 200 OK in 17ms (Views: 12.7ms | ActiveRecord: 0.1ms | Allocations: 9084)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 21:34:29 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 3.0ms | Allocations: 415)
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 6871)
+Completed 200 OK in 20ms (Views: 15.8ms | ActiveRecord: 0.5ms | Allocations: 9085)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 21:36:11 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.3ms | Allocations: 418)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 6874)
+Completed 200 OK in 24ms (Views: 17.4ms | ActiveRecord: 0.3ms | Allocations: 9133)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 21:36:31 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 9.4ms | Allocations: 414)
+  Rendered layout layouts/application.html.erb (Duration: 17.8ms | Allocations: 6991)
+Completed 200 OK in 27ms (Views: 21.3ms | ActiveRecord: 0.2ms | Allocations: 9224)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 21:37:58 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.5ms | Allocations: 416)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 6986)
+Completed 200 OK in 18ms (Views: 13.4ms | ActiveRecord: 0.1ms | Allocations: 9214)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 21:38:34 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.8ms | Allocations: 416)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 6872)
+Completed 200 OK in 21ms (Views: 16.0ms | ActiveRecord: 0.2ms | Allocations: 9122)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 21:38:59 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.1ms | Allocations: 417)
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 6968)
+Completed 200 OK in 19ms (Views: 15.0ms | ActiveRecord: 0.2ms | Allocations: 9197)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 21:39:08 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 2.1ms | Allocations: 416)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 6875)
+Completed 200 OK in 23ms (Views: 19.1ms | ActiveRecord: 0.2ms | Allocations: 9101)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 21:39:34 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.7ms | Allocations: 415)
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 6881)
+Completed 200 OK in 18ms (Views: 14.1ms | ActiveRecord: 0.1ms | Allocations: 9111)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 21:39:36 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 6074)
+Completed 200 OK in 19ms (Views: 13.6ms | ActiveRecord: 0.1ms | Allocations: 7826)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 21:41:43 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.5ms | Allocations: 416)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 6872)
+Completed 200 OK in 20ms (Views: 14.9ms | ActiveRecord: 0.1ms | Allocations: 8903)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 21:41:57 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.3ms | Allocations: 416)
+  Rendered layout layouts/application.html.erb (Duration: 17.4ms | Allocations: 6916)
+Completed 200 OK in 25ms (Views: 20.4ms | ActiveRecord: 0.3ms | Allocations: 9134)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 21:42:06 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.4ms | Allocations: 421)
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 6986)
+Completed 200 OK in 20ms (Views: 12.7ms | ActiveRecord: 0.2ms | Allocations: 9195)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 21:42:25 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 2.7ms | Allocations: 417)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 6982)
+Completed 200 OK in 19ms (Views: 14.1ms | ActiveRecord: 0.4ms | Allocations: 9233)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 21:43:22 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.9ms | Allocations: 417)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 6874)
+Completed 200 OK in 19ms (Views: 14.0ms | ActiveRecord: 0.2ms | Allocations: 9101)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 21:46:07 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.5ms | Allocations: 418)
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 6902)
+Completed 200 OK in 20ms (Views: 12.2ms | ActiveRecord: 0.7ms | Allocations: 9125)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 21:47:30 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 2.1ms | Allocations: 438)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 6903)
+Completed 200 OK in 17ms (Views: 12.4ms | ActiveRecord: 0.3ms | Allocations: 9123)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 21:52:35 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.3ms | Allocations: 445)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 6902)
+Completed 200 OK in 19ms (Views: 14.4ms | ActiveRecord: 0.3ms | Allocations: 9141)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 21:53:57 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 0.5ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 6074)
+Completed 200 OK in 21ms (Views: 14.3ms | ActiveRecord: 0.2ms | Allocations: 7805)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 21:54:03 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 2.8ms | Allocations: 446)
+  Rendered layout layouts/application.html.erb (Duration: 17.0ms | Allocations: 7015)
+Completed 200 OK in 22ms (Views: 18.5ms | ActiveRecord: 0.4ms | Allocations: 9062)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 21:59:41 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 3.2ms | Allocations: 598)
+  Rendered layout layouts/application.html.erb (Duration: 28.3ms | Allocations: 7167)
+Completed 200 OK in 49ms (Views: 31.2ms | ActiveRecord: 9.5ms | Allocations: 9582)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 22:00:16 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 0.2ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 6183)
+Completed 200 OK in 12ms (Views: 7.6ms | ActiveRecord: 0.2ms | Allocations: 7966)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 22:04:14 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 2.0ms | Allocations: 595)
+  Rendered layout layouts/application.html.erb (Duration: 14.4ms | Allocations: 7121)
+Completed 200 OK in 26ms (Views: 17.0ms | ActiveRecord: 0.5ms | Allocations: 9167)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 22:04:29 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 6102)
+Completed 200 OK in 16ms (Views: 11.6ms | ActiveRecord: 0.1ms | Allocations: 7842)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 22:05:03 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 2.4ms | Allocations: 582)
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 7047)
+Completed 200 OK in 20ms (Views: 17.0ms | ActiveRecord: 0.2ms | Allocations: 9078)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 22:06:30 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 4.4ms | Allocations: 580)
+  Rendered layout layouts/application.html.erb (Duration: 19.8ms | Allocations: 7037)
+Completed 200 OK in 32ms (Views: 22.1ms | ActiveRecord: 0.2ms | Allocations: 9285)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 22:06:38 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 2.0ms | Allocations: 579)
+  Rendered layout layouts/application.html.erb (Duration: 23.2ms | Allocations: 7035)
+Completed 200 OK in 33ms (Views: 28.1ms | ActiveRecord: 0.1ms | Allocations: 9280)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 22:07:10 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 2.0ms | Allocations: 583)
+  Rendered layout layouts/application.html.erb (Duration: 12.9ms | Allocations: 7152)
+Completed 200 OK in 19ms (Views: 14.6ms | ActiveRecord: 0.4ms | Allocations: 9379)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 22:09:57 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 4.2ms | Allocations: 593)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 7159)
+Completed 200 OK in 20ms (Views: 15.5ms | ActiveRecord: 0.2ms | Allocations: 9386)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 22:12:34 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.3ms | Allocations: 594)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 7158)
+Completed 200 OK in 24ms (Views: 16.0ms | ActiveRecord: 0.1ms | Allocations: 9389)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 22:12:56 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 2.2ms | Allocations: 592)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 7051)
+Completed 200 OK in 20ms (Views: 13.4ms | ActiveRecord: 0.3ms | Allocations: 9289)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 22:14:59 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 6086)
+Completed 200 OK in 15ms (Views: 9.7ms | ActiveRecord: 0.5ms | Allocations: 7861)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 22:15:57 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.8ms | Allocations: 585)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 7041)
+Completed 200 OK in 19ms (Views: 13.2ms | ActiveRecord: 0.4ms | Allocations: 9082)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 22:16:14 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.8ms | Allocations: 585)
+  Rendered layout layouts/application.html.erb (Duration: 18.8ms | Allocations: 7048)
+Completed 200 OK in 27ms (Views: 20.6ms | ActiveRecord: 0.2ms | Allocations: 9307)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 22:16:19 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 7.3ms | Allocations: 589)
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 7158)
+Completed 200 OK in 27ms (Views: 20.4ms | ActiveRecord: 0.5ms | Allocations: 9403)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 22:26:47 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 2.0ms | Allocations: 590)
+  Rendered layout layouts/application.html.erb (Duration: 14.4ms | Allocations: 7156)
+Completed 200 OK in 27ms (Views: 16.9ms | ActiveRecord: 2.6ms | Allocations: 9562)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 22:26:57 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 0.2ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 6103)
+Completed 200 OK in 22ms (Views: 15.3ms | ActiveRecord: 0.3ms | Allocations: 7874)
+
+
+Started GET "/home/fois" for 127.0.0.1 at 2024-06-03 22:27:08 -0400
+Processing by PagesController#fois as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fois.html.erb within layouts/application
+  Rendered pages/fois.html.erb within layouts/application (Duration: 1.1ms | Allocations: 418)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 6552)
+Completed 200 OK in 14ms (Views: 10.1ms | ActiveRecord: 0.2ms | Allocations: 8112)
+
+
+Started GET "/home/fois" for 127.0.0.1 at 2024-06-03 22:27:23 -0400
+Processing by PagesController#fois as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fois.html.erb within layouts/application
+  Rendered pages/fois.html.erb within layouts/application (Duration: 2.0ms | Allocations: 442)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 6913)
+Completed 200 OK in 19ms (Views: 15.2ms | ActiveRecord: 0.1ms | Allocations: 8956)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 22:29:34 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 2.6ms | Allocations: 588)
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | Allocations: 7052)
+Completed 200 OK in 19ms (Views: 16.6ms | ActiveRecord: 0.2ms | Allocations: 9285)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 22:29:36 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 29.8ms | Allocations: 6092)
+Completed 200 OK in 37ms (Views: 31.1ms | ActiveRecord: 0.4ms | Allocations: 7842)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-03 22:30:56 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered pages/fils.html.erb within layouts/application (Duration: 1.5ms | Allocations: 596)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 7165)
+Completed 200 OK in 19ms (Views: 13.7ms | ActiveRecord: 0.3ms | Allocations: 9218)
+
+
+Started GET "/escalas" for 127.0.0.1 at 2024-06-03 22:32:39 -0400
+Processing by PagesController#escalas as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/escalas.html.erb within layouts/application
+  Rendered pages/escalas.html.erb within layouts/application (Duration: 34.3ms | Allocations: 1265)
+  Rendered layout layouts/application.html.erb (Duration: 42.3ms | Allocations: 7541)
+Completed 200 OK in 52ms (Views: 46.5ms | ActiveRecord: 0.2ms | Allocations: 9774)
+
+
+Started GET "/home/fois" for 127.0.0.1 at 2024-06-03 22:32:41 -0400
+Processing by PagesController#fois as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fois.html.erb within layouts/application
+  Rendered pages/fois.html.erb within layouts/application (Duration: 6.0ms | Allocations: 417)
+  Rendered layout layouts/application.html.erb (Duration: 15.7ms | Allocations: 6589)
+Completed 200 OK in 24ms (Views: 16.8ms | ActiveRecord: 0.6ms | Allocations: 8343)
+
+
+Started GET "/home/fois" for 127.0.0.1 at 2024-06-03 22:32:48 -0400
+Processing by PagesController#fois as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fois.html.erb within layouts/application
+  Rendered pages/fois.html.erb within layouts/application (Duration: 1.4ms | Allocations: 443)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 6910)
+Completed 200 OK in 26ms (Views: 17.8ms | ActiveRecord: 0.3ms | Allocations: 8938)
+
+
+Started GET "/home/fois" for 127.0.0.1 at 2024-06-03 22:34:19 -0400
+Processing by PagesController#fois as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fois.html.erb within layouts/application
+  Rendered pages/fois.html.erb within layouts/application (Duration: 2.3ms | Allocations: 444)
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 6902)
+Completed 200 OK in 19ms (Views: 14.6ms | ActiveRecord: 0.2ms | Allocations: 9119)
+
+
+Started GET "/home/fois" for 127.0.0.1 at 2024-06-03 22:35:06 -0400
+Processing by PagesController#fois as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fois.html.erb within layouts/application
+  Rendered pages/fois.html.erb within layouts/application (Duration: 2.6ms | Allocations: 518)
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 6982)
+Completed 200 OK in 23ms (Views: 16.7ms | ActiveRecord: 0.3ms | Allocations: 9197)
+
+
+Started GET "/home/fois" for 127.0.0.1 at 2024-06-03 22:35:33 -0400
+Processing by PagesController#fois as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fois.html.erb within layouts/application
+  Rendered pages/fois.html.erb within layouts/application (Duration: 1.6ms | Allocations: 521)
+  Rendered layout layouts/application.html.erb (Duration: 17.1ms | Allocations: 7096)
+Completed 200 OK in 26ms (Views: 19.6ms | ActiveRecord: 0.4ms | Allocations: 9315)
+
+
+Started GET "/home/doss" for 127.0.0.1 at 2024-06-03 22:35:44 -0400
+Processing by PagesController#doss as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/doss.html.erb within layouts/application
+  Rendered pages/doss.html.erb within layouts/application (Duration: 0.9ms | Allocations: 115)
+  Rendered layout layouts/application.html.erb (Duration: 17.0ms | Allocations: 6670)
+Completed 200 OK in 26ms (Views: 20.5ms | ActiveRecord: 0.1ms | Allocations: 8909)
+
+
+Started GET "/home/doss" for 127.0.0.1 at 2024-06-03 22:57:10 -0400
+Processing by PagesController#doss as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/doss.html.erb within layouts/application
+  Rendered pages/doss.html.erb within layouts/application (Duration: 2.5ms | Allocations: 566)
+  Rendered layout layouts/application.html.erb (Duration: 14.1ms | Allocations: 7131)
+Completed 200 OK in 24ms (Views: 16.5ms | ActiveRecord: 1.2ms | Allocations: 9540)
+
+
+Started GET "/home/doss" for 127.0.0.1 at 2024-06-03 22:58:56 -0400
+Processing by PagesController#doss as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/doss.html.erb within layouts/application
+  Rendered pages/doss.html.erb within layouts/application (Duration: 0.8ms | Allocations: 264)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 6785)
+Completed 200 OK in 21ms (Views: 14.4ms | ActiveRecord: 0.7ms | Allocations: 9020)
+
+
+Started GET "/home/doss" for 127.0.0.1 at 2024-06-03 22:59:05 -0400
+Processing by PagesController#doss as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/doss.html.erb within layouts/application
+  Rendered pages/doss.html.erb within layouts/application (Duration: 2.5ms | Allocations: 565)
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | Allocations: 7036)
+Completed 200 OK in 21ms (Views: 16.6ms | ActiveRecord: 0.1ms | Allocations: 9268)
+
+
+Started GET "/home/doss" for 127.0.0.1 at 2024-06-03 23:01:40 -0400
+Processing by PagesController#doss as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/doss.html.erb within layouts/application
+  Rendered pages/doss.html.erb within layouts/application (Duration: 2.5ms | Allocations: 566)
+  Rendered layout layouts/application.html.erb (Duration: 19.2ms | Allocations: 7056)
+Completed 200 OK in 27ms (Views: 21.8ms | ActiveRecord: 0.2ms | Allocations: 9280)
+
+

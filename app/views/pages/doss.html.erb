@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnóstico</title>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+    .container {
+      text-align: center;
+      width: 90%;
+    }
+    .header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      width: 100%;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+    .content {
+      margin-top: 200px;
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 45%;
+    }
+    .btn {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      width: 100%;
+      height: 120px;
+      width: 400px;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2em;
+      margin: 20px 0;
+      text-decoration: none;
+      border-radius: 30px;
+      background-color: #709795;
+      color: black;
+      padding: 10px 10px 10px 60px;
+      position: relative;
+      box-sizing: border-box;
+    }
+    .btn span {
+      font-size: 0.8em;
+    }
+    .btn-severe {
+      background-color: #A8BDBC;
+    }
+    .btn-moderate {
+      background-color: #B5B0C9;
+    }
+    .btn-mild {
+      background-color: #7D9DB7;
+    }
+    .btn::before {
+      content: attr(data-number);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;  /* Agrandado */
+      height: 60px; /* Agrandado */
+      border-radius: 50%;
+      background-color: #256490;
+      color: #FFFFFF; /* Ensure white text */
+      font-weight: bold;
+      position: absolute;
+      left: -30px;   /* Ajustado para el nuevo tamaño */
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .details {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 20px;
+      background-color: #f0f0f0;
+      padding: 20px;
+      border-radius: 10px;
+      width: 45%;
+    }
+    .details h2 {
+      color: #256490;
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+    .details p {
+      font-size: 1em;
+      margin: 10px 0;
+    }
+    .square {
+      width: 150px; /* Ampliado para acomodar más texto */
+      height: auto; /* Permitir que el tamaño varíe según el contenido */
+      background-color: #FFFFFF;
+      border: 2px solid #256490;
+      box-sizing: border-box;
+      margin-right: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.8em; /* Ajusta el tamaño de la letra según sea necesario */
+      color: #000000; /* Color de la letra negra */
+    }
+    .squares-container {
+      display: flex;
+      justify-content: space-between;
+      display: none; /* Oculta por defecto */
+      width: 100%;
+    }
+    
+    .circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: #256490; /* Azul */
+      color: #FFFFFF; /* Color del texto blanco */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-top: -30px; /* Alineado con la parte superior de los cuadrados */
+      margin-left: 15px; /* Espacio entre los círculos y los cuadrados */
+    }
+
+    .circles-container {
+      width: 95%;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 60px;
+      margin-bottom: 30px; /* Espacio entre los círculos y los cuadrados */
+      display: none; /* Oculta por defecto */
+    }
+
+    .title-container {
+      display: flex;
+      justify-content: center; /* Centra horizontalmente */
+      margin-bottom: 20px; /* Espacio debajo del título */
+    }
+
+
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">Diagnóstico</div>
+    <div class="content">
+      <div class="options">
+        <div class="option">
+          <button class="btn btn-severe" onclick="showDetails('severe')" data-number="1-2">
+            Vía oral suspencida
+            <span>Nada de nutrición oral</span>
+          </button>
+        </div>
+        <div class="option">
+          <button class="btn btn-moderate" onclick="showDetails('moderate')" data-number="3-5">
+            Nutrición vía oral
+            <span>Dieta modificada y/o independencia</span>
+            
+          </button>
+        </div>
+        <div class="option">
+          <button class="btn btn-mild" onclick="showDetails('mild')" data-number="6-7">
+            Nutrición por vía oral
+            <span>Dieta normal</span>
+          </button>
+        </div>
+      </div>
+      <div id="details" class="details">
+        <h2 id="details-title">Presiona cualquiera de los niveles para obtener más detalles</h2>
+        <p id="details-description"></p>
+        <div class="circles-container">
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
+        <div class="squares-container">
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function showDetails(type) {
+      var title = '';
+      var description = '';
+      var circles = [];
+      var squares = [];
+    
+      if (type === 'severe') {
+        title = 'Vía oral suspencida';
+        description = 'Nada de nutrición oral';
+        circles = ['1', '2'];
+        squares = [
+          'Disfagia severa: vía oral suspendida. No tolera administración por vía oral de forma segura.',
+          'Disfagia moderada/severa: Máxima asistencia o uso de estrategias con vía oral parcial (tolerancia de al menos una consistencia de forma segura con uso total de estrategias).'
+        ];
+      } else if (type === 'moderate') {
+        title = 'Nutrición vía oral';
+        description = 'Dieta modificada y/o independencia';
+        circles = ['3','4','5'];
+        squares = [
+            'Disfagia moderada: total asistencia, supervisión o estrategias, restricción de dos o más consistencias.',
+            'Disfagia leve/moderada: supervisión intermitente, restricción de una o dos consistencias.',
+            'Disfagia leve: supervisión a distancia, puede necesitar de restricciones de una consistencia.'
+        ];
+
+      } else if (type === 'mild') {
+        title = 'Nutrición por vía oral';
+        description = 'Dieta normal';
+        circles = ['6','7'];
+        squares = [
+          'Con límites funcionales/independencia modificada: Dieta normal, deglución funcional.El paciente puede tener un leve retraso en la fase oral o faríngea, retención o restos cubriendo la epiglotis, pero consigue despejarlo espontáneamente. Puede necesitar tiempo adicional en las comidas. No hay aspiraciones ni penetraciones en ninguna consistencia.',
+          'Normalidad en todas las situaciones: Dieta normal, sin necesidad de estrategias o tiempo adicional.'
+        ];
+      }
+    
+      document.getElementById('details-title').innerText = title;
+      document.getElementById('details-description').innerText = description;
+    
+      // Actualizar los círculos
+      var circleElements = document.querySelectorAll('.circle');
+      for (var i = 0; i < circles.length; i++) {
+        circleElements[i].innerText = circles[i];
+      }
+    
+      // Actualizar los cuadrados
+      var squareElements = document.querySelectorAll('.square');
+      for (var i = 0; i < squares.length; i++) {
+        squareElements[i].innerText = squares[i];
+      }
+    
+      // Mostrar u ocultar los contenedores según sea necesario
+      document.querySelector('.circles-container').style.display = type === 'severe' || type === 'moderate' ? 'flex' : 'none';
+      document.querySelector('.squares-container').style.display = type === 'severe' || type === 'moderate' ? 'flex' : 'none';
+    }
+  
+  </script>
+</body>
+</html>
+
+#no se ve nivel 6-7
+#casos que son solo 2 cuadrados
