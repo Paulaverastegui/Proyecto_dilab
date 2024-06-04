@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_06_03_193602) do
+ActiveRecord::Schema[7.0].define(version: 2024_06_04_142622) do
   create_table "diagnoses", force: :cascade do |t|
     t.integer "patient_id", null: false
     t.text "description"
@@ -18,6 +18,20 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_03_193602) do
     t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "historia_desde"
+    t.string "perdida_peso"
+    t.string "historia_condicion"
+    t.string "historia_cirugia"
+    t.string "sintomas_episodios"
+    t.string "sintomas_dificultad"
+    t.string "sintomas_sensacion"
+    t.string "sintomas_dolor"
+    t.string "sintomas_frecuencia"
+    t.string "sintomas_evita_alimentos"
+    t.string "sintomas_cansancio"
+    t.string "sintomas_tiempo"
+    t.string "sintomas_nuevo"
+    t.string "escala"
     t.index ["patient_id"], name: "index_diagnoses_on_patient_id"
   end
 

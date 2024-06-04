@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrar Grado de Disfagia</title>
+</head>
+<body>
+  <div class="container">
+    <h2>Seleccione la escala y el nivel de disfagia</h2>
+    <%= form_with(model: [@patient, @diagnosis], url: create_disfagia_patient_diagnoses_path(@patient), local: true) do |form| %>
+      <div class="field">
+        <%= form.label :escala, "Escala" %>
+        <%= form.select :escala, options_for_select([['FILS', 'fils'], ['FOIS', 'fois'], ['DOSS', 'doss']]) %>
+      </div>
+      <div class="field">
+        <%= form.label :nivel, "Nivel" %>
+        <%= form.select :nivel, options_for_select((1..10).to_a.map { |n| [n.to_s, n] }) %>
+      </div>
+      <div class="actions">
+        <%= form.submit "Guardar" %>
+      </div>
+    <% end %>
+  </div>
+</body>
+</html>
+
+
+

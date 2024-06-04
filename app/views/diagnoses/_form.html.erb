@@ -70,6 +70,14 @@
       text-align: left;
       margin-bottom: 10px;
     }
+    .field input[type="text"], .field textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 1em;
+    }
     .actions {
       margin-top: 20px;
     }
@@ -83,10 +91,26 @@
       border-radius: 5px;
     }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const inputs = document.querySelectorAll('input[type="text"], textarea');
+      inputs.forEach(input => {
+        input.addEventListener('keydown', function(event) {
+          if (event.key === 'Enter') {
+            event.preventDefault();
+            const nextInput = document.querySelector(`[tabindex="${this.tabIndex + 1}"]`);
+            if (nextInput) {
+              nextInput.focus();
+            }
+          }
+        });
+      });
+    });
+  </script>
 </head>
 <body>
   <div class="container">
-    <div class="header">Evaluación</div>
+    <div class="header">Diagnóstico</div>
     <div class="content">
       <div class="details">
         <h2>Evaluación de la deglución a pie de cama</h2>
@@ -107,80 +131,67 @@
               <h3>I. Historia médica:</h3>
               <div class="field">
                 <%= form.label :historia_desde, "¿Desde cuándo ha tenido problemas para tragar?" %>
-                <%= form.text_field :historia_desde %>
+                <%= form.text_area :historia_desde, size: "60x3", tabindex: 1 %>
               </div>
               <div class="field">
-                <%= form.label :historia_peso, "¿Ha notado pérdida de peso no intencional?" %>
-                <%= form.text_field :historia_peso %>
+                <%= form.label :perdida_peso, "¿Ha notado pérdida de peso no intencional?" %>
+                <%= form.text_area :perdida_peso, size: "60x3", tabindex: 2 %>
               </div>
               <div class="field">
                 <%= form.label :historia_condicion, "¿Tiene alguna condición médica que pueda estar relacionada?" %>
-                <%= form.text_field :historia_condicion %>
+                <%= form.text_area :historia_condicion, size: "60x3", tabindex: 3 %>
               </div>
               <div class="field">
-                <%= form.label :historia_cirugias, "¿Ha tenido cirugías recientes?" %>
-                <%= form.text_field :historia_cirugias %>
+                <%= form.label :historia_cirugia, "¿Ha tenido cirugías recientes?" %>
+                <%= form.text_area :historia_cirugia, size: "60x3", tabindex: 4 %>
               </div>
             </div>
             <div class="question-group">
               <h3>II. Síntomas actuales:</h3>
               <div class="field">
                 <%= form.label :sintomas_episodios, "¿Ha tenido episodios de atragantamiento o tos al comer o beber?" %>
-                <%= form.text_field :sintomas_episodios %>
+                <%= form.text_area :sintomas_episodios, size: "60x3", tabindex: 5 %>
               </div>
               <div class="field">
                 <%= form.label :sintomas_dificultad, "¿Tiene dificultad para tragar líquidos, sólidos o ambos? (dar ejemplos de comidas: carne, arroz, pan etc)" %>
-                <%= form.text_field :sintomas_dificultad %>
+                <%= form.text_area :sintomas_dificultad, size: "60x3", tabindex: 6 %>
               </div>
               <div class="field">
-                <%= form.label :sintomas_atascada, "¿Tiene la sensación de que la comida se le queda atascada en la garganta o el pecho?" %>
-                <%= form.text_field :sintomas_atascada %>
+                <%= form.label :sintomas_sensacion, "¿Tiene la sensación de que la comida se le queda atascada en la garganta o el pecho?" %>
+                <%= form.text_area :sintomas_sensacion, size: "60x3", tabindex: 7 %>
               </div>
               <div class="field">
                 <%= form.label :sintomas_dolor, "¿Experimenta dolor al tragar?" %>
-                <%= form.text_field :sintomas_dolor %>
+                <%= form.text_area :sintomas_dolor, size: "60x3", tabindex: 8 %>
               </div>
               <div class="field">
                 <%= form.label :sintomas_frecuencia, "¿Qué tan frecuente tiene problemas para tragar?" %>
-                <%= form.text_field :sintomas_frecuencia %>
+                <%= form.text_area :sintomas_frecuencia, size: "60x3", tabindex: 9 %>
               </div>
               <div class="field">
-                <%= form.label :sintomas_alimentos_evita, "¿Evita ciertos alimentos debido a la dificultad para tragar?" %>
-                <%= form.text_field :sintomas_alimentos_evita %>
+                <%= form.label :sintomas_evita_alimentos, "¿Evita ciertos alimentos debido a la dificultad para tragar?" %>
+                <%= form.text_area :sintomas_evita_alimentos, size: "60x3", tabindex: 10 %>
               </div>
               <div class="field">
                 <%= form.label :sintomas_cansancio, "¿Se cansa cuando está comiendo o bebiendo?" %>
-                <%= form.text_field :sintomas_cansancio %>
+                <%= form.text_area :sintomas_cansancio, size: "60x3", tabindex: 11 %>
               </div>
               <div class="field">
-                <%= form.label :sintomas_tiempo_almuerzo, "¿Cuánto tiempo se demora almorzando?" %>
-                <%= form.text_field :sintomas_tiempo_almuerzo %>
+                <%= form.label :sintomas_tiempo, "¿Cuánto tiempo se demora almorzando?" %>
+                <%= form.text_area :sintomas_tiempo, size: "60x3", tabindex: 12 %>
               </div>
               <div class="field">
                 <%= form.label :sintomas_nuevo, "¿Ha sentido algo nuevo que no le ocurría antes?" %>
-                <%= form.text_field :sintomas_nuevo %>
-              </div>
-              <div class="field">
-                <%= form.label :sintomas_observaciones, "Observaciones (opcional)" %>
-                <%= form.text_field :sintomas_observaciones %>
+                <%= form.text_area :sintomas_nuevo, size: "60x3", tabindex: 13 %>
               </div>
             </div>
-            <div class="field">
-              <%= form.label :severity, "Severidad" %>
-              <%= form.select :severity, ['Leve', 'Moderada', 'Severa'], prompt: 'Seleccione severidad' %>
-            </div>
-  
-            <div class="field">
-              <%= form.label :date, "Fecha" %>
-              <%= form.date_select :date %>
-            </div>
-  
             <div class="actions">
-              <%= form.submit %>
+              <%= link_to "Registrar Grado de Disfagia", new_disfagia_patient_diagnoses_path(@patient), class: 'btn btn-primary', tabindex: 17 %>
             </div>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       </div>
     </div>
-  </body>
-  </html>
+  </div>
+</body>
+</html>
