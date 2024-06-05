@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Degluconversor Resultado</title>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  
+    .header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2.5em;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      width: 100%;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999; /* asegura que esté por encima de todo */
+    }
+
+    h1 {
+      font-size: 1.5em;
+      color: #256490;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: #256490;
+      font-size: 1em;
+      margin: 10px 0;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      
+    }
+
+
+    .box {
+      display: flex;
+      align-items: center;
+      width: 400px;
+      height: 100px;
+      font-size: 1em;
+      margin: 2px 0;
+      border-radius: 30px;
+      color: white;
+      padding: 10px 10px 10px 60px;
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    .equal-sign {
+      font-size: 5em;
+      color: #7D9DB7;
+      font-weight: bold;
+      margin: 10px 0;
+      
+    }
+
+
+    .container-inicial {
+      background-color: #A8BDBC;
+      margin-top: 150px;
+    }
+
+    .container-final {
+      background-color: #B5B0C9;
+    }
+
+    .box::before {
+      content: attr(data-number);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: #256490;
+      color: #FFFFFF;
+      font-weight: bold;
+      position: absolute;
+      left: -40px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .box div {
+      font-size: 1.8em;
+    }
+
+
+    input[type="submit"], .submit-button {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #256490;
+      text-align: center;
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <div class="header">Degluconversor</div>
+  <div class="container">
+    <div class="box container-inicial" data-number="<%= @nivel_seleccionado %>">
+      <div><%= @tabla_seleccionada.capitalize %></div>
+    </div>
+    <div class="equal-sign">=</div>
+    <div class="box container-final" data-number="x">
+      <div><%= @tabla_destino.capitalize %></div>
+    </div>
+    <%= link_to 'ⓘ Ver detalles', degluconversor_tablas_path, class: 'submit-button' %>
+  </div>
+</body>
+</html>

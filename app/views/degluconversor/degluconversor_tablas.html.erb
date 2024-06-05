@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Degluconversor Tablas</title>
+  <style>
+    body {
+      background-color: #709795;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+  
+    .header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2.5em;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap; /* Permite que los elementos se envuelvan en varias líneas */
+      justify-content: space-around; /* Distribuye los elementos horizontalmente */
+      align-items: center; /* Alinea los elementos verticalmente */
+      padding: 20px;
+    }
+
+    .square {
+      height: auto; 
+      background-color: white;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 10px;
+      font-size: 1.8em; 
+      color: #256490;
+      border-radius: 20px;
+      width: 45%; /* Ajusta el ancho de cada cuadrado */
+    }
+    .divider {
+      position: absolute;
+      width: 2px;
+      background-color: white;
+      z-index: 5;
+      
+    }
+
+    .text {
+      height: auto; 
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 10px;
+      font-size: 1.8em; 
+      color: white;
+      width: 45% ; /* Ajusta el ancho del texto */
+    }
+  </style>
+</head>
+<body>
+  <div class="header">Degluconversor</div>
+  <div class="divider"></div>
+  <div class="container">
+    <div class="square">Tabla Inicial</div>
+    <div class="square">Tabla Final</div>
+    <div class="text">Información de la tabla inicial</div>
+    <div class="text">Información de la tabla final</div>
+  </div>
+
+</body>
+</html>
