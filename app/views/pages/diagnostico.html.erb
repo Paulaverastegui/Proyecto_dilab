@@ -123,13 +123,14 @@
         <h3>Seleccione un paciente para comenzar el diagnóstico:</h3>
         <% @patients.each_with_index do |patient, index| %>
           <div class="patient-item" data-number="<%= index + 1 %>">
-            <%= link_to patient.name, new_patient_diagnosis_path(patient), class: 'start-button' %>
+            <%= link_to patient.name, new_patient_diagnosis_path(patient_id: patient.id), class: "patient-link" %>
           </div>
         <% end %>
       </div>
     </div>
   </div>
 </body>
+</html>
 </html>
 
 

@@ -1,4 +1,4 @@
 class Diagnosis < ApplicationRecord
   belongs_to :patient
-  validates :description, :severity, presence: true
+  has_many :levels, dependent: :destroy 
 end

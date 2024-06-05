@@ -1,0 +1,9 @@
+<!-- levels/new.html.erb -->
+<%= form_with(model: @level, url: patient_diagnosis_levels_path(@patient, @diagnosis), method: :post) do |form| %>
+  <%= form.hidden_field :diagnosis_id, value: @diagnosis.id %>
+  <%= form.label :escala %>
+  <%= form.text_field :escala %>
+  <%= form.label :severidad %>
+  <%= form.text_field :severidad %>
+  <%= form.submit "Guardar Nivel" %>
+<% end %>

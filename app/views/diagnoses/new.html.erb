@@ -1,3 +1,43 @@
-<%# app/views/diagnoses/new.html.erb %>
-<h1>Nuevo Diagnóstico para <%= @patient.name %></h1>
-<%= render 'form' %>
+<!-- new.html.erb -->
+<%= form_with(model: @diagnosis, url: diagnoses_path, method: :post) do |form| %>
+  <%= form.hidden_field :patient_id, value: @patient.id %>
+
+  <div class="field">
+    <%= form.label :historia_desde, "¿Desde cuándo ha tenido problemas para tragar?" %>
+    <%= form.text_area :historia_desde, rows: 3 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :perdida_peso, "¿Ha notado pérdida de peso no intencional?" %>
+    <%= form.text_area :perdida_peso, rows: 3 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :historia_condicion, "¿Tiene alguna condición médica que pueda estar relacionada?" %>
+    <%= form.text_area :historia_condicion, rows: 3 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :historia_cirugia, "¿Ha tenido cirugías recientes?" %>
+    <%= form.text_area :historia_cirugia, rows: 3 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sintomas_episodios, "¿Ha tenido episodios de atragantamiento o tos al comer o beber?" %>
+    <%= form.text_area :sintomas_episodios, rows: 3 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sintomas_dificultad, "¿Tiene dificultad para tragar líquidos, sólidos o ambos? (dar ejemplos de comidas: carne, arroz, pan etc)" %>
+    <%= form.text_area :sintomas_dificultad, rows: 3 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sintomas_sensacion, "¿Tiene la sensación de que la comida se le queda atascada en la garganta o el pecho?" %>
+    <%= form.text_area :sintomas_sensacion, rows: 3 %>
+  </div>
+
+  <!-- Otros campos de formulario para los demás atributos de diagnóstico -->
+
+  <%= form.submit "Guardar Diagnóstico" %>
+<% end %>

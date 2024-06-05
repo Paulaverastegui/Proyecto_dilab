@@ -4115,3 +4115,324 @@ Processing by DiagnosesController#create_disfagia as HTML
 Completed 200 OK in 24ms (Views: 12.9ms | ActiveRecord: 0.4ms | Allocations: 11217)
 
 
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveEscalaAndSeverityFromDiagnoses (20240604233529)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TEMPORARY TABLE "adiagnoses" ("id" integer NOT NULL PRIMARY KEY, "patient_id" integer NOT NULL, "description" text DEFAULT NULL, "severity" varchar DEFAULT NULL, "date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "historia_desde" varchar DEFAULT NULL, "perdida_peso" varchar DEFAULT NULL, "historia_condicion" varchar DEFAULT NULL, "historia_cirugia" varchar DEFAULT NULL, "sintomas_episodios" varchar DEFAULT NULL, "sintomas_dificultad" varchar DEFAULT NULL, "sintomas_sensacion" varchar DEFAULT NULL, "sintomas_dolor" varchar DEFAULT NULL, "sintomas_frecuencia" varchar DEFAULT NULL, "sintomas_evita_alimentos" varchar DEFAULT NULL, "sintomas_cansancio" varchar DEFAULT NULL, "sintomas_tiempo" varchar DEFAULT NULL, "sintomas_nuevo" varchar DEFAULT NULL, "escala" varchar DEFAULT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_adiagnoses_on_patient_id" ON "adiagnoses" ("patient_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "adiagnoses" ("id","patient_id","description","severity","date","created_at","updated_at","historia_desde","perdida_peso","historia_condicion","historia_cirugia","sintomas_episodios","sintomas_dificultad","sintomas_sensacion","sintomas_dolor","sintomas_frecuencia","sintomas_evita_alimentos","sintomas_cansancio","sintomas_tiempo","sintomas_nuevo","escala")
+                     SELECT "id","patient_id","description","severity","date","created_at","updated_at","historia_desde","perdida_peso","historia_condicion","historia_cirugia","sintomas_episodios","sintomas_dificultad","sintomas_sensacion","sintomas_dolor","sintomas_frecuencia","sintomas_evita_alimentos","sintomas_cansancio","sintomas_tiempo","sintomas_nuevo","escala" FROM "diagnoses"[0m
+  [1m[35m (1.8ms)[0m  [1m[35mDROP TABLE "diagnoses"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "diagnoses" ("id" integer NOT NULL PRIMARY KEY, "patient_id" integer NOT NULL, "description" text DEFAULT NULL, "severity" varchar DEFAULT NULL, "date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "historia_desde" varchar DEFAULT NULL, "perdida_peso" varchar DEFAULT NULL, "historia_condicion" varchar DEFAULT NULL, "historia_cirugia" varchar DEFAULT NULL, "sintomas_episodios" varchar DEFAULT NULL, "sintomas_dificultad" varchar DEFAULT NULL, "sintomas_sensacion" varchar DEFAULT NULL, "sintomas_dolor" varchar DEFAULT NULL, "sintomas_frecuencia" varchar DEFAULT NULL, "sintomas_evita_alimentos" varchar DEFAULT NULL, "sintomas_cansancio" varchar DEFAULT NULL, "sintomas_tiempo" varchar DEFAULT NULL, "sintomas_nuevo" varchar DEFAULT NULL, CONSTRAINT "fk_rails_b4ae3dea5a"
+FOREIGN KEY ("patient_id")
+  REFERENCES "patients" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_diagnoses_on_patient_id" ON "diagnoses" ("patient_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "diagnoses" ("id","patient_id","description","severity","date","created_at","updated_at","historia_desde","perdida_peso","historia_condicion","historia_cirugia","sintomas_episodios","sintomas_dificultad","sintomas_sensacion","sintomas_dolor","sintomas_frecuencia","sintomas_evita_alimentos","sintomas_cansancio","sintomas_tiempo","sintomas_nuevo")
+                     SELECT "id","patient_id","description","severity","date","created_at","updated_at","historia_desde","perdida_peso","historia_condicion","historia_cirugia","sintomas_episodios","sintomas_dificultad","sintomas_sensacion","sintomas_dolor","sintomas_frecuencia","sintomas_evita_alimentos","sintomas_cansancio","sintomas_tiempo","sintomas_nuevo" FROM "adiagnoses"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "adiagnoses"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "adiagnoses" ("id" integer NOT NULL PRIMARY KEY, "patient_id" integer NOT NULL, "description" text DEFAULT NULL, "severity" varchar DEFAULT NULL, "date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "historia_desde" varchar DEFAULT NULL, "perdida_peso" varchar DEFAULT NULL, "historia_condicion" varchar DEFAULT NULL, "historia_cirugia" varchar DEFAULT NULL, "sintomas_episodios" varchar DEFAULT NULL, "sintomas_dificultad" varchar DEFAULT NULL, "sintomas_sensacion" varchar DEFAULT NULL, "sintomas_dolor" varchar DEFAULT NULL, "sintomas_frecuencia" varchar DEFAULT NULL, "sintomas_evita_alimentos" varchar DEFAULT NULL, "sintomas_cansancio" varchar DEFAULT NULL, "sintomas_tiempo" varchar DEFAULT NULL, "sintomas_nuevo" varchar DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_adiagnoses_on_patient_id" ON "adiagnoses" ("patient_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "adiagnoses" ("id","patient_id","description","severity","date","created_at","updated_at","historia_desde","perdida_peso","historia_condicion","historia_cirugia","sintomas_episodios","sintomas_dificultad","sintomas_sensacion","sintomas_dolor","sintomas_frecuencia","sintomas_evita_alimentos","sintomas_cansancio","sintomas_tiempo","sintomas_nuevo")
+                     SELECT "id","patient_id","description","severity","date","created_at","updated_at","historia_desde","perdida_peso","historia_condicion","historia_cirugia","sintomas_episodios","sintomas_dificultad","sintomas_sensacion","sintomas_dolor","sintomas_frecuencia","sintomas_evita_alimentos","sintomas_cansancio","sintomas_tiempo","sintomas_nuevo" FROM "diagnoses"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "diagnoses"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "diagnoses" ("id" integer NOT NULL PRIMARY KEY, "patient_id" integer NOT NULL, "description" text DEFAULT NULL, "date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "historia_desde" varchar DEFAULT NULL, "perdida_peso" varchar DEFAULT NULL, "historia_condicion" varchar DEFAULT NULL, "historia_cirugia" varchar DEFAULT NULL, "sintomas_episodios" varchar DEFAULT NULL, "sintomas_dificultad" varchar DEFAULT NULL, "sintomas_sensacion" varchar DEFAULT NULL, "sintomas_dolor" varchar DEFAULT NULL, "sintomas_frecuencia" varchar DEFAULT NULL, "sintomas_evita_alimentos" varchar DEFAULT NULL, "sintomas_cansancio" varchar DEFAULT NULL, "sintomas_tiempo" varchar DEFAULT NULL, "sintomas_nuevo" varchar DEFAULT NULL, CONSTRAINT "fk_rails_b4ae3dea5a"
+FOREIGN KEY ("patient_id")
+  REFERENCES "patients" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_diagnoses_on_patient_id" ON "diagnoses" ("patient_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "diagnoses" ("id","patient_id","description","date","created_at","updated_at","historia_desde","perdida_peso","historia_condicion","historia_cirugia","sintomas_episodios","sintomas_dificultad","sintomas_sensacion","sintomas_dolor","sintomas_frecuencia","sintomas_evita_alimentos","sintomas_cansancio","sintomas_tiempo","sintomas_nuevo")
+                     SELECT "id","patient_id","description","date","created_at","updated_at","historia_desde","perdida_peso","historia_condicion","historia_cirugia","sintomas_episodios","sintomas_dificultad","sintomas_sensacion","sintomas_dolor","sintomas_frecuencia","sintomas_evita_alimentos","sintomas_cansancio","sintomas_tiempo","sintomas_nuevo" FROM "adiagnoses"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "adiagnoses"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20240604233529"]]
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLevels (20240604233735)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "levels" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "escala" varchar, "severidad" integer, "diagnosis_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_a1cee0139c"
+FOREIGN KEY ("diagnosis_id")
+  REFERENCES "diagnoses" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_levels_on_diagnosis_id" ON "levels" ("diagnosis_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20240604233735"]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2024-06-04 19:44:18 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 234.4ms | Allocations: 28462)
+  Rendered layout layouts/application.html.erb (Duration: 270.3ms | Allocations: 35382)
+Completed 200 OK in 301ms (Views: 279.0ms | ActiveRecord: 0.0ms | Allocations: 39886)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-04 19:44:20 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 21.0ms | Allocations: 3433)
+  Rendered layout layouts/application.html.erb (Duration: 50.6ms | Allocations: 9878)
+Completed 200 OK in 227ms (Views: 55.0ms | ActiveRecord: 2.5ms | Allocations: 20038)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-06-04 19:44:26 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"phverastegui@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "phverastegui@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/menu
+Completed 303 See Other in 461ms (ActiveRecord: 1.5ms | Allocations: 4447)
+
+
+Started GET "/menu" for 127.0.0.1 at 2024-06-04 19:44:27 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 15.7ms | Allocations: 3198)
+  Rendered layout layouts/application.html.erb (Duration: 31.7ms | Allocations: 9354)
+Completed 200 OK in 37ms (Views: 32.7ms | ActiveRecord: 0.1ms | Allocations: 11209)
+
+
+Started GET "/diagnostico" for 127.0.0.1 at 2024-06-04 19:44:28 -0400
+Processing by PagesController#diagnostico as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/diagnostico.html.erb within layouts/application
+  [1m[36mPatient Load (1.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/pages/diagnostico.html.erb:124:in `each_with_index'
+  Rendered pages/diagnostico.html.erb within layouts/application (Duration: 30.1ms | Allocations: 5612)
+  Rendered layout layouts/application.html.erb (Duration: 61.9ms | Allocations: 12113)
+Completed 200 OK in 123ms (Views: 60.5ms | ActiveRecord: 2.7ms | Allocations: 17255)
+
+
+Started GET "/patients/1/diagnoses/new" for 127.0.0.1 at 2024-06-04 19:44:30 -0400
+  
+SyntaxError (/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/diagnoses_controller.rb:24: syntax error, unexpected `end', expecting end-of-input):
+  
+app/controllers/diagnoses_controller.rb:24: syntax error, unexpected `end', expecting end-of-input
+app/controllers/diagnoses_controller.rb:24: syntax error, unexpected `end', expecting end-of-input
+Started GET "/patients/1/diagnoses/new" for 127.0.0.1 at 2024-06-04 19:45:28 -0400
+Processing by DiagnosesController#new as HTML
+  Parameters: {"patient_id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.8ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:5:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/new.html.erb within layouts/application
+  Rendered diagnoses/new.html.erb within layouts/application (Duration: 11.4ms | Allocations: 2162)
+  Rendered layout layouts/application.html.erb (Duration: 32.8ms | Allocations: 8715)
+Completed 200 OK in 90ms (Views: 34.7ms | ActiveRecord: 4.4ms | Allocations: 29977)
+
+
+Started POST "/diagnoses" for 127.0.0.1 at 2024-06-04 19:45:34 -0400
+Processing by DiagnosesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "diagnosis"=>{"patient_id"=>"1", "historia_desde"=>"dsf", "perdida_peso"=>"sdf", "historia_condicion"=>"sdf", "historia_cirugia"=>"sdfs", "sintomas_episodios"=>"df", "sintomas_dificultad"=>"sfd", "sintomas_sensacion"=>"sdf"}, "commit"=>"Guardar Diagnóstico"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (1.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:9:in `create'
+[31mUnpermitted parameter: :patient_id. Context: { controller: DiagnosesController, action: create, request: #<ActionDispatch::Request:0x000000010b6ab6a0>, params: {"authenticity_token"=>"[FILTERED]", "diagnosis"=>{"patient_id"=>"1", "historia_desde"=>"dsf", "perdida_peso"=>"sdf", "historia_condicion"=>"sdf", "historia_cirugia"=>"sdfs", "sintomas_episodios"=>"df", "sintomas_dificultad"=>"sfd", "sintomas_sensacion"=>"sdf"}, "commit"=>"Guardar Diagnóstico", "controller"=>"diagnoses", "action"=>"create"} }[0m
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 1.3ms | Allocations: 12661)
+
+
+  
+NoMethodError (undefined method `severity' for #<Diagnosis id: nil, patient_id: 1, description: nil, date: nil, created_at: nil, updated_at: nil, historia_desde: "dsf", perdida_peso: "sdf", historia_condicion: "sdf", historia_cirugia: "sdfs", sintomas_episodios: "df", sintomas_dificultad: "sfd", sintomas_sensacion: "sdf", sintomas_dolor: nil, sintomas_frecuencia: nil, sintomas_evita_alimentos: nil, sintomas_cansancio: nil, sintomas_tiempo: nil, sintomas_nuevo: nil>):
+  
+app/controllers/diagnoses_controller.rb:11:in `create'
+Started GET "/diagnoses" for 127.0.0.1 at 2024-06-04 19:50:00 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/diagnoses"):
+  
+Started POST "/diagnoses" for 127.0.0.1 at 2024-06-04 19:50:06 -0400
+Processing by DiagnosesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "diagnosis"=>{"patient_id"=>"1", "historia_desde"=>"dsf", "perdida_peso"=>"sdf", "historia_condicion"=>"sdf", "historia_cirugia"=>"sdfs", "sintomas_episodios"=>"df", "sintomas_dificultad"=>"sfd", "sintomas_sensacion"=>"sdf"}, "commit"=>"Guardar Diagnóstico"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.9ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:9:in `create'
+[31mUnpermitted parameter: :patient_id. Context: { controller: DiagnosesController, action: create, request: #<ActionDispatch::Request:0x000000010b65ad68>, params: {"authenticity_token"=>"[FILTERED]", "diagnosis"=>{"patient_id"=>"1", "historia_desde"=>"dsf", "perdida_peso"=>"sdf", "historia_condicion"=>"sdf", "historia_cirugia"=>"sdfs", "sintomas_episodios"=>"df", "sintomas_dificultad"=>"sfd", "sintomas_sensacion"=>"sdf"}, "commit"=>"Guardar Diagnóstico", "controller"=>"diagnoses", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/diagnoses_controller.rb:11:in `create'
+  [1m[36mDiagnosis Create (8.5ms)[0m  [1m[32mINSERT INTO "diagnoses" ("patient_id", "description", "date", "created_at", "updated_at", "historia_desde", "perdida_peso", "historia_condicion", "historia_cirugia", "sintomas_episodios", "sintomas_dificultad", "sintomas_sensacion", "sintomas_dolor", "sintomas_frecuencia", "sintomas_evita_alimentos", "sintomas_cansancio", "sintomas_tiempo", "sintomas_nuevo") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["patient_id", 1], ["description", nil], ["date", nil], ["created_at", "2024-06-04 23:50:06.133402"], ["updated_at", "2024-06-04 23:50:06.133402"], ["historia_desde", "dsf"], ["perdida_peso", "sdf"], ["historia_condicion", "sdf"], ["historia_cirugia", "sdfs"], ["sintomas_episodios", "df"], ["sintomas_dificultad", "sfd"], ["sintomas_sensacion", "sdf"], ["sintomas_dolor", nil], ["sintomas_frecuencia", nil], ["sintomas_evita_alimentos", nil], ["sintomas_cansancio", nil], ["sintomas_tiempo", nil], ["sintomas_nuevo", nil]]
+  ↳ app/controllers/diagnoses_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/diagnoses_controller.rb:11:in `create'
+Redirected to http://127.0.0.1:3000/patients/1/diagnoses/1/levels/new
+Completed 302 Found in 106ms (ActiveRecord: 19.1ms | Allocations: 20506)
+
+
+Started GET "/patients/1/diagnoses/1/levels/new" for 127.0.0.1 at 2024-06-04 19:50:06 -0400
+Processing by LevelsController#new as HTML
+  Parameters: {"patient_id"=>"1", "diagnosis_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDiagnosis Load (0.3ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/levels_controller.rb:5:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering levels/new.html.erb within layouts/application
+  Rendered levels/new.html.erb within layouts/application (Duration: 15.9ms | Allocations: 5093)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 5181)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 1.0ms | Allocations: 12693)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `levels_path' for #<ActionView::Base:0x0000000001b058>
+
+'.freeze;@output_buffer.append=  form_with(model: @level, url: levels_path, method: :post) do |form| @output_buffer.safe_append='
+                                                               ^^^^^^^^^^^):
+    1: <!-- select_level.html.erb -->
+    2: <%= form_with(model: @level, url: levels_path, method: :post) do |form| %>
+    3:   <%= form.hidden_field :diagnosis_id, value: @diagnosis.id %>
+    4:   <%= form.label :escala %>
+    5:   <%= form.text_field :escala %>
+  
+app/views/levels/new.html.erb:2
+Started GET "/patients/1/diagnoses/1/levels/new" for 127.0.0.1 at 2024-06-04 19:53:53 -0400
+Processing by LevelsController#new as HTML
+  Parameters: {"patient_id"=>"1", "diagnosis_id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDiagnosis Load (0.6ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/levels_controller.rb:5:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering levels/new.html.erb within layouts/application
+  Rendered levels/new.html.erb within layouts/application (Duration: 11.0ms | Allocations: 4797)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 4885)
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 4.5ms | Allocations: 19782)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `levels_path' for #<ActionView::Base:0x00000000021098>
+
+'.freeze;@output_buffer.append=  form_with(model: @level, url: levels_path, method: :post) do |form| @output_buffer.safe_append='
+                                                               ^^^^^^^^^^^):
+    1: <!-- select_level.html.erb -->
+    2: <%= form_with(model: @level, url: levels_path, method: :post) do |form| %>
+    3:   <%= form.hidden_field :diagnosis_id, value: @diagnosis.id %>
+    4:   <%= form.label :escala %>
+    5:   <%= form.text_field :escala %>
+  
+app/views/levels/new.html.erb:2
+Started GET "/patients/1/diagnoses/1/levels/new" for 127.0.0.1 at 2024-06-04 19:55:51 -0400
+Processing by LevelsController#new as HTML
+  Parameters: {"patient_id"=>"1", "diagnosis_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDiagnosis Load (0.2ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/levels_controller.rb:5:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering levels/new.html.erb within layouts/application
+  Rendered levels/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1378)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1467)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.3ms | Allocations: 4407)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"create", :controller=>"levels", :diagnosis_id=>"1", :patient_id=>nil}, missing required keys: [:patient_id]):
+    1: <!-- select_level.html.erb -->
+    2: <%= form_with(model: @level, url: patient_diagnosis_levels_path(@patient, @diagnosis), method: :post) do |form| %>
+    3:   <%= form.hidden_field :diagnosis_id, value: @diagnosis.id %>
+    4:   <%= form.label :escala %>
+    5:   <%= form.text_field :escala %>
+  
+app/views/levels/new.html.erb:2
+Started GET "/patients/1/diagnoses/1/levels/new" for 127.0.0.1 at 2024-06-04 20:00:06 -0400
+Processing by LevelsController#new as HTML
+  Parameters: {"patient_id"=>"1", "diagnosis_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDiagnosis Load (0.2ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/levels_controller.rb:5:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering levels/new.html.erb within layouts/application
+  Rendered levels/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1283)
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | Allocations: 1371)
+Completed 500 Internal Server Error in 52ms (ActiveRecord: 4.0ms | Allocations: 16699)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"create", :controller=>"levels", :diagnosis_id=>"1", :patient_id=>nil}, missing required keys: [:patient_id]):
+    1: <!-- levels/new.html.erb -->
+    2: <%= form_with(model: @level, url: patient_diagnosis_levels_path(@patient, @diagnosis), method: :post) do |form| %>
+    3:   <%= form.hidden_field :diagnosis_id, value: @diagnosis.id %>
+    4:   <%= form.label :escala %>
+    5:   <%= form.text_field :escala %>
+  
+app/views/levels/new.html.erb:2
+Started GET "/patients/1/diagnoses/1/levels/new" for 127.0.0.1 at 2024-06-04 23:17:17 -0400
+Processing by LevelsController#new as HTML
+  Parameters: {"patient_id"=>"1", "diagnosis_id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDiagnosis Load (0.6ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/levels_controller.rb:20:in `set_patient_and_diagnosis'
+  [1m[36mPatient Load (0.6ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/levels_controller.rb:21:in `set_patient_and_diagnosis'
+  Rendering layout layouts/application.html.erb
+  Rendering levels/new.html.erb within layouts/application
+  Rendered levels/new.html.erb within layouts/application (Duration: 8.6ms | Allocations: 1301)
+  Rendered layout layouts/application.html.erb (Duration: 43.3ms | Allocations: 8018)
+Completed 200 OK in 123ms (Views: 48.4ms | ActiveRecord: 6.7ms | Allocations: 27291)
+
+
+Started POST "/patients/1/diagnoses/1/levels" for 127.0.0.1 at 2024-06-04 23:17:25 -0400
+Processing by LevelsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "level"=>{"diagnosis_id"=>"1", "escala"=>"Fois ", "severidad"=>"2"}, "commit"=>"Guardar Nivel", "patient_id"=>"1", "diagnosis_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDiagnosis Load (0.2ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/levels_controller.rb:20:in `set_patient_and_diagnosis'
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/levels_controller.rb:21:in `set_patient_and_diagnosis'
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 0.7ms | Allocations: 8746)
+
+
+  
+NoMethodError (undefined method `levels' for #<Diagnosis id: 1, patient_id: 1, description: nil, date: nil, created_at: "2024-06-04 23:50:06.133402000 +0000", updated_at: "2024-06-04 23:50:06.133402000 +0000", historia_desde: "dsf", perdida_peso: "sdf", historia_condicion: "sdf", historia_cirugia: "sdfs", sintomas_episodios: "df", sintomas_dificultad: "sfd", sintomas_sensacion: "sdf", sintomas_dolor: nil, sintomas_frecuencia: nil, sintomas_evita_alimentos: nil, sintomas_cansancio: nil, sintomas_tiempo: nil, sintomas_nuevo: nil>):
+  
+app/controllers/levels_controller.rb:9:in `create'
+Started GET "/patients/1/diagnoses/1/levels" for 127.0.0.1 at 2024-06-04 23:18:31 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/patients/1/diagnoses/1/levels"):
+  
+Started POST "/patients/1/diagnoses/1/levels" for 127.0.0.1 at 2024-06-04 23:18:35 -0400
+Processing by LevelsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "level"=>{"diagnosis_id"=>"1", "escala"=>"Fois ", "severidad"=>"2"}, "commit"=>"Guardar Nivel", "patient_id"=>"1", "diagnosis_id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDiagnosis Load (0.6ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/levels_controller.rb:20:in `set_patient_and_diagnosis'
+  [1m[36mPatient Load (0.7ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/levels_controller.rb:21:in `set_patient_and_diagnosis'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/levels_controller.rb:10:in `create'
+  [1m[36mLevel Create (3.2ms)[0m  [1m[32mINSERT INTO "levels" ("escala", "severidad", "diagnosis_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["escala", "Fois "], ["severidad", 2], ["diagnosis_id", 1], ["created_at", "2024-06-05 03:18:35.966882"], ["updated_at", "2024-06-05 03:18:35.966882"]]
+  ↳ app/controllers/levels_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/levels_controller.rb:10:in `create'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 93ms (ActiveRecord: 13.1ms | Allocations: 23819)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-04 23:18:36 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1151)
+  Rendered layout layouts/application.html.erb (Duration: 18.0ms | Allocations: 7736)
+Completed 200 OK in 22ms (Views: 20.1ms | ActiveRecord: 0.0ms | Allocations: 8613)
+
+
+  [1m[36mDiagnosis Load (1.1ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses"[0m
+  [1m[36mLevel Load (0.3ms)[0m  [1m[34mSELECT "levels".* FROM "levels"[0m

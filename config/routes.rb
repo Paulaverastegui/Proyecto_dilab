@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'pages#index'
+
   get 'pages/index'
   get 'menu', to: 'pages#menu', as: :menu
   get 'degluconversor', to: 'pages#degluconversor'
@@ -13,11 +14,10 @@ Rails.application.routes.draw do
 
   resources :patients do
     resources :diagnoses, only: [:new, :create, :show, :index] do
-      collection do
-        get 'new_disfagia', to: 'diagnoses#new_disfagia'
-        post 'create_disfagia', to: 'diagnoses#create_disfagia'
-      end
+      resources :levels, only: [:new, :create]
     end
   end
 end
+
+
 
