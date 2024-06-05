@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users
   root 'pages#index'
 
@@ -15,8 +16,16 @@ Rails.application.routes.draw do
   resources :patients do
     resources :diagnoses, only: [:new, :create, :show, :index] do
       resources :levels, only: [:new, :create]
+      get 'intermediate_view', on: :member # Ruta para la vista intermedia
+      resources :guss_scales, only: [:new, :create, :edit, :update, :show] do
+        member do
+          get 'intermediate_view'
+        end
+      end
     end
   end
+
+  resources :guss_scales, only: [:show]
 end
 
 

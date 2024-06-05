@@ -9,11 +9,15 @@ class DiagnosesController < ApplicationController
     @patient = Patient.find(params[:diagnosis][:patient_id])
     @diagnosis = @patient.diagnoses.build(diagnosis_params)
     if @diagnosis.save
-      redirect_to new_patient_diagnosis_level_path(patient_id: @patient.id, diagnosis_id: @diagnosis.id)
-
+      redirect_to intermediate_view_patient_diagnosis_path(@patient.id, @diagnosis.id)
     else
       render 'new'
     end
+  end
+
+  def intermediate_view
+    @patient = Patient.find(params[:patient_id])
+    @diagnosis = Diagnosis.find(params[:id])
   end
 
   private

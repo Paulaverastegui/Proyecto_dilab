@@ -1,0 +1,41 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vigilance: 1
+  cough: 1
+  saliva_swallow: 1
+  sialorrhea: 1
+  voice_changes: 1
+  semi_solids_swallow: 1
+  semi_solids_cough: 1
+  semi_solids_sialorrhea: 1
+  semi_solids_voice_changes: 1
+  liquids_swallow: 1
+  liquids_cough: 1
+  liquids_sialorrhea: 1
+  liquids_voice_changes: 1
+  solids_swallow: 1
+  solids_cough: 1
+  solids_sialorrhea: 1
+  solids_voice_changes: 1
+  diagnosis: one
+
+two:
+  vigilance: 1
+  cough: 1
+  saliva_swallow: 1
+  sialorrhea: 1
+  voice_changes: 1
+  semi_solids_swallow: 1
+  semi_solids_cough: 1
+  semi_solids_sialorrhea: 1
+  semi_solids_voice_changes: 1
+  liquids_swallow: 1
+  liquids_cough: 1
+  liquids_sialorrhea: 1
+  liquids_voice_changes: 1
+  solids_swallow: 1
+  solids_cough: 1
+  solids_sialorrhea: 1
+  solids_voice_changes: 1
+  diagnosis: two
