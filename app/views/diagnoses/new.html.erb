@@ -1,43 +1,165 @@
-<!-- new.html.erb -->
-<%= form_with(model: @diagnosis, url: diagnoses_path, method: :post) do |form| %>
-  <%= form.hidden_field :patient_id, value: @patient.id %>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuevo Diagnóstico</title>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+    .container {
+      text-align: center;
+      width: 90%;
+    }
+    .header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      width: 100%;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+    .content {
+      margin-top: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 40px;
+      background-color: #f0f0f0;
+      padding: 20px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 600px;
+    }
+    .details h2 {
+      color: #256490;
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+    .details h3 {
+        color: #256490;
+        font-size: 1.5em;
+        margin-bottom: 10px;
+      }
+    .field {
+      text-align: left;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+    .field input[type="text"], .field textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 1em;
+    }
+    .actions {
+      margin-top: 20px;
+    }
+    .start-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #256490;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">Nuevo Diagnóstico</div>
+    <div class="content">
+      <div class="details">
+        <h2>Evaluación de la deglución a pie de cama</h2>
+        <%= form_with(model: @diagnosis, url: patient_diagnoses_path(@patient), method: :post) do |form| %>
+          <%= form.hidden_field :patient_id, value: @patient.id %>
+          <h3>I. Historia médica:</h3>
+          <div class="field">
+            <%= form.label :historia_desde, "¿Desde cuándo ha tenido problemas para tragar?" %>
+            <%= form.text_area :historia_desde, rows: 3 %>
+          </div>
 
-  <div class="field">
-    <%= form.label :historia_desde, "¿Desde cuándo ha tenido problemas para tragar?" %>
-    <%= form.text_area :historia_desde, rows: 3 %>
+          <div class="field">
+            <%= form.label :perdida_peso, "¿Ha notado pérdida de peso no intencional?" %>
+            <%= form.text_area :perdida_peso, rows: 3 %>
+          </div>
+
+          <div class="field">
+            <%= form.label :historia_condicion, "¿Tiene alguna condición médica que pueda estar relacionada?" %>
+            <%= form.text_area :historia_condicion, rows: 3 %>
+          </div>
+
+          <div class="field">
+            <%= form.label :historia_cirugia, "¿Ha tenido cirugías recientes?" %>
+            <%= form.text_area :historia_cirugia, rows: 3 %>
+          </div>
+          <h3>II. Síntomas actuales:</h3>
+          <div class="field">
+            <%= form.label :sintomas_episodios, "¿Ha tenido episodios de atragantamiento o tos al comer o beber?" %>
+            <%= form.text_area :sintomas_episodios, rows: 3 %>
+          </div>
+
+          <div class="field">
+            <%= form.label :sintomas_dificultad, "¿Tiene dificultad para tragar líquidos, sólidos o ambos? (dar ejemplos de comidas: carne, arroz, pan etc)" %>
+            <%= form.text_area :sintomas_dificultad, rows: 3 %>
+          </div>
+
+          <div class="field">
+            <%= form.label :sintomas_sensacion, "¿Tiene la sensación de que la comida se le queda atascada en la garganta o el pecho?" %>
+            <%= form.text_area :sintomas_sensacion, rows: 3 %>
+          </div>
+          <div class="field">
+            <%= form.label :sintomas_dolor, "¿Experimenta dolor al tragar?" %>
+            <%= form.text_area :sintomas_dolor, rows: 3 %>
+          </div>
+          <div class="field">
+            <%= form.label :sintomas_frecuencia, "¿Qué tan frecuente tiene problemas para tragar?" %>
+            <%= form.text_area :sintomas_frecuencia, rows: 3 %>
+          </div>
+          <div class="field">
+            <%= form.label :sintomas_evita_alimentos, "¿Evita ciertos alimentos debido a la dificultad para tragar?" %>
+            <%= form.text_area :sintomas_evita_alimentos, rows: 3 %>
+          </div>
+          <div class="field">
+            <%= form.label :sintomas_cansancio, "¿Se cansa cuando está comiendo o bebiendo?" %>
+            <%= form.text_area :sintomas_cansancio, rows: 3 %>
+          </div>
+          <div class="field">
+            <%= form.label :sintomas_tiempo, "¿Cuánto tiempo se demora almorzando?" %>
+            <%= form.text_area :sintomas_tiempo, rows: 3  %>
+          </div>
+          <div class="field">
+            <%= form.label :sintomas_nuevo, "¿Ha sentido algo nuevo que no le ocurría antes?" %>
+            <%= form.text_area :sintomas_nuevo, rows: 3  %>
+           </div>
+
+          <div class="actions">
+            <%= form.submit "Guardar Diagnóstico", class: "start-button" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :perdida_peso, "¿Ha notado pérdida de peso no intencional?" %>
-    <%= form.text_area :perdida_peso, rows: 3 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :historia_condicion, "¿Tiene alguna condición médica que pueda estar relacionada?" %>
-    <%= form.text_area :historia_condicion, rows: 3 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :historia_cirugia, "¿Ha tenido cirugías recientes?" %>
-    <%= form.text_area :historia_cirugia, rows: 3 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :sintomas_episodios, "¿Ha tenido episodios de atragantamiento o tos al comer o beber?" %>
-    <%= form.text_area :sintomas_episodios, rows: 3 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :sintomas_dificultad, "¿Tiene dificultad para tragar líquidos, sólidos o ambos? (dar ejemplos de comidas: carne, arroz, pan etc)" %>
-    <%= form.text_area :sintomas_dificultad, rows: 3 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :sintomas_sensacion, "¿Tiene la sensación de que la comida se le queda atascada en la garganta o el pecho?" %>
-    <%= form.text_area :sintomas_sensacion, rows: 3 %>
-  </div>
-
-  <!-- Otros campos de formulario para los demás atributos de diagnóstico -->
-
-  <%= form.submit "Guardar Diagnóstico" %>
-<% end %>
+</body>
+</html>
