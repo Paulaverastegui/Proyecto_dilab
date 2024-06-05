@@ -1,0 +1,31 @@
+<%= form_with(model: [@diagnosis, @guss_scale], local: true) do |form| %>
+    <div class="field">
+      <%= form.label :vigilance %>
+      <%= form.number_field :vigilance, in: 0..1 %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :cough %>
+      <%= form.number_field :cough, in: 0..1 %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :saliva_swallow %>
+      <%= form.number_field :saliva_swallow, in: 0..1 %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :sialorrhea %>
+      <%= form.number_field :sialorrhea, in: 0..1 %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :voice_changes %>
+      <%= form.number_field :voice_changes, in: 0..1 %>
+    </div>
+  
+    <div class="actions">
+      <%= form.submit 'Submit' %>
+    </div>
+  <% end %>
+  

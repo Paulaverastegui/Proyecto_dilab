@@ -1,0 +1,26 @@
+<%= form_with(model: [@diagnosis, @guss_scale], url: patient_diagnosis_guss_scale_path(@diagnosis, @guss_scale, phase: 'solids'), method: :patch, local: true) do |form| %>
+    <div class="field">
+      <%= form.label :solids_swallow, "Deglución (0-2)" %>
+      <%= form.number_field :solids_swallow, in: 0..2 %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :solids_cough, "Tos (0-1)" %>
+      <%= form.number_field :solids_cough, in: 0..1 %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :solids_sialorrhea, "Sialorrea (0-1)" %>
+      <%= form.number_field :solids_sialorrhea, in: 0..1 %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :solids_voice_changes, "Cambios en la voz (0-1)" %>
+      <%= form.number_field :solids_voice_changes, in: 0..1 %>
+    </div>
+  
+    <div class="actions">
+      <%= form.submit 'Submit' %>
+    </div>
+  <% end %>
+  

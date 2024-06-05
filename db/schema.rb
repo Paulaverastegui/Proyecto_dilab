@@ -10,15 +10,60 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_06_03_193602) do
+ActiveRecord::Schema[7.0].define(version: 2024_06_05_192031) do
   create_table "diagnoses", force: :cascade do |t|
     t.integer "patient_id", null: false
     t.text "description"
-    t.string "severity"
     t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "historia_desde"
+    t.string "perdida_peso"
+    t.string "historia_condicion"
+    t.string "historia_cirugia"
+    t.string "sintomas_episodios"
+    t.string "sintomas_dificultad"
+    t.string "sintomas_sensacion"
+    t.string "sintomas_dolor"
+    t.string "sintomas_frecuencia"
+    t.string "sintomas_evita_alimentos"
+    t.string "sintomas_cansancio"
+    t.string "sintomas_tiempo"
+    t.string "sintomas_nuevo"
     t.index ["patient_id"], name: "index_diagnoses_on_patient_id"
+  end
+
+  create_table "guss_scales", force: :cascade do |t|
+    t.integer "vigilance"
+    t.integer "cough"
+    t.integer "saliva_swallow"
+    t.integer "sialorrhea"
+    t.integer "voice_changes"
+    t.integer "semi_solids_swallow"
+    t.integer "semi_solids_cough"
+    t.integer "semi_solids_sialorrhea"
+    t.integer "semi_solids_voice_changes"
+    t.integer "liquids_swallow"
+    t.integer "liquids_cough"
+    t.integer "liquids_sialorrhea"
+    t.integer "liquids_voice_changes"
+    t.integer "solids_swallow"
+    t.integer "solids_cough"
+    t.integer "solids_sialorrhea"
+    t.integer "solids_voice_changes"
+    t.integer "diagnosis_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["diagnosis_id"], name: "index_guss_scales_on_diagnosis_id"
+  end
+
+  create_table "levels", force: :cascade do |t|
+    t.string "escala"
+    t.integer "severidad"
+    t.integer "diagnosis_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["diagnosis_id"], name: "index_levels_on_diagnosis_id"
   end
 
   create_table "patients", force: :cascade do |t|
@@ -46,5 +91,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_03_193602) do
   end
 
   add_foreign_key "diagnoses", "patients"
+  add_foreign_key "guss_scales", "diagnoses"
+  add_foreign_key "levels", "diagnoses"
   add_foreign_key "patients", "users"
 end

@@ -1,0 +1,6 @@
+<!-- intermediate_view.html.erb -->
+
+<h2>Opciones después de guardar el diagnóstico</h2>
+<%= link_to "Registrar un nivel de disfagia", new_patient_diagnosis_level_path(@patient, @diagnosis), class: "button" %>
+<%= link_to "Guardar una guss", new_patient_diagnosis_guss_scale_path(@patient, @diagnosis), class: "button" %>
+

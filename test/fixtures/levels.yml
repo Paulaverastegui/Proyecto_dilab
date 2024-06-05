@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  escala: MyString
+  severidad: 1
+  diagnosis: one
+
+two:
+  escala: MyString
+  severidad: 1
+  diagnosis: two
