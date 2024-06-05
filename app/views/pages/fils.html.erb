@@ -31,6 +31,7 @@
       position: fixed;
       top: 0;
       left: 0;
+      z-index: 9999;
     }
     .content {
       margin-top: 200px;
@@ -51,6 +52,7 @@
       justify-content: center;
       width: 100%;
       height: 120px;
+      width: 400px;
       border: none;
       cursor: pointer;
       font-size: 1.2em;
@@ -80,14 +82,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 40px;
-      height: 40px;
+      width: 60px;  /* Agrandado */
+      height: 60px; /* Agrandado */
       border-radius: 50%;
       background-color: #256490;
       color: #FFFFFF; /* Ensure white text */
       font-weight: bold;
       position: absolute;
-      left: -20px;
+      left: -30px;   /* Ajustado para el nuevo tamaño */
       top: 50%;
       transform: translateY(-50%);
     }
@@ -110,36 +112,131 @@
       font-size: 1em;
       margin: 10px 0;
     }
+    .square {
+      width: 150px; /* Ampliado para acomodar más texto */
+      height: auto; /* Permitir que el tamaño varíe según el contenido */
+      background-color: #FFFFFF;
+      border: 2px solid #256490;
+      box-sizing: border-box;
+      margin-right: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.8em; /* Ajusta el tamaño de la letra según sea necesario */
+      color: #000000; /* Color de la letra negra */
+    }
+    
+    .squares-container {
+      display: flex;
+      justify-content: space-between;
+      display: none; /* Oculta por defecto */
+      width: 100%;
+    }
+    .squares-container-4 {
+      display: flex;
+      justify-content: space-between;
+      display: none; /* Oculta por defecto */
+      width: 100%;
+    }
+    
+    .circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: #256490; /* Azul */
+      color: #FFFFFF; /* Color del texto blanco */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-top: -30px; /* Alineado con la parte superior de los cuadrados */
+      margin-left: 15px; /* Espacio entre los círculos y los cuadrados */
+    }
+    
+
+    .circles-container {
+      width: 95%;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 60px;
+      margin-bottom: 30px; /* Espacio entre los círculos y los cuadrados */
+      display: none; /* Oculta por defecto */
+    }
+
+    .circles-container-4 {
+      width: 95%;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 60px;
+      margin-bottom: 30px; /* Espacio entre los círculos y los cuadrados */
+      display: none; /* Oculta por defecto */
+    }
+
+    .title-container {
+      display: flex;
+      justify-content: center; /* Centra horizontalmente */
+      margin-bottom: 20px; /* Espacio debajo del título */
+    }
+
+
+    
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">Diagnóstico</div>
-    <div class="content">
-      <div class="options">
-        <div class="option">
-          <button class="btn btn-severe" onclick="showDetails('severe')" data-number="1-2">
-            Disfagia Severa
-            <span>Nada de alimentación vía oral</span>
-          </button>
+      <div class="content">
+        <div class="options">
+          <div class="option">
+            <button class="btn btn-severe" onclick="showDetails('severe')" data-number="1-3">
+              Disfagia Severa
+              <span>Nada de alimentación vía oral</span>
+            </button>
+          </div>
+          <div class="option">
+            <button class="btn btn-moderate" onclick="showDetails('moderate')" data-number="4-6">
+              Disfagia Moderada
+              <span>Alimentación por vía oral y alternativa</span>
+              
+            </button>
+          </div>
+          <div class="option">
+            <button class="btn btn-mild" onclick="showDetails('mild')" data-number="7-10">
+              Disfagia Leve
+              <span>Alimentación por vía oral exclusiva</span>
+            </button>
+          </div>
         </div>
-        <div class="option">
-          <button class="btn btn-moderate" onclick="showDetails('moderate')" data-number="3-4">
-            Disfagia Moderada
-            <span>Alimentación por vía oral y alternativa</span>
-          </button>
-        </div>
-        <div class="option">
-          <button class="btn btn-mild" onclick="showDetails('mild')" data-number="5-6">
-            Disfagia Leve
-            <span>Alimentación por vía oral exclusiva</span>
-          </button>
-        </div>
-      </div>
       <div id="details" class="details">
         <h2 id="details-title">Presiona cualquiera de los niveles para obtener más detalles</h2>
         <p id="details-description"></p>
+        <div class="circles-container">
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
+        <div class="squares-container">
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+        </div>
+        <div class="circles-container-4">
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
+        <div class="squares-container-4">
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+          <div class="square"></div>
+        </div>
       </div>
+
     </div>
   </div>
 
@@ -147,23 +244,72 @@
     function showDetails(type) {
       var title = '';
       var description = '';
+      var circles = [];
+      var squares = [];
+    
       if (type === 'severe') {
         title = 'Disfagia Severa';
         description = 'Nada de alimentación vía oral';
+        circles = ['1', '2', '3'];
+        squares = [
+          'La deglución es difícil o imposible. Existen signos de aspiración y no existe reflejo de deglución. No es posible realizar un entrenamiento de la deglución.',
+          'Presencia de aspiración, pero tiene la capacidad de rehabilitarse desde el punto de vista de la deglución de manera indirecta en un comienzo, no usando alimentos.',
+          'Aunque existen signos clínicos de aspiración, se puede entrenar directamente la deglución, pudiendo alimentarse solo con poca comida. El resto del aporte es por vía enteral.'
+        ];
       } else if (type === 'moderate') {
         title = 'Disfagia Moderada';
         description = 'Alimentación por vía oral y alternativa';
+        circles = ['4', '5', '6'];
+        squares = [
+          'La alimentación es enteral, pero es capaz de recibir aportes vía oral durante el tratamiento logopédico o por gusto, en pequeñas cantidades con cuidadores entrenados.',
+          'Alimentación vía oral 1 o 2 veces al día con alimentos adaptados de acuerdo al tratamiento. Vía de alimentación enteral para el agua y el resto de las comidas.',
+          'Puede alimentarse vía oral 3 veces al día con alimentos acordes a lo indicado en el tratamiento fonoaudiológico. El agua se aporta por vía enteral.'
+        ];
       } else if (type === 'mild') {
         title = 'Disfagia Leve';
         description = 'Alimentación por vía oral exclusiva';
+        circles = ['7', '8', '9', '10'];
+        squares = [
+          'Come 3 comidas por la vía oral. El agua se da con espesante y no se usa vía enteral.',
+          'Puede comer normalmente 3 veces al día, salvo para alimentos específicos que dificultan la deglución.',
+          'No hay restricciones de dieta y todas las comidas por vía oral son con supervisión.',
+          'No hay restricciones de dieta. El paciente ingiere todo con normalidad.'
+        ];
       }
+    
       document.getElementById('details-title').innerText = title;
       document.getElementById('details-description').innerText = description;
+    
+      // Actualizar los círculos
+      var circleElements;
+      var squaresContainer;
+      if (type === 'severe' || type === 'moderate') {
+        circleElements = document.querySelectorAll('.circles-container .circle');
+        squaresContainer = document.querySelector('.squares-container');
+      } else {
+        circleElements = document.querySelectorAll('.circles-container-4 .circle');
+        squaresContainer = document.querySelector('.squares-container-4');
+      }
+    
+      for (var i = 0; i < circleElements.length; i++) {
+        circleElements[i].innerText = circles[i] || '';
+      }
+    
+      // Actualizar los cuadrados
+      var squareElements = squaresContainer.querySelectorAll('.square');
+      for (var i = 0; i < squareElements.length; i++) {
+        squareElements[i].innerText = squares[i] || '';
+      }
+    
+      // Mostrar u ocultar los contenedores según sea necesario
+      document.querySelector('.circles-container').style.display = type === 'severe' || type === 'moderate' ? 'flex' : 'none';
+      document.querySelector('.squares-container').style.display = type === 'severe' || type === 'moderate' ? 'flex' : 'none';
+    
+      document.querySelector('.circles-container-4').style.display = type === 'mild' ? 'flex' : 'none';
+      document.querySelector('.squares-container-4').style.display = type === 'mild' ? 'flex' : 'none';
     }
+    
+    
   </script>
 </body>
 </html>
-
-
-
-

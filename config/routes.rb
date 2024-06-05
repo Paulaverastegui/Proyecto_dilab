@@ -9,9 +9,13 @@ Rails.application.routes.draw do
   get 'escalas', to: 'pages#escalas'
   post 'resultado', to: 'pages#resultado'
   get 'home/fils', to: 'pages#fils'
+  get 'home/fois', to: 'pages#fois'
+  get 'home/doss', to: 'pages#doss'
   get 'diagnostico', to: 'pages#diagnostico'
   get 'mispacientes', to: 'patients#index', as: :mispacientes
   get 'diagnostico/:patient_id', to: 'pages#diagnostico', as: :diagnostico_patient
+  post '/transformar', to: 'degluconversor#transformar'
+  get 'degluconversor_tablas', to: 'degluconversor#degluconversor_tablas'
 
   resources :patients do
     resources :diagnoses, only: [:new, :create, :show, :index] do
