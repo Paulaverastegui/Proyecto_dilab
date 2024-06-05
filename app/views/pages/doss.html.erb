@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnóstico</title>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+    .container {
+      text-align: center;
+      width: 90%;
+    }
+    .header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      width: 100%;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+    }
+    .content {
+      margin-top: 200px;
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 45%;
+    }
+    .btn {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      width: 100%;
+      height: 120px;
+      width: 400px;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2em;
+      margin: 20px 0;
+      text-decoration: none;
+      border-radius: 30px;
+      background-color: #709795;
+      color: black;
+      padding: 10px 10px 10px 60px;
+      position: relative;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .btn span {
+      font-size: 0.8em;
+    }
+    .btn-severe {
+      background-color: #A8BDBC;
+    }
+    .btn-moderate {
+      background-color: #B5B0C9;
+    }
+    .btn-mild {
+      background-color: #7D9DB7;
+    }
+    .btn::before {
+      content: attr(data-number);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;  /* Agrandado */
+      height: 60px; /* Agrandado */
+      border-radius: 50%;
+      background-color: #256490;
+      color: #FFFFFF; /* Ensure white text */
+      font-weight: bold;
+      position: absolute;
+      left: -30px;   /* Ajustado para el nuevo tamaño */
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .details {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 20px;
+      background-color: #f0f0f0;
+      padding: 20px;
+      border-radius: 10px;
+      width: 45%;
+    }
+    .details h2 {
+      color: #256490;
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+    .details p {
+      font-size: 1em;
+      margin: 10px 0;
+    }
+    .square {
+      height: auto; 
+      background-color: #FFFFFF;
+      border: 2px solid #256490;
+      box-sizing: border-box;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.8em; 
+      color: #000000;
+    }
+    
+    
+    .squares-container-2 .square {
+      justify-content: center;
+      width: 90% ; /* Ajuste para 3 cuadrados en una fila con espacios */
+    }
+    
+    .circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: #256490 ; /* Azul */
+      color: #FFFFFF; /* Color del texto blanco */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-top: -30px; /* Alineado con la parte superior de los cuadrados */
+      margin-left: 15px; /* Espacio entre los círculos y los cuadrados */
+    }
+    .circles-container {
+      width: 95% ;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+      margin-bottom: 30px; /* Espacio entre los círculos y los cuadrados */
+      display: none; /* Oculta por defecto */
+    }
+    .title-container {
+      display: flex;
+      justify-content: center; /* Centra horizontalmente */
+      margin-bottom: 20px; /* Espacio debajo del título */
+    }
+   
+    .circles-container-2 {
+      width: 95% ;
+      display: flex;
+      margin-top: 30px;
+      margin-left: 50px;
+      margin-bottom: 20px; /* Espacio entre los círculos y los cuadrados */
+      display: none; /* Oculta por defecto */
+      gap: 130px;
+    }
+    .add-btn {
+      background-color: #7D9DB7;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 90% ;
+      text-align: center;
+    }
+    .remove-btn {
+      background-color: #B5B0C9;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 90% ;
+      text-align: center;
+    }
+    .square-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 120% ;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">Diagnóstico</div>
+    <div class="content">
+      <div class="options">
+        <div class="option">
+          <button class="btn btn-severe" onclick="showDetails('severe')" data-number="1-2">
+            Vía oral suspendida
+            <span>Nada de nutrición oral</span>
+          </button>
+        </div>
+        <div class="option">
+          <button class="btn btn-moderate" onclick="showDetails('moderate')" data-number="3-5">
+            Nutrición vía oral
+            <span>Dieta modificada y/o independencia</span>
+          </button>
+        </div>
+        <div class="option">
+          <button class="btn btn-mild" onclick="showDetails('mild')" data-number="6-7">
+            Nutrición por vía oral
+            <span>Dieta normal</span>
+          </button>
+        </div>
+      </div>
+      <div id="details" class="details">
+        <h2 id="details-title">Presiona cualquiera de los niveles para obtener más detalles</h2>
+        <p id="details-description"></p>
+        <div class="circles-container"></div>
+        <div class="squares-container"></div>
+        <div class="circles-container-2"></div>
+        <div class="squares-container-2"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    function showDetails(type) {
+      var title = '';
+      var description = '';
+      var circles = [];
+      var squares = [];
+      var newSquareTexts = [];
+      
+      if (type === 'severe') {
+        title = 'Vía oral suspendida';
+        description = 'Nada de nutrición oral';
+        circles = ['1', '2'];
+        squares = [
+          'Disfagia severa: vía oral suspendida. No tolera administración por vía oral de forma segura.',
+          'Disfagia moderada/severa: Máxima asistencia o uso de estrategias con vía oral parcial (tolerancia de al menos una consistencia de forma segura con uso total de estrategias).'
+        ];
+        newSquareTexts = [
+            'Puede presentar uno o más de los siguiente síntomas: \n' +
+            '- Retención severa del bolo en la faringe, siendo incapaz de despejarlo. \n' +
+            '- Pérdida o retención severa del bolo en la etapa oral, siendo incapaz de despejarlo. \n' +
+            '- Aspiración silente en dos o más consistencias, con tos voluntaria no funcional. \n' +
+            '- Imposibilidad de tragar.',
+
+            'Puede presentar uno o más de los siguientes síntomas: \n' +
+            '- Retención severa en la faringe, siendo incapaz de despejarlo o necesitando múltiples ayudas. \n' +
+            '- Pérdida o retención severa del bolo en la etapa oral, siendo incapaz de despejarlo o necesitando múltiples ayudas.'
+        ];
+
+      } else if (type === 'moderate') {
+        title = 'Nutrición vía oral';
+        description = 'Dieta modificada y/o independencia';
+        circles = ['3', '4', '5'];
+        squares = [
+          'Disfagia moderada: total asistencia, supervisión o estrategias, restricción de dos o más consistencias.',
+          'Disfagia leve/moderada: supervisión intermitente, restricción de una o dos consistencias.',
+          'Disfagia leve: supervisión a distancia, puede necesitar de restricciones de una consistencia.'
+        ];
+        newSquareTexts = [
+          'Puede presentar uno o más de los siguiente síntomas:\n' +
+          '- Retención moderada en la faringe, despejado con ayuda.\n' +
+          '- Retención moderada en la cavidad oral, despejado con ayuda.\n' +
+          '- Penetración en la vía aérea a nivel de las cuerdas vocales sin tos con dos o más consistencias.\n' +
+          '- Aspiración con dos consistencias con reflejo de tos débil o ausente.\n' +
+          '- Aspiración con una consistencia, sin tos ni penetración.',
+
+          'Puede presentar uno o más de los siguiente síntomas:\n' +
+          '- Retención en la faringe, despejado con ayuda.\n' +
+          '- Aspiración con una consistencia, con reflejo de tos débil o ausente.\n' +
+          '- Penetración a nivel de los pliegues vocales con tos en dos consistencias.\n' +
+          '- Penetración a nivel de los pliegues vocales sin tos con una consistencia.',
+
+          'Puede presentar uno o más de los siguiente síntomas:\n' +
+          '- Aspiración solamente de líquidos, pero con un fuerte reflejo de tos para despejar completamente.\n' +
+          '- Penetración a la vía aérea antes de los pliegues vocales con una o más consistencias, o sobre las cuerdas vocales despejado espontáneamente.\n' +
+          '- Retención en la faringe que es despejada espontáneamente. - Leve disfagia oral con reducción de la masticación y/o retención oral que se despeja espontáneamente.'
+      ];
+
+      } else if (type === 'mild') {
+        title = 'Nutrición por vía oral';
+        description = 'Dieta normal';
+        circles = ['6', '7'];
+        squares = [
+          'Con límites funcionales/independencia modificada: Dieta normal, deglución funcional. El paciente puede tener un leve retraso en la fase oral o faríngea, que no compromete significativamente la seguridad, sin restricciones dietéticas. ',
+          'Deglución funcional: No presenta disfagia.'
+        ];
+
+        newSquareTexts = [
+          'El paciente puede necesitar de tiempo extra para las comidas. No hay aspiraciones ni penetraciones en todas las consistencias.',
+          
+          'No hay información adicional'
+        ];
+
+      }
+      
+      document.getElementById('details-title').innerText = title;
+      document.getElementById('details-description').innerText = description;
+      
+      var circlesContainer = document.querySelector('.circles-container');
+      var circlesContainer2 = document.querySelector('.circles-container-2');
+      var squaresContainer = document.querySelector('.squares-container');
+      var squaresContainer2 = document.querySelector('.squares-container-2');
+      
+      // Limpia los contenedores antes de agregar nuevos elementos
+      circlesContainer.innerHTML = '';
+      circlesContainer2.innerHTML = '';
+      squaresContainer.innerHTML = '';
+      squaresContainer2.innerHTML = '';
+      
+      // Lógica para mostrar los contenedores correctos según el nivel
+      if (type === 'moderate') {
+        circlesContainer2.style.display = 'none';
+        squaresContainer2.style.display = 'none';
+        circlesContainer.style.display = 'flex';
+        squaresContainer.style.display = 'flex';
+    
+        circles.forEach(function(text) {
+          var circle = document.createElement('div');
+          circle.className = 'circle';
+          circle.innerText = text;
+          circlesContainer.appendChild(circle);
+        });
+    
+        squares.forEach(function(text, index) {
+          var squareContainer = document.createElement('div');
+          squareContainer.className = 'square-container';
+          
+          var square = document.createElement('div');
+          square.className = 'square';
+          square.innerText = text;
+          
+          var addButton = document.createElement('button');
+          addButton.className = 'add-btn';
+          addButton.innerText = 'Más información';
+          addButton.onclick = function() {
+            toggleSquare(squareContainer, newSquareTexts[index], addButton);
+          };
+          
+          squareContainer.appendChild(square);
+          squareContainer.appendChild(addButton);
+          squaresContainer.appendChild(squareContainer);
+        });
+      } else {
+        circlesContainer.style.display = 'none';
+        squaresContainer.style.display = 'none';
+        circlesContainer2.style.display = 'flex';
+        squaresContainer2.style.display = 'flex';
+    
+        circles.forEach(function(text) {
+          var circle = document.createElement('div');
+          circle.className = 'circle';
+          circle.innerText = text;
+          circlesContainer2.appendChild(circle);
+        });
+    
+        squares.forEach(function(text, index) {
+          var squareContainer = document.createElement('div');
+          squareContainer.className = 'square-container';
+          
+          var square = document.createElement('div');
+          square.className = 'square';
+          square.innerText = text;
+          
+          var addButton = document.createElement('button');
+          addButton.className = 'add-btn';
+          addButton.innerText = 'Más información';
+          addButton.onclick = function() {
+            toggleSquare(squareContainer, newSquareTexts[index], addButton);
+          };
+          
+          squareContainer.appendChild(square);
+          squareContainer.appendChild(addButton);
+          squaresContainer2.appendChild(squareContainer);
+        });
+      }
+    }
+
+    function toggleSquare(container, text, button) {
+      var existingSquare = container.querySelector('.new-square');
+      if (existingSquare) {
+        container.removeChild(existingSquare);
+        button.innerText = 'Más información';
+        button.className = 'add-btn';
+      } else {
+        var newSquare = document.createElement('div');
+        newSquare.className = 'square new-square';
+        newSquare.innerText = text;
+        container.appendChild(newSquare);
+        button.innerText = 'Menos información';
+        button.className = 'remove-btn';
+      }
+    }
+  </script>
+</body>
+</html>
