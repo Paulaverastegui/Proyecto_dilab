@@ -1,5 +1,5 @@
 class GussScalesController < ApplicationController
-  before_action :set_diagnosis, only: [:new, :create, :edit, :update]
+  before_action :set_diagnosis, only: [:new, :create, :edit, :update, :show]
   before_action :set_guss_scale, only: [:edit, :update, :show]
 
   def new
@@ -75,7 +75,7 @@ class GussScalesController < ApplicationController
   private
 
   def set_diagnosis
-    @diagnosis = Diagnosis.find(params[:diagnosis_id])
+    @diagnosis = Diagnosis.find_by(params[:diagnosis_id])
   end
 
   def set_guss_scale
