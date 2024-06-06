@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Consistencia: Semi solidos</title>
+  <title>Consistencia: Líquidos </title>
   <style>
     body {
       background-color: #FFFFFF;
@@ -117,10 +117,10 @@
 </head>
 <body>
   <div class="container">
-    <div class="header">Semisolidos</div>
+    <div class="header">Líquidos</div>
     <div class="content">
       <div class="details">
-        <h2>Prueba Semisolidos</h2>
+        <h2>Prueba Líquidos</h2>
         <%= form_with(model: [@diagnosis, @guss_scale], url: patient_diagnosis_guss_scale_path(@diagnosis, @guss_scale, phase: 'liquids'), method: :patch, local: true) do |form| %>
           <div class="field">
             <%= form.label :liquids_swallow, "¿Cómo es la degluación del paciente?" %><br>
