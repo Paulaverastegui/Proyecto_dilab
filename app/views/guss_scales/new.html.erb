@@ -1,31 +1,157 @@
-<h2>Crear nueva evaluación GUSS</h2>
-<%= form_with(model: [@diagnosis, @guss_scale], url: patient_diagnosis_guss_scales_path(@diagnosis.patient, @diagnosis), method: :post) do |form| %>
-        <div class="field">
-          <%= form.label :vigilance %>
-          <%= form.number_field :vigilance, in: 0..1 %>
-        </div>
-      
-        <div class="field">
-          <%= form.label :cough %>
-          <%= form.number_field :cough, in: 0..1 %>
-        </div>
-      
-        <div class="field">
-          <%= form.label :saliva_swallow %>
-          <%= form.number_field :saliva_swallow, in: 0..1 %>
-        </div>
-      
-        <div class="field">
-          <%= form.label :sialorrhea %>
-          <%= form.number_field :sialorrhea, in: 0..1 %>
-        </div>
-      
-        <div class="field">
-          <%= form.label :voice_changes %>
-          <%= form.number_field :voice_changes, in: 0..1 %>
-        </div>
-      
-        <div class="actions">
-          <%= form.submit 'Submit' %>
-        </div>
-      <% end %>     
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investigación Preliminar</title>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+    .container {
+      text-align: center;
+      width: 90%;
+    }
+    .header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      width: 100%;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+    .content {
+      margin-top: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 40px;
+      background-color: #f0f0f0;
+      padding: 20px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 600px;
+    }
+    .details h2 {
+      color: #256490;
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+    .details h3 {
+      color: #256490;
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+    .field {
+      text-align: left;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+    .field label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #256490; /* Cambia el color del texto de las preguntas */
+    }
+    .radio-group {
+      display: flex;
+      align-items: center;
+    }
+    .radio-group label {
+      margin-right: 10px;
+      font-weight: normal;
+      color: black; 
+    }
+    .radio-group input[type="radio"] {
+      margin-right: 5px;
+      accent-color: #709795; 
+    }
+    .actions {
+      margin-top: 20px;
+    }
+    .start-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #256490;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">Investigación Preliminar</div>
+    <div class="content">
+      <div class="details">
+        <h2>Investigación Preliminar / Prueba indirecta de la deglución</h2>
+        <%= form_with(model: [@diagnosis, @guss_scale], url: patient_diagnosis_guss_scales_path(@diagnosis.patient, @diagnosis), method: :post) do |form| %>
+          <div class="field">
+            <%= form.label :vigilance, "1. Vigilancia, el paciente debe estar alerta al menos 15 minutos:" %><br>
+            <div class="radio-group">
+              <%= form.label :vigilance_no, "No" %> <%= form.radio_button :vigilance, 0 %>
+              <%= form.label :vigilance_yes, "Sí" %> <%= form.radio_button :vigilance, 1 %>
+            </div>
+          </div>
+
+          <div class="field">
+            <%= form.label :cough, "2. Tos y/o carraspeo (tos voluntaria), el paciente debe poder carraspear o toser al menos dos veces" %><br>
+            <div class="radio-group">
+              <%= form.label :cough_no, "No" %> <%= form.radio_button :cough, 0 %>
+              <%= form.label :cough_yes, "Sí" %> <%= form.radio_button :cough, 1 %>
+            </div>
+          </div>
+
+          <div class="field">
+            <%= form.label :saliva_swallow, "3.1 Deglución de saliva exitosa" %><br>
+            <div class="radio-group">
+              <%= form.label :saliva_swallow_no, "No" %> <%= form.radio_button :saliva_swallow, 0 %>
+              <%= form.label :saliva_swallow_yes, "Sí" %> <%= form.radio_button :saliva_swallow, 1 %>
+            </div>
+          </div>
+
+          <div class="field">
+            <%= form.label :sialorrhea, "3.2 Deglución de saliva presenta sialorrea" %><br>
+            <div class="radio-group">
+              <%= form.label :sialorrhea_no, "No" %> <%= form.radio_button :sialorrhea, 0 %>
+              <%= form.label :sialorrhea_yes, "Sí" %> <%= form.radio_button :sialorrhea, 1 %>
+            </div>
+          </div>
+
+          <div class="field">
+            <%= form.label :voice_changes, "5. Al deglutir saliva, cambia la voz" %><br>
+            <div class="radio-group">
+              <%= form.label :voice_changes_no, "No" %> <%= form.radio_button :voice_changes, 0 %>
+              <%= form.label :voice_changes_yes, "Sí" %> <%= form.radio_button :voice_changes, 1 %>
+            </div>
+          </div>
+
+          <div class="actions">
+            <%= form.submit 'Guardar', class: "start-button" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>   

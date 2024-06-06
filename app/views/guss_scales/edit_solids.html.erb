@@ -1,26 +1,178 @@
-<%= form_with(model: [@diagnosis, @guss_scale], url: patient_diagnosis_guss_scale_path(@diagnosis, @guss_scale, phase: 'solids'), method: :patch, local: true) do |form| %>
-    <div class="field">
-      <%= form.label :solids_swallow, "Deglución (0-2)" %>
-      <%= form.number_field :solids_swallow, in: 0..2 %>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consistencia: Semi solidos</title>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+    .container {
+      text-align: center;
+      width: 90%;
+    }
+    .header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      width: 100%;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+    .content {
+      margin-top: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 40px;
+      background-color: #f0f0f0;
+      padding: 20px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 600px;
+    }
+    .details h2 {
+      color: #256490;
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+    .details h3 {
+      color: #256490;
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+    .field {
+      text-align: left;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+    .field label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #256490; /* Cambia el color del texto de las preguntas */
+    }
+    .radio-group {
+      display: flex;
+      align-items: center;
+    }
+    .radio-group label {
+      margin-right: 10px;
+      font-weight: normal;
+      color: black; 
+    }
+    .radio-group input[type="radio"] {
+      margin-right: 5px;
+      accent-color: #709795; 
+      transform: scale(1.5); /* Aumenta el tamaño de los botones de radio */
+    }
+    .radio-group-vertical {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .radio-with-image {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .radio-with-image img {
+      max-width: 50px;
+      margin-bottom: 5px;
+    }
+    .actions {
+      margin-top: 20px;
+    }
+    .start-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #256490;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">Semisolidos</div>
+    <div class="content">
+      <div class="details">
+        <h2>Prueba Semisolidos</h2>
+        <%= form_with(model: [@diagnosis, @guss_scale], url: patient_diagnosis_guss_scale_path(@diagnosis, @guss_scale, phase: 'solids'), method: :patch, local: true) do |form| %>
+          <div class="field">
+            <%= form.label :solids_swallow, "¿Cómo es la degluación del paciente?" %><br>
+            <div class="radio-group-vertical">
+              <label class="radio-with-image">
+                <%= form.radio_button :solids_swallow, 0 %>
+                <img src="<%= asset_path('noesposible.png') %>" alt="No es posible">
+                No es posible
+              </label>
+              <label class="radio-with-image">
+                <%= form.radio_button :solids_swallow, 1 %>
+                Retrasada (> 2 segundos)
+              </label>
+              <label class="radio-with-image">
+                <%= form.radio_button :solids_swallow, 2 %>
+                <img src="<%= asset_path('Vector.png') %>" alt="Exitosa">
+                Exitosa
+              </label>
+            </div>
+          </div>
+
+          <div class="field">
+            <%= form.label :solids_cough, "¿El paciente presenta tos antes, durante y hasta tres minutos después de la deglución?" %><br>
+            <div class="radio-group">
+              <%= form.label :solids_cough_no, "No" %> <%= form.radio_button :solids_cough, 0 %>
+              <%= form.label :solids_cough_yes, "Sí" %> <%= form.radio_button :solids_cough, 1 %>
+            </div>
+          </div>
+
+          <div class="field">
+            <%= form.label :solids_sialorrhea, "Sialorrea" %><br>
+            <div class="radio-group">
+              <%= form.label :solids_sialorrhea_no, "No" %> <%= form.radio_button :solids_sialorrhea, 0 %>
+              <%= form.label :solids_yes, "Sí" %> <%= form.radio_button :solids_sialorrhea, 1 %>
+            </div>
+          </div>
+
+          <div class="field">
+            <%= form.label :solids_voice_changes, "Cambios en la voz" %><br>
+            <div class="radio-group">
+              <%= form.label :solids_voice_changes_no, "No" %> <%= form.radio_button :solids_voice_changes, 0 %>
+              <%= form.label :solids_voice_changes_yes, "Sí" %> <%= form.radio_button :solids_voice_changes, 1 %>
+            </div>
+          </div>
+        
+          <div class="actions">
+            <%= form.submit 'Submit' %>
+          </div>
+        <% end %>  
+      </div>
     </div>
-  
-    <div class="field">
-      <%= form.label :solids_cough, "Tos (0-1)" %>
-      <%= form.number_field :solids_cough, in: 0..1 %>
-    </div>
-  
-    <div class="field">
-      <%= form.label :solids_sialorrhea, "Sialorrea (0-1)" %>
-      <%= form.number_field :solids_sialorrhea, in: 0..1 %>
-    </div>
-  
-    <div class="field">
-      <%= form.label :solids_voice_changes, "Cambios en la voz (0-1)" %>
-      <%= form.number_field :solids_voice_changes, in: 0..1 %>
-    </div>
-  
-    <div class="actions">
-      <%= form.submit 'Submit' %>
-    </div>
-  <% end %>
+  </div>
+</body>
+</html>
   
