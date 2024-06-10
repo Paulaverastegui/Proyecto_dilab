@@ -91,27 +91,47 @@
     function updateDestinoOptions() {
         var escalaSeleccionada = document.getElementById("tabla_seleccionada").value;
         var destinoSelect = document.getElementById("tabla_destino");
+        var nivelSelect = document.getElementById("nivel_seleccionado");
 
-        var opciones = {
+        var opcionesDestino = {
             "fils": ["doss", "fois"],
             "doss": ["fils", "fois"],
             "fois": ["fils", "doss"]
         };
 
+        var opcionesNiveles = {
+            "fils": 10,
+            "doss": 7,
+            "fois": 7
+        };
+
         destinoSelect.innerHTML = "";
-        opciones[escalaSeleccionada].forEach(function(opcion) {
+        opcionesDestino[escalaSeleccionada].forEach(function(opcion) {
             var opt = document.createElement("option");
             opt.value = opcion;
             opt.innerHTML = opcion.toUpperCase();
             destinoSelect.appendChild(opt);
         });
+
+        nivelSelect.innerHTML = "";
+        for (var i = 1; i <= opcionesNiveles[escalaSeleccionada]; i++) {
+            var opt = document.createElement("option");
+            opt.value = i;
+            opt.innerHTML = "Nivel " + i;
+            nivelSelect.appendChild(opt);
+        }
     }
+
+    // Llamar a la función al cargar la página para establecer los valores iniciales
+    document.addEventListener("DOMContentLoaded", function() {
+        updateDestinoOptions();
+    });
   </script>
-</head>
-<body>
+  </head>
+  <body>
   <div class="degluconversor-header">Degluconversor</div>
   <div class="container">
-    <h1>Seleccionar Escala</h1>
+    <h1>Guardar Nivel de Diagnóstico</h1>
     <form action="/transformar" method="post">
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
       <div class="form-group">
@@ -125,18 +145,13 @@
       <div class="form-group">
         <label for="nivel_seleccionado">Nivel</label>
         <select name="nivel_seleccionado" id="nivel_seleccionado">
-          <option value="1">Nivel 1</option>
-          <option value="2">Nivel 2</option>
-          <option value="3">Nivel 3</option>
-          <option value="4">Nivel 4</option>
+          <!-- Niveles se llenarán dinámicamente con JavaScript -->
         </select>
       </div>
       <div class="form-group">
         <label for="tabla_destino">Escala Destino</label>
         <select name="tabla_destino" id="tabla_destino">
-          <option value="fils">FILS</option>
-          <option value="doss">DOSS</option>
-          <option value="fois">FOIS</option>
+          <!-- Opciones se llenarán dinámicamente con JavaScript -->
         </select>
       </div>
       <div class="form-group">
@@ -144,5 +159,5 @@
       </div>
     </form>
   </div>
-</body>
-</html>
+  </body>
+  </html>

@@ -1,9 +1,138 @@
-<!-- levels/new.html.erb -->
-<%= form_with(model: @level, url: patient_diagnosis_levels_path(@patient, @diagnosis), method: :post) do |form| %>
-  <%= form.hidden_field :diagnosis_id, value: @diagnosis.id %>
-  <%= form.label :escala %>
-  <%= form.text_field :escala %>
-  <%= form.label :severidad %>
-  <%= form.text_field :severidad %>
-  <%= form.submit "Guardar Nivel" %>
-<% end %>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+    .container {
+      text-align: center;
+      width: 50%;
+      max-width: 500px;
+      background-color: #F0F0F0;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin: auto;
+      margin-top: 150px; /* para dejar espacio debajo de la barra */
+    }
+    .form-group { margin-bottom: 15px; }
+    .submit-button { 
+      padding: 10px 20px; 
+      background-color: #709795;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 1em;
+      border-radius: 10px;
+      width: 100%;
+    }
+    .header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2em;
+      margin-bottom: 20px;
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
+      width: 100%;
+      text-align: center;
+    }
+    h1 {
+      font-size: 1.5em;
+      color: #256490;
+      margin-bottom: 20px;
+    }
+    label {
+      margin-bottom: 0.5em;
+      display: block;
+      color: #256490;
+      font-size: 1em;
+      text-align: left;
+    }
+    select {
+      margin-bottom: 1em;
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      border: 2px solid #256490;
+      border-radius: 10px;
+      box-sizing: border-box;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .degluconversor-header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2.5em;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      width: 100%;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
+    }
+  </style>
+  <script>
+    function updateDestinoOptions() {
+        var escalaSeleccionada = document.getElementById("tabla_seleccionada").value;
+        var nivelSelect = document.getElementById("nivel_seleccionado");
+
+
+        var opcionesNiveles = {
+            "fils": 10,
+            "doss": 7,
+            "fois": 7
+        };
+
+        nivelSelect.innerHTML = "";
+        for (var i = 1; i <= opcionesNiveles[escalaSeleccionada]; i++) {
+            var opt = document.createElement("option");
+            opt.value = i;
+            opt.innerHTML = "Nivel " + i;
+            nivelSelect.appendChild(opt);
+        }
+    }
+
+    // Llamar a la función al cargar la página para establecer los valores iniciales
+    document.addEventListener("DOMContentLoaded", function() {
+        updateDestinoOptions();
+    });
+  </script>
+</head>
+<body>
+  <div class="degluconversor-header">Diagnóstico</div>
+  <div class="container">
+    <h1>Guardar Nivel de Diagnóstico</h1>
+      <div class="form-group">
+        <label for="tabla_seleccionada">Escala</label>
+        <select name="tabla_seleccionada" id="tabla_seleccionada" onchange="updateDestinoOptions()">
+          <option value="fils">FILS</option>
+          <option value="doss">DOSS</option>
+          <option value="fois">FOIS</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="nivel_seleccionado">Nivel</label>
+        <select name="nivel_seleccionado" id="nivel_seleccionado">
+          <!-- Niveles se llenarán dinámicamente con JavaScript -->
+        </select>
+      </div>
+      <div class="form-group">
+        <input type="submit" class="submit-button" value="Guardar">
+      </div>
+    </form>
+  </div>
+</body>
+</html>
