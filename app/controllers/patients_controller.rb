@@ -13,11 +13,16 @@ class PatientsController < ApplicationController
     def create
       @patient = current_user.patients.build(patient_params)
       if @patient.save
-        redirect_to patients_path, notice: 'Paciente creado exitosamente.'
+        if request.referrer.include?("diagnostico")  # Verificar si la solicitud viene de la vista de diagnóstico
+          redirect_to diagnostico_path, notice: 'Paciente creado exitosamente.'  # Redirigir a la vista de diagnóstico
+        else
+          redirect_to patients_path, notice: 'Paciente creado exitosamente.'  # Redirigir a la lista de pacientes
+        end
       else
         render :new
       end
     end
+    
     
     def edit
     end
