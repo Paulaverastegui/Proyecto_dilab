@@ -1,0 +1,2 @@
+$('#newPatientModal').modal('hide');
+$('.patients-list').append('<div class="patient-item"><a href="/patients/<%= @patient.id %>/diagnosis/new"><%= @patient.name %></a></div>');

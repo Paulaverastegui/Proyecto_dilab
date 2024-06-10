@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Diagnóstico</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
       background-color: #FFFFFF;
@@ -104,6 +105,46 @@
       text-decoration: none;
       border-radius: 5px;
     }
+    .add-patient-button {
+      background-color: #256490;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      margin-top: 20px;
+      font-size: 1em;
+    }
+    .modal-header {
+      background-color: #256490;
+      color: white;
+    }
+    .modal-content {
+      border-radius: 15px;
+    }
+    .modal-body {
+      background-color: #256490;
+      color: white;
+      padding: 20px;
+      border-radius: 15px;
+    }
+    .form-control {
+      background-color: #FFFFFF;
+      color: #256490;
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    .form-control::placeholder {
+      color: #256490;
+    }
+    .btn-primary {
+      background-color: #709795;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
   </style>
 </head>
 <body>
@@ -126,12 +167,72 @@
             <%= link_to patient.name, new_patient_diagnosis_path(patient_id: patient.id), class: "patient-link" %>
           </div>
         <% end %>
+        <button type="button" class="add-patient-button" data-toggle="modal" data-target="#newPatientModal">
+          Agregar Nuevo Paciente
+        </button>
       </div>
     </div>
   </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="newPatientModal" tabindex="-1" role="dialog" aria-labelledby="newPatientModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="newPatientModalLabel">Agregar Nuevo Paciente</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        <%= form_with(model: Patient.new, local: true, url: patients_path) do |form| %>
+            <div class="field">
+              <%= form.label :name, "Nombre" %>
+              <%= form.text_field :name, class: 'form-control' %>
+            </div>
+            <div class="field">
+              <%= form.label :rut, "RUT" %>
+              <%= form.text_field :rut, class: 'form-control' %>
+            </div>
+            <div class="field">
+              <%= form.label :birthdate, "Fecha de Nacimiento" %>
+              <%= form.date_select :birthdate, start_year: 1924, end_year: Date.current.year, prompt: { day: 'Día', month: 'Mes', year: 'Año' }, class: 'form-control' %>
+            </div>
+            <div class="field">
+              <%= form.label :sex, "Sexo" %>
+              <%= form.select :sex, ['Masculino', 'Femenino', 'Otro'], prompt: '', class: 'form-control' %>
+            </div>
+            <div class="field">
+              <%= form.label :email, "Email" %>
+              <%= form.email_field :email, class: 'form-control' %>
+            </div>
+            <div class="actions">
+              <%= form.submit "Guardar", class: 'btn btn-primary' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+  // Esperar a que la página esté completamente cargada
+  document.addEventListener("DOMContentLoaded", function() {
+    // Escuchar el evento 'ajax:success' en el formulario
+    document.querySelector("#new_patient_form").addEventListener("ajax:success", function(event) {
+      // Cerrar el modal
+      $("#newPatientModal").modal("hide");
+      // Reiniciar el formulario (opcional)
+      this.reset();
+    });
+  });
+</script>
 </body>
 </html>
-</html>
+
 
 
 
