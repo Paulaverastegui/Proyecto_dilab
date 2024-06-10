@@ -45,19 +45,19 @@ class GussScalesController < ApplicationController
       case params[:phase]
       when 'semi_solids'
         if @guss_scale.semi_solids_score < 5
-          redirect_to intermediate_view_patient_diagnosis_guss_scale_path(@diagnosis.patient_id, @diagnosis.id, @guss_scale.id), alert: 'Semi-solids check failed. Additional tests required.'
+          redirect_to guss_scale_path(@guss_scale), alert: 'Semi-solids check failed. Additional tests required.'
         else
           redirect_to edit_patient_diagnosis_guss_scale_path(@diagnosis.patient.id, @diagnosis.id, @guss_scale.id, phase: 'liquids'), notice: 'Semi-solids check passed. Continue with liquids phase.'
         end
       when 'liquids'
         if @guss_scale.liquids_score < 5
-          redirect_to intermediate_view_patient_diagnosis_guss_scale_path(@diagnosis.patient_id, @diagnosis.id, @guss_scale.id), alert:'Liquids check failed. Additional tests required.'
+          redirect_to guss_scale_path(@guss_scale), alert:'Liquids check failed. Additional tests required.'
         else
           redirect_to edit_patient_diagnosis_guss_scale_path(@diagnosis.patient.id, @diagnosis.id, @guss_scale.id, phase: 'solids'), notice: 'Liquids check passed. Continue with solids phase.'
         end
       when 'solids'
         if @guss_scale.solids_score < 5
-          redirect_to intermediate_view_patient_diagnosis_guss_scale_path(@diagnosis.patient_id, @diagnosis.id, @guss_scale.id), alert:'Solids check failed. Additional tests required.'
+          redirect_to guss_scale_path(@guss_scale), alert:'Solids check failed. Additional tests required.'
         else
           redirect_to guss_scale_path(@guss_scale), notice: 'GUSS scale completed successfully.'
         end
