@@ -17,7 +17,7 @@
     }
     .container {
       text-align: center;
-      width: 100% ;
+      width: 100%;
     }
     .header {
       background-color: #256490;
@@ -27,25 +27,23 @@
       margin-bottom: 20px;
       border-bottom-left-radius: 80px;
       border-bottom-right-radius: 80px;
-      width: 100% ;
+      width: 100%;
       text-align: center;
       top: 0;
       left: 0;
       position: fixed;
     }
- 
     .content {
       margin-top: 150px; /* Ajusta el margen superior según sea necesario */
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-
     .button {
       display: flex;
       align-items: center;
-      justify-content: flex-start;
-      width: 250px;
+      justify-content: center;
+      width: 300px;
       height: 80px;
       border: none;
       cursor: pointer;
@@ -53,14 +51,13 @@
       margin: 10px 0;
       text-decoration: none;
       border-radius: 30px;
-      background-color: #709795;
       color: white;
-      padding-left: 20px;
     }
-    .button img {
-      margin-right: 10px;
-      width: 50px;
-      height: auto;
+    .button-registrar {
+      background-color: #A8BDBC;
+    }
+    .button-guardar {
+      background-color: #7D9DB7;
     }
   </style>
 </head>
@@ -68,12 +65,8 @@
   <div class="container">
     <div class="header">Opciones después de guardar el diagnóstico</div>
     <div class="content">
-      <%= link_to new_patient_diagnosis_level_path(@patient, @diagnosis), class: "button" do %>
-        <img src="<%= asset_path('logoescalas.png') %>" alt="Registrar un nivel de disfagia">Registrar un nivel de disfagia
-      <% end %>
-      <%= link_to new_patient_diagnosis_guss_scale_path(@patient, @diagnosis), class: "button" do %>
-        <img src="<%= asset_path('logodiagnostico.png') %>" alt="Guardar una guss">Guardar una guss
-      <% end %>
+      <%= link_to "Registrar un nivel de disfagia", new_patient_diagnosis_level_path(@patient, @diagnosis), class: "button button-registrar" %>
+      <%= link_to "Guardar una guss", new_patient_diagnosis_guss_scale_path(@patient, @diagnosis), class: "button button-guardar" %>
     </div>
   </div>
 </body>
