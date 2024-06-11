@@ -1,4 +1,106 @@
-<h1>Detalles de la Escala GUSS</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalles de la Escala GUSS</title>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+    .container {
+      text-align: center;
+      width: 90%;
+    }
+    .header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      width: 100%;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+    }
+    .content {
+      margin-top: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    .details-box {
+      background-color: #f0f0f0;
+      border: 2px solid #256490;
+      border-radius: 10px;
+      padding: 20px;
+      width: 100%;
+      max-width: 800px;
+      text-align: left;
+    }
+    .details-box h2 {
+      color: #256490;
+      font-size: 1.8em;
+      margin-bottom: 10px;
+    }
+    .details-box p {
+      font-size: 1.2em;
+      margin: 10px 0;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      border-radius: 30px;
+      background-color: #256490;
+      color: white;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">Detalles de la Escala GUSS</div>
+    <div class="content">
+      <div class="details-box">
+        <p>Puntaje Total: <%= @guss_scale.total_score %></p>
 
-<p>Puntaje Total: <%= @guss_scale.total_score %></p>
-<%= link_to 'volver a menu principal', menu_path %>
+        <% case @guss_scale.total_score %>
+        <% when 0..9 %>
+          <p>Resultados: Fracaso en investigación preliminar</p>
+          <p>Código: Disfagia con alto riesgo</p>
+          <p>Recomendaciones: Nada por boca</p>
+        <% when 10..14 %>
+          <p>Resultados: Éxito al deglutir semisólidos</p>
+          <p>Código: Disfagia moderada con riesgo de aspiración</p>
+          <p>Recomendaciones: Textura semisólidas, espesar todos los líquidos</p>
+        <% when 15..19 %>
+          <p>Resultados: Éxito con texturas semisólidas y líquido, fracaso con sólida</p>
+          <p>Código: Disfagia leve con bajo riesgo de aspiración</p>
+          <p>Recomendaciones: Dieta para disfagia, líquidos muy lentamente</p>
+        <% when 20 %>
+          <p>Resultados: Éxito con semisólidos, líquidos y sólidos</p>
+          <p>Código: Leve sin disfagia, mínimo riesgo de aspiración</p>
+          <p>Recomendaciones: Dieta normal</p>
+        <% else %>
+          <p>Resultados no disponibles para el puntaje proporcionado</p>
+        <% end %>
+        
+        <%= link_to 'Volver a menú principal', menu_path, class: 'btn' %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
