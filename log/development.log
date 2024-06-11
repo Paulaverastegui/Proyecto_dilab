@@ -15293,3 +15293,41 @@ puma (5.6.8) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
 puma (5.6.8) lib/puma/request.rb:76:in `handle_request'
 puma (5.6.8) lib/puma/server.rb:443:in `process_client'
 puma (5.6.8) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2024-06-10 21:06:38 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 95.7ms | Allocations: 31714)
+  Rendered layout layouts/application.html.erb (Duration: 104.9ms | Allocations: 38413)
+Completed 200 OK in 115ms (Views: 107.5ms | ActiveRecord: 0.0ms | Allocations: 43377)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-10 21:06:40 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/menu
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 34ms (ActiveRecord: 0.9ms | Allocations: 9253)
+
+
+Started GET "/menu" for 127.0.0.1 at 2024-06-10 21:06:40 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 5.8ms | Allocations: 2932)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 8886)
+Completed 200 OK in 23ms (Views: 17.3ms | ActiveRecord: 0.1ms | Allocations: 10761)
+
+
+Started GET "/degluconversor" for 127.0.0.1 at 2024-06-10 21:06:41 -0400
+Processing by PagesController#degluconversor as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/degluconversor.html.erb within layouts/application
+  Rendered pages/degluconversor.html.erb within layouts/application (Duration: 7.9ms | Allocations: 6290)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 8098)
+Completed 200 OK in 17ms (Views: 11.2ms | ActiveRecord: 0.2ms | Allocations: 9658)
+
+
