@@ -1,6 +1,80 @@
 <!-- intermediate_view.html.erb -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Opciones</title>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+    .container {
+      text-align: center;
+      width: 100% ;
+    }
+    .header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      width: 100% ;
+      text-align: center;
+      top: 0;
+      left: 0;
+      position: fixed;
+    }
+ 
+    .content {
+      margin-top: 150px; /* Ajusta el margen superior según sea necesario */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-<h2>Opciones después de guardar el diagnóstico</h2>
-<%= link_to "Registrar un nivel de disfagia", new_patient_diagnosis_level_path(@patient, @diagnosis), class: "button" %>
-<%= link_to "Guardar una guss", new_patient_diagnosis_guss_scale_path(@patient, @diagnosis), class: "button" %>
-
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 250px;
+      height: 80px;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2em;
+      margin: 10px 0;
+      text-decoration: none;
+      border-radius: 30px;
+      background-color: #709795;
+      color: white;
+      padding-left: 20px;
+    }
+    .button img {
+      margin-right: 10px;
+      width: 50px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">Opciones después de guardar el diagnóstico</div>
+    <div class="content">
+      <%= link_to new_patient_diagnosis_level_path(@patient, @diagnosis), class: "button" do %>
+        <img src="<%= asset_path('logoescalas.png') %>" alt="Registrar un nivel de disfagia">Registrar un nivel de disfagia
+      <% end %>
+      <%= link_to new_patient_diagnosis_guss_scale_path(@patient, @diagnosis), class: "button" do %>
+        <img src="<%= asset_path('logodiagnostico.png') %>" alt="Guardar una guss">Guardar una guss
+      <% end %>
+    </div>
+  </div>
+</body>
+</html>
