@@ -118,16 +118,28 @@
 </head>
 <body>
   <%= render 'shared/header' %>
-  <div class="header">Conversión de escalas de severidad</div>
+  <div class="header">Resultado de Conversión</div>
   <div class="container">
     <div class="box container-inicial" data-number="<%= @nivel_seleccionado %>">
       <div><%= @tabla_seleccionada.capitalize %></div>
     </div>
     <div class="equal-sign">=</div>
-    <div class="box container-final" data-number="x">
-      <div><%= @tabla_destino.capitalize %></div>
-    </div>
+
+    <% if @resultado.present? %>
+      <div class="box container-final" data-number="<%= @nivel.first[:nivel] %>">
+        <div><%= @tabla_destino.capitalize %></div>
+      </div>
+    <% else %>
+      <h2>Varios Niveles Posibles</h2>
+      <p>Los siguientes niveles coinciden con la vía de alimentación:</p>
+      <ul>
+        <% @niveles_posibles.each do |nivel| %>
+          <li><strong>Nivel <%= nivel[:nivel] %>:</strong> <%= nivel[:nombre] %></li>
+        <% end %>
+      </ul>
+    <% end %>
     <%= link_to 'ⓘ Ver detalles', degluconversor_tablas_path, class: 'submit-button' %>
   </div>
 </body>
+
 </html>

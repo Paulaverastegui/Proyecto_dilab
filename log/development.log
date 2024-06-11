@@ -20562,3 +20562,2467 @@ Processing by DegluconversorController#transformar as HTML
 Completed 200 OK in 17ms (Views: 14.4ms | ActiveRecord: 0.1ms | Allocations: 9157)
 
 
+Started GET "/" for 127.0.0.1 at 2024-06-10 23:19:18 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 146.2ms | Allocations: 31873)
+  Rendered layout layouts/application.html.erb (Duration: 155.5ms | Allocations: 38614)
+Completed 200 OK in 175ms (Views: 166.2ms | ActiveRecord: 0.0ms | Allocations: 43142)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-10 23:19:19 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/menu
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 25ms (ActiveRecord: 1.4ms | Allocations: 9253)
+
+
+Started GET "/menu" for 127.0.0.1 at 2024-06-10 23:19:20 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 21.2ms | Allocations: 2962)
+  Rendered layout layouts/application.html.erb (Duration: 42.0ms | Allocations: 8928)
+Completed 200 OK in 51ms (Views: 43.0ms | ActiveRecord: 0.9ms | Allocations: 10794)
+
+
+Started GET "/diagnostico" for 127.0.0.1 at 2024-06-10 23:19:21 -0400
+Processing by PagesController#diagnostico as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/diagnostico.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 1.0ms | Allocations: 158)
+  [1m[36mPatient Load (0.5ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/pages/diagnostico.html.erb:166:in `each_with_index'
+  Rendered pages/diagnostico.html.erb within layouts/application (Duration: 52.9ms | Allocations: 12200)
+  Rendered layout layouts/application.html.erb (Duration: 71.7ms | Allocations: 18420)
+Completed 200 OK in 89ms (Views: 68.5ms | ActiveRecord: 4.8ms | Allocations: 21645)
+
+
+Started GET "/escalas" for 127.0.0.1 at 2024-06-10 23:19:24 -0400
+Processing by PagesController#escalas as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/escalas.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.2ms | Allocations: 32)
+  Rendered pages/escalas.html.erb within layouts/application (Duration: 13.2ms | Allocations: 1212)
+  Rendered layout layouts/application.html.erb (Duration: 62.3ms | Allocations: 7211)
+Completed 200 OK in 78ms (Views: 63.6ms | ActiveRecord: 0.3ms | Allocations: 8987)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-10 23:19:25 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.2ms | Allocations: 28)
+  Rendered pages/fils.html.erb within layouts/application (Duration: 9.4ms | Allocations: 907)
+  Rendered layout layouts/application.html.erb (Duration: 45.0ms | Allocations: 6994)
+Completed 200 OK in 52ms (Views: 46.8ms | ActiveRecord: 0.2ms | Allocations: 8569)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-11 14:40:54 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 153.4ms | Allocations: 28429)
+  Rendered layout layouts/application.html.erb (Duration: 164.8ms | Allocations: 34999)
+Completed 200 OK in 185ms (Views: 167.8ms | ActiveRecord: 0.0ms | Allocations: 39527)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-11 14:40:57 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 15.4ms | Allocations: 3436)
+  Rendered layout layouts/application.html.erb (Duration: 22.6ms | Allocations: 9694)
+Completed 200 OK in 45ms (Views: 24.7ms | ActiveRecord: 0.4ms | Allocations: 17042)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-06-11 14:41:13 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.9ms | Allocations: 221)
+  Rendered devise/shared/_links.html.erb (Duration: 2.4ms | Allocations: 562)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 13.9ms | Allocations: 2835)
+  Rendered layout layouts/application.html.erb (Duration: 23.2ms | Allocations: 9088)
+Completed 200 OK in 29ms (Views: 25.5ms | ActiveRecord: 0.0ms | Allocations: 10410)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-06-11 14:41:32 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"aliciaghr@gmail.com", "password"=>"[FILTERED]", "confirmación_contraseña"=>"frambuesa"}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :confirmación_contraseña. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007fc424177128>, params: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"aliciaghr@gmail.com", "password"=>"[FILTERED]", "confirmación_contraseña"=>"frambuesa"}, "commit"=>"Sign up", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "aliciaghr@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "aliciaghr@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2024-06-11 18:41:33.055185"], ["updated_at", "2024-06-11 18:41:33.055185"]]
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://127.0.0.1:3000/menu
+Completed 303 See Other in 330ms (ActiveRecord: 8.6ms | Allocations: 10832)
+
+
+Started GET "/menu" for 127.0.0.1 at 2024-06-11 14:41:33 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 11.5ms | Allocations: 2945)
+  Rendered layout layouts/application.html.erb (Duration: 20.0ms | Allocations: 9023)
+Completed 200 OK in 26ms (Views: 20.6ms | ActiveRecord: 0.2ms | Allocations: 11175)
+
+
+Started GET "/escalas" for 127.0.0.1 at 2024-06-11 14:41:41 -0400
+Processing by PagesController#escalas as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/escalas.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 2.2ms | Allocations: 143)
+  Rendered pages/escalas.html.erb within layouts/application (Duration: 13.0ms | Allocations: 1344)
+  Rendered layout layouts/application.html.erb (Duration: 22.3ms | Allocations: 7340)
+Completed 200 OK in 27ms (Views: 23.3ms | ActiveRecord: 0.2ms | Allocations: 8914)
+
+
+Started GET "/home/fils" for 127.0.0.1 at 2024-06-11 14:41:42 -0400
+Processing by PagesController#fils as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/fils.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered pages/fils.html.erb within layouts/application (Duration: 7.3ms | Allocations: 904)
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 7053)
+Completed 200 OK in 21ms (Views: 17.4ms | ActiveRecord: 0.2ms | Allocations: 8623)
+
+
+Started GET "/menu" for 127.0.0.1 at 2024-06-11 14:41:44 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 4.7ms | Allocations: 2231)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 8180)
+Completed 200 OK in 15ms (Views: 10.2ms | ActiveRecord: 0.2ms | Allocations: 9757)
+
+
+Started GET "/degluconversor" for 127.0.0.1 at 2024-06-11 14:41:45 -0400
+Processing by PagesController#degluconversor as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/degluconversor.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered pages/degluconversor.html.erb within layouts/application (Duration: 15.9ms | Allocations: 6406)
+  Rendered layout layouts/application.html.erb (Duration: 17.8ms | Allocations: 8225)
+Completed 200 OK in 23ms (Views: 18.6ms | ActiveRecord: 0.1ms | Allocations: 9801)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 14:41:49 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"1", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.3ms | Allocations: 48)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 3.0ms | Allocations: 540)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 6802)
+Completed 200 OK in 15ms (Views: 11.8ms | ActiveRecord: 0.1ms | Allocations: 9229)
+
+
+Started GET "/degluconversor" for 127.0.0.1 at 2024-06-11 14:49:11 -0400
+Processing by PagesController#degluconversor as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/degluconversor.html.erb within layouts/application
+  Rendered pages/degluconversor.html.erb within layouts/application (Duration: 11.7ms | Allocations: 6549)
+  Rendered layout layouts/application.html.erb (Duration: 15.2ms | Allocations: 8577)
+Completed 200 OK in 32ms (Views: 18.6ms | ActiveRecord: 1.0ms | Allocations: 10996)
+
+
+Started GET "/degluconversor" for 127.0.0.1 at 2024-06-11 14:49:47 -0400
+Processing by PagesController#degluconversor as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/degluconversor.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 1.6ms | Allocations: 160)
+  Rendered pages/degluconversor.html.erb within layouts/application (Duration: 11.5ms | Allocations: 6924)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 8938)
+Completed 200 OK in 21ms (Views: 17.2ms | ActiveRecord: 0.1ms | Allocations: 11190)
+
+
+Started GET "/degluconversor" for 127.0.0.1 at 2024-06-11 14:56:25 -0400
+Processing by PagesController#degluconversor as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/degluconversor.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.6ms | Allocations: 159)
+  Rendered pages/degluconversor.html.erb within layouts/application (Duration: 9.8ms | Allocations: 6908)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 8933)
+Completed 200 OK in 29ms (Views: 18.8ms | ActiveRecord: 1.1ms | Allocations: 11346)
+
+
+Started GET "/resultado?origen=doss&destino=fils&nivel=4&nivelConvertido=6" for 127.0.0.1 at 2024-06-11 14:56:30 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/resultado"):
+  
+Started GET "/degluconversor" for 127.0.0.1 at 2024-06-11 14:57:53 -0400
+Processing by PagesController#degluconversor as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/degluconversor.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 1.5ms | Allocations: 162)
+  Rendered pages/degluconversor.html.erb within layouts/application (Duration: 22.3ms | Allocations: 6906)
+  Rendered layout layouts/application.html.erb (Duration: 25.9ms | Allocations: 8952)
+Completed 200 OK in 36ms (Views: 29.0ms | ActiveRecord: 0.2ms | Allocations: 11188)
+
+
+Started GET "/resultado?origen=fois&destino=fils&nivel=1&nivelConvertido=1" for 127.0.0.1 at 2024-06-11 14:57:58 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/resultado"):
+  
+Started GET "/degluconversor" for 127.0.0.1 at 2024-06-11 14:58:29 -0400
+Processing by PagesController#degluconversor as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/degluconversor.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.9ms | Allocations: 160)
+  Rendered pages/degluconversor.html.erb within layouts/application (Duration: 5.7ms | Allocations: 2713)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 2798)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.2ms | Allocations: 4976)
+
+
+  
+ActionView::Template::Error (undefined method `capitalize' for nil:NilClass
+
+      <div>'.freeze;@output_buffer.append=( @origen.capitalize );@output_buffer.safe_append='</div>
+                                                   ^^^^^^^^^^^):
+    121:   <div class="header">Conversión de escalas de severidad</div>
+    122:   <div class="container">
+    123:     <div class="box container-inicial" data-number="<%= @nivel %>">
+    124:       <div><%= @origen.capitalize %></div>
+    125:     </div>
+    126:     <div class="equal-sign">=</div>
+    127:     <div class="box container-final" data-number="<%= @nivelConvertido %>">
+  
+app/views/pages/degluconversor.html.erb:124
+Started GET "/degluconversor" for 127.0.0.1 at 2024-06-11 14:58:36 -0400
+Processing by PagesController#degluconversor as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/degluconversor.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered pages/degluconversor.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1987)
+  Rendered layout layouts/application.html.erb (Duration: 3.3ms | Allocations: 2066)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.2ms | Allocations: 3804)
+
+
+  
+ActionView::Template::Error (undefined method `capitalize' for nil:NilClass
+
+      <div>'.freeze;@output_buffer.append=( @origen.capitalize );@output_buffer.safe_append='</div>
+                                                   ^^^^^^^^^^^):
+    121:   <div class="header">Conversión de escalas de severidad</div>
+    122:   <div class="container">
+    123:     <div class="box container-inicial" data-number="<%= @nivel %>">
+    124:       <div><%= @origen.capitalize %></div>
+    125:     </div>
+    126:     <div class="equal-sign">=</div>
+    127:     <div class="box container-final" data-number="<%= @nivelConvertido %>">
+  
+app/views/pages/degluconversor.html.erb:124
+Started GET "/degluconversor" for 127.0.0.1 at 2024-06-11 14:58:55 -0400
+Processing by PagesController#degluconversor as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/degluconversor.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.7ms | Allocations: 159)
+  Rendered pages/degluconversor.html.erb within layouts/application (Duration: 12.0ms | Allocations: 6906)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 8931)
+Completed 200 OK in 25ms (Views: 21.0ms | ActiveRecord: 0.2ms | Allocations: 10979)
+
+
+Started GET "/degluconversor" for 127.0.0.1 at 2024-06-11 14:59:14 -0400
+Processing by PagesController#degluconversor as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/degluconversor.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.6ms | Allocations: 159)
+  Rendered pages/degluconversor.html.erb within layouts/application (Duration: 10.8ms | Allocations: 6793)
+  Rendered layout layouts/application.html.erb (Duration: 13.7ms | Allocations: 8818)
+Completed 200 OK in 20ms (Views: 15.9ms | ActiveRecord: 0.1ms | Allocations: 11048)
+
+
+Started GET "/resultado?origen=fils&destino=doss&nivel=1&nivelConvertido=1" for 127.0.0.1 at 2024-06-11 14:59:16 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/resultado"):
+  
+Started GET "/degluconversor" for 127.0.0.1 at 2024-06-11 14:59:39 -0400
+Processing by PagesController#degluconversor as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/degluconversor.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.7ms | Allocations: 159)
+  Rendered pages/degluconversor.html.erb within layouts/application (Duration: 9.2ms | Allocations: 6920)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 8934)
+Completed 200 OK in 19ms (Views: 15.1ms | ActiveRecord: 0.1ms | Allocations: 11100)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 14:59:40 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"1", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.3ms | Allocations: 42)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 5.1ms | Allocations: 2454)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 2539)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.1ms | Allocations: 4728)
+
+
+  
+ActionView::Template::Error (undefined method `capitalize' for nil:NilClass
+
+      <div>'.freeze;@output_buffer.append=( @origen.capitalize );@output_buffer.safe_append='</div>
+                                                   ^^^^^^^^^^^):
+    121:   <div class="header">Conversión de escalas de severidad</div>
+    122:   <div class="container">
+    123:     <div class="box container-inicial" data-number="<%= @nivel %>">
+    124:       <div><%= @origen.capitalize %></div>
+    125:     </div>
+    126:     <div class="equal-sign">=</div>
+    127:     <div class="box container-final" data-number="<%= @nivelConvertido %>">
+  
+app/views/degluconversor/degluconversor1.html.erb:124
+app/controllers/degluconversor_controller.rb:7:in `transformar'
+Started GET "/degluconversor" for 127.0.0.1 at 2024-06-11 15:00:02 -0400
+Processing by PagesController#degluconversor as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/degluconversor.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.9ms | Allocations: 159)
+  Rendered pages/degluconversor.html.erb within layouts/application (Duration: 10.3ms | Allocations: 6920)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 8934)
+Completed 200 OK in 21ms (Views: 17.6ms | ActiveRecord: 0.1ms | Allocations: 11176)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 15:00:03 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"1", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.3ms | Allocations: 42)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 2.2ms | Allocations: 525)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 6780)
+Completed 200 OK in 15ms (Views: 11.3ms | ActiveRecord: 0.1ms | Allocations: 8971)
+
+
+Started GET "/degluconversor" for 127.0.0.1 at 2024-06-11 15:02:27 -0400
+Processing by PagesController#degluconversor as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/degluconversor.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.6ms | Allocations: 159)
+  Rendered pages/degluconversor.html.erb within layouts/application (Duration: 7.8ms | Allocations: 7020)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 9034)
+Completed 200 OK in 18ms (Views: 14.0ms | ActiveRecord: 0.2ms | Allocations: 11265)
+
+
+Started GET "/degluconversor" for 127.0.0.1 at 2024-06-11 15:04:45 -0400
+Processing by PagesController#degluconversor as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/degluconversor.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.9ms | Allocations: 159)
+  Rendered pages/degluconversor.html.erb within layouts/application (Duration: 9.6ms | Allocations: 6905)
+  Rendered layout layouts/application.html.erb (Duration: 15.2ms | Allocations: 8919)
+Completed 200 OK in 25ms (Views: 18.6ms | ActiveRecord: 0.1ms | Allocations: 11153)
+
+
+Started GET "/resultado?origen=doss&destino=fils&nivel=1&nivelConvertido=1" for 127.0.0.1 at 2024-06-11 15:04:51 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/resultado"):
+  
+Started GET "/resultado?origen=doss&destino=fils&nivel=1&nivelConvertido=1" for 127.0.0.1 at 2024-06-11 15:09:10 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/resultado"):
+  
+Started GET "/degluconversor" for 127.0.0.1 at 2024-06-11 15:09:13 -0400
+Processing by PagesController#degluconversor as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/degluconversor.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.7ms | Allocations: 162)
+  Rendered pages/degluconversor.html.erb within layouts/application (Duration: 17.8ms | Allocations: 7019)
+  Rendered layout layouts/application.html.erb (Duration: 22.8ms | Allocations: 9034)
+Completed 200 OK in 33ms (Views: 26.5ms | ActiveRecord: 0.3ms | Allocations: 11188)
+
+
+Started GET "/degluconversor" for 127.0.0.1 at 2024-06-11 15:09:44 -0400
+Processing by PagesController#degluconversor as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/degluconversor.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.8ms | Allocations: 159)
+  Rendered pages/degluconversor.html.erb within layouts/application (Duration: 11.7ms | Allocations: 6811)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 8825)
+Completed 200 OK in 22ms (Views: 17.4ms | ActiveRecord: 0.1ms | Allocations: 11073)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 15:09:45 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"1", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.6ms | Allocations: 42)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 2.3ms | Allocations: 525)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 6780)
+Completed 200 OK in 19ms (Views: 13.5ms | ActiveRecord: 0.2ms | Allocations: 8975)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 16:11:42 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"1", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 1.6ms | Allocations: 157)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 7.5ms | Allocations: 813)
+  Rendered layout layouts/application.html.erb (Duration: 37.0ms | Allocations: 7387)
+Completed 200 OK in 93ms (Views: 44.0ms | ActiveRecord: 6.4ms | Allocations: 13265)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 16:11:54 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"4", "tabla_destino"=>"fils"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 0.4ms | Allocations: 100)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 6176)
+Completed 200 OK in 19ms (Views: 11.8ms | ActiveRecord: 0.4ms | Allocations: 8040)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 16:14:04 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"4", "tabla_destino"=>"fils"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 2.2ms | Allocations: 150)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 18.6ms | Allocations: 3046)
+  Rendered layout layouts/application.html.erb (Duration: 19.1ms | Allocations: 3131)
+Completed 500 Internal Server Error in 66ms (ActiveRecord: 1.6ms | Allocations: 5476)
+
+
+  
+ActionView::Template::Error (undefined method `capitalize' for nil:NilClass
+
+      <div>'.freeze;@output_buffer.append=( @tabla_seleccionada.capitalize );@output_buffer.safe_append='</div>
+                                                               ^^^^^^^^^^^):
+    140:       </ul>
+    141:     <% end %>
+    142:     <div class="box container-inicial" data-number="<%= @nivel_seleccionado %>">
+    143:       <div><%= @tabla_seleccionada.capitalize %></div>
+    144:     </div>
+    145:     <div class="equal-sign">=</div>
+    146:     <div class="box container-final" data-number="x">
+  
+app/views/degluconversor/degluconversor1.html.erb:143
+app/controllers/degluconversor_controller.rb:207:in `transformar'
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 16:14:26 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"4", "tabla_destino"=>"fils"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 1.2ms | Allocations: 150)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 7.4ms | Allocations: 3043)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 3128)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.1ms | Allocations: 5680)
+
+
+  
+ActionView::Template::Error (undefined method `capitalize' for nil:NilClass
+
+      <div>'.freeze;@output_buffer.append=( @tabla_seleccionada.capitalize );@output_buffer.safe_append='</div>
+                                                               ^^^^^^^^^^^):
+    140:       </ul>
+    141:     <% end %>
+    142:     <div class="box container-inicial" data-number="<%= @nivel_seleccionado %>">
+    143:       <div><%= @tabla_seleccionada.capitalize %></div>
+    144:     </div>
+    145:     <div class="equal-sign">=</div>
+    146:     <div class="box container-final" data-number="x">
+  
+app/views/degluconversor/degluconversor1.html.erb:143
+app/controllers/degluconversor_controller.rb:207:in `transformar'
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 16:14:29 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"4", "tabla_destino"=>"fils"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 2.8ms | Allocations: 2274)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 2353)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.6ms | Allocations: 4239)
+
+
+  
+ActionView::Template::Error (undefined method `capitalize' for nil:NilClass
+
+      <div>'.freeze;@output_buffer.append=( @tabla_seleccionada.capitalize );@output_buffer.safe_append='</div>
+                                                               ^^^^^^^^^^^):
+    140:       </ul>
+    141:     <% end %>
+    142:     <div class="box container-inicial" data-number="<%= @nivel_seleccionado %>">
+    143:       <div><%= @tabla_seleccionada.capitalize %></div>
+    144:     </div>
+    145:     <div class="equal-sign">=</div>
+    146:     <div class="box container-final" data-number="x">
+  
+app/views/degluconversor/degluconversor1.html.erb:143
+app/controllers/degluconversor_controller.rb:207:in `transformar'
+Started GET "/degluconversor" for 127.0.0.1 at 2024-06-11 16:14:32 -0400
+Processing by PagesController#degluconversor as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/degluconversor.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered pages/degluconversor.html.erb within layouts/application (Duration: 17.9ms | Allocations: 6780)
+  Rendered layout layouts/application.html.erb (Duration: 24.1ms | Allocations: 8795)
+Completed 200 OK in 31ms (Views: 26.1ms | ActiveRecord: 0.2ms | Allocations: 11102)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 16:14:32 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"1", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.2ms | Allocations: 24)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 2.6ms | Allocations: 2307)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 2386)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.3ms | Allocations: 4239)
+
+
+  
+ActionView::Template::Error (undefined method `capitalize' for nil:NilClass
+
+      <div>'.freeze;@output_buffer.append=( @tabla_seleccionada.capitalize );@output_buffer.safe_append='</div>
+                                                               ^^^^^^^^^^^):
+    140:       </ul>
+    141:     <% end %>
+    142:     <div class="box container-inicial" data-number="<%= @nivel_seleccionado %>">
+    143:       <div><%= @tabla_seleccionada.capitalize %></div>
+    144:     </div>
+    145:     <div class="equal-sign">=</div>
+    146:     <div class="box container-final" data-number="x">
+  
+app/views/degluconversor/degluconversor1.html.erb:143
+app/controllers/degluconversor_controller.rb:207:in `transformar'
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 16:15:32 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"1", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 6.8ms | Allocations: 6598)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 8626)
+Completed 200 OK in 18ms (Views: 13.6ms | ActiveRecord: 0.3ms | Allocations: 10961)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 16:15:53 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"1", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 7.0ms | Allocations: 5911)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 7742)
+Completed 200 OK in 20ms (Views: 12.5ms | ActiveRecord: 0.2ms | Allocations: 9611)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 16:16:10 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"1", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.7ms | Allocations: 150)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 5.3ms | Allocations: 3053)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 3138)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.1ms | Allocations: 5459)
+
+
+  
+ActionView::Template::Error (undefined method `capitalize' for nil:NilClass
+
+      <div>'.freeze;@output_buffer.append=( @tabla_seleccionada.capitalize );@output_buffer.safe_append='</div>
+                                                               ^^^^^^^^^^^):
+    140:       </ul>
+    141:     <% end %>
+    142:     <div class="box container-inicial" data-number="<%= @nivel_seleccionado %>">
+    143:       <div><%= @tabla_seleccionada.capitalize %></div>
+    144:     </div>
+    145:     <div class="equal-sign">=</div>
+    146:     <div class="box container-final" data-number="x">
+  
+app/views/degluconversor/degluconversor1.html.erb:143
+app/controllers/degluconversor_controller.rb:207:in `transformar'
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 16:17:48 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"1", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1494)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 1583)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.3ms | Allocations: 4123)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Degluconversor Resultado</title>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  
+    .header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2.5em;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      width: 100%;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999; /* asegura que esté por encima de todo */
+    }
+
+    h1 {
+      font-size: 1.5em;
+      color: #256490;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: #256490;
+      font-size: 1em;
+      margin: 10px 0;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      
+    }
+
+
+    .box {
+      display: flex;
+      align-items: center;
+      width: 400px;
+      height: 100px;
+      font-size: 1em;
+      margin: 2px 0;
+      border-radius: 30px;
+      color: white;
+      padding: 10px 10px 10px 60px;
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    .equal-sign {
+      font-size: 5em;
+      color: #7D9DB7;
+      font-weight: bold;
+      margin: 10px 0;
+      
+    }
+
+
+    .container-inicial {
+      background-color: #A8BDBC;
+      margin-top: 150px;
+    }
+
+    .container-final {
+      background-color: #B5B0C9;
+    }
+
+    .box::before {
+      content: attr(data-number);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: #256490;
+      color: #FFFFFF;
+      font-weight: bold;
+      position: absolute;
+      left: -40px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .box div {
+      font-size: 1.8em;
+    }
+
+
+    input[type="submit"], .submit-button {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #256490;
+      text-align: center;
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <%= render 'shared/header' %>
+  <div class="header">Conversión de escalas de severidad</div>
+  <div class="container">
+    <h1>Resultado de Conversión</h1>
+    <% if @resultado %>
+      <h2>Equivalente Encontrado</h2>
+      <p><strong>Nombre:</strong> <%= @resultado["Nombre"] %></p>
+      <ul>
+        <% @resultado.each do |caracteristica, valor| %>
+          <% next if caracteristica == "Nombre" %>
+          <li><strong><%= caracteristica %>:</strong> <%= valor %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <h2>Varios Niveles Posibles</h2>
+      <p>Los siguientes niveles coinciden con la vía de alimentación:</p>
+      <ul>
+        <% @niveles_posibles.each do |nivel| %>
+          <li><strong>Nivel <%= nivel[:nivel] %>:</strong> <%= nivel[:nombre] %></li>
+        <% end %>
+      </ul>
+    <%= link_to 'ⓘ Ver detalles', degluconversor_tablas_path, class: 'submit-button' %>
+  </div>
+</body>
+</html>
+
+):
+1:    <!DOCTYPE html>
+2:    <html lang="es">
+3:    <head>
+4:      <meta charset="UTF-8">
+5:      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+6:      <title>Degluconversor Resultado</title>
+7:      <style>
+8:        body {
+9:          background-color: #FFFFFF;
+10:          margin: 0;
+11:          font-family: 'Arial', sans-serif;
+12:          display: flex;
+13:          justify-content: center;
+14:          align-items: center;
+15:          height: 100vh;
+16:        }
+17:      
+18:        .header {
+19:          background-color: #256490;
+20:          color: white;
+21:          padding: 1em;
+22:          font-size: 2.5em;
+23:          border-bottom-left-radius: 80px;
+24:          border-bottom-right-radius: 80px;
+25:          width: 100%;
+26:          text-align: center;
+27:          position: fixed;
+28:          top: 0;
+29:          left: 0;
+30:          z-index: 999; /* asegura que esté por encima de todo */
+31:        }
+32:    
+33:        h1 {
+34:          font-size: 1.5em;
+35:          color: #256490;
+36:          margin-bottom: 20px;
+37:        }
+38:    
+39:        p {
+40:          color: #256490;
+41:          font-size: 1em;
+42:          margin: 10px 0;
+43:        }
+44:    
+45:        .container {
+46:          display: flex;
+47:          flex-direction: column;
+48:          align-items: center;
+49:          justify-content: center;
+50:          
+51:        }
+52:    
+53:    
+54:        .box {
+55:          display: flex;
+56:          align-items: center;
+57:          width: 400px;
+58:          height: 100px;
+59:          font-size: 1em;
+60:          margin: 2px 0;
+61:          border-radius: 30px;
+62:          color: white;
+63:          padding: 10px 10px 10px 60px;
+64:          position: relative;
+65:          box-sizing: border-box;
+66:        }
+67:    
+68:        .equal-sign {
+69:          font-size: 5em;
+70:          color: #7D9DB7;
+71:          font-weight: bold;
+72:          margin: 10px 0;
+73:          
+74:        }
+75:    
+76:    
+77:        .container-inicial {
+78:          background-color: #A8BDBC;
+79:          margin-top: 150px;
+80:        }
+81:    
+82:        .container-final {
+83:          background-color: #B5B0C9;
+84:        }
+85:    
+86:        .box::before {
+87:          content: attr(data-number);
+88:          display: flex;
+89:          align-items: center;
+90:          justify-content: center;
+91:          width: 80px;
+92:          height: 80px;
+93:          border-radius: 50%;
+94:          background-color: #256490;
+95:          color: #FFFFFF;
+96:          font-weight: bold;
+97:          position: absolute;
+98:          left: -40px;
+99:          top: 50%;
+100:          transform: translateY(-50%);
+101:        }
+102:    
+103:        .box div {
+104:          font-size: 1.8em;
+105:        }
+106:    
+107:    
+108:        input[type="submit"], .submit-button {
+109:          margin-top: 20px;
+110:          font-size: 1.2em;
+111:          color: #256490;
+112:          text-align: center;
+113:        }
+114:    
+115:    
+116:    
+117:      </style>
+118:    </head>
+119:    <body>
+120:      <%= render 'shared/header' %>
+121:      <div class="header">Conversión de escalas de severidad</div>
+122:      <div class="container">
+123:        <h1>Resultado de Conversión</h1>
+124:        <% if @resultado %>
+125:          <h2>Equivalente Encontrado</h2>
+126:          <p><strong>Nombre:</strong> <%= @resultado["Nombre"] %></p>
+127:          <ul>
+128:            <% @resultado.each do |caracteristica, valor| %>
+129:              <% next if caracteristica == "Nombre" %>
+130:              <li><strong><%= caracteristica %>:</strong> <%= valor %></li>
+131:            <% end %>
+132:          </ul>
+133:        <% else %>
+134:          <h2>Varios Niveles Posibles</h2>
+135:          <p>Los siguientes niveles coinciden con la vía de alimentación:</p>
+136:          <ul>
+137:            <% @niveles_posibles.each do |nivel| %>
+138:              <li><strong>Nivel <%= nivel[:nivel] %>:</strong> <%= nivel[:nombre] %></li>
+139:            <% end %>
+140:          </ul>
+141:        <%= link_to 'ⓘ Ver detalles', degluconversor_tablas_path, class: 'submit-button' %>
+142:      </div>
+143:    </body>
+144:    </html>
+  
+app/views/degluconversor/degluconversor1.html.erb:147: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:147: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:147: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:147: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/degluconversor_controller.rb:207:in `transformar'
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 16:17:52 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"1", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1438)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1518)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.2ms | Allocations: 3389)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Degluconversor Resultado</title>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  
+    .header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2.5em;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      width: 100%;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999; /* asegura que esté por encima de todo */
+    }
+
+    h1 {
+      font-size: 1.5em;
+      color: #256490;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: #256490;
+      font-size: 1em;
+      margin: 10px 0;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      
+    }
+
+
+    .box {
+      display: flex;
+      align-items: center;
+      width: 400px;
+      height: 100px;
+      font-size: 1em;
+      margin: 2px 0;
+      border-radius: 30px;
+      color: white;
+      padding: 10px 10px 10px 60px;
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    .equal-sign {
+      font-size: 5em;
+      color: #7D9DB7;
+      font-weight: bold;
+      margin: 10px 0;
+      
+    }
+
+
+    .container-inicial {
+      background-color: #A8BDBC;
+      margin-top: 150px;
+    }
+
+    .container-final {
+      background-color: #B5B0C9;
+    }
+
+    .box::before {
+      content: attr(data-number);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: #256490;
+      color: #FFFFFF;
+      font-weight: bold;
+      position: absolute;
+      left: -40px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .box div {
+      font-size: 1.8em;
+    }
+
+
+    input[type="submit"], .submit-button {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #256490;
+      text-align: center;
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <%= render 'shared/header' %>
+  <div class="header">Conversión de escalas de severidad</div>
+  <div class="container">
+    <h1>Resultado de Conversión</h1>
+    <% if @resultado %>
+      <h2>Equivalente Encontrado</h2>
+      <p><strong>Nombre:</strong> <%= @resultado["Nombre"] %></p>
+      <ul>
+        <% @resultado.each do |caracteristica, valor| %>
+          <% next if caracteristica == "Nombre" %>
+          <li><strong><%= caracteristica %>:</strong> <%= valor %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <h2>Varios Niveles Posibles</h2>
+      <p>Los siguientes niveles coinciden con la vía de alimentación:</p>
+      <ul>
+        <% @niveles_posibles.each do |nivel| %>
+          <li><strong>Nivel <%= nivel[:nivel] %>:</strong> <%= nivel[:nombre] %></li>
+        <% end %>
+      </ul>
+    <%= link_to 'ⓘ Ver detalles', degluconversor_tablas_path, class: 'submit-button' %>
+  </div>
+</body>
+</html>
+
+):
+1:    <!DOCTYPE html>
+2:    <html lang="es">
+3:    <head>
+4:      <meta charset="UTF-8">
+5:      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+6:      <title>Degluconversor Resultado</title>
+7:      <style>
+8:        body {
+9:          background-color: #FFFFFF;
+10:          margin: 0;
+11:          font-family: 'Arial', sans-serif;
+12:          display: flex;
+13:          justify-content: center;
+14:          align-items: center;
+15:          height: 100vh;
+16:        }
+17:      
+18:        .header {
+19:          background-color: #256490;
+20:          color: white;
+21:          padding: 1em;
+22:          font-size: 2.5em;
+23:          border-bottom-left-radius: 80px;
+24:          border-bottom-right-radius: 80px;
+25:          width: 100%;
+26:          text-align: center;
+27:          position: fixed;
+28:          top: 0;
+29:          left: 0;
+30:          z-index: 999; /* asegura que esté por encima de todo */
+31:        }
+32:    
+33:        h1 {
+34:          font-size: 1.5em;
+35:          color: #256490;
+36:          margin-bottom: 20px;
+37:        }
+38:    
+39:        p {
+40:          color: #256490;
+41:          font-size: 1em;
+42:          margin: 10px 0;
+43:        }
+44:    
+45:        .container {
+46:          display: flex;
+47:          flex-direction: column;
+48:          align-items: center;
+49:          justify-content: center;
+50:          
+51:        }
+52:    
+53:    
+54:        .box {
+55:          display: flex;
+56:          align-items: center;
+57:          width: 400px;
+58:          height: 100px;
+59:          font-size: 1em;
+60:          margin: 2px 0;
+61:          border-radius: 30px;
+62:          color: white;
+63:          padding: 10px 10px 10px 60px;
+64:          position: relative;
+65:          box-sizing: border-box;
+66:        }
+67:    
+68:        .equal-sign {
+69:          font-size: 5em;
+70:          color: #7D9DB7;
+71:          font-weight: bold;
+72:          margin: 10px 0;
+73:          
+74:        }
+75:    
+76:    
+77:        .container-inicial {
+78:          background-color: #A8BDBC;
+79:          margin-top: 150px;
+80:        }
+81:    
+82:        .container-final {
+83:          background-color: #B5B0C9;
+84:        }
+85:    
+86:        .box::before {
+87:          content: attr(data-number);
+88:          display: flex;
+89:          align-items: center;
+90:          justify-content: center;
+91:          width: 80px;
+92:          height: 80px;
+93:          border-radius: 50%;
+94:          background-color: #256490;
+95:          color: #FFFFFF;
+96:          font-weight: bold;
+97:          position: absolute;
+98:          left: -40px;
+99:          top: 50%;
+100:          transform: translateY(-50%);
+101:        }
+102:    
+103:        .box div {
+104:          font-size: 1.8em;
+105:        }
+106:    
+107:    
+108:        input[type="submit"], .submit-button {
+109:          margin-top: 20px;
+110:          font-size: 1.2em;
+111:          color: #256490;
+112:          text-align: center;
+113:        }
+114:    
+115:    
+116:    
+117:      </style>
+118:    </head>
+119:    <body>
+120:      <%= render 'shared/header' %>
+121:      <div class="header">Conversión de escalas de severidad</div>
+122:      <div class="container">
+123:        <h1>Resultado de Conversión</h1>
+124:        <% if @resultado %>
+125:          <h2>Equivalente Encontrado</h2>
+126:          <p><strong>Nombre:</strong> <%= @resultado["Nombre"] %></p>
+127:          <ul>
+128:            <% @resultado.each do |caracteristica, valor| %>
+129:              <% next if caracteristica == "Nombre" %>
+130:              <li><strong><%= caracteristica %>:</strong> <%= valor %></li>
+131:            <% end %>
+132:          </ul>
+133:        <% else %>
+134:          <h2>Varios Niveles Posibles</h2>
+135:          <p>Los siguientes niveles coinciden con la vía de alimentación:</p>
+136:          <ul>
+137:            <% @niveles_posibles.each do |nivel| %>
+138:              <li><strong>Nivel <%= nivel[:nivel] %>:</strong> <%= nivel[:nombre] %></li>
+139:            <% end %>
+140:          </ul>
+141:        <%= link_to 'ⓘ Ver detalles', degluconversor_tablas_path, class: 'submit-button' %>
+142:      </div>
+143:    </body>
+144:    </html>
+  
+app/views/degluconversor/degluconversor1.html.erb:147: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:147: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:147: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:147: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/degluconversor_controller.rb:207:in `transformar'
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 16:19:12 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"1", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 2.8ms | Allocations: 150)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 9.6ms | Allocations: 880)
+  Rendered layout layouts/application.html.erb (Duration: 22.6ms | Allocations: 7425)
+Completed 200 OK in 35ms (Views: 26.2ms | ActiveRecord: 0.8ms | Allocations: 9788)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 16:21:07 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"1", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.8ms | Allocations: 150)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 4.9ms | Allocations: 881)
+  Rendered layout layouts/application.html.erb (Duration: 22.5ms | Allocations: 7313)
+Completed 200 OK in 41ms (Views: 30.2ms | ActiveRecord: 0.4ms | Allocations: 9856)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 16:26:08 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"1", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.4ms | Allocations: 49)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 1.9ms | Allocations: 220)
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 6597)
+Completed 200 OK in 37ms (Views: 14.8ms | ActiveRecord: 5.0ms | Allocations: 12547)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 16:38:30 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"1", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 4.3ms | Allocations: 157)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 6.8ms | Allocations: 826)
+  Rendered layout layouts/application.html.erb (Duration: 21.1ms | Allocations: 7265)
+Completed 200 OK in 44ms (Views: 26.7ms | ActiveRecord: 1.5ms | Allocations: 13104)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 16:42:17 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"1", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 28.1ms | Allocations: 1490)
+  Rendered layout layouts/application.html.erb (Duration: 28.4ms | Allocations: 1579)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 0.2ms | Allocations: 4112)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Degluconversor Resultado</title>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  
+    .header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2.5em;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      width: 100%;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999; /* asegura que esté por encima de todo */
+    }
+
+    h1 {
+      font-size: 1.5em;
+      color: #256490;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: #256490;
+      font-size: 1em;
+      margin: 10px 0;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      
+    }
+
+
+    .box {
+      display: flex;
+      align-items: center;
+      width: 400px;
+      height: 100px;
+      font-size: 1em;
+      margin: 2px 0;
+      border-radius: 30px;
+      color: white;
+      padding: 10px 10px 10px 60px;
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    .equal-sign {
+      font-size: 5em;
+      color: #7D9DB7;
+      font-weight: bold;
+      margin: 10px 0;
+      
+    }
+
+
+    .container-inicial {
+      background-color: #A8BDBC;
+      margin-top: 150px;
+    }
+
+    .container-final {
+      background-color: #B5B0C9;
+    }
+
+    .box::before {
+      content: attr(data-number);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: #256490;
+      color: #FFFFFF;
+      font-weight: bold;
+      position: absolute;
+      left: -40px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .box div {
+      font-size: 1.8em;
+    }
+
+
+    input[type="submit"], .submit-button {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #256490;
+      text-align: center;
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <%= render 'shared/header' %>
+  <div class="header">Resultado de Conversión</div>
+  <div class="container">
+    <div class="box container-inicial" data-number="<%= @nivel_seleccionado %>">
+      <div><%= @tabla_seleccionada.capitalize %></div>
+    </div>
+    <div class="equal-sign">=</div>
+
+    <% if @resultado % >
+      <div class="box container-final" data-number="<%= @resultado["Nivel"] %>">
+      <div><%= @tabla_destino.capitalize %></div>
+    <% else %>
+      <h2>Varios Niveles Posibles</h2>
+      <p>Los siguientes niveles coinciden con la vía de alimentación:</p>
+      <ul>
+        <% @niveles_posibles.each do |nivel| %>
+          <li><strong>Nivel <%= nivel[:nivel] %>:</strong> <%= nivel[:nombre] %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <%= link_to 'ⓘ Ver detalles', degluconversor_tablas_path, class: 'submit-button' %>
+  </div>
+</body>
+</html>
+
+):
+1:    <!DOCTYPE html>
+2:    <html lang="es">
+3:    <head>
+4:      <meta charset="UTF-8">
+5:      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+6:      <title>Degluconversor Resultado</title>
+7:      <style>
+8:        body {
+9:          background-color: #FFFFFF;
+10:          margin: 0;
+11:          font-family: 'Arial', sans-serif;
+12:          display: flex;
+13:          justify-content: center;
+14:          align-items: center;
+15:          height: 100vh;
+16:        }
+17:      
+18:        .header {
+19:          background-color: #256490;
+20:          color: white;
+21:          padding: 1em;
+22:          font-size: 2.5em;
+23:          border-bottom-left-radius: 80px;
+24:          border-bottom-right-radius: 80px;
+25:          width: 100%;
+26:          text-align: center;
+27:          position: fixed;
+28:          top: 0;
+29:          left: 0;
+30:          z-index: 999; /* asegura que esté por encima de todo */
+31:        }
+32:    
+33:        h1 {
+34:          font-size: 1.5em;
+35:          color: #256490;
+36:          margin-bottom: 20px;
+37:        }
+38:    
+39:        p {
+40:          color: #256490;
+41:          font-size: 1em;
+42:          margin: 10px 0;
+43:        }
+44:    
+45:        .container {
+46:          display: flex;
+47:          flex-direction: column;
+48:          align-items: center;
+49:          justify-content: center;
+50:          
+51:        }
+52:    
+53:    
+54:        .box {
+55:          display: flex;
+56:          align-items: center;
+57:          width: 400px;
+58:          height: 100px;
+59:          font-size: 1em;
+60:          margin: 2px 0;
+61:          border-radius: 30px;
+62:          color: white;
+63:          padding: 10px 10px 10px 60px;
+64:          position: relative;
+65:          box-sizing: border-box;
+66:        }
+67:    
+68:        .equal-sign {
+69:          font-size: 5em;
+70:          color: #7D9DB7;
+71:          font-weight: bold;
+72:          margin: 10px 0;
+73:          
+74:        }
+75:    
+76:    
+77:        .container-inicial {
+78:          background-color: #A8BDBC;
+79:          margin-top: 150px;
+80:        }
+81:    
+82:        .container-final {
+83:          background-color: #B5B0C9;
+84:        }
+85:    
+86:        .box::before {
+87:          content: attr(data-number);
+88:          display: flex;
+89:          align-items: center;
+90:          justify-content: center;
+91:          width: 80px;
+92:          height: 80px;
+93:          border-radius: 50%;
+94:          background-color: #256490;
+95:          color: #FFFFFF;
+96:          font-weight: bold;
+97:          position: absolute;
+98:          left: -40px;
+99:          top: 50%;
+100:          transform: translateY(-50%);
+101:        }
+102:    
+103:        .box div {
+104:          font-size: 1.8em;
+105:        }
+106:    
+107:    
+108:        input[type="submit"], .submit-button {
+109:          margin-top: 20px;
+110:          font-size: 1.2em;
+111:          color: #256490;
+112:          text-align: center;
+113:        }
+114:    
+115:    
+116:    
+117:      </style>
+118:    </head>
+119:    <body>
+120:      <%= render 'shared/header' %>
+121:      <div class="header">Resultado de Conversión</div>
+122:      <div class="container">
+123:        <div class="box container-inicial" data-number="<%= @nivel_seleccionado %>">
+124:          <div><%= @tabla_seleccionada.capitalize %></div>
+125:        </div>
+126:        <div class="equal-sign">=</div>
+127:    
+128:        <% if @resultado % >
+129:          <div class="box container-final" data-number="<%= @resultado["Nivel"] %>">
+130:          <div><%= @tabla_destino.capitalize %></div>
+131:        <% else %>
+132:          <h2>Varios Niveles Posibles</h2>
+133:          <p>Los siguientes niveles coinciden con la vía de alimentación:</p>
+134:          <ul>
+135:            <% @niveles_posibles.each do |nivel| %>
+136:              <li><strong>Nivel <%= nivel[:nivel] %>:</strong> <%= nivel[:nombre] %></li>
+137:            <% end %>
+138:          </ul>
+139:        <% end %>
+140:        <%= link_to 'ⓘ Ver detalles', degluconversor_tablas_path, class: 'submit-button' %>
+141:      </div>
+142:    </body>
+143:    </html>
+  
+app/views/degluconversor/degluconversor1.html.erb:128: syntax error, unexpected '>'
+app/views/degluconversor/degluconversor1.html.erb:129: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:129: syntax error, unexpected constant, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:130: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:132: unknown regexp option - h
+app/views/degluconversor/degluconversor1.html.erb:132: syntax error, unexpected integer literal, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:133: syntax error, unexpected local variable or method, expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:133: syntax error, unexpected '<', expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:136: unknown regexp options - trg
+app/views/degluconversor/degluconversor1.html.erb:138: unknown regexp option - l
+app/views/degluconversor/degluconversor1.html.erb:140: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:140: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:140: syntax error, unexpected string literal, expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:141: syntax error, unexpected '<', expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:142: unknown regexp options - bdy
+app/views/degluconversor/degluconversor1.html.erb:143: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:146: unterminated regexp meets end of file
+app/views/degluconversor/degluconversor1.html.erb:146: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:128: syntax error, unexpected '>'
+app/views/degluconversor/degluconversor1.html.erb:129: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:129: syntax error, unexpected constant, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:130: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:132: unknown regexp option - h
+app/views/degluconversor/degluconversor1.html.erb:132: syntax error, unexpected integer literal, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:133: syntax error, unexpected local variable or method, expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:133: syntax error, unexpected '<', expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:136: unknown regexp options - trg
+app/views/degluconversor/degluconversor1.html.erb:138: unknown regexp option - l
+app/views/degluconversor/degluconversor1.html.erb:140: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:140: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:140: syntax error, unexpected string literal, expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:141: syntax error, unexpected '<', expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:142: unknown regexp options - bdy
+app/views/degluconversor/degluconversor1.html.erb:143: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:146: unterminated regexp meets end of file
+app/views/degluconversor/degluconversor1.html.erb:146: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:128: syntax error, unexpected '>'
+app/views/degluconversor/degluconversor1.html.erb:129: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:129: syntax error, unexpected constant, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:130: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:132: unknown regexp option - h
+app/views/degluconversor/degluconversor1.html.erb:132: syntax error, unexpected integer literal, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:133: syntax error, unexpected local variable or method, expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:133: syntax error, unexpected '<', expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:136: unknown regexp options - trg
+app/views/degluconversor/degluconversor1.html.erb:138: unknown regexp option - l
+app/views/degluconversor/degluconversor1.html.erb:140: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:140: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:140: syntax error, unexpected string literal, expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:141: syntax error, unexpected '<', expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:142: unknown regexp options - bdy
+app/views/degluconversor/degluconversor1.html.erb:143: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:146: unterminated regexp meets end of file
+app/views/degluconversor/degluconversor1.html.erb:146: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:128: syntax error, unexpected '>'
+app/views/degluconversor/degluconversor1.html.erb:129: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:129: syntax error, unexpected constant, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:130: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:132: unknown regexp option - h
+app/views/degluconversor/degluconversor1.html.erb:132: syntax error, unexpected integer literal, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:133: syntax error, unexpected local variable or method, expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:133: syntax error, unexpected '<', expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:136: unknown regexp options - trg
+app/views/degluconversor/degluconversor1.html.erb:138: unknown regexp option - l
+app/views/degluconversor/degluconversor1.html.erb:140: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:140: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:140: syntax error, unexpected string literal, expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:141: syntax error, unexpected '<', expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:142: unknown regexp options - bdy
+app/views/degluconversor/degluconversor1.html.erb:143: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:146: unterminated regexp meets end of file
+app/views/degluconversor/degluconversor1.html.erb:146: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/degluconversor_controller.rb:212:in `transformar'
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 16:44:12 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"3", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.7ms | Allocations: 150)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 3.4ms | Allocations: 835)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 7380)
+Completed 200 OK in 26ms (Views: 19.5ms | ActiveRecord: 0.1ms | Allocations: 9941)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 16:45:11 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"3", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 1.3ms | Allocations: 150)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 5.9ms | Allocations: 846)
+  Rendered layout layouts/application.html.erb (Duration: 17.6ms | Allocations: 7278)
+Completed 200 OK in 26ms (Views: 20.2ms | ActiveRecord: 0.1ms | Allocations: 9830)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 16:47:12 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"3", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.7ms | Allocations: 150)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 3.7ms | Allocations: 830)
+  Rendered layout layouts/application.html.erb (Duration: 17.8ms | Allocations: 7262)
+Completed 200 OK in 27ms (Views: 20.5ms | ActiveRecord: 0.1ms | Allocations: 9808)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 16:47:16 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"3", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.2ms | Allocations: 24)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 0.7ms | Allocations: 137)
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | Allocations: 6212)
+Completed 200 OK in 21ms (Views: 15.2ms | ActiveRecord: 0.2ms | Allocations: 8082)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 16:47:24 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"3", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.8ms | Allocations: 150)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 8.4ms | Allocations: 846)
+  Rendered layout layouts/application.html.erb (Duration: 20.0ms | Allocations: 7278)
+Completed 200 OK in 30ms (Views: 25.2ms | ActiveRecord: 0.3ms | Allocations: 9634)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 16:47:32 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"3", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 1.1ms | Allocations: 150)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1736)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 1821)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.1ms | Allocations: 4340)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 0, expected 1)):
+    126:     <div class="equal-sign">=</div>
+    127: 
+    128:     <% if @resultado.present? %>
+    129:       <div class="box container-final" data-number="<%= @resultado.key %>">
+    130:         <div><%= @tabla_destino.capitalize %></div>
+    131:       </div>
+    132:     <% else %>
+  
+app/views/degluconversor/degluconversor1.html.erb:129:in `key'
+app/views/degluconversor/degluconversor1.html.erb:129
+app/controllers/degluconversor_controller.rb:212:in `transformar'
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 16:48:13 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"3", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.8ms | Allocations: 150)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 5.4ms | Allocations: 3453)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 3538)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.1ms | Allocations: 6070)
+
+
+  
+ActionView::Template::Error (undefined method `keys' for ["Nombre", "Aspiración", "Retención del bolo", "Tos", "Alimentación por vía oral", "Penetración en la vía aérea", "Supervisión/Asistencia en la alimentación", "Cantidad de consistencias", "Vía de alimentación"]:Array
+
+@output_buffer.safe_append='      <div class="box container-final" data-number="'.freeze;@output_buffer.append=( @resultado.keys.keys );@output_buffer.safe_append='">
+                                                                                                                                ^^^^^):
+    126:     <div class="equal-sign">=</div>
+    127: 
+    128:     <% if @resultado.present? %>
+    129:       <div class="box container-final" data-number="<%= @resultado.keys.keys %>">
+    130:         <div><%= @tabla_destino.capitalize %></div>
+    131:       </div>
+    132:     <% else %>
+  
+app/views/degluconversor/degluconversor1.html.erb:129
+app/controllers/degluconversor_controller.rb:212:in `transformar'
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 16:50:56 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"3", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.7ms | Allocations: 150)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 3.4ms | Allocations: 843)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 7388)
+Completed 200 OK in 19ms (Views: 15.1ms | ActiveRecord: 0.2ms | Allocations: 9940)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 16:53:54 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"3", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1417)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 1506)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 1.0ms | Allocations: 7827)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Degluconversor Resultado</title>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  
+    .header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2.5em;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      width: 100%;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999; /* asegura que esté por encima de todo */
+    }
+
+    h1 {
+      font-size: 1.5em;
+      color: #256490;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: #256490;
+      font-size: 1em;
+      margin: 10px 0;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      
+    }
+
+
+    .box {
+      display: flex;
+      align-items: center;
+      width: 400px;
+      height: 100px;
+      font-size: 1em;
+      margin: 2px 0;
+      border-radius: 30px;
+      color: white;
+      padding: 10px 10px 10px 60px;
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    .equal-sign {
+      font-size: 5em;
+      color: #7D9DB7;
+      font-weight: bold;
+      margin: 10px 0;
+      
+    }
+
+
+    .container-inicial {
+      background-color: #A8BDBC;
+      margin-top: 150px;
+    }
+
+    .container-final {
+      background-color: #B5B0C9;
+    }
+
+    .box::before {
+      content: attr(data-number);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: #256490;
+      color: #FFFFFF;
+      font-weight: bold;
+      position: absolute;
+      left: -40px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .box div {
+      font-size: 1.8em;
+    }
+
+
+    input[type="submit"], .submit-button {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #256490;
+      text-align: center;
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <%= render 'shared/header' %>
+  <div class="header">Resultado de Conversión</div>
+  <div class="container">
+    <div class="box container-inicial" data-number="<%= @nivel_seleccionado %>">
+      <div><%= @tabla_seleccionada.capitalize %></div>
+    </div>
+    <div class="equal-sign">=</div>
+
+    <% if @resultado.present? %>
+      <div class="box container-final" data-number="<% @nivel.each do |nivel| %>">
+        <div><%= @tabla_destino.capitalize %></div>
+      </div>
+    <% else %>
+      <h2>Varios Niveles Posibles</h2>
+      <p>Los siguientes niveles coinciden con la vía de alimentación:</p>
+      <ul>
+        <% @niveles_posibles.each do |nivel| %>
+          <li><strong>Nivel <%= nivel[:nivel] %>:</strong> <%= nivel[:nombre] %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <%= link_to 'ⓘ Ver detalles', degluconversor_tablas_path, class: 'submit-button' %>
+  </div>
+</body>
+
+</html>
+
+):
+1:    <!DOCTYPE html>
+2:    <html lang="es">
+3:    <head>
+4:      <meta charset="UTF-8">
+5:      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+6:      <title>Degluconversor Resultado</title>
+7:      <style>
+8:        body {
+9:          background-color: #FFFFFF;
+10:          margin: 0;
+11:          font-family: 'Arial', sans-serif;
+12:          display: flex;
+13:          justify-content: center;
+14:          align-items: center;
+15:          height: 100vh;
+16:        }
+17:      
+18:        .header {
+19:          background-color: #256490;
+20:          color: white;
+21:          padding: 1em;
+22:          font-size: 2.5em;
+23:          border-bottom-left-radius: 80px;
+24:          border-bottom-right-radius: 80px;
+25:          width: 100%;
+26:          text-align: center;
+27:          position: fixed;
+28:          top: 0;
+29:          left: 0;
+30:          z-index: 999; /* asegura que esté por encima de todo */
+31:        }
+32:    
+33:        h1 {
+34:          font-size: 1.5em;
+35:          color: #256490;
+36:          margin-bottom: 20px;
+37:        }
+38:    
+39:        p {
+40:          color: #256490;
+41:          font-size: 1em;
+42:          margin: 10px 0;
+43:        }
+44:    
+45:        .container {
+46:          display: flex;
+47:          flex-direction: column;
+48:          align-items: center;
+49:          justify-content: center;
+50:          
+51:        }
+52:    
+53:    
+54:        .box {
+55:          display: flex;
+56:          align-items: center;
+57:          width: 400px;
+58:          height: 100px;
+59:          font-size: 1em;
+60:          margin: 2px 0;
+61:          border-radius: 30px;
+62:          color: white;
+63:          padding: 10px 10px 10px 60px;
+64:          position: relative;
+65:          box-sizing: border-box;
+66:        }
+67:    
+68:        .equal-sign {
+69:          font-size: 5em;
+70:          color: #7D9DB7;
+71:          font-weight: bold;
+72:          margin: 10px 0;
+73:          
+74:        }
+75:    
+76:    
+77:        .container-inicial {
+78:          background-color: #A8BDBC;
+79:          margin-top: 150px;
+80:        }
+81:    
+82:        .container-final {
+83:          background-color: #B5B0C9;
+84:        }
+85:    
+86:        .box::before {
+87:          content: attr(data-number);
+88:          display: flex;
+89:          align-items: center;
+90:          justify-content: center;
+91:          width: 80px;
+92:          height: 80px;
+93:          border-radius: 50%;
+94:          background-color: #256490;
+95:          color: #FFFFFF;
+96:          font-weight: bold;
+97:          position: absolute;
+98:          left: -40px;
+99:          top: 50%;
+100:          transform: translateY(-50%);
+101:        }
+102:    
+103:        .box div {
+104:          font-size: 1.8em;
+105:        }
+106:    
+107:    
+108:        input[type="submit"], .submit-button {
+109:          margin-top: 20px;
+110:          font-size: 1.2em;
+111:          color: #256490;
+112:          text-align: center;
+113:        }
+114:    
+115:    
+116:    
+117:      </style>
+118:    </head>
+119:    <body>
+120:      <%= render 'shared/header' %>
+121:      <div class="header">Resultado de Conversión</div>
+122:      <div class="container">
+123:        <div class="box container-inicial" data-number="<%= @nivel_seleccionado %>">
+124:          <div><%= @tabla_seleccionada.capitalize %></div>
+125:        </div>
+126:        <div class="equal-sign">=</div>
+127:    
+128:        <% if @resultado.present? %>
+129:          <div class="box container-final" data-number="<% @nivel.each do |nivel| %>">
+130:            <div><%= @tabla_destino.capitalize %></div>
+131:          </div>
+132:        <% else %>
+133:          <h2>Varios Niveles Posibles</h2>
+134:          <p>Los siguientes niveles coinciden con la vía de alimentación:</p>
+135:          <ul>
+136:            <% @niveles_posibles.each do |nivel| %>
+137:              <li><strong>Nivel <%= nivel[:nivel] %>:</strong> <%= nivel[:nombre] %></li>
+138:            <% end %>
+139:          </ul>
+140:        <% end %>
+141:        <%= link_to 'ⓘ Ver detalles', degluconversor_tablas_path, class: 'submit-button' %>
+142:      </div>
+143:    </body>
+144:    
+145:    </html>
+  
+app/views/degluconversor/degluconversor1.html.erb:132: else without rescue is useless
+app/views/degluconversor/degluconversor1.html.erb:148: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:132: else without rescue is useless
+app/views/degluconversor/degluconversor1.html.erb:148: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:132: else without rescue is useless
+app/views/degluconversor/degluconversor1.html.erb:148: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:132: else without rescue is useless
+app/views/degluconversor/degluconversor1.html.erb:148: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/degluconversor_controller.rb:213:in `transformar'
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 16:54:30 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"3", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1401)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 1490)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 1.6ms | Allocations: 7397)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Degluconversor Resultado</title>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  
+    .header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2.5em;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      width: 100%;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999; /* asegura que esté por encima de todo */
+    }
+
+    h1 {
+      font-size: 1.5em;
+      color: #256490;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: #256490;
+      font-size: 1em;
+      margin: 10px 0;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      
+    }
+
+
+    .box {
+      display: flex;
+      align-items: center;
+      width: 400px;
+      height: 100px;
+      font-size: 1em;
+      margin: 2px 0;
+      border-radius: 30px;
+      color: white;
+      padding: 10px 10px 10px 60px;
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    .equal-sign {
+      font-size: 5em;
+      color: #7D9DB7;
+      font-weight: bold;
+      margin: 10px 0;
+      
+    }
+
+
+    .container-inicial {
+      background-color: #A8BDBC;
+      margin-top: 150px;
+    }
+
+    .container-final {
+      background-color: #B5B0C9;
+    }
+
+    .box::before {
+      content: attr(data-number);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: #256490;
+      color: #FFFFFF;
+      font-weight: bold;
+      position: absolute;
+      left: -40px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .box div {
+      font-size: 1.8em;
+    }
+
+
+    input[type="submit"], .submit-button {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #256490;
+      text-align: center;
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <%= render 'shared/header' %>
+  <div class="header">Resultado de Conversión</div>
+  <div class="container">
+    <div class="box container-inicial" data-number="<%= @nivel_seleccionado %>">
+      <div><%= @tabla_seleccionada.capitalize %></div>
+    </div>
+    <div class="equal-sign">=</div>
+
+    <% if @resultado.present? %>
+      <div class="box container-final" data-number="<% @nivel.each do |nivel| %>">
+        <div><%= @tabla_destino.capitalize %></div>
+      </div>
+    <% else %>
+      <h2>Varios Niveles Posibles</h2>
+      <p>Los siguientes niveles coinciden con la vía de alimentación:</p>
+      <ul>
+        <% @niveles_posibles.each do |nivel| %>
+          <li><strong>Nivel <%= nivel[:nivel] %>:</strong> <%= nivel[:nombre] %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <%= link_to 'ⓘ Ver detalles', degluconversor_tablas_path, class: 'submit-button' %>
+  </div>
+</body>
+
+</html>
+
+):
+1:    <!DOCTYPE html>
+2:    <html lang="es">
+3:    <head>
+4:      <meta charset="UTF-8">
+5:      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+6:      <title>Degluconversor Resultado</title>
+7:      <style>
+8:        body {
+9:          background-color: #FFFFFF;
+10:          margin: 0;
+11:          font-family: 'Arial', sans-serif;
+12:          display: flex;
+13:          justify-content: center;
+14:          align-items: center;
+15:          height: 100vh;
+16:        }
+17:      
+18:        .header {
+19:          background-color: #256490;
+20:          color: white;
+21:          padding: 1em;
+22:          font-size: 2.5em;
+23:          border-bottom-left-radius: 80px;
+24:          border-bottom-right-radius: 80px;
+25:          width: 100%;
+26:          text-align: center;
+27:          position: fixed;
+28:          top: 0;
+29:          left: 0;
+30:          z-index: 999; /* asegura que esté por encima de todo */
+31:        }
+32:    
+33:        h1 {
+34:          font-size: 1.5em;
+35:          color: #256490;
+36:          margin-bottom: 20px;
+37:        }
+38:    
+39:        p {
+40:          color: #256490;
+41:          font-size: 1em;
+42:          margin: 10px 0;
+43:        }
+44:    
+45:        .container {
+46:          display: flex;
+47:          flex-direction: column;
+48:          align-items: center;
+49:          justify-content: center;
+50:          
+51:        }
+52:    
+53:    
+54:        .box {
+55:          display: flex;
+56:          align-items: center;
+57:          width: 400px;
+58:          height: 100px;
+59:          font-size: 1em;
+60:          margin: 2px 0;
+61:          border-radius: 30px;
+62:          color: white;
+63:          padding: 10px 10px 10px 60px;
+64:          position: relative;
+65:          box-sizing: border-box;
+66:        }
+67:    
+68:        .equal-sign {
+69:          font-size: 5em;
+70:          color: #7D9DB7;
+71:          font-weight: bold;
+72:          margin: 10px 0;
+73:          
+74:        }
+75:    
+76:    
+77:        .container-inicial {
+78:          background-color: #A8BDBC;
+79:          margin-top: 150px;
+80:        }
+81:    
+82:        .container-final {
+83:          background-color: #B5B0C9;
+84:        }
+85:    
+86:        .box::before {
+87:          content: attr(data-number);
+88:          display: flex;
+89:          align-items: center;
+90:          justify-content: center;
+91:          width: 80px;
+92:          height: 80px;
+93:          border-radius: 50%;
+94:          background-color: #256490;
+95:          color: #FFFFFF;
+96:          font-weight: bold;
+97:          position: absolute;
+98:          left: -40px;
+99:          top: 50%;
+100:          transform: translateY(-50%);
+101:        }
+102:    
+103:        .box div {
+104:          font-size: 1.8em;
+105:        }
+106:    
+107:    
+108:        input[type="submit"], .submit-button {
+109:          margin-top: 20px;
+110:          font-size: 1.2em;
+111:          color: #256490;
+112:          text-align: center;
+113:        }
+114:    
+115:    
+116:    
+117:      </style>
+118:    </head>
+119:    <body>
+120:      <%= render 'shared/header' %>
+121:      <div class="header">Resultado de Conversión</div>
+122:      <div class="container">
+123:        <div class="box container-inicial" data-number="<%= @nivel_seleccionado %>">
+124:          <div><%= @tabla_seleccionada.capitalize %></div>
+125:        </div>
+126:        <div class="equal-sign">=</div>
+127:    
+128:        <% if @resultado.present? %>
+129:          <div class="box container-final" data-number="<% @nivel.each do |nivel| %>">
+130:            <div><%= @tabla_destino.capitalize %></div>
+131:          </div>
+132:        <% else %>
+133:          <h2>Varios Niveles Posibles</h2>
+134:          <p>Los siguientes niveles coinciden con la vía de alimentación:</p>
+135:          <ul>
+136:            <% @niveles_posibles.each do |nivel| %>
+137:              <li><strong>Nivel <%= nivel[:nivel] %>:</strong> <%= nivel[:nombre] %></li>
+138:            <% end %>
+139:          </ul>
+140:        <% end %>
+141:        <%= link_to 'ⓘ Ver detalles', degluconversor_tablas_path, class: 'submit-button' %>
+142:      </div>
+143:    </body>
+144:    
+145:    </html>
+  
+app/views/degluconversor/degluconversor1.html.erb:132: else without rescue is useless
+app/views/degluconversor/degluconversor1.html.erb:148: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:132: else without rescue is useless
+app/views/degluconversor/degluconversor1.html.erb:148: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:132: else without rescue is useless
+app/views/degluconversor/degluconversor1.html.erb:148: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:132: else without rescue is useless
+app/views/degluconversor/degluconversor1.html.erb:148: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/degluconversor_controller.rb:213:in `transformar'
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 16:55:09 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"3", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 1.4ms | Allocations: 157)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1742)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 1828)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.1ms | Allocations: 4358)
+
+
+  
+ActionView::Template::Error (no implicit conversion of Symbol into Integer):
+    126:     <div class="equal-sign">=</div>
+    127: 
+    128:     <% if @resultado.present? %>
+    129:       <div class="box container-final" data-number="<% @nivel[:nivel] %>">
+    130:         <div><%= @tabla_destino.capitalize %></div>
+    131:       </div>
+    132:     <% else %>
+  
+app/views/degluconversor/degluconversor1.html.erb:129
+app/controllers/degluconversor_controller.rb:213:in `transformar'
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 16:56:55 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"3", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 1.0ms | Allocations: 150)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 3.4ms | Allocations: 831)
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | Allocations: 7383)
+Completed 200 OK in 25ms (Views: 17.3ms | ActiveRecord: 0.7ms | Allocations: 9944)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 16:57:03 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"5", "tabla_destino"=>"fils"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.3ms | Allocations: 24)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 0.9ms | Allocations: 144)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 6219)
+Completed 200 OK in 16ms (Views: 10.4ms | ActiveRecord: 0.5ms | Allocations: 8082)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 16:57:28 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"6", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 0.5ms | Allocations: 137)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 6212)
+Completed 200 OK in 16ms (Views: 11.4ms | ActiveRecord: 0.2ms | Allocations: 7870)
+
+
