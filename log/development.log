@@ -17617,3 +17617,16 @@ Processing by PagesController#diagnostico as HTML
 Completed 200 OK in 57ms (Views: 49.2ms | ActiveRecord: 0.5ms | Allocations: 15675)
 
 
+Started GET "/diagnostico" for 127.0.0.1 at 2024-06-10 20:36:44 -0400
+Processing by PagesController#diagnostico as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/diagnostico.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.6ms | Allocations: 160)
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  ↳ app/views/pages/diagnostico.html.erb:166:in `each_with_index'
+  Rendered pages/diagnostico.html.erb within layouts/application (Duration: 16.1ms | Allocations: 6662)
+  Rendered layout layouts/application.html.erb (Duration: 39.2ms | Allocations: 13284)
+Completed 200 OK in 49ms (Views: 42.9ms | ActiveRecord: 0.5ms | Allocations: 15650)
+
+
