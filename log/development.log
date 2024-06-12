@@ -27883,3 +27883,3011 @@ Started POST "/enviar" for 127.0.0.1 at 2024-06-11 21:09:55 -0400
   
 ActionController::RoutingError (No route matches [POST] "/enviar"):
   
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 21:12:56 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"1", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.8ms | Allocations: 198)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1108)
+  Rendered layout layouts/application.html.erb (Duration: 102.4ms | Allocations: 34023)
+Completed 200 OK in 148ms (Views: 117.0ms | ActiveRecord: 0.9ms | Allocations: 48570)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 21:13:00 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"1", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.7ms | Allocations: 150)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 2.8ms | Allocations: 770)
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 7225)
+Completed 200 OK in 22ms (Views: 16.5ms | ActiveRecord: 0.2ms | Allocations: 9850)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 21:13:53 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"1", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.9ms | Allocations: 150)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 3.3ms | Allocations: 781)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 7236)
+Completed 200 OK in 20ms (Views: 14.3ms | ActiveRecord: 0.3ms | Allocations: 9827)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 21:14:02 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"1", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 1.0ms | Allocations: 150)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 3.3ms | Allocations: 771)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 7226)
+Completed 200 OK in 17ms (Views: 13.7ms | ActiveRecord: 0.1ms | Allocations: 9781)
+
+
+Started POST "/enviar" for 127.0.0.1 at 2024-06-11 21:15:20 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/enviar"):
+  
+Started POST "/enviar" for 127.0.0.1 at 2024-06-11 21:16:27 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/enviar"):
+  
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 21:16:36 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"1", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.5ms | Allocations: 150)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 3.1ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 7340)
+Completed 200 OK in 26ms (Views: 15.7ms | ActiveRecord: 0.1ms | Allocations: 9812)
+
+
+Started POST "/enviar" for 127.0.0.1 at 2024-06-11 21:16:37 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/enviar"):
+  
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 21:20:48 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"1", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.5ms | Allocations: 198)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1109)
+  Rendered layout layouts/application.html.erb (Duration: 67.2ms | Allocations: 34323)
+Completed 200 OK in 101ms (Views: 73.7ms | ActiveRecord: 0.5ms | Allocations: 48876)
+
+
+Started POST "/enviar" for 127.0.0.1 at 2024-06-11 21:20:50 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/enviar"):
+  
+Started POST "/enviar" for 127.0.0.1 at 2024-06-11 21:27:37 -0400
+Processing by DegluconversorController#enviar as HTML
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 612)
+
+
+  
+ActionController::InvalidAuthenticityToken (Can't verify CSRF token authenticity.):
+  
+actionpack (7.0.8.3) lib/action_controller/metal/request_forgery_protection.rb:253:in `handle_unverified_request'
+actionpack (7.0.8.3) lib/action_controller/metal/request_forgery_protection.rb:286:in `handle_unverified_request'
+devise (4.9.4) lib/devise/controllers/helpers.rb:257:in `handle_unverified_request'
+actionpack (7.0.8.3) lib/action_controller/metal/request_forgery_protection.rb:275:in `verify_authenticity_token'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.8.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:116:in `block in run_callbacks'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.8.3) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.8.3) lib/action_controller/metal/rescue.rb:23:in `process_action'
+actionpack (7.0.8.3) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.8.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.8.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.8.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.8.3) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.8.3) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.8.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.8.3) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.8.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.8.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.8.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.8.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.8.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.8.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.8.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.8.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.8.3) lib/action_dispatch/routing/route_set.rb:852:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.9) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.9) lib/rack/etag.rb:27:in `call'
+rack (2.2.9) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.9) lib/rack/head.rb:12:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.9) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.9) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.8.3) lib/active_record/migration.rb:638:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.8.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.8.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.8.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.8.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.8.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.8.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.9) lib/rack/method_override.rb:24:in `call'
+rack (2.2.9) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.8.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.9) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/host_authorization.rb:138:in `call'
+railties (7.0.8.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.8) lib/puma/configuration.rb:252:in `call'
+puma (5.6.8) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.8) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.8) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.8) lib/puma/server.rb:443:in `process_client'
+puma (5.6.8) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 21:27:45 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"1", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 1.4ms | Allocations: 157)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 4.5ms | Allocations: 781)
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 7356)
+Completed 200 OK in 31ms (Views: 15.9ms | ActiveRecord: 0.5ms | Allocations: 13083)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 21:27:51 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"6", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 0.3ms | Allocations: 97)
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 6181)
+Completed 200 OK in 18ms (Views: 14.5ms | ActiveRecord: 0.1ms | Allocations: 8061)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 21:27:57 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"5", "tabla_destino"=>"fils"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.4ms | Allocations: 24)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 21.0ms | Allocations: 5874)
+  Rendered layout layouts/application.html.erb (Duration: 21.4ms | Allocations: 5953)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.2ms | Allocations: 7658)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `degluconversor_especificar_path' for #<ActionView::Base:0x00000000017890>
+Did you mean?  degluconversor_path):
+    146:           </div>
+    147:         <% end %>
+    148:         
+    149:         <%= link_to '+ Especificar diagnóstico', degluconversor_especificar_path, class: 'submit-button' %>
+    150:       <% end %>
+    151:     </div>
+    152: </body>
+  
+app/views/degluconversor/degluconversor1.html.erb:149
+app/controllers/degluconversor_controller.rb:218:in `transformar'
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 21:29:43 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"5", "tabla_destino"=>"fils"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1476)
+  Rendered layout layouts/application.html.erb (Duration: 3.3ms | Allocations: 1566)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.1ms | Allocations: 3935)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Degluconversor Resultado</title>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  
+    .header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2.5em;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      width: 100%;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999; /* asegura que esté por encima de todo */
+    }
+
+   
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;     
+    }
+
+
+    .box {
+      display: flex;
+      align-items: center;
+      width: 200px;
+      height: 60px;
+      font-size: 0.8em;
+      margin: 2px 0;
+      border-radius: 1.2em;
+      color: white;
+      padding: 10px 10px 10px 60px;
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    .equal-sign {
+      font-size: 5em;
+      color: #7D9DB7;
+      font-weight: bold;
+      margin: 10px 0;
+      align-items: center;
+      
+    }
+
+    .equal-sign-2 {
+      font-size: 1em;
+      color: #7D9DB7;
+      font-weight: bold;
+      margin: 10px 0;
+      align-items: center;
+      
+    }
+
+
+    .container-inicial {
+      background-color: #A8BDBC;
+      margin-top: 150px;
+    }
+
+    .container-final {
+      background-color: #B5B0C9;
+    }
+
+    .container-final-opciones {
+      background-color: #B5B0C9;
+      margin: 5px 0;
+
+    }
+
+    .box::before {
+      content: attr(data-number);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #256490;
+      color: #FFFFFF;
+      font-weight: bold;
+      position: absolute;
+      left: -40px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .box div {
+      font-size: 1.8em;
+    }
+
+
+    input[type="submit"], .submit-button {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #256490;
+      text-align: center;
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <%= render 'shared/header' %>
+  <div class="header">Resultado de Conversión</div>
+    <div class="container">
+  
+    
+      <div class="box container-inicial" data-number="<%= @nivel_seleccionado %>">
+        <div><%= @tabla_seleccionada.capitalize %></div>
+      </div>
+
+      <% if @resultado.present? %>
+        <div class="equal-sign">=</div>
+        <div class="box container-final" data-number="<%= @nivel.first[:nivel] %>">
+          <div><%= @tabla_destino.capitalize %></div>
+        </div>
+        <form action="/enviar" method="post">
+        <input type="submit" class="submit-button" value='ⓘ Ver detalles'>
+
+      <% else %>
+        <div class="equal-sign-2">Varios Niveles Posibles, los siguientes niveles coinciden con la vía de alimentación:</div>
+        <% @niveles_posibles.each do |nivel| % >
+          <div class="box container-final-opciones" data-number="<%= nivel[:nivel] %>">
+            <div><%= @tabla_destino.capitalize %></div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+</body>
+
+</html>
+
+):
+1:    <!DOCTYPE html>
+2:    <html lang="es">
+3:    <head>
+4:      <meta charset="UTF-8">
+5:      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+6:      <title>Degluconversor Resultado</title>
+7:      <style>
+8:        body {
+9:          background-color: #FFFFFF;
+10:          margin: 0;
+11:          font-family: 'Arial', sans-serif;
+12:          display: flex;
+13:          justify-content: center;
+14:          align-items: center;
+15:          height: 100vh;
+16:        }
+17:      
+18:        .header {
+19:          background-color: #256490;
+20:          color: white;
+21:          padding: 1em;
+22:          font-size: 2.5em;
+23:          border-bottom-left-radius: 80px;
+24:          border-bottom-right-radius: 80px;
+25:          width: 100%;
+26:          text-align: center;
+27:          position: fixed;
+28:          top: 0;
+29:          left: 0;
+30:          z-index: 999; /* asegura que esté por encima de todo */
+31:        }
+32:    
+33:       
+34:        .container {
+35:          display: flex;
+36:          flex-direction: column;
+37:          align-items: center;
+38:          justify-content: center;     
+39:        }
+40:    
+41:    
+42:        .box {
+43:          display: flex;
+44:          align-items: center;
+45:          width: 200px;
+46:          height: 60px;
+47:          font-size: 0.8em;
+48:          margin: 2px 0;
+49:          border-radius: 1.2em;
+50:          color: white;
+51:          padding: 10px 10px 10px 60px;
+52:          position: relative;
+53:          box-sizing: border-box;
+54:        }
+55:    
+56:        .equal-sign {
+57:          font-size: 5em;
+58:          color: #7D9DB7;
+59:          font-weight: bold;
+60:          margin: 10px 0;
+61:          align-items: center;
+62:          
+63:        }
+64:    
+65:        .equal-sign-2 {
+66:          font-size: 1em;
+67:          color: #7D9DB7;
+68:          font-weight: bold;
+69:          margin: 10px 0;
+70:          align-items: center;
+71:          
+72:        }
+73:    
+74:    
+75:        .container-inicial {
+76:          background-color: #A8BDBC;
+77:          margin-top: 150px;
+78:        }
+79:    
+80:        .container-final {
+81:          background-color: #B5B0C9;
+82:        }
+83:    
+84:        .container-final-opciones {
+85:          background-color: #B5B0C9;
+86:          margin: 5px 0;
+87:    
+88:        }
+89:    
+90:        .box::before {
+91:          content: attr(data-number);
+92:          display: flex;
+93:          align-items: center;
+94:          justify-content: center;
+95:          width: 60px;
+96:          height: 60px;
+97:          border-radius: 50%;
+98:          background-color: #256490;
+99:          color: #FFFFFF;
+100:          font-weight: bold;
+101:          position: absolute;
+102:          left: -40px;
+103:          top: 50%;
+104:          transform: translateY(-50%);
+105:        }
+106:    
+107:        .box div {
+108:          font-size: 1.8em;
+109:        }
+110:    
+111:    
+112:        input[type="submit"], .submit-button {
+113:          margin-top: 20px;
+114:          font-size: 1.2em;
+115:          color: #256490;
+116:          text-align: center;
+117:        }
+118:    
+119:    
+120:    
+121:      </style>
+122:    </head>
+123:    <body>
+124:      <%= render 'shared/header' %>
+125:      <div class="header">Resultado de Conversión</div>
+126:        <div class="container">
+127:      
+128:        
+129:          <div class="box container-inicial" data-number="<%= @nivel_seleccionado %>">
+130:            <div><%= @tabla_seleccionada.capitalize %></div>
+131:          </div>
+132:    
+133:          <% if @resultado.present? %>
+134:            <div class="equal-sign">=</div>
+135:            <div class="box container-final" data-number="<%= @nivel.first[:nivel] %>">
+136:              <div><%= @tabla_destino.capitalize %></div>
+137:            </div>
+138:            <form action="/enviar" method="post">
+139:            <input type="submit" class="submit-button" value='ⓘ Ver detalles'>
+140:    
+141:          <% else %>
+142:            <div class="equal-sign-2">Varios Niveles Posibles, los siguientes niveles coinciden con la vía de alimentación:</div>
+143:            <% @niveles_posibles.each do |nivel| % >
+144:              <div class="box container-final-opciones" data-number="<%= nivel[:nivel] %>">
+145:                <div><%= @tabla_destino.capitalize %></div>
+146:              </div>
+147:            <% end %>
+148:          <% end %>
+149:        </div>
+150:    </body>
+151:    
+152:    </html>
+  
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:145: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:146: unknown regexp options - dv
+app/views/degluconversor/degluconversor1.html.erb:150: unknown regexp options - bdy
+app/views/degluconversor/degluconversor1.html.erb:152: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:155: unterminated regexp meets end of file
+app/views/degluconversor/degluconversor1.html.erb:155: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:145: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:146: unknown regexp options - dv
+app/views/degluconversor/degluconversor1.html.erb:150: unknown regexp options - bdy
+app/views/degluconversor/degluconversor1.html.erb:152: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:155: unterminated regexp meets end of file
+app/views/degluconversor/degluconversor1.html.erb:155: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:145: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:146: unknown regexp options - dv
+app/views/degluconversor/degluconversor1.html.erb:150: unknown regexp options - bdy
+app/views/degluconversor/degluconversor1.html.erb:152: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:155: unterminated regexp meets end of file
+app/views/degluconversor/degluconversor1.html.erb:155: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:145: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:146: unknown regexp options - dv
+app/views/degluconversor/degluconversor1.html.erb:150: unknown regexp options - bdy
+app/views/degluconversor/degluconversor1.html.erb:152: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:155: unterminated regexp meets end of file
+app/views/degluconversor/degluconversor1.html.erb:155: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/degluconversor_controller.rb:218:in `transformar'
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 21:30:36 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"5", "tabla_destino"=>"fils"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1464)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 1553)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.1ms | Allocations: 4116)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Degluconversor Resultado</title>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  
+    .header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2.5em;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      width: 100%;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999; /* asegura que esté por encima de todo */
+    }
+
+   
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;     
+    }
+
+
+    .box {
+      display: flex;
+      align-items: center;
+      width: 200px;
+      height: 60px;
+      font-size: 0.8em;
+      margin: 2px 0;
+      border-radius: 1.2em;
+      color: white;
+      padding: 10px 10px 10px 60px;
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    .equal-sign {
+      font-size: 5em;
+      color: #7D9DB7;
+      font-weight: bold;
+      margin: 10px 0;
+      align-items: center;
+      
+    }
+
+    .equal-sign-2 {
+      font-size: 1em;
+      color: #7D9DB7;
+      font-weight: bold;
+      margin: 10px 0;
+      align-items: center;
+      
+    }
+
+
+    .container-inicial {
+      background-color: #A8BDBC;
+      margin-top: 150px;
+    }
+
+    .container-final {
+      background-color: #B5B0C9;
+    }
+
+    .container-final-opciones {
+      background-color: #B5B0C9;
+      margin: 5px 0;
+
+    }
+
+    .box::before {
+      content: attr(data-number);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #256490;
+      color: #FFFFFF;
+      font-weight: bold;
+      position: absolute;
+      left: -40px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .box div {
+      font-size: 1.8em;
+    }
+
+
+    input[type="submit"], .submit-button {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #256490;
+      text-align: center;
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <%= render 'shared/header' %>
+  <div class="header">Resultado de Conversión</div>
+    <div class="container">
+  
+    
+      <div class="box container-inicial" data-number="<%= @nivel_seleccionado %>">
+        <div><%= @tabla_seleccionada.capitalize %></div>
+      </div>
+
+      <% if @resultado.present? %>
+        <div class="equal-sign">=</div>
+        <div class="box container-final" data-number="<%= @nivel.first[:nivel] %>">
+          <div><%= @tabla_destino.capitalize %></div>
+        </div>
+        <form action="/enviar" method="post">
+        <input type="submit" class="submit-button" value='ⓘ Ver detalles'>
+
+      <% else %>
+        <div class="equal-sign-2">Varios Niveles Posibles, los siguientes niveles coinciden con la vía de alimentación:</div>
+        <% @niveles_posibles.each do |nivel| % >
+          <div class="box container-final-opciones" data-number="<%= nivel[:nivel] %>">
+            <div><%= @tabla_destino.capitalize %></div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+</body>
+
+</html>
+
+):
+1:    <!DOCTYPE html>
+2:    <html lang="es">
+3:    <head>
+4:      <meta charset="UTF-8">
+5:      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+6:      <title>Degluconversor Resultado</title>
+7:      <style>
+8:        body {
+9:          background-color: #FFFFFF;
+10:          margin: 0;
+11:          font-family: 'Arial', sans-serif;
+12:          display: flex;
+13:          justify-content: center;
+14:          align-items: center;
+15:          height: 100vh;
+16:        }
+17:      
+18:        .header {
+19:          background-color: #256490;
+20:          color: white;
+21:          padding: 1em;
+22:          font-size: 2.5em;
+23:          border-bottom-left-radius: 80px;
+24:          border-bottom-right-radius: 80px;
+25:          width: 100%;
+26:          text-align: center;
+27:          position: fixed;
+28:          top: 0;
+29:          left: 0;
+30:          z-index: 999; /* asegura que esté por encima de todo */
+31:        }
+32:    
+33:       
+34:        .container {
+35:          display: flex;
+36:          flex-direction: column;
+37:          align-items: center;
+38:          justify-content: center;     
+39:        }
+40:    
+41:    
+42:        .box {
+43:          display: flex;
+44:          align-items: center;
+45:          width: 200px;
+46:          height: 60px;
+47:          font-size: 0.8em;
+48:          margin: 2px 0;
+49:          border-radius: 1.2em;
+50:          color: white;
+51:          padding: 10px 10px 10px 60px;
+52:          position: relative;
+53:          box-sizing: border-box;
+54:        }
+55:    
+56:        .equal-sign {
+57:          font-size: 5em;
+58:          color: #7D9DB7;
+59:          font-weight: bold;
+60:          margin: 10px 0;
+61:          align-items: center;
+62:          
+63:        }
+64:    
+65:        .equal-sign-2 {
+66:          font-size: 1em;
+67:          color: #7D9DB7;
+68:          font-weight: bold;
+69:          margin: 10px 0;
+70:          align-items: center;
+71:          
+72:        }
+73:    
+74:    
+75:        .container-inicial {
+76:          background-color: #A8BDBC;
+77:          margin-top: 150px;
+78:        }
+79:    
+80:        .container-final {
+81:          background-color: #B5B0C9;
+82:        }
+83:    
+84:        .container-final-opciones {
+85:          background-color: #B5B0C9;
+86:          margin: 5px 0;
+87:    
+88:        }
+89:    
+90:        .box::before {
+91:          content: attr(data-number);
+92:          display: flex;
+93:          align-items: center;
+94:          justify-content: center;
+95:          width: 60px;
+96:          height: 60px;
+97:          border-radius: 50%;
+98:          background-color: #256490;
+99:          color: #FFFFFF;
+100:          font-weight: bold;
+101:          position: absolute;
+102:          left: -40px;
+103:          top: 50%;
+104:          transform: translateY(-50%);
+105:        }
+106:    
+107:        .box div {
+108:          font-size: 1.8em;
+109:        }
+110:    
+111:    
+112:        input[type="submit"], .submit-button {
+113:          margin-top: 20px;
+114:          font-size: 1.2em;
+115:          color: #256490;
+116:          text-align: center;
+117:        }
+118:    
+119:    
+120:    
+121:      </style>
+122:    </head>
+123:    <body>
+124:      <%= render 'shared/header' %>
+125:      <div class="header">Resultado de Conversión</div>
+126:        <div class="container">
+127:      
+128:        
+129:          <div class="box container-inicial" data-number="<%= @nivel_seleccionado %>">
+130:            <div><%= @tabla_seleccionada.capitalize %></div>
+131:          </div>
+132:    
+133:          <% if @resultado.present? %>
+134:            <div class="equal-sign">=</div>
+135:            <div class="box container-final" data-number="<%= @nivel.first[:nivel] %>">
+136:              <div><%= @tabla_destino.capitalize %></div>
+137:            </div>
+138:            <form action="/enviar" method="post">
+139:            <input type="submit" class="submit-button" value='ⓘ Ver detalles'>
+140:    
+141:          <% else %>
+142:            <div class="equal-sign-2">Varios Niveles Posibles, los siguientes niveles coinciden con la vía de alimentación:</div>
+143:            <% @niveles_posibles.each do |nivel| % >
+144:              <div class="box container-final-opciones" data-number="<%= nivel[:nivel] %>">
+145:                <div><%= @tabla_destino.capitalize %></div>
+146:              </div>
+147:            <% end %>
+148:          <% end %>
+149:        </div>
+150:    </body>
+151:    
+152:    </html>
+  
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:145: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:146: unknown regexp options - dv
+app/views/degluconversor/degluconversor1.html.erb:150: unknown regexp options - bdy
+app/views/degluconversor/degluconversor1.html.erb:152: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:155: unterminated regexp meets end of file
+app/views/degluconversor/degluconversor1.html.erb:155: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:145: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:146: unknown regexp options - dv
+app/views/degluconversor/degluconversor1.html.erb:150: unknown regexp options - bdy
+app/views/degluconversor/degluconversor1.html.erb:152: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:155: unterminated regexp meets end of file
+app/views/degluconversor/degluconversor1.html.erb:155: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:145: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:146: unknown regexp options - dv
+app/views/degluconversor/degluconversor1.html.erb:150: unknown regexp options - bdy
+app/views/degluconversor/degluconversor1.html.erb:152: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:155: unterminated regexp meets end of file
+app/views/degluconversor/degluconversor1.html.erb:155: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:145: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:146: unknown regexp options - dv
+app/views/degluconversor/degluconversor1.html.erb:150: unknown regexp options - bdy
+app/views/degluconversor/degluconversor1.html.erb:152: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:155: unterminated regexp meets end of file
+app/views/degluconversor/degluconversor1.html.erb:155: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/degluconversor_controller.rb:218:in `transformar'
+Started GET "/degluconversor" for 127.0.0.1 at 2024-06-11 21:31:10 -0400
+Processing by PagesController#degluconversor as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/degluconversor.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.9ms | Allocations: 165)
+  Rendered pages/degluconversor.html.erb within layouts/application (Duration: 14.1ms | Allocations: 6947)
+  Rendered layout layouts/application.html.erb (Duration: 17.6ms | Allocations: 8962)
+Completed 200 OK in 28ms (Views: 20.0ms | ActiveRecord: 0.2ms | Allocations: 11403)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 21:31:13 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"7", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1462)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 1551)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.9ms | Allocations: 3823)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Degluconversor Resultado</title>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  
+    .header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2.5em;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      width: 100%;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999; /* asegura que esté por encima de todo */
+    }
+
+   
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;     
+    }
+
+
+    .box {
+      display: flex;
+      align-items: center;
+      width: 200px;
+      height: 60px;
+      font-size: 0.8em;
+      margin: 2px 0;
+      border-radius: 1.2em;
+      color: white;
+      padding: 10px 10px 10px 60px;
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    .equal-sign {
+      font-size: 5em;
+      color: #7D9DB7;
+      font-weight: bold;
+      margin: 10px 0;
+      align-items: center;
+      
+    }
+
+    .equal-sign-2 {
+      font-size: 1em;
+      color: #7D9DB7;
+      font-weight: bold;
+      margin: 10px 0;
+      align-items: center;
+      
+    }
+
+
+    .container-inicial {
+      background-color: #A8BDBC;
+      margin-top: 150px;
+    }
+
+    .container-final {
+      background-color: #B5B0C9;
+    }
+
+    .container-final-opciones {
+      background-color: #B5B0C9;
+      margin: 5px 0;
+
+    }
+
+    .box::before {
+      content: attr(data-number);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #256490;
+      color: #FFFFFF;
+      font-weight: bold;
+      position: absolute;
+      left: -40px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .box div {
+      font-size: 1.8em;
+    }
+
+
+    input[type="submit"], .submit-button {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #256490;
+      text-align: center;
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <%= render 'shared/header' %>
+  <div class="header">Resultado de Conversión</div>
+    <div class="container">
+  
+    
+      <div class="box container-inicial" data-number="<%= @nivel_seleccionado %>">
+        <div><%= @tabla_seleccionada.capitalize %></div>
+      </div>
+
+      <% if @resultado.present? %>
+        <div class="equal-sign">=</div>
+        <div class="box container-final" data-number="<%= @nivel.first[:nivel] %>">
+          <div><%= @tabla_destino.capitalize %></div>
+        </div>
+        <form action="/enviar" method="post">
+        <input type="submit" class="submit-button" value='ⓘ Ver detalles'>
+
+      <% else %>
+        <div class="equal-sign-2">Varios Niveles Posibles, los siguientes niveles coinciden con la vía de alimentación:</div>
+        <% @niveles_posibles.each do |nivel| % >
+          <div class="box container-final-opciones" data-number="<%= nivel[:nivel] %>">
+            <div><%= @tabla_destino.capitalize %></div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+</body>
+
+</html>
+
+):
+1:    <!DOCTYPE html>
+2:    <html lang="es">
+3:    <head>
+4:      <meta charset="UTF-8">
+5:      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+6:      <title>Degluconversor Resultado</title>
+7:      <style>
+8:        body {
+9:          background-color: #FFFFFF;
+10:          margin: 0;
+11:          font-family: 'Arial', sans-serif;
+12:          display: flex;
+13:          justify-content: center;
+14:          align-items: center;
+15:          height: 100vh;
+16:        }
+17:      
+18:        .header {
+19:          background-color: #256490;
+20:          color: white;
+21:          padding: 1em;
+22:          font-size: 2.5em;
+23:          border-bottom-left-radius: 80px;
+24:          border-bottom-right-radius: 80px;
+25:          width: 100%;
+26:          text-align: center;
+27:          position: fixed;
+28:          top: 0;
+29:          left: 0;
+30:          z-index: 999; /* asegura que esté por encima de todo */
+31:        }
+32:    
+33:       
+34:        .container {
+35:          display: flex;
+36:          flex-direction: column;
+37:          align-items: center;
+38:          justify-content: center;     
+39:        }
+40:    
+41:    
+42:        .box {
+43:          display: flex;
+44:          align-items: center;
+45:          width: 200px;
+46:          height: 60px;
+47:          font-size: 0.8em;
+48:          margin: 2px 0;
+49:          border-radius: 1.2em;
+50:          color: white;
+51:          padding: 10px 10px 10px 60px;
+52:          position: relative;
+53:          box-sizing: border-box;
+54:        }
+55:    
+56:        .equal-sign {
+57:          font-size: 5em;
+58:          color: #7D9DB7;
+59:          font-weight: bold;
+60:          margin: 10px 0;
+61:          align-items: center;
+62:          
+63:        }
+64:    
+65:        .equal-sign-2 {
+66:          font-size: 1em;
+67:          color: #7D9DB7;
+68:          font-weight: bold;
+69:          margin: 10px 0;
+70:          align-items: center;
+71:          
+72:        }
+73:    
+74:    
+75:        .container-inicial {
+76:          background-color: #A8BDBC;
+77:          margin-top: 150px;
+78:        }
+79:    
+80:        .container-final {
+81:          background-color: #B5B0C9;
+82:        }
+83:    
+84:        .container-final-opciones {
+85:          background-color: #B5B0C9;
+86:          margin: 5px 0;
+87:    
+88:        }
+89:    
+90:        .box::before {
+91:          content: attr(data-number);
+92:          display: flex;
+93:          align-items: center;
+94:          justify-content: center;
+95:          width: 60px;
+96:          height: 60px;
+97:          border-radius: 50%;
+98:          background-color: #256490;
+99:          color: #FFFFFF;
+100:          font-weight: bold;
+101:          position: absolute;
+102:          left: -40px;
+103:          top: 50%;
+104:          transform: translateY(-50%);
+105:        }
+106:    
+107:        .box div {
+108:          font-size: 1.8em;
+109:        }
+110:    
+111:    
+112:        input[type="submit"], .submit-button {
+113:          margin-top: 20px;
+114:          font-size: 1.2em;
+115:          color: #256490;
+116:          text-align: center;
+117:        }
+118:    
+119:    
+120:    
+121:      </style>
+122:    </head>
+123:    <body>
+124:      <%= render 'shared/header' %>
+125:      <div class="header">Resultado de Conversión</div>
+126:        <div class="container">
+127:      
+128:        
+129:          <div class="box container-inicial" data-number="<%= @nivel_seleccionado %>">
+130:            <div><%= @tabla_seleccionada.capitalize %></div>
+131:          </div>
+132:    
+133:          <% if @resultado.present? %>
+134:            <div class="equal-sign">=</div>
+135:            <div class="box container-final" data-number="<%= @nivel.first[:nivel] %>">
+136:              <div><%= @tabla_destino.capitalize %></div>
+137:            </div>
+138:            <form action="/enviar" method="post">
+139:            <input type="submit" class="submit-button" value='ⓘ Ver detalles'>
+140:    
+141:          <% else %>
+142:            <div class="equal-sign-2">Varios Niveles Posibles, los siguientes niveles coinciden con la vía de alimentación:</div>
+143:            <% @niveles_posibles.each do |nivel| % >
+144:              <div class="box container-final-opciones" data-number="<%= nivel[:nivel] %>">
+145:                <div><%= @tabla_destino.capitalize %></div>
+146:              </div>
+147:            <% end %>
+148:          <% end %>
+149:        </div>
+150:    </body>
+151:    
+152:    </html>
+  
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:145: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:146: unknown regexp options - dv
+app/views/degluconversor/degluconversor1.html.erb:150: unknown regexp options - bdy
+app/views/degluconversor/degluconversor1.html.erb:152: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:155: unterminated regexp meets end of file
+app/views/degluconversor/degluconversor1.html.erb:155: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:145: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:146: unknown regexp options - dv
+app/views/degluconversor/degluconversor1.html.erb:150: unknown regexp options - bdy
+app/views/degluconversor/degluconversor1.html.erb:152: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:155: unterminated regexp meets end of file
+app/views/degluconversor/degluconversor1.html.erb:155: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:145: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:146: unknown regexp options - dv
+app/views/degluconversor/degluconversor1.html.erb:150: unknown regexp options - bdy
+app/views/degluconversor/degluconversor1.html.erb:152: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:155: unterminated regexp meets end of file
+app/views/degluconversor/degluconversor1.html.erb:155: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:145: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:146: unknown regexp options - dv
+app/views/degluconversor/degluconversor1.html.erb:150: unknown regexp options - bdy
+app/views/degluconversor/degluconversor1.html.erb:152: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:155: unterminated regexp meets end of file
+app/views/degluconversor/degluconversor1.html.erb:155: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/degluconversor_controller.rb:218:in `transformar'
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 21:31:21 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"3", "tabla_destino"=>"fils"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1419)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 1499)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.2ms | Allocations: 3375)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Degluconversor Resultado</title>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  
+    .header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2.5em;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      width: 100%;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999; /* asegura que esté por encima de todo */
+    }
+
+   
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;     
+    }
+
+
+    .box {
+      display: flex;
+      align-items: center;
+      width: 200px;
+      height: 60px;
+      font-size: 0.8em;
+      margin: 2px 0;
+      border-radius: 1.2em;
+      color: white;
+      padding: 10px 10px 10px 60px;
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    .equal-sign {
+      font-size: 5em;
+      color: #7D9DB7;
+      font-weight: bold;
+      margin: 10px 0;
+      align-items: center;
+      
+    }
+
+    .equal-sign-2 {
+      font-size: 1em;
+      color: #7D9DB7;
+      font-weight: bold;
+      margin: 10px 0;
+      align-items: center;
+      
+    }
+
+
+    .container-inicial {
+      background-color: #A8BDBC;
+      margin-top: 150px;
+    }
+
+    .container-final {
+      background-color: #B5B0C9;
+    }
+
+    .container-final-opciones {
+      background-color: #B5B0C9;
+      margin: 5px 0;
+
+    }
+
+    .box::before {
+      content: attr(data-number);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #256490;
+      color: #FFFFFF;
+      font-weight: bold;
+      position: absolute;
+      left: -40px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .box div {
+      font-size: 1.8em;
+    }
+
+
+    input[type="submit"], .submit-button {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #256490;
+      text-align: center;
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <%= render 'shared/header' %>
+  <div class="header">Resultado de Conversión</div>
+    <div class="container">
+  
+    
+      <div class="box container-inicial" data-number="<%= @nivel_seleccionado %>">
+        <div><%= @tabla_seleccionada.capitalize %></div>
+      </div>
+
+      <% if @resultado.present? %>
+        <div class="equal-sign">=</div>
+        <div class="box container-final" data-number="<%= @nivel.first[:nivel] %>">
+          <div><%= @tabla_destino.capitalize %></div>
+        </div>
+        <form action="/enviar" method="post">
+        <input type="submit" class="submit-button" value='ⓘ Ver detalles'>
+
+      <% else %>
+        <div class="equal-sign-2">Varios Niveles Posibles, los siguientes niveles coinciden con la vía de alimentación:</div>
+        <% @niveles_posibles.each do |nivel| % >
+          <div class="box container-final-opciones" data-number="<%= nivel[:nivel] %>">
+            <div><%= @tabla_destino.capitalize %></div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+</body>
+
+</html>
+
+):
+1:    <!DOCTYPE html>
+2:    <html lang="es">
+3:    <head>
+4:      <meta charset="UTF-8">
+5:      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+6:      <title>Degluconversor Resultado</title>
+7:      <style>
+8:        body {
+9:          background-color: #FFFFFF;
+10:          margin: 0;
+11:          font-family: 'Arial', sans-serif;
+12:          display: flex;
+13:          justify-content: center;
+14:          align-items: center;
+15:          height: 100vh;
+16:        }
+17:      
+18:        .header {
+19:          background-color: #256490;
+20:          color: white;
+21:          padding: 1em;
+22:          font-size: 2.5em;
+23:          border-bottom-left-radius: 80px;
+24:          border-bottom-right-radius: 80px;
+25:          width: 100%;
+26:          text-align: center;
+27:          position: fixed;
+28:          top: 0;
+29:          left: 0;
+30:          z-index: 999; /* asegura que esté por encima de todo */
+31:        }
+32:    
+33:       
+34:        .container {
+35:          display: flex;
+36:          flex-direction: column;
+37:          align-items: center;
+38:          justify-content: center;     
+39:        }
+40:    
+41:    
+42:        .box {
+43:          display: flex;
+44:          align-items: center;
+45:          width: 200px;
+46:          height: 60px;
+47:          font-size: 0.8em;
+48:          margin: 2px 0;
+49:          border-radius: 1.2em;
+50:          color: white;
+51:          padding: 10px 10px 10px 60px;
+52:          position: relative;
+53:          box-sizing: border-box;
+54:        }
+55:    
+56:        .equal-sign {
+57:          font-size: 5em;
+58:          color: #7D9DB7;
+59:          font-weight: bold;
+60:          margin: 10px 0;
+61:          align-items: center;
+62:          
+63:        }
+64:    
+65:        .equal-sign-2 {
+66:          font-size: 1em;
+67:          color: #7D9DB7;
+68:          font-weight: bold;
+69:          margin: 10px 0;
+70:          align-items: center;
+71:          
+72:        }
+73:    
+74:    
+75:        .container-inicial {
+76:          background-color: #A8BDBC;
+77:          margin-top: 150px;
+78:        }
+79:    
+80:        .container-final {
+81:          background-color: #B5B0C9;
+82:        }
+83:    
+84:        .container-final-opciones {
+85:          background-color: #B5B0C9;
+86:          margin: 5px 0;
+87:    
+88:        }
+89:    
+90:        .box::before {
+91:          content: attr(data-number);
+92:          display: flex;
+93:          align-items: center;
+94:          justify-content: center;
+95:          width: 60px;
+96:          height: 60px;
+97:          border-radius: 50%;
+98:          background-color: #256490;
+99:          color: #FFFFFF;
+100:          font-weight: bold;
+101:          position: absolute;
+102:          left: -40px;
+103:          top: 50%;
+104:          transform: translateY(-50%);
+105:        }
+106:    
+107:        .box div {
+108:          font-size: 1.8em;
+109:        }
+110:    
+111:    
+112:        input[type="submit"], .submit-button {
+113:          margin-top: 20px;
+114:          font-size: 1.2em;
+115:          color: #256490;
+116:          text-align: center;
+117:        }
+118:    
+119:    
+120:    
+121:      </style>
+122:    </head>
+123:    <body>
+124:      <%= render 'shared/header' %>
+125:      <div class="header">Resultado de Conversión</div>
+126:        <div class="container">
+127:      
+128:        
+129:          <div class="box container-inicial" data-number="<%= @nivel_seleccionado %>">
+130:            <div><%= @tabla_seleccionada.capitalize %></div>
+131:          </div>
+132:    
+133:          <% if @resultado.present? %>
+134:            <div class="equal-sign">=</div>
+135:            <div class="box container-final" data-number="<%= @nivel.first[:nivel] %>">
+136:              <div><%= @tabla_destino.capitalize %></div>
+137:            </div>
+138:            <form action="/enviar" method="post">
+139:            <input type="submit" class="submit-button" value='ⓘ Ver detalles'>
+140:    
+141:          <% else %>
+142:            <div class="equal-sign-2">Varios Niveles Posibles, los siguientes niveles coinciden con la vía de alimentación:</div>
+143:            <% @niveles_posibles.each do |nivel| % >
+144:              <div class="box container-final-opciones" data-number="<%= nivel[:nivel] %>">
+145:                <div><%= @tabla_destino.capitalize %></div>
+146:              </div>
+147:            <% end %>
+148:          <% end %>
+149:        </div>
+150:    </body>
+151:    
+152:    </html>
+  
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:145: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:146: unknown regexp options - dv
+app/views/degluconversor/degluconversor1.html.erb:150: unknown regexp options - bdy
+app/views/degluconversor/degluconversor1.html.erb:152: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:155: unterminated regexp meets end of file
+app/views/degluconversor/degluconversor1.html.erb:155: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:145: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:146: unknown regexp options - dv
+app/views/degluconversor/degluconversor1.html.erb:150: unknown regexp options - bdy
+app/views/degluconversor/degluconversor1.html.erb:152: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:155: unterminated regexp meets end of file
+app/views/degluconversor/degluconversor1.html.erb:155: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:145: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:146: unknown regexp options - dv
+app/views/degluconversor/degluconversor1.html.erb:150: unknown regexp options - bdy
+app/views/degluconversor/degluconversor1.html.erb:152: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:155: unterminated regexp meets end of file
+app/views/degluconversor/degluconversor1.html.erb:155: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:145: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:146: unknown regexp options - dv
+app/views/degluconversor/degluconversor1.html.erb:150: unknown regexp options - bdy
+app/views/degluconversor/degluconversor1.html.erb:152: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:155: unterminated regexp meets end of file
+app/views/degluconversor/degluconversor1.html.erb:155: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/degluconversor_controller.rb:218:in `transformar'
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 21:31:36 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"3", "tabla_destino"=>"fils"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.5ms | Allocations: 150)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 21.6ms | Allocations: 6457)
+  Rendered layout layouts/application.html.erb (Duration: 22.1ms | Allocations: 6542)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.1ms | Allocations: 8868)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `degluconversor_especificar_path' for #<ActionView::Base:0x00000000018a88>
+Did you mean?  degluconversor_path):
+    145:           </div>
+    146:         <% end %>
+    147:         
+    148:         <%= link_to '+ Especificar diagnóstico', degluconversor_especificar_path, class: 'submit-button' %>
+    149:       <% end %>
+    150:     </div>
+    151: </body>
+  
+app/views/degluconversor/degluconversor1.html.erb:148
+app/controllers/degluconversor_controller.rb:218:in `transformar'
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 21:32:01 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 0.3ms | Allocations: 97)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 6643)
+Completed 200 OK in 19ms (Views: 13.9ms | ActiveRecord: 0.1ms | Allocations: 8548)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 21:33:29 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1459)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 1548)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.1ms | Allocations: 3899)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Degluconversor Resultado</title>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  
+    .header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2.5em;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      width: 100%;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999; /* asegura que esté por encima de todo */
+    }
+
+   
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;     
+    }
+
+
+    .box {
+      display: flex;
+      align-items: center;
+      width: 200px;
+      height: 60px;
+      font-size: 0.8em;
+      margin: 2px 0;
+      border-radius: 1.2em;
+      color: white;
+      padding: 10px 10px 10px 60px;
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    .equal-sign {
+      font-size: 5em;
+      color: #7D9DB7;
+      font-weight: bold;
+      margin: 10px 0;
+      align-items: center;
+      
+    }
+
+    .equal-sign-2 {
+      font-size: 1em;
+      color: #7D9DB7;
+      font-weight: bold;
+      margin: 10px 0;
+      align-items: center;
+      
+    }
+
+
+    .container-inicial {
+      background-color: #A8BDBC;
+      margin-top: 150px;
+    }
+
+    .container-final {
+      background-color: #B5B0C9;
+    }
+
+    .container-final-opciones {
+      background-color: #B5B0C9;
+      margin: 5px 0;
+
+    }
+
+    .box::before {
+      content: attr(data-number);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #256490;
+      color: #FFFFFF;
+      font-weight: bold;
+      position: absolute;
+      left: -40px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .box div {
+      font-size: 1.8em;
+    }
+
+
+    input[type="submit"], .submit-button {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #256490;
+      text-align: center;
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <%= render 'shared/header' %>
+  <div class="header">Resultado de Conversión</div>
+    <div class="container">
+    
+      <div class="box container-inicial" data-number="<%= @nivel_seleccionado %>">
+        <div><%= @tabla_seleccionada.capitalize %></div>
+      </div>
+
+      <% if @resultado.present? %>
+        <div class="equal-sign">=</div>
+        <div class="box container-final" data-number="<%= @nivel.first[:nivel] %>">
+          <div><%= @tabla_destino.capitalize %></div>
+        </div>
+        <form action="/enviar" method="post">
+        <input type="submit" class="submit-button" value='ⓘ Ver detalles'>
+
+      <% else %>
+        <div class="equal-sign-2">Varios Niveles Posibles, los siguientes niveles coinciden con la vía de alimentación:</div>
+        <% @niveles_posibles.each do |nivel| % >
+          <div class="box container-final-opciones" data-number="<%= nivel[:nivel] %>">
+            <div><%= @tabla_destino.capitalize %></div>
+          </div>
+        <% end % >
+        <form action="/especificar" method="post">
+         <input type="submit" class="submit-button" value='+ Especificar diagnóstico'>
+      <% end %>
+    </div>
+</body>
+
+</html>
+
+):
+1:    <!DOCTYPE html>
+2:    <html lang="es">
+3:    <head>
+4:      <meta charset="UTF-8">
+5:      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+6:      <title>Degluconversor Resultado</title>
+7:      <style>
+8:        body {
+9:          background-color: #FFFFFF;
+10:          margin: 0;
+11:          font-family: 'Arial', sans-serif;
+12:          display: flex;
+13:          justify-content: center;
+14:          align-items: center;
+15:          height: 100vh;
+16:        }
+17:      
+18:        .header {
+19:          background-color: #256490;
+20:          color: white;
+21:          padding: 1em;
+22:          font-size: 2.5em;
+23:          border-bottom-left-radius: 80px;
+24:          border-bottom-right-radius: 80px;
+25:          width: 100%;
+26:          text-align: center;
+27:          position: fixed;
+28:          top: 0;
+29:          left: 0;
+30:          z-index: 999; /* asegura que esté por encima de todo */
+31:        }
+32:    
+33:       
+34:        .container {
+35:          display: flex;
+36:          flex-direction: column;
+37:          align-items: center;
+38:          justify-content: center;     
+39:        }
+40:    
+41:    
+42:        .box {
+43:          display: flex;
+44:          align-items: center;
+45:          width: 200px;
+46:          height: 60px;
+47:          font-size: 0.8em;
+48:          margin: 2px 0;
+49:          border-radius: 1.2em;
+50:          color: white;
+51:          padding: 10px 10px 10px 60px;
+52:          position: relative;
+53:          box-sizing: border-box;
+54:        }
+55:    
+56:        .equal-sign {
+57:          font-size: 5em;
+58:          color: #7D9DB7;
+59:          font-weight: bold;
+60:          margin: 10px 0;
+61:          align-items: center;
+62:          
+63:        }
+64:    
+65:        .equal-sign-2 {
+66:          font-size: 1em;
+67:          color: #7D9DB7;
+68:          font-weight: bold;
+69:          margin: 10px 0;
+70:          align-items: center;
+71:          
+72:        }
+73:    
+74:    
+75:        .container-inicial {
+76:          background-color: #A8BDBC;
+77:          margin-top: 150px;
+78:        }
+79:    
+80:        .container-final {
+81:          background-color: #B5B0C9;
+82:        }
+83:    
+84:        .container-final-opciones {
+85:          background-color: #B5B0C9;
+86:          margin: 5px 0;
+87:    
+88:        }
+89:    
+90:        .box::before {
+91:          content: attr(data-number);
+92:          display: flex;
+93:          align-items: center;
+94:          justify-content: center;
+95:          width: 60px;
+96:          height: 60px;
+97:          border-radius: 50%;
+98:          background-color: #256490;
+99:          color: #FFFFFF;
+100:          font-weight: bold;
+101:          position: absolute;
+102:          left: -40px;
+103:          top: 50%;
+104:          transform: translateY(-50%);
+105:        }
+106:    
+107:        .box div {
+108:          font-size: 1.8em;
+109:        }
+110:    
+111:    
+112:        input[type="submit"], .submit-button {
+113:          margin-top: 20px;
+114:          font-size: 1.2em;
+115:          color: #256490;
+116:          text-align: center;
+117:        }
+118:    
+119:    
+120:    
+121:      </style>
+122:    </head>
+123:    <body>
+124:      <%= render 'shared/header' %>
+125:      <div class="header">Resultado de Conversión</div>
+126:        <div class="container">
+127:        
+128:          <div class="box container-inicial" data-number="<%= @nivel_seleccionado %>">
+129:            <div><%= @tabla_seleccionada.capitalize %></div>
+130:          </div>
+131:    
+132:          <% if @resultado.present? %>
+133:            <div class="equal-sign">=</div>
+134:            <div class="box container-final" data-number="<%= @nivel.first[:nivel] %>">
+135:              <div><%= @tabla_destino.capitalize %></div>
+136:            </div>
+137:            <form action="/enviar" method="post">
+138:            <input type="submit" class="submit-button" value='ⓘ Ver detalles'>
+139:    
+140:          <% else %>
+141:            <div class="equal-sign-2">Varios Niveles Posibles, los siguientes niveles coinciden con la vía de alimentación:</div>
+142:            <% @niveles_posibles.each do |nivel| % >
+143:              <div class="box container-final-opciones" data-number="<%= nivel[:nivel] %>">
+144:                <div><%= @tabla_destino.capitalize %></div>
+145:              </div>
+146:            <% end % >
+147:            <form action="/especificar" method="post">
+148:             <input type="submit" class="submit-button" value='+ Especificar diagnóstico'>
+149:          <% end %>
+150:        </div>
+151:    </body>
+152:    
+153:    </html>
+  
+app/views/degluconversor/degluconversor1.html.erb:143: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:143: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:145: unknown regexp options - dv
+app/views/degluconversor/degluconversor1.html.erb:148: syntax error, unexpected local variable or method, expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:151: unknown regexp options - bdy
+app/views/degluconversor/degluconversor1.html.erb:153: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:156: unterminated regexp meets end of file
+app/views/degluconversor/degluconversor1.html.erb:156: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:143: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:143: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:145: unknown regexp options - dv
+app/views/degluconversor/degluconversor1.html.erb:148: syntax error, unexpected local variable or method, expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:151: unknown regexp options - bdy
+app/views/degluconversor/degluconversor1.html.erb:153: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:156: unterminated regexp meets end of file
+app/views/degluconversor/degluconversor1.html.erb:156: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:143: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:143: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:145: unknown regexp options - dv
+app/views/degluconversor/degluconversor1.html.erb:148: syntax error, unexpected local variable or method, expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:151: unknown regexp options - bdy
+app/views/degluconversor/degluconversor1.html.erb:153: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:156: unterminated regexp meets end of file
+app/views/degluconversor/degluconversor1.html.erb:156: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:143: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:143: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:145: unknown regexp options - dv
+app/views/degluconversor/degluconversor1.html.erb:148: syntax error, unexpected local variable or method, expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:151: unknown regexp options - bdy
+app/views/degluconversor/degluconversor1.html.erb:153: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:156: unterminated regexp meets end of file
+app/views/degluconversor/degluconversor1.html.erb:156: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/degluconversor_controller.rb:218:in `transformar'
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 21:34:22 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1457)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 1546)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.1ms | Allocations: 4112)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Degluconversor Resultado</title>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  
+    .header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2.5em;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      width: 100%;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999; /* asegura que esté por encima de todo */
+    }
+
+   
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;     
+    }
+
+
+    .box {
+      display: flex;
+      align-items: center;
+      width: 200px;
+      height: 60px;
+      font-size: 0.8em;
+      margin: 2px 0;
+      border-radius: 1.2em;
+      color: white;
+      padding: 10px 10px 10px 60px;
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    .equal-sign {
+      font-size: 5em;
+      color: #7D9DB7;
+      font-weight: bold;
+      margin: 10px 0;
+      align-items: center;
+      
+    }
+
+    .equal-sign-2 {
+      font-size: 1em;
+      color: #7D9DB7;
+      font-weight: bold;
+      margin: 10px 0;
+      align-items: center;
+      
+    }
+
+
+    .container-inicial {
+      background-color: #A8BDBC;
+      margin-top: 150px;
+    }
+
+    .container-final {
+      background-color: #B5B0C9;
+    }
+
+    .container-final-opciones {
+      background-color: #B5B0C9;
+      margin: 5px 0;
+
+    }
+
+    .box::before {
+      content: attr(data-number);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #256490;
+      color: #FFFFFF;
+      font-weight: bold;
+      position: absolute;
+      left: -40px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .box div {
+      font-size: 1.8em;
+    }
+
+
+    input[type="submit"], .submit-button {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #256490;
+      text-align: center;
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <%= render 'shared/header' %>
+  <div class="header">Resultado de Conversión</div>
+    <div class="container">
+    
+      <div class="box container-inicial" data-number="<%= @nivel_seleccionado %>">
+        <div><%= @tabla_seleccionada.capitalize %></div>
+      </div>
+
+      <% if @resultado.present? %>
+        <div class="equal-sign">=</div>
+        <div class="box container-final" data-number="<%= @nivel.first[:nivel] %>">
+          <div><%= @tabla_destino.capitalize %></div>
+        </div>
+        <form action="/enviar" method="post">
+        <input type="submit" class="submit-button" value='ⓘ Ver detalles'>
+
+      <% else %>
+        <div class="equal-sign-2">Varios Niveles Posibles, los siguientes niveles coinciden con la vía de alimentación:</div>
+        <% @niveles_posibles.each do |nivel| % >
+          <div class="box container-final-opciones" data-number="<%= nivel[:nivel] %>">
+            <div><%= @tabla_destino.capitalize %></div>
+          </div>
+        <% end % >
+        <form action="/especificar" method="post">
+        <input type="submit" class="submit-button" value='+ Especificar diagnóstico'>
+      <% end %>
+    </div>
+</body>
+
+</html>
+
+):
+1:    <!DOCTYPE html>
+2:    <html lang="es">
+3:    <head>
+4:      <meta charset="UTF-8">
+5:      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+6:      <title>Degluconversor Resultado</title>
+7:      <style>
+8:        body {
+9:          background-color: #FFFFFF;
+10:          margin: 0;
+11:          font-family: 'Arial', sans-serif;
+12:          display: flex;
+13:          justify-content: center;
+14:          align-items: center;
+15:          height: 100vh;
+16:        }
+17:      
+18:        .header {
+19:          background-color: #256490;
+20:          color: white;
+21:          padding: 1em;
+22:          font-size: 2.5em;
+23:          border-bottom-left-radius: 80px;
+24:          border-bottom-right-radius: 80px;
+25:          width: 100%;
+26:          text-align: center;
+27:          position: fixed;
+28:          top: 0;
+29:          left: 0;
+30:          z-index: 999; /* asegura que esté por encima de todo */
+31:        }
+32:    
+33:       
+34:        .container {
+35:          display: flex;
+36:          flex-direction: column;
+37:          align-items: center;
+38:          justify-content: center;     
+39:        }
+40:    
+41:    
+42:        .box {
+43:          display: flex;
+44:          align-items: center;
+45:          width: 200px;
+46:          height: 60px;
+47:          font-size: 0.8em;
+48:          margin: 2px 0;
+49:          border-radius: 1.2em;
+50:          color: white;
+51:          padding: 10px 10px 10px 60px;
+52:          position: relative;
+53:          box-sizing: border-box;
+54:        }
+55:    
+56:        .equal-sign {
+57:          font-size: 5em;
+58:          color: #7D9DB7;
+59:          font-weight: bold;
+60:          margin: 10px 0;
+61:          align-items: center;
+62:          
+63:        }
+64:    
+65:        .equal-sign-2 {
+66:          font-size: 1em;
+67:          color: #7D9DB7;
+68:          font-weight: bold;
+69:          margin: 10px 0;
+70:          align-items: center;
+71:          
+72:        }
+73:    
+74:    
+75:        .container-inicial {
+76:          background-color: #A8BDBC;
+77:          margin-top: 150px;
+78:        }
+79:    
+80:        .container-final {
+81:          background-color: #B5B0C9;
+82:        }
+83:    
+84:        .container-final-opciones {
+85:          background-color: #B5B0C9;
+86:          margin: 5px 0;
+87:    
+88:        }
+89:    
+90:        .box::before {
+91:          content: attr(data-number);
+92:          display: flex;
+93:          align-items: center;
+94:          justify-content: center;
+95:          width: 60px;
+96:          height: 60px;
+97:          border-radius: 50%;
+98:          background-color: #256490;
+99:          color: #FFFFFF;
+100:          font-weight: bold;
+101:          position: absolute;
+102:          left: -40px;
+103:          top: 50%;
+104:          transform: translateY(-50%);
+105:        }
+106:    
+107:        .box div {
+108:          font-size: 1.8em;
+109:        }
+110:    
+111:    
+112:        input[type="submit"], .submit-button {
+113:          margin-top: 20px;
+114:          font-size: 1.2em;
+115:          color: #256490;
+116:          text-align: center;
+117:        }
+118:    
+119:    
+120:    
+121:      </style>
+122:    </head>
+123:    <body>
+124:      <%= render 'shared/header' %>
+125:      <div class="header">Resultado de Conversión</div>
+126:        <div class="container">
+127:        
+128:          <div class="box container-inicial" data-number="<%= @nivel_seleccionado %>">
+129:            <div><%= @tabla_seleccionada.capitalize %></div>
+130:          </div>
+131:    
+132:          <% if @resultado.present? %>
+133:            <div class="equal-sign">=</div>
+134:            <div class="box container-final" data-number="<%= @nivel.first[:nivel] %>">
+135:              <div><%= @tabla_destino.capitalize %></div>
+136:            </div>
+137:            <form action="/enviar" method="post">
+138:            <input type="submit" class="submit-button" value='ⓘ Ver detalles'>
+139:    
+140:          <% else %>
+141:            <div class="equal-sign-2">Varios Niveles Posibles, los siguientes niveles coinciden con la vía de alimentación:</div>
+142:            <% @niveles_posibles.each do |nivel| % >
+143:              <div class="box container-final-opciones" data-number="<%= nivel[:nivel] %>">
+144:                <div><%= @tabla_destino.capitalize %></div>
+145:              </div>
+146:            <% end % >
+147:            <form action="/especificar" method="post">
+148:            <input type="submit" class="submit-button" value='+ Especificar diagnóstico'>
+149:          <% end %>
+150:        </div>
+151:    </body>
+152:    
+153:    </html>
+  
+app/views/degluconversor/degluconversor1.html.erb:143: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:143: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:145: unknown regexp options - dv
+app/views/degluconversor/degluconversor1.html.erb:148: syntax error, unexpected local variable or method, expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:151: unknown regexp options - bdy
+app/views/degluconversor/degluconversor1.html.erb:153: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:156: unterminated regexp meets end of file
+app/views/degluconversor/degluconversor1.html.erb:156: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:143: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:143: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:145: unknown regexp options - dv
+app/views/degluconversor/degluconversor1.html.erb:148: syntax error, unexpected local variable or method, expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:151: unknown regexp options - bdy
+app/views/degluconversor/degluconversor1.html.erb:153: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:156: unterminated regexp meets end of file
+app/views/degluconversor/degluconversor1.html.erb:156: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:143: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:143: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:145: unknown regexp options - dv
+app/views/degluconversor/degluconversor1.html.erb:148: syntax error, unexpected local variable or method, expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:151: unknown regexp options - bdy
+app/views/degluconversor/degluconversor1.html.erb:153: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:156: unterminated regexp meets end of file
+app/views/degluconversor/degluconversor1.html.erb:156: syntax error, unexpected end-of-input, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:143: syntax error, unexpected `class', expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:143: syntax error, unexpected local variable or method, expecting `end'
+app/views/degluconversor/degluconversor1.html.erb:144: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:145: unknown regexp options - dv
+app/views/degluconversor/degluconversor1.html.erb:148: syntax error, unexpected local variable or method, expecting `do' or '{' or '('
+app/views/degluconversor/degluconversor1.html.erb:151: unknown regexp options - bdy
+app/views/degluconversor/degluconversor1.html.erb:153: syntax error, unexpected '<'
+app/views/degluconversor/degluconversor1.html.erb:156: unterminated regexp meets end of file
+app/views/degluconversor/degluconversor1.html.erb:156: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/degluconversor_controller.rb:218:in `transformar'
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 21:36:06 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.6ms | Allocations: 150)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 2.0ms | Allocations: 762)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 7328)
+Completed 200 OK in 16ms (Views: 13.2ms | ActiveRecord: 0.1ms | Allocations: 9913)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 21:36:15 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"5", "tabla_destino"=>"fils"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 0.4ms | Allocations: 112)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 6302)
+Completed 200 OK in 17ms (Views: 9.3ms | ActiveRecord: 0.1ms | Allocations: 8185)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 21:36:24 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"1", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 0.2ms | Allocations: 97)
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 6173)
+Completed 200 OK in 15ms (Views: 12.7ms | ActiveRecord: 0.1ms | Allocations: 7855)
+
+
+Started POST "/enviar" for 127.0.0.1 at 2024-06-11 21:36:25 -0400
+Processing by DegluconversorController#enviar as HTML
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 499)
+
+
+  
+ActionController::InvalidAuthenticityToken (Can't verify CSRF token authenticity.):
+  
+actionpack (7.0.8.3) lib/action_controller/metal/request_forgery_protection.rb:253:in `handle_unverified_request'
+actionpack (7.0.8.3) lib/action_controller/metal/request_forgery_protection.rb:286:in `handle_unverified_request'
+devise (4.9.4) lib/devise/controllers/helpers.rb:257:in `handle_unverified_request'
+actionpack (7.0.8.3) lib/action_controller/metal/request_forgery_protection.rb:275:in `verify_authenticity_token'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.8.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:116:in `block in run_callbacks'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.8.3) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.8.3) lib/action_controller/metal/rescue.rb:23:in `process_action'
+actionpack (7.0.8.3) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.8.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.8.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.8.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.8.3) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.8.3) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.8.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.8.3) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.8.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.8.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.8.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.8.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.8.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.8.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.8.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.8.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.8.3) lib/action_dispatch/routing/route_set.rb:852:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.9) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.9) lib/rack/etag.rb:27:in `call'
+rack (2.2.9) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.9) lib/rack/head.rb:12:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.9) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.9) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.8.3) lib/active_record/migration.rb:638:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.8.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.8.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.8.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.8.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.8.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.8.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.9) lib/rack/method_override.rb:24:in `call'
+rack (2.2.9) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.8.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.9) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/host_authorization.rb:138:in `call'
+railties (7.0.8.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.8) lib/puma/configuration.rb:252:in `call'
+puma (5.6.8) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.8) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.8) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.8) lib/puma/server.rb:443:in `process_client'
+puma (5.6.8) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 21:38:16 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"1", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.5ms | Allocations: 148)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 3.8ms | Allocations: 808)
+  Rendered layout layouts/application.html.erb (Duration: 19.3ms | Allocations: 7363)
+Completed 200 OK in 30ms (Views: 23.3ms | ActiveRecord: 0.1ms | Allocations: 9715)
+
+
+Started POST "/enviar" for 127.0.0.1 at 2024-06-11 21:38:17 -0400
+Processing by DegluconversorController#enviar as HTML
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 501)
+
+
+  
+ActionController::InvalidAuthenticityToken (Can't verify CSRF token authenticity.):
+  
+actionpack (7.0.8.3) lib/action_controller/metal/request_forgery_protection.rb:253:in `handle_unverified_request'
+actionpack (7.0.8.3) lib/action_controller/metal/request_forgery_protection.rb:286:in `handle_unverified_request'
+devise (4.9.4) lib/devise/controllers/helpers.rb:257:in `handle_unverified_request'
+actionpack (7.0.8.3) lib/action_controller/metal/request_forgery_protection.rb:275:in `verify_authenticity_token'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.8.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:116:in `block in run_callbacks'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.8.3) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.8.3) lib/action_controller/metal/rescue.rb:23:in `process_action'
+actionpack (7.0.8.3) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.8.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.8.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.8.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.8.3) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.8.3) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.8.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.8.3) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.8.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.8.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.8.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.8.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.8.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.8.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.8.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.8.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.8.3) lib/action_dispatch/routing/route_set.rb:852:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.9) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.9) lib/rack/etag.rb:27:in `call'
+rack (2.2.9) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.9) lib/rack/head.rb:12:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.9) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.9) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.8.3) lib/active_record/migration.rb:638:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.8.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.8.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.8.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.8.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.8.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.8.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.9) lib/rack/method_override.rb:24:in `call'
+rack (2.2.9) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.8.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.9) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/host_authorization.rb:138:in `call'
+railties (7.0.8.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.8) lib/puma/configuration.rb:252:in `call'
+puma (5.6.8) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.8) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.8) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.8) lib/puma/server.rb:443:in `process_client'
+puma (5.6.8) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/enviar" for 127.0.0.1 at 2024-06-11 21:40:13 -0400
+Processing by DegluconversorController#enviar as HTML
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 490)
+
+
+  
+ActionController::InvalidAuthenticityToken (Can't verify CSRF token authenticity.):
+  
+actionpack (7.0.8.3) lib/action_controller/metal/request_forgery_protection.rb:253:in `handle_unverified_request'
+actionpack (7.0.8.3) lib/action_controller/metal/request_forgery_protection.rb:286:in `handle_unverified_request'
+devise (4.9.4) lib/devise/controllers/helpers.rb:257:in `handle_unverified_request'
+actionpack (7.0.8.3) lib/action_controller/metal/request_forgery_protection.rb:275:in `verify_authenticity_token'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.8.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:116:in `block in run_callbacks'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.8.3) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.8.3) lib/action_controller/metal/rescue.rb:23:in `process_action'
+actionpack (7.0.8.3) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.8.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.8.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.8.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.8.3) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.8.3) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.8.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.8.3) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.8.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.8.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.8.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.8.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.8.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.8.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.8.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.8.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.8.3) lib/action_dispatch/routing/route_set.rb:852:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.9) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.9) lib/rack/etag.rb:27:in `call'
+rack (2.2.9) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.9) lib/rack/head.rb:12:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.9) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.9) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.8.3) lib/active_record/migration.rb:638:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.8.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.8.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.8.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.8.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.8.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.8.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.9) lib/rack/method_override.rb:24:in `call'
+rack (2.2.9) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.8.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.9) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/host_authorization.rb:138:in `call'
+railties (7.0.8.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.8) lib/puma/configuration.rb:252:in `call'
+puma (5.6.8) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.8) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.8) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.8) lib/puma/server.rb:443:in `process_client'
+puma (5.6.8) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/transformar" for 127.0.0.1 at 2024-06-11 21:40:21 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"1", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 1.0ms | Allocations: 148)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 2.9ms | Allocations: 841)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 7396)
+Completed 200 OK in 19ms (Views: 13.6ms | ActiveRecord: 0.3ms | Allocations: 9854)
+
+
+Started POST "/enviar" for 127.0.0.1 at 2024-06-11 21:40:22 -0400
+Processing by DegluconversorController#enviar as HTML
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 501)
+
+
+  
+ActionController::InvalidAuthenticityToken (Can't verify CSRF token authenticity.):
+  
+actionpack (7.0.8.3) lib/action_controller/metal/request_forgery_protection.rb:253:in `handle_unverified_request'
+actionpack (7.0.8.3) lib/action_controller/metal/request_forgery_protection.rb:286:in `handle_unverified_request'
+devise (4.9.4) lib/devise/controllers/helpers.rb:257:in `handle_unverified_request'
+actionpack (7.0.8.3) lib/action_controller/metal/request_forgery_protection.rb:275:in `verify_authenticity_token'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.8.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:116:in `block in run_callbacks'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.8.3) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.8.3) lib/action_controller/metal/rescue.rb:23:in `process_action'
+actionpack (7.0.8.3) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.8.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.8.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.8.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.8.3) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.8.3) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.8.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.8.3) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.8.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.8.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.8.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.8.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.8.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.8.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.8.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.8.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.8.3) lib/action_dispatch/routing/route_set.rb:852:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.9) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.9) lib/rack/etag.rb:27:in `call'
+rack (2.2.9) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.9) lib/rack/head.rb:12:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.9) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.9) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.8.3) lib/active_record/migration.rb:638:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.8.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.8.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.8.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.8.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.8.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.8.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.9) lib/rack/method_override.rb:24:in `call'
+rack (2.2.9) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.8.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.9) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/host_authorization.rb:138:in `call'
+railties (7.0.8.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.8) lib/puma/configuration.rb:252:in `call'
+puma (5.6.8) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.8) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.8) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.8) lib/puma/server.rb:443:in `process_client'
+puma (5.6.8) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/enviar" for 127.0.0.1 at 2024-06-11 21:42:07 -0400
+Processing by DegluconversorController#enviar as HTML
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 490)
+
+
+  
+ActionController::InvalidAuthenticityToken (Can't verify CSRF token authenticity.):
+  
+actionpack (7.0.8.3) lib/action_controller/metal/request_forgery_protection.rb:253:in `handle_unverified_request'
+actionpack (7.0.8.3) lib/action_controller/metal/request_forgery_protection.rb:286:in `handle_unverified_request'
+devise (4.9.4) lib/devise/controllers/helpers.rb:257:in `handle_unverified_request'
+actionpack (7.0.8.3) lib/action_controller/metal/request_forgery_protection.rb:275:in `verify_authenticity_token'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.8.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:116:in `block in run_callbacks'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.8.3) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.8.3) lib/action_controller/metal/rescue.rb:23:in `process_action'
+actionpack (7.0.8.3) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.8.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.8.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.8.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.8.3) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.8.3) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.8.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.8.3) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.8.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.8.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.8.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.8.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.8.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.8.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.8.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.8.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.8.3) lib/action_dispatch/routing/route_set.rb:852:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.9) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.9) lib/rack/etag.rb:27:in `call'
+rack (2.2.9) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.9) lib/rack/head.rb:12:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.9) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.9) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.8.3) lib/active_record/migration.rb:638:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.8.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.8.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.8.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.8.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.8.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.8.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.9) lib/rack/method_override.rb:24:in `call'
+rack (2.2.9) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.8.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.9) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/host_authorization.rb:138:in `call'
+railties (7.0.8.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.8) lib/puma/configuration.rb:252:in `call'
+puma (5.6.8) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.8) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.8) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.8) lib/puma/server.rb:443:in `process_client'
+puma (5.6.8) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/enviar" for 127.0.0.1 at 2024-06-11 21:42:18 -0400
+Processing by DegluconversorController#enviar as HTML
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 490)
+
+
+  
+ActionController::InvalidAuthenticityToken (Can't verify CSRF token authenticity.):
+  
+actionpack (7.0.8.3) lib/action_controller/metal/request_forgery_protection.rb:253:in `handle_unverified_request'
+actionpack (7.0.8.3) lib/action_controller/metal/request_forgery_protection.rb:286:in `handle_unverified_request'
+devise (4.9.4) lib/devise/controllers/helpers.rb:257:in `handle_unverified_request'
+actionpack (7.0.8.3) lib/action_controller/metal/request_forgery_protection.rb:275:in `verify_authenticity_token'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.8.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:116:in `block in run_callbacks'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.8.3) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.8.3) lib/action_controller/metal/rescue.rb:23:in `process_action'
+actionpack (7.0.8.3) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.8.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.8.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.8.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.8.3) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.8.3) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.8.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.8.3) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.8.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.8.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.8.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.8.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.8.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.8.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.8.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.8.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.8.3) lib/action_dispatch/routing/route_set.rb:852:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.9) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.9) lib/rack/etag.rb:27:in `call'
+rack (2.2.9) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.9) lib/rack/head.rb:12:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.9) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.9) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.8.3) lib/active_record/migration.rb:638:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.8.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.8.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.8.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.8.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.8.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.8.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.8.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.9) lib/rack/method_override.rb:24:in `call'
+rack (2.2.9) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.8.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.9) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.8.3) lib/action_dispatch/middleware/host_authorization.rb:138:in `call'
+railties (7.0.8.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.8) lib/puma/configuration.rb:252:in `call'
+puma (5.6.8) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.8) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.8) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.8) lib/puma/server.rb:443:in `process_client'
+puma (5.6.8) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
