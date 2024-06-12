@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   get 'mispacientes', to: 'patients#index', as: :mispacientes
   get 'diagnostico/:patient_id', to: 'pages#diagnostico', as: :diagnostico_patient
   post '/transformar', to: 'degluconversor#transformar'
-  get 'degluconversor_tablas', to: 'degluconversor#degluconversor_tablas'
+  post '/enviar', to: 'degluconversor#enviar'
+  post '/especificar', to: 'degluconversor#especificar'
+
 
   resources :patients do
     resources :diagnoses, only: [:new, :create, :show, :index] do

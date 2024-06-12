@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="csrf-token" content="<%= form_authenticity_token %>">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Degluconversor Tablas</title>
   <style>
@@ -42,40 +43,52 @@
       font-size: 1.8em; 
       color: #256490;
       border-radius: 20px;
-      width: 45%; /* Ajusta el ancho de cada cuadrado */
+      width: 40%; /* Ajusta el ancho de cada cuadrado */
+      position: relative; /* Permite posicionar el círculo */
     }
-    .divider {
-      position: absolute;
-      width: 2px;
-      background-color: white;
-      z-index: 5;
-      
+    
+    .circle {
+      position: absolute; /* Posiciona el círculo en relación al cuadrado */
+      left: -5px; /* Ajusta la posición horizontal del círculo */
+      width: 80px; /* Ajusta el ancho del círculo */
+      height: 80px; /* Ajusta la altura del círculo */
+      background-color: #B5B0C9; /* Color del círculo */
+      color: white; /* Color del texto dentro del círculo */
+      border-radius: 50%; /* Hace que el círculo tenga bordes redondeados */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1em; /* Tamaño del texto dentro del círculo */
     }
-
+    
     .text {
       height: auto; 
       margin-bottom: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
+      text-align: left;
       padding: 10px;
-      font-size: 1.8em; 
+      font-size: 1em; 
       color: white;
-      width: 45% ; /* Ajusta el ancho del texto */
+      width: 40% ; /* Ajusta el ancho del texto */
     }
   </style>
 </head>
 <body>
   <%= render 'shared/header' %>
   <div class="header">Conversión de escalas de severidad</div>
-  <div class="divider"></div>
   <div class="container">
-    <div class="square">Tabla Inicial</div>
-    <div class="square">Tabla Final</div>
-    <div class="text">Información de la tabla inicial</div>
-    <div class="text">Información de la tabla final</div>
+    <div class="square">
+      <div class="circle"><%= @nivel_seleccionado %></div>
+      <%= @tabla_seleccionada.capitalize %>
+    </div>
+    <div class="square">
+      <div class="circle"><%= @nivel %></div>
+      <%= @tabla_destino.capitalize %>
+    </div>
+    <div class="text"><%= @descripcion_seleccionado %></div>
+    <div class="text"><%= @descripcion_destino %></div>
   </div>
-
 </body>
 </html>

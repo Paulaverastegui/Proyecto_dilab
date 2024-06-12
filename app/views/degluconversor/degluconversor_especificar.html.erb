@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Degluconversor Especificar</title>
+  <style>
+    body {
+      background-color: white;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+  
+    .header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2.5em;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap; /* Permite que los elementos se envuelvan en varias líneas */
+      justify-content: space-around; /* Distribuye los elementos horizontalmente */
+      align-items: center; /* Alinea los elementos verticalmente */
+      padding: 20px;
+    }
+
+    .square {
+      height: auto; 
+      background-color: white;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 10px;
+      font-size: 1.8em; 
+      color: #256490;
+      border-radius: 20px;
+      width: 45%; /* Ajusta el ancho de cada cuadrado */
+    }
+
+    .text {
+      height: auto; 
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 10px;
+      font-size: 1.8em; 
+      color: #256490;
+      width: 90%; /* Ajusta el ancho del texto */
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 1.2em;
+      color: #256490;
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 8px;
+      font-size: 1em;
+      border: 1px solid #256490;
+      border-radius: 5px;
+    }
+
+    .submit-button {
+      background-color: #256490;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .submit-button:hover {
+      background-color: #1e5372;
+    }
+  </style>
+</head>
+<body>
+  <%= render 'shared/header' %>
+  <div class="header">Especificar diagnóstico</div>
+  <div class="container">
+    <div class="text">Por favor, completa las características adicionales para mejorar el diagnóstico:</div>
+    <%= form_with url: especificar_path, method: :post do |f| %>
+      <% @faltantes.each do |caracteristica| %>
+        <div class="form-group">
+          <label for="<%= caracteristica %>"><%= caracteristica.to_s.humanize %>:</label>
+          <%= f.text_field caracteristica, id: caracteristica %>
+        </div>
+      <% end %>
+      <%= f.hidden_field :tabla_seleccionada, value: @tabla_seleccionada %>
+      <%= f.hidden_field :nivel_seleccionado, value: @nivel_seleccionado %>
+      <%= f.hidden_field :tabla_destino, value: @tabla_destino %>
+      <div class="form-group">
+        <button type="submit" class="submit-button">Enviar</button>
+      </div>
+    <% end %>
+  </div>
+</body>
+</html>
