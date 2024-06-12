@@ -277,7 +277,7 @@ class DegluconversorController < ApplicationController
     render 'degluconversor_especificar'
   end
 
-  def calcular_faltantes(tabla_destino, nivel_seleccionado, tablas):
+  def calcular_faltantes(tabla_destino, nivel_seleccionado, tablas)
     caracteristicas_destino = set(tablas[tabla_destino][nivel_seleccionado].keys())
     caracteristicas_seleccionadas = set(tablas[tabla_seleccionada][nivel_seleccionado].keys())
     faltantes = caracteristicas_destino - caracteristicas_seleccionadas

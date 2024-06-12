@@ -34763,3 +34763,71 @@ SyntaxError (/home/agh/Proyecto_dilab/app/controllers/degluconversor_controller.
 app/controllers/degluconversor_controller.rb:280: syntax error, unexpected ':'
 app/controllers/degluconversor_controller.rb:280: syntax error, unexpected ':'
 >>>>>>> alicia-degluconversor
+Started GET "/menu" for 127.0.0.1 at 2024-06-12 13:12:20 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 157.3ms | Allocations: 31207)
+  Rendered layout layouts/application.html.erb (Duration: 178.0ms | Allocations: 37710)
+Completed 200 OK in 237ms (Views: 186.4ms | ActiveRecord: 1.3ms | Allocations: 52024)
+
+
+Started GET "/degluconversor" for 127.0.0.1 at 2024-06-12 13:12:22 -0400
+Processing by PagesController#degluconversor as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/degluconversor.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 1.9ms | Allocations: 155)
+  Rendered pages/degluconversor.html.erb within layouts/application (Duration: 14.6ms | Allocations: 7006)
+  Rendered layout layouts/application.html.erb (Duration: 18.3ms | Allocations: 8990)
+Completed 200 OK in 24ms (Views: 19.3ms | ActiveRecord: 0.1ms | Allocations: 10795)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-12 13:12:23 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"1", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.2ms | Allocations: 46)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 3.4ms | Allocations: 842)
+  Rendered layout layouts/application.html.erb (Duration: 22.5ms | Allocations: 7314)
+Completed 200 OK in 30ms (Views: 25.4ms | ActiveRecord: 0.2ms | Allocations: 9882)
+
+
+Started POST "/enviar" for 127.0.0.1 at 2024-06-12 13:12:25 -0400
+Processing by DegluconversorController#enviar as HTML
+  Parameters: {"tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"1", "tabla_destino"=>"doss", "nivel"=>"1", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor_tablas.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.2ms | Allocations: 24)
+  Rendered degluconversor/degluconversor_tablas.html.erb within layouts/application (Duration: 3.0ms | Allocations: 444)
+  Rendered layout layouts/application.html.erb (Duration: 34.9ms | Allocations: 6738)
+Completed 200 OK in 42ms (Views: 36.4ms | ActiveRecord: 0.2ms | Allocations: 8752)
+
+
+Started POST "/enviar" for 127.0.0.1 at 2024-06-12 13:12:29 -0400
+Processing by DegluconversorController#enviar as HTML
+  Parameters: {"tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"1", "tabla_destino"=>"doss", "nivel"=>"1", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor_tablas.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered degluconversor/degluconversor_tablas.html.erb within layouts/application (Duration: 0.5ms | Allocations: 121)
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | Allocations: 6404)
+Completed 200 OK in 24ms (Views: 17.6ms | ActiveRecord: 0.3ms | Allocations: 8147)
+
+
+Started GET "/menu" for 127.0.0.1 at 2024-06-12 13:12:39 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 7.5ms | Allocations: 2527)
+  Rendered layout layouts/application.html.erb (Duration: 24.4ms | Allocations: 8679)
+Completed 200 OK in 31ms (Views: 25.3ms | ActiveRecord: 0.2ms | Allocations: 10227)
+
+
