@@ -232,9 +232,61 @@ class DegluconversorController < ApplicationController
     @tabla_seleccionada = params[:tabla_seleccionada]
     @nivel_seleccionado = params[:nivel_seleccionado]
     @tabla_destino = params[:tabla_destino]
-    @nivel = params[:nivel] 
-    render 'degluconversor_especificar' 
+
+    # Obtén los niveles posibles desde alguna fuente de datos
+    @niveles_posibles = params[:niveles_posibles]
+
+    # Características faltantes que debes obtener de alguna fuente de datos
+    @faltantes = calcular_faltantes(@tabla_destino, @nivel_seleccionado)
+
+    if params[:commit]
+      respuestas = params.permit(@faltantes).to_h
+      mejor_coincidencia = nil
+      coincidencias_maximas = 0
+      preguntadas = {}
+
+      @niveles_posibles.each do |nivel_hash|
+        nivel = nivel_hash[:nivel]
+        caracteristicas_destino = tablas[@tabla_destino][nivel]
+        caracteristicas_seleccionadas = tablas[@tabla_seleccionada][@nivel_seleccionado].merge(respuestas)
+        faltantes = caracteristicas_destino.keys - caracteristicas_seleccionadas.keys
+
+        coincidencias = 0
+        caracteristicas_destino.each do |caracteristica, valor|
+          next if caracteristica == "Nombre"
+          if caracteristicas_seleccionadas[caracteristica] == valor
+            coincidencias += 1
+          end
+        end
+
+        if coincidencias > coincidencias_maximas
+          mejor_coincidencia = nivel
+          coincidencias_maximas = coincidencias
+        end
+        preguntadas.merge!(respuestas)
+      end
+
+      if mejor_coincidencia
+        nombre_mejor_coincidencia = tablas[@tabla_destino][mejor_coincidencia]["Nombre"]
+        @resultado = { nivel: mejor_coincidencia, nombre: nombre_mejor_coincidencia }
+      else
+        @resultado = nil
+        flash[:notice] = "Lo siento, no se encontró un nivel que coincida con las características seleccionadas."
+      end
+    end
+    render 'degluconversor_especificar'
   end
+
+  def calcular_faltantes(tabla_destino, nivel_seleccionado, tablas):
+    caracteristicas_destino = set(tablas[tabla_destino][nivel_seleccionado].keys())
+    caracteristicas_seleccionadas = set(tablas[tabla_seleccionada][nivel_seleccionado].keys())
+    faltantes = caracteristicas_destino - caracteristicas_seleccionadas
+    return faltantes
+
+  end
+
+  
+    
   
 
   def obtener_descripcion(tabla, nivel)
