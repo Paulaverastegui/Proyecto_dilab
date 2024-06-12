@@ -132,6 +132,33 @@
       <% end %>
     </div>
     
+    <% if @has_diagnosis_with_levels %>
+      <!-- Botón para abrir el modal de evolución -->
+      <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#evolutionModal">
+        Evolución
+      </button>
+
+      <!-- Modal de evolución -->
+      <div class="modal fade" id="evolutionModal" tabindex="-1" aria-labelledby="evolutionModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="evolutionModalLabel">Evolución de los Diagnósticos</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <canvas id="evolutionChart"></canvas>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    
     <div class="back-button">
       <%= link_to 'Volver', mispacientes_path, class: 'btn btn-custom' %>
     </div>
@@ -140,7 +167,53 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      <% if @has_diagnosis_with_levels %>
+        const ctx = document.getElementById('evolutionChart').getContext('2d');
+        const labels = [<%= @diagnosis_data.map { |d| d[:date] }.join(', ') %>];
+        const datasets = [];
+
+        <% @diagnosis_data.each_with_index do |diagnosis, index| %>
+          <% if diagnosis[:levels].present? %>
+            datasets.push({
+              label: "Diagnóstico - <%= diagnosis[:date] %>",
+              data: [<%= diagnosis[:levels].map { |level| level[:severidad] }.join(', ') %>],
+              backgroundColor: 'rgba(37, 100, 144, 0.6)',
+              borderColor: 'rgba(37, 100, 144, 1)',
+              borderWidth: 1
+            });
+          <% end %>
+        <% end %>
+
+        const evolutionChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: labels,
+            datasets: datasets
+          },
+          options: {
+            scales: {
+              x: {
+                title: {
+                  display: true,
+                  text: 'Fecha'
+                }
+              },
+              y: {
+                beginAtZero: true,
+                title: {
+                  display: true,
+                  text: 'Nivel de Severidad'
+                }
+              }
+            }
+          }
+        });
+      <% end %>
+    });
+  </script>
 </body>
 </html>
-
 

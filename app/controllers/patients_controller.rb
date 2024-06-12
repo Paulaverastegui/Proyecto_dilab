@@ -9,9 +9,16 @@ class PatientsController < ApplicationController
     def new
       @patient = current_user.patients.build
     end
-    
+
     def show
       @patient = Patient.find(params[:id])
+      @has_diagnosis_with_levels = @patient.diagnoses.any? { |d| d.levels.present? }
+      @diagnosis_data = @patient.diagnoses.includes(:levels).map do |diagnosis|
+        {
+          date: diagnosis.date,
+          levels: diagnosis.levels.map { |level| { escala: level.escala, severidad: level.severidad } }
+        }
+      end
     end
   
     def create
