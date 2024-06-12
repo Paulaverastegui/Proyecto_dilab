@@ -20,7 +20,7 @@
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       margin: auto;
-      margin-top: 150px; /* para dejar espacio debajo de la barra */
+      margin-top: 150px;
     }
     .form-group { margin-bottom: 15px; }
     .submit-button { 
@@ -86,28 +86,26 @@
   </style>
   <script>
     function updateDestinoOptions() {
-        var escalaSeleccionada = document.getElementById("tabla_seleccionada").value;
-        var nivelSelect = document.getElementById("nivel_seleccionado");
+      var escalaSeleccionada = document.getElementById("tabla_seleccionada").value;
+      var nivelSelect = document.getElementById("nivel_seleccionado");
 
+      var opcionesNiveles = {
+        "fils": 10,
+        "doss": 7,
+        "fois": 7
+      };
 
-        var opcionesNiveles = {
-            "fils": 10,
-            "doss": 7,
-            "fois": 7
-        };
-
-        nivelSelect.innerHTML = "";
-        for (var i = 1; i <= opcionesNiveles[escalaSeleccionada]; i++) {
-            var opt = document.createElement("option");
-            opt.value = i;
-            opt.innerHTML = "Nivel " + i;
-            nivelSelect.appendChild(opt);
-        }
+      nivelSelect.innerHTML = "";
+      for (var i = 1; i <= opcionesNiveles[escalaSeleccionada]; i++) {
+        var opt = document.createElement("option");
+        opt.value = i;
+        opt.innerHTML = "Nivel " + i;
+        nivelSelect.appendChild(opt);
+      }
     }
 
-    // Llamar a la función al cargar la página para establecer los valores iniciales
     document.addEventListener("DOMContentLoaded", function() {
-        updateDestinoOptions();
+      updateDestinoOptions();
     });
   </script>
 </head>
@@ -116,24 +114,20 @@
   <div class="degluconversor-header">Diagnóstico</div>
   <div class="container">
     <h1>Guardar Nivel de Diagnóstico</h1>
+    <%= form_with(model: @level, url: patient_diagnosis_levels_path(@patient, @diagnosis), method: :post) do |f| %>
       <div class="form-group">
-        <label for="tabla_seleccionada">Escala</label>
-        <select name="tabla_seleccionada" id="tabla_seleccionada" onchange="updateDestinoOptions()">
-          <option value="fils">FILS</option>
-          <option value="doss">DOSS</option>
-          <option value="fois">FOIS</option>
-        </select>
+        <%= f.label :escala, "Escala" %>
+        <%= f.select :escala, options_for_select([["FILS", "fils"], ["DOSS", "doss"], ["FOIS", "fois"]]), {}, { id: "tabla_seleccionada", onchange: "updateDestinoOptions()" } %>
       </div>
       <div class="form-group">
-        <label for="nivel_seleccionado">Nivel</label>
-        <select name="nivel_seleccionado" id="nivel_seleccionado">
-          <!-- Niveles se llenarán dinámicamente con JavaScript -->
-        </select>
+        <%= f.label :severidad, "Nivel" %>
+        <%= f.select :severidad, [], {}, { id: "nivel_seleccionado" } %>
       </div>
       <div class="form-group">
-        <input type="submit" class="submit-button" value="Guardar">
+        <%= f.submit "Guardar", class: "submit-button" %>
       </div>
-    </form>
+    <% end %>
   </div>
 </body>
 </html>
+

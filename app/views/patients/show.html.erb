@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalles del Paciente</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #256490;
+      color: #FFFFFF;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100vh;
+    }
+    .container {
+      margin-top: 50px;
+      width: 80%;
+      background-color: #FFFFFF;
+      color: #256490;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .header {
+      font-size: 2.5em;
+      margin-bottom: 30px;
+    }
+    .detail-item {
+      margin-bottom: 10px;
+    }
+    .btn-back {
+      margin-top: 20px;
+      background-color: #256490;
+      color: #FFFFFF;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 1em;
+    }
+    .diagnosis-btn {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">Detalles del Paciente</div>
+    <div class="detail-item"><strong>Nombre:</strong> <%= @patient.name %></div>
+    <div class="detail-item"><strong>RUT:</strong> <%= @patient.rut %></div>
+    <div class="detail-item"><strong>Fecha de Nacimiento:</strong> <%= @patient.birthdate %></div>
+    <div class="detail-item"><strong>Sexo:</strong> <%= @patient.sex %></div>
+    <div class="detail-item"><strong>Email:</strong> <%= @patient.email %></div>
+    
+    <h4>Diagnósticos</h4>
+    <% @patient.diagnoses.each_with_index do |diagnosis, index| %>
+      <!-- Botón para abrir el modal -->
+      <button type="button" class="btn btn-primary diagnosis-btn" data-toggle="modal" data-target="#diagnosisModal<%= index %>">
+        Diagnóstico - <%= diagnosis.date %>
+      </button>
+      
+      <!-- Modal -->
+      <div class="modal fade" id="diagnosisModal<%= index %>" tabindex="-1" aria-labelledby="diagnosisModalLabel<%= index %>" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="diagnosisModalLabel<%= index %>">Detalles del Diagnóstico</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="detail-item"><strong>Fecha:</strong> <%= diagnosis.date %></div>
+              <% if diagnosis.description.present? %>
+                <div class="detail-item"><strong>Descripción:</strong> <%= diagnosis.description %></div>
+              <% end %>
+              <% if diagnosis.historia_desde.present? %>
+                <div class="detail-item"><strong>Historia Desde:</strong> <%= diagnosis.historia_desde %></div>
+              <% end %>
+              <% if diagnosis.perdida_peso.present? %>
+                <div class="detail-item"><strong>Pérdida de Peso:</strong> <%= diagnosis.perdida_peso %></div>
+              <% end %>
+              <% if diagnosis.historia_condicion.present? %>
+                <div class="detail-item"><strong>Historia de Condición:</strong> <%= diagnosis.historia_condicion %></div>
+              <% end %>
+              <% if diagnosis.historia_cirugia.present? %>
+                <div class="detail-item"><strong>Historia de Cirugía:</strong> <%= diagnosis.historia_cirugia %></div>
+              <% end %>
+              <% if diagnosis.sintomas_episodios.present? %>
+                <div class="detail-item"><strong>Episodios de Atragantamiento o Tos:</strong> <%= diagnosis.sintomas_episodios %></div>
+              <% end %>
+              <% if diagnosis.sintomas_dificultad.present? %>
+                <div class="detail-item"><strong>Dificultad para Tragar:</strong> <%= diagnosis.sintomas_dificultad %></div>
+              <% end %>
+              <% if diagnosis.sintomas_sensacion.present? %>
+                <div class="detail-item"><strong>Sensación de Comida Atascada:</strong> <%= diagnosis.sintomas_sensacion %></div>
+              <% end %>
+              <% if diagnosis.sintomas_dolor.present? %>
+                <div class="detail-item"><strong>Dolor al Tragar:</strong> <%= diagnosis.sintomas_dolor %></div>
+              <% end %>
+              <% if diagnosis.sintomas_frecuencia.present? %>
+                <div class="detail-item"><strong>Frecuencia de Problemas para Tragar:</strong> <%= diagnosis.sintomas_frecuencia %></div>
+              <% end %>
+              <% if diagnosis.sintomas_evita_alimentos.present? %>
+                <div class="detail-item"><strong>Evita Alimentos:</strong> <%= diagnosis.sintomas_evita_alimentos %></div>
+              <% end %>
+              <% if diagnosis.sintomas_cansancio.present? %>
+                <div class="detail-item"><strong>Cansancio al Comer o Beber:</strong> <%= diagnosis.sintomas_cansancio %></div>
+              <% end %>
+              <% if diagnosis.sintomas_tiempo.present? %>
+                <div class="detail-item"><strong>Tiempo para Almorzar:</strong> <%= diagnosis.sintomas_tiempo %></div>
+              <% end %>
+              <% if diagnosis.sintomas_nuevo.present? %>
+                <div class="detail-item"><strong>Nuevos Síntomas:</strong> <%= diagnosis.sintomas_nuevo %></div>
+              <% end %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    
+    <%= link_to 'Volver', mispacientes_path, class: 'btn btn-back' %>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+

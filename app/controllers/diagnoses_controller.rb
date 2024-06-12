@@ -8,6 +8,7 @@ class DiagnosesController < ApplicationController
   def create
     @patient = Patient.find(params[:diagnosis][:patient_id])
     @diagnosis = @patient.diagnoses.build(diagnosis_params)
+    @diagnosis.date = Date.today
     if @diagnosis.save
       redirect_to intermediate_view_patient_diagnosis_path(@patient.id, @diagnosis.id)
     else

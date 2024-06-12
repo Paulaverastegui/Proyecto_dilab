@@ -8,7 +8,7 @@ class LevelsController < ApplicationController
     def create
       @level = @diagnosis.levels.build(level_params)
       if @level.save
-        redirect_to root_path, notice: "Diagnóstico y nivel de disfagia guardados exitosamente."
+        redirect_to menu_path, notice: "Diagnóstico y nivel de disfagia guardados exitosamente."
       else
         render 'new'
       end

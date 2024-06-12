@@ -9,6 +9,10 @@ class PatientsController < ApplicationController
     def new
       @patient = current_user.patients.build
     end
+    
+    def show
+      @patient = Patient.find(params[:id])
+    end
   
     def create
       @patient = current_user.patients.build(patient_params)
