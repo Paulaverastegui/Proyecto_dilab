@@ -225,8 +225,15 @@ class DegluconversorController < ApplicationController
     @nivel = params[:nivel] 
     @descripcion_seleccionado = obtener_descripcion(@tabla_seleccionada, @nivel_seleccionado)
     @descripcion_destino = obtener_descripcion(@tabla_destino, @nivel)
-    puts "Descripcion: #{@descripcion_seleccionado }"
     render 'degluconversor_tablas' 
+  end
+
+  def especificar
+    @tabla_seleccionada = params[:tabla_seleccionada]
+    @nivel_seleccionado = params[:nivel_seleccionado]
+    @tabla_destino = params[:tabla_destino]
+    @nivel = params[:nivel] 
+    render 'degluconversor_especificar' 
   end
   
 
@@ -238,7 +245,6 @@ class DegluconversorController < ApplicationController
   
   private
   def descripcion_niveles
-    puts " entre"
     @descripciones = {
       fils: {
         "1" => "Disfagia Severa. Nada de alimentación vía oral. La deglución es difícil o imposible. Existen signos de aspiración y no existe reflejo de deglución. No es posible realizar un entrenamiento de la deglución.",

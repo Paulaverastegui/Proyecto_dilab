@@ -152,9 +152,14 @@
         </div>
       <% end %>
       <form action="/especificar" method="post">
+        <input type="hidden" name="tabla_seleccionada" value="<%= @tabla_seleccionada %>">
+        <input type="hidden" name="nivel_seleccionado" value="<%= @nivel_seleccionado %>">
+        <input type="hidden" name="tabla_destino" value="<%= @tabla_destino %>">
+        <input type="hidden" name="nivel" value="<%= @nivel %>">
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
         <input type="submit" class="submit-button" value='+ Especificar diagnóstico'>
       </form>
+      
     <% end %>
   </div>
 
