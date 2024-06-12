@@ -54,11 +54,11 @@
     .box {
       display: flex;
       align-items: center;
-      width: 400px;
-      height: 100px;
-      font-size: 1em;
+      width: 200px;
+      height: 60px;
+      font-size: 0.8em;
       margin: 2px 0;
-      border-radius: 30px;
+      border-radius: 1.2em;
       color: white;
       padding: 10px 10px 10px 60px;
       position: relative;
@@ -70,6 +70,16 @@
       color: #7D9DB7;
       font-weight: bold;
       margin: 10px 0;
+      align-items: center;
+      
+    }
+
+    .equal-sign-2 {
+      font-size: 1em;
+      color: #7D9DB7;
+      font-weight: bold;
+      margin: 10px 0;
+      align-items: center;
       
     }
 
@@ -83,13 +93,19 @@
       background-color: #B5B0C9;
     }
 
+    .container-final-opciones {
+      background-color: #B5B0C9;
+      margin: 5px 0;
+
+    }
+
     .box::before {
       content: attr(data-number);
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 80px;
-      height: 80px;
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
       background-color: #256490;
       color: #FFFFFF;
@@ -120,25 +136,29 @@
   <%= render 'shared/header' %>
   <div class="header">Resultado de Conversión</div>
   <div class="container">
+    <form action="/enviar" method="post">
+  
     <div class="box container-inicial" data-number="<%= @nivel_seleccionado %>">
       <div><%= @tabla_seleccionada.capitalize %></div>
     </div>
-    <div class="equal-sign">=</div>
 
     <% if @resultado.present? %>
+      <div class="equal-sign">=</div>
       <div class="box container-final" data-number="<%= @nivel.first[:nivel] %>">
         <div><%= @tabla_destino.capitalize %></div>
       </div>
+      <input type="submit" class="submit-button" value='ⓘ Ver detalles'>
+
     <% else %>
-      <h2>Varios Niveles Posibles</h2>
-      <p>Los siguientes niveles coinciden con la vía de alimentación:</p>
-      <ul>
-        <% @niveles_posibles.each do |nivel| %>
-          <li><strong>Nivel <%= nivel[:nivel] %>:</strong> <%= nivel[:nombre] %></li>
-        <% end %>
-      </ul>
+      <div class="equal-sign-2">Varios Niveles Posibles, los siguientes niveles coinciden con la vía de alimentación:</div>
+      <% @niveles_posibles.each do |nivel| %>
+        <div class="box container-final-opciones" data-number="<%= nivel[:nivel] %>">
+          <div><%= @tabla_destino.capitalize %></div>
+        </div>
+      <% end %>
+      
+      <%= link_to '+ Especificar diagnóstico', degluconversor_especificar_path, class: 'submit-button' %>
     <% end %>
-    <%= link_to 'ⓘ Ver detalles', degluconversor_tablas_path, class: 'submit-button' %>
   </div>
 </body>
 

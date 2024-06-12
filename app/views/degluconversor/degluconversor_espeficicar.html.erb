@@ -49,6 +49,7 @@
       width: 2px;
       background-color: white;
       z-index: 5;
+      
     }
 
     .text {
@@ -67,14 +68,8 @@
 </head>
 <body>
   <%= render 'shared/header' %>
-  <div class="header">Conversión de escalas de severidad</div>
-  <div class="divider"></div>
-  <div class="container">
-    <div class="square"><%= @tabla_seleccionada.capitalize %></div>
-    <div class="square"><%= @tabla_destino.capitalize %></div>
-    <div class="text"><%= obtener_descripcion(@tabla_destino, @nivel_destino) %></div>
-    <div class="text"><%= obtener_descripcion(@tabla_seleccionada, @nivel) %></div>
-  </div>
+  <div class="header">HACER</div>
+
 
 </body>
 </html>
