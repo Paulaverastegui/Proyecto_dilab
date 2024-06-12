@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="csrf-token" content="<%= form_authenticity_token %>">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Degluconversor Tablas</title>
   <style>
@@ -59,9 +60,9 @@
       justify-content: center;
       text-align: center;
       padding: 10px;
-      font-size: 1.8em; 
+      font-size: 1em; 
       color: white;
-      width: 45% ; /* Ajusta el ancho del texto */
+      width: 40% ; /* Ajusta el ancho del texto */
     }
   </style>
 </head>
@@ -72,6 +73,8 @@
   <div class="container">
     <div class="square"><%= @tabla_seleccionada.capitalize %></div>
     <div class="square"><%= @tabla_destino.capitalize %></div>
+    <div class="text"><%= @descripcion_seleccionado %></div>
+    <div class="text"><%= @descripcion_destino %></div>
   </div>
 
 </body>

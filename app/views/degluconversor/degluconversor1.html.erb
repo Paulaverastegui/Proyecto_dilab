@@ -136,9 +136,14 @@
         <div><%= @tabla_destino.capitalize %></div>
       </div>
       <form action="/enviar" method="post">
+        <input type="hidden" name="tabla_seleccionada" value="<%= @tabla_seleccionada %>">
+        <input type="hidden" name="nivel_seleccionado" value="<%= @nivel_seleccionado %>">
+        <input type="hidden" name="tabla_destino" value="<%= @tabla_destino %>">
+        <input type="hidden" name="nivel" value="<%= @nivel[0][:nivel] %>">
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
         <input type="submit" class="submit-button" value='ⓘ Ver detalles'>
       </form>
+
     <% else %>
       <div class="equal-sign-2">Varios Niveles Posibles, los siguientes niveles coinciden con la vía de alimentación:</div>
       <% @niveles_posibles.each do |nivel| %>
