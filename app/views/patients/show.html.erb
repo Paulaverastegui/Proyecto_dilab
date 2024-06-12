@@ -172,19 +172,17 @@
     document.addEventListener("DOMContentLoaded", function() {
       <% if @has_diagnosis_with_levels %>
         const ctx = document.getElementById('evolutionChart').getContext('2d');
-        const labels = [<%= @diagnosis_data.map { |d| d[:date] }.join(', ') %>];
+        const labels = <%= @diagnosis_data.flat_map { |d| d[:levels].map { |level| level[:escala] } }.uniq.to_json.html_safe %>;
         const datasets = [];
 
         <% @diagnosis_data.each_with_index do |diagnosis, index| %>
-          <% if diagnosis[:levels].present? %>
-            datasets.push({
-              label: "Diagnóstico - <%= diagnosis[:date] %>",
-              data: [<%= diagnosis[:levels].map { |level| level[:severidad] }.join(', ') %>],
-              backgroundColor: 'rgba(37, 100, 144, 0.6)',
-              borderColor: 'rgba(37, 100, 144, 1)',
-              borderWidth: 1
-            });
-          <% end %>
+          datasets.push({
+            label: "Diagnóstico - <%= diagnosis[:date] %>",
+            data: <%= diagnosis[:levels].map { |level| level[:severidad] }.to_json.html_safe %>,
+            backgroundColor: 'rgba(37, 100, 144, 0.6)',
+            borderColor: 'rgba(37, 100, 144, 1)',
+            borderWidth: 1
+          });
         <% end %>
 
         const evolutionChart = new Chart(ctx, {
@@ -198,7 +196,7 @@
               x: {
                 title: {
                   display: true,
-                  text: 'Fecha'
+                  text: 'Escalas'
                 }
               },
               y: {
@@ -216,4 +214,5 @@
   </script>
 </body>
 </html>
+
 
