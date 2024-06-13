@@ -147,29 +147,29 @@
           <div class="field">
             <%= form.label :semi_solids_cough, "¿El paciente presenta tos antes, durante y hasta tres minutos después de la deglución?" %><br>
             <div class="radio-group">
-              <%= form.label :semi_solids_cough_no, "No" %> <%= form.radio_button :semi_solids_cough, 0 %>
-              <%= form.label :semi_solids_cough_yes, "Sí" %> <%= form.radio_button :semi_solids_cough, 1 %>
+              <%= form.label :semi_solids_cough_no, "No" %> <%= form.radio_button :semi_solids_cough, 1 %>
+              <%= form.label :semi_solids_cough_yes, "Sí" %> <%= form.radio_button :semi_solids_cough, 0 %>
             </div>
           </div>
 
           <div class="field">
             <%= form.label :semi_solids_sialorrhea, "Sialorrea" %><br>
             <div class="radio-group">
-              <%= form.label :semi_solids_sialorrhea_no, "No" %> <%= form.radio_button :semi_solids_sialorrhea, 0 %>
-              <%= form.label :semi_solids_sialorrhea_yes, "Sí" %> <%= form.radio_button :semi_solids_sialorrhea, 1 %>
+              <%= form.label :semi_solids_sialorrhea_no, "No" %> <%= form.radio_button :semi_solids_sialorrhea, 1 %>
+              <%= form.label :semi_solids_sialorrhea_yes, "Sí" %> <%= form.radio_button :semi_solids_sialorrhea, 0 %>
             </div>
           </div>
 
           <div class="field">
             <%= form.label :semi_solids_voice_changes, "Cambios en la voz" %><br>
             <div class="radio-group">
-              <%= form.label :semi_solids_voice_changes_no, "No" %> <%= form.radio_button :semi_solids_voice_changes, 0 %>
-              <%= form.label :semi_solids_voice_changes_yes, "Sí" %> <%= form.radio_button :semi_solids_voice_changes, 1 %>
+              <%= form.label :semi_solids_voice_changes_no, "No" %> <%= form.radio_button :semi_solids_voice_changes, 1 %>
+              <%= form.label :semi_solids_voice_changes_yes, "Sí" %> <%= form.radio_button :semi_solids_voice_changes, 0 %>
             </div>
           </div>
         
           <div class="actions">
-            <%= form.submit 'Submit' %>
+            <%= form.submit 'Guardas' %>
           </div>
         <% end %>  
       </div>

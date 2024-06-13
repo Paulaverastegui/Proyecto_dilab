@@ -18,6 +18,7 @@ class GussScalesController < ApplicationController
       render :new
     end
   end
+  
 
   def edit
     case params[:phase]
@@ -68,9 +69,12 @@ class GussScalesController < ApplicationController
       render :edit
     end
   end
+
   def intermediate_view
-    # Código para la vista intermedia
+    @diagnosis = Diagnosis.find(params[:diagnosis_id])
+    @guss_scale = @diagnosis.guss_scale
   end
+  
 
   private
 

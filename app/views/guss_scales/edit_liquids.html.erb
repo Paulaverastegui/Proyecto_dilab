@@ -146,29 +146,29 @@
           <div class="field">
             <%= form.label :liquids_cough, "¿El paciente presenta tos antes, durante y hasta tres minutos después de la deglución?" %><br>
             <div class="radio-group">
-              <%= form.label :liquids_cough_no, "No" %> <%= form.radio_button :liquids_cough, 0 %>
-              <%= form.label :liquids_cough_yes, "Sí" %> <%= form.radio_button :liquids_cough, 1 %>
+              <%= form.label :liquids_cough_no, "No" %> <%= form.radio_button :liquids_cough, 1 %>
+              <%= form.label :liquids_cough_yes, "Sí" %> <%= form.radio_button :liquids_cough, 0 %>
             </div>
           </div>
 
           <div class="field">
             <%= form.label :liquids_sialorrhea, "Sialorrea" %><br>
             <div class="radio-group">
-              <%= form.label :liquids_sialorrhea_no, "No" %> <%= form.radio_button :liquids_sialorrhea, 0 %>
-              <%= form.label :liquids_yes, "Sí" %> <%= form.radio_button :liquids_sialorrhea, 1 %>
+              <%= form.label :liquids_sialorrhea_no, "No" %> <%= form.radio_button :liquids_sialorrhea, 1 %>
+              <%= form.label :liquids_yes, "Sí" %> <%= form.radio_button :liquids_sialorrhea, 0 %>
             </div>
           </div>
 
           <div class="field">
             <%= form.label :liquids_voice_changes, "Cambios en la voz" %><br>
             <div class="radio-group">
-              <%= form.label :liquids_voice_changes_no, "No" %> <%= form.radio_button :liquids_voice_changes, 0 %>
-              <%= form.label :liquids_voice_changes_yes, "Sí" %> <%= form.radio_button :liquids_voice_changes, 1 %>
+              <%= form.label :liquids_voice_changes_no, "No" %> <%= form.radio_button :liquids_voice_changes, 1 %>
+              <%= form.label :liquids_voice_changes_yes, "Sí" %> <%= form.radio_button :liquids_voice_changes, 0 %>
             </div>
           </div>
         
           <div class="actions">
-            <%= form.submit 'Submit' %>
+            <%= form.submit 'Guardar' %>
           </div>
         <% end %>  
       </div>

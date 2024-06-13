@@ -1,3 +1,137 @@
-<p>no se puede seguir con las consistencias, se requieren más pruebas de diagnostico. Se recomiendan: .</p>
-<p>Puntaje Total: <%= @guss_scale.total_score %></p>
-<%= link_to 'volver a menu principal', menu_path %>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalles de la Escala GUSS</title>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 90%;
+      flex-direction: column;
+      text-align: center;
+    }
+    .header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      width: 100%;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+    }
+    .content {
+      margin-top: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    .details-box {
+      background-color: #f0f0f0;
+      border: 2px solid #256490;
+      border-radius: 10px;
+      padding: 20px;
+      width: 100%;
+      max-width: 800px;
+      text-align: left;
+    }
+    .details-box h2 {
+      color: #256490;
+      font-size: 1.8em;
+      margin-bottom: 10px;
+    }
+    .details-box p {
+      font-size: 1.2em;
+      margin: 10px 0;
+    }
+    .btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      border-radius: 30px;
+      background-color: #256490;
+      color: white;
+      text-decoration: none;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <%= render 'shared/header' %>
+  <div class="container">
+    <div class="header">Detalles de la Escala GUSS</div>
+    <div class="content">
+      <div class="details-box">
+      <% total_score = @guss_scale.preliminary_score.to_i %>
+      <p>Puntaje Total: <%= total_score %></p>
+
+        <% case @guss_scale.total_score %>
+        <% when 0..9 %>
+          <p>Resultados: Fracaso en investigación preliminar</p>
+          <p>Código: Disfagia con alto riesgo</p>
+          <p>Recomendaciones: 
+          <ul>
+            <li>Nada por boca.</li>
+            <li>Evaluaciones funcionales de la deglución (FEES, VFES).</li>
+            <li>Derivar a fonoaudiólogo.</li>
+            <li>Suplemento con Sonda Nasogástrica o Alimentación Parenteral.</li>
+          </ul>
+        <% when 10..14 %>
+          <p>Resultados: Éxito al deglutir semisólidos</p>
+          <p>Código: Disfagia moderada con riesgo de aspiración</p>
+          <p>Recomendaciones: La dieta para la disfagia comienza con:</p>
+          <ul>
+            <li>Textura semisólidas, espesar todos los líquidos.</li>
+            <li>Todos los líquidos deben ser espesados.</li>
+            <li>Las píldoras deben molerse y mezclarse con líquido espeso.</li>
+            <li>Ninguna medicación líquida.</li>
+            <li>Evaluaciones funcionales de la Deglución (FEES, VFES).</li>
+            <li>Derivar a fonoaudiólogo.</li>
+            <li>Suplemento con Sonda Nasogástrica o Alimentación Parenteral.</li>
+          </ul>
+        <% when 15..19 %>
+          <p>Resultados: Éxito con texturas semisólidas y líquido, fracaso con sólida</p>
+          <p>Código: Disfagia leve con bajo riesgo de aspiración</p>
+          <p>Recomendaciones:</p>
+          <ul>
+            <li>Dieta para disfagia, líquidos muy lentamente.</li>
+            <li>Líquidos muy lentamente - un sorbo a la vez.</li>
+            <li>Evaluaciones funcional de la Deglución, tales como Evaluación Fibroscópica de la Deglución (FEES) ó Evaluación Videofluoroscópica de la Deglución (VFES).</li>
+            <li>Derivar a fonoaudiólogo.</li>
+          </ul>
+        <% when 20 %>
+          <p>Resultados: Éxito con semisólidos, líquidos y sólidos</p>
+          <p>Código: Leve sin disfagia, mínimo riesgo de aspiración</p>
+          <p>Recomendaciones: </p>
+          <ul>
+            <li>Dieta normal.</li>
+            <li>Líquidos regulares (la primera vez bajo la supervisión de un Fonoaudiólogo o una Enfermera entrenada).</li>
+          </ul>
+        <% else %>
+          <p>Resultados no disponibles para el puntaje proporcionado</p>
+        <% end %>
+        
+        <%= link_to 'Volver a menú principal', menu_path, class: 'btn' %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

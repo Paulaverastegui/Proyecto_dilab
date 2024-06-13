@@ -68,7 +68,7 @@
       display: block;
       margin-bottom: 5px;
       font-weight: bold;
-      color: #256490; /* Cambia el color del texto de las preguntas */
+      color: #256490;
     }
     .radio-group {
       display: flex;
@@ -77,11 +77,11 @@
     .radio-group label {
       margin-right: 10px;
       font-weight: normal;
-      color: black; 
+      color: black;
     }
     .radio-group input[type="radio"] {
       margin-right: 5px;
-      accent-color: #709795; 
+      accent-color: #709795;
     }
     .actions {
       margin-top: 20px;
@@ -134,16 +134,16 @@
           <div class="field">
             <%= form.label :sialorrhea, "3.2 Deglución de saliva presenta sialorrea" %><br>
             <div class="radio-group">
-              <%= form.label :sialorrhea_no, "No" %> <%= form.radio_button :sialorrhea, 0 %>
-              <%= form.label :sialorrhea_yes, "Sí" %> <%= form.radio_button :sialorrhea, 1 %>
+              <%= form.label :sialorrhea_no, "No" %> <%= form.radio_button :sialorrhea, 1 %>
+              <%= form.label :sialorrhea_yes, "Sí" %> <%= form.radio_button :sialorrhea, 0 %>
             </div>
           </div>
 
           <div class="field">
             <%= form.label :voice_changes, "5. Al deglutir saliva, cambia la voz" %><br>
             <div class="radio-group">
-              <%= form.label :voice_changes_no, "No" %> <%= form.radio_button :voice_changes, 0 %>
-              <%= form.label :voice_changes_yes, "Sí" %> <%= form.radio_button :voice_changes, 1 %>
+              <%= form.label :voice_changes_no, "No" %> <%= form.radio_button :voice_changes, 1 %>
+              <%= form.label :voice_changes_yes, "Sí" %> <%= form.radio_button :voice_changes, 0 %>
             </div>
           </div>
 
@@ -155,4 +155,4 @@
     </div>
   </div>
 </body>
-</html>   
+</html>
