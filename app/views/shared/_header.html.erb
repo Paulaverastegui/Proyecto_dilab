@@ -1,5 +1,65 @@
-<div style="background-color: #256490; color: white; padding: 10px; position: fixed; top: 0; width: 100%; z-index: 100000;">
-  <a href="<%= menu_path %>" style="text-decoration: none; color: white;">
-    <i class="fas fa-home"></i> Volver al menu   |
+<div class="header-container">
+  <a href="<%= menu_path %>" class="header-button">
+    <i class="fas fa-home"></i> Volver al menú
   </a>
+  <a href="<%= escalas_path %>" class="header-button">
+    Escalas
+  </a>
+  <a href="<%= degluconversor_path %>" class="header-button">
+    Conversión de escalas de severidad
+  </a>
+  <a href="<%= diagnoses_path %>" class="header-button">
+    Evaluación
+  </a>
+  <a href="<%= mispacientes_path %>" class="header-button">
+    Mis Pacientes
+  </a>
+  <%= button_to(
+    "Cerrar sesión",
+    destroy_user_session_path,
+    method: :delete,
+    class: 'header-button'
+  ) %>
 </div>
+
+<style>
+  .header-container {
+    background-color: #256490;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100000;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .header-button {
+    text-decoration: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    background-color: #709795;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 0.9em;
+  }
+
+  .header-button:hover {
+    background-color: #B5B0C9;
+    transform: translateY(-2px);
+  }
+
+  .header-button i {
+    margin-right: 5px;
+  }
+
+  .header-button[disabled] {
+    background-color: #256490;
+    border: none;
+    cursor: pointer;
+  }
+</style>
