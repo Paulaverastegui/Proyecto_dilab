@@ -22,19 +22,18 @@
     .header {
       background-color: #256490;
       color: white;
-      padding: 1em;
+      padding: 1.5em;
       font-size: 2.5em;
-      margin-bottom: 20px;
+      margin-bottom: 5px;
       border-bottom-left-radius: 80px;
       border-bottom-right-radius: 80px;
       width: 100%;
       text-align: center;
-      top: 0;
       left: 0;
       position: fixed;
     }
     .content {
-      margin-top: 150px; /* Ajusta el margen superior según sea necesario */
+      margin-top: 200px; 
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -64,10 +63,10 @@
 <body>
   <%= render 'shared/header' %>
   <div class="container">
-    <div class="header">Opciones después de guardar el diagnóstico</div>
+    <div class="header">Opciones</div>
     <div class="content">
       <%= link_to "Registrar un nivel de disfagia", new_patient_diagnosis_level_path(@patient, @diagnosis), class: "button button-registrar" %>
-      <%= link_to "Guardar una guss", new_patient_diagnosis_guss_scale_path(@patient, @diagnosis), class: "button button-guardar" %>
+      <%= link_to "Prueba de consistencias", new_patient_diagnosis_guss_scale_path(@patient, @diagnosis), class: "button button-guardar" %>
     </div>
   </div>
 </body>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nuevo Diagnóstico</title>
+  <title>Nueva Evaluacion</title>
   <style>
     body {
       background-color: #FFFFFF;
@@ -21,7 +21,7 @@
     .header {
       background-color: #256490;
       color: white;
-      padding: 1em;
+      padding: 1.5em;
       font-size: 2.5em;
       margin-bottom: 20px;
       border-bottom-left-radius: 80px;
@@ -33,7 +33,7 @@
       left: 0;
     }
     .content {
-      margin-top: 120px;
+      margin-top: 180px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -98,61 +98,61 @@
           <h3>I. Historia médica:</h3>
           <div class="field">
             <%= form.label :historia_desde, "¿Desde cuándo ha tenido problemas para tragar?" %>
-            <%= form.text_area :historia_desde, rows: 3 %>
+            <%= form.text_area :historia_desde, rows: 3, class: 'input-field' %>
           </div>
 
           <div class="field">
             <%= form.label :perdida_peso, "¿Ha notado pérdida de peso no intencional?" %>
-            <%= form.text_area :perdida_peso, rows: 3 %>
+            <%= form.text_area :perdida_peso, rows: 3, class: 'input-field' %>
           </div>
 
           <div class="field">
             <%= form.label :historia_condicion, "¿Tiene alguna condición médica que pueda estar relacionada?" %>
-            <%= form.text_area :historia_condicion, rows: 3 %>
+            <%= form.text_area :historia_condicion, rows: 3, class: 'input-field' %>
           </div>
 
           <div class="field">
             <%= form.label :historia_cirugia, "¿Ha tenido cirugías recientes?" %>
-            <%= form.text_area :historia_cirugia, rows: 3 %>
+            <%= form.text_area :historia_cirugia, rows: 3, class: 'input-field' %>
           </div>
           <h3>II. Síntomas actuales:</h3>
           <div class="field">
             <%= form.label :sintomas_episodios, "¿Ha tenido episodios de atragantamiento o tos al comer o beber?" %>
-            <%= form.text_area :sintomas_episodios, rows: 3 %>
+            <%= form.text_area :sintomas_episodios, rows: 3, class: 'input-field' %>
           </div>
 
           <div class="field">
             <%= form.label :sintomas_dificultad, "¿Tiene dificultad para tragar líquidos, sólidos o ambos? (dar ejemplos de comidas: carne, arroz, pan etc)" %>
-            <%= form.text_area :sintomas_dificultad, rows: 3 %>
+            <%= form.text_area :sintomas_dificultad, rows: 3, class: 'input-field' %>
           </div>
 
           <div class="field">
             <%= form.label :sintomas_sensacion, "¿Tiene la sensación de que la comida se le queda atascada en la garganta o el pecho?" %>
-            <%= form.text_area :sintomas_sensacion, rows: 3 %>
+            <%= form.text_area :sintomas_sensacion, rows: 3, class: 'input-field' %>
           </div>
           <div class="field">
             <%= form.label :sintomas_dolor, "¿Experimenta dolor al tragar?" %>
-            <%= form.text_area :sintomas_dolor, rows: 3 %>
+            <%= form.text_area :sintomas_dolor, rows: 3, class: 'input-field' %>
           </div>
           <div class="field">
             <%= form.label :sintomas_frecuencia, "¿Qué tan frecuente tiene problemas para tragar?" %>
-            <%= form.text_area :sintomas_frecuencia, rows: 3 %>
+            <%= form.text_area :sintomas_frecuencia, rows: 3, class: 'input-field' %>
           </div>
           <div class="field">
             <%= form.label :sintomas_evita_alimentos, "¿Evita ciertos alimentos debido a la dificultad para tragar?" %>
-            <%= form.text_area :sintomas_evita_alimentos, rows: 3 %>
+            <%= form.text_area :sintomas_evita_alimentos, rows: 3, class: 'input-field' %>
           </div>
           <div class="field">
             <%= form.label :sintomas_cansancio, "¿Se cansa cuando está comiendo o bebiendo?" %>
-            <%= form.text_area :sintomas_cansancio, rows: 3 %>
+            <%= form.text_area :sintomas_cansancio, rows: 3, class: 'input-field' %>
           </div>
           <div class="field">
             <%= form.label :sintomas_tiempo, "¿Cuánto tiempo se demora almorzando?" %>
-            <%= form.text_area :sintomas_tiempo, rows: 3  %>
+            <%= form.text_area :sintomas_tiempo, rows: 3, class: 'input-field' %>
           </div>
           <div class="field">
             <%= form.label :sintomas_nuevo, "¿Ha sentido algo nuevo que no le ocurría antes?" %>
-            <%= form.text_area :sintomas_nuevo, rows: 3  %>
+            <%= form.text_area :sintomas_nuevo, rows: 3, class: 'input-field' %>
            </div>
 
           <div class="actions">
@@ -162,5 +162,22 @@
       </div>
     </div>
   </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const inputs = document.querySelectorAll('.input-field');
+      
+      inputs.forEach((input, index) => {
+        input.addEventListener('keydown', function(event) {
+          if (event.key === "Enter") {
+            event.preventDefault();
+            const nextInput = inputs[index + 1];
+            if (nextInput) {
+              nextInput.focus();
+            }
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
