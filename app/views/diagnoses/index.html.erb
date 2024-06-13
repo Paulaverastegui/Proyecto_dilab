@@ -180,7 +180,7 @@
       </div>
     </div>
   </div>
-
+  <!-- Modal -->
   <div class="modal fade" id="newPatientModal" tabindex="-1" role="dialog" aria-labelledby="newPatientModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -191,7 +191,7 @@
           </button>
         </div>
         <div class="modal-body">
-        <%= form_with(model: Patient.new, local: true, url: patients_path) do |form| %>
+        <%= form_with(model: Patient.new, local: true, url: patients_path, id: 'new_patient_form') do |form| %>
             <div class="field">
               <%= form.label :name, "Nombre" %>
               <%= form.text_field :name, class: 'form-control' %>
@@ -225,13 +225,9 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>
-  // Esperar a que la página esté completamente cargada
   document.addEventListener("DOMContentLoaded", function() {
-    // Escuchar el evento 'ajax:success' en el formulario
     document.querySelector("#new_patient_form").addEventListener("ajax:success", function(event) {
-      // Cerrar el modal
       $("#newPatientModal").modal("hide");
-      // Reiniciar el formulario (opcional)
       this.reset();
     });
   });
