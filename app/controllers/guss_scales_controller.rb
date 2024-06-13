@@ -18,7 +18,6 @@ class GussScalesController < ApplicationController
       render :new
     end
   end
-  
 
   def edit
     case params[:phase]
@@ -74,12 +73,11 @@ class GussScalesController < ApplicationController
     @diagnosis = Diagnosis.find(params[:diagnosis_id])
     @guss_scale = @diagnosis.guss_scale
   end
-  
 
   private
 
   def set_diagnosis
-    @diagnosis = Diagnosis.find_by(params[:diagnosis_id])
+    @diagnosis = Diagnosis.find(params[:diagnosis_id])
   end
 
   def set_guss_scale

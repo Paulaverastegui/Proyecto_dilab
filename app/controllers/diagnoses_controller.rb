@@ -1,4 +1,5 @@
 class DiagnosesController < ApplicationController
+  
   def new
     @diagnosis = Diagnosis.new
     @patient = current_user.patients.find(params[:patient_id])
