@@ -16,7 +16,7 @@
     }
     .container {
       text-align: center;
-      width: 100% ;
+      width: 100%;
     }
     .header {
       background-color: #256490;
@@ -26,20 +26,18 @@
       margin-bottom: 20px;
       border-bottom-left-radius: 80px;
       border-bottom-right-radius: 80px;
-      width: 100% ;
+      width: 100%;
       text-align: center;
       top: 0;
       left: 0;
       position: fixed;
     }
- 
     .content {
       margin-top: 150px; /* Ajusta el margen superior según sea necesario */
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-
     .btn {
       display: flex;
       align-items: center;
@@ -68,10 +66,25 @@
       background-color: #B5B0C9;
     }
     .btn-diagnostico {
-      background-color: #7D9DB7;
+      background-color: #256490;
     }
     .btn-pacientes {
       background-color: #709795;
+    }
+    .btn-comenzar {
+      background-color: #FFFFFF;
+      color: #256490;
+      padding: 0.5em 1em;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2em;
+      border-radius: 15px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-comenzar:hover {
+      background-color: #709795;
+      color: white;
     }
   </style>
 </head>
@@ -85,16 +98,17 @@
       <%= link_to degluconversor_path, class: 'btn btn-degluconversor' do %>
         <img src="<%= asset_path('logodegluconversor.png') %>" alt="Degluconversor Logo">Conversión de escalas de severidad
       <% end %>
-      <%= link_to diagnostico_path, class: 'btn btn-escala' do %>
-        <img src="<%= asset_path('logodiagnostico.png') %>" alt="Diagnóstico Logo">Diagnóstico
+      <%= link_to diagnoses_path, class: 'btn btn-diagnostico' do %>
+        <img src="<%= asset_path('logodiagnostico.png') %>" alt="Diagnóstico Logo">Evaluación 
       <% end %>
       <%= link_to mispacientes_path, class: 'btn btn-pacientes' do %>
         <img src="<%= asset_path('logomispaciente.png') %>" alt="Mis Pacientes Logo">Mis Pacientes
-      <% end %>      
+      <% end %>
       <%= button_to(
-        "Log Out",
+        "Cerrar sesión",
         destroy_user_session_path,
-        method: :delete
+        method: :delete,
+        class: 'btn-comenzar'
       ) %>
     </div>
   </div>
