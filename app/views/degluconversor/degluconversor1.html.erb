@@ -121,11 +121,11 @@
 
   </style>
 </head>
-  <body>
+</head>
+<body>
   <%= render 'shared/header' %>
   <div class="header">Resultado de Conversión</div>
   <div class="container">
-    
     <div class="box container-inicial" data-number="<%= @nivel_seleccionado %>">
       <div><%= @tabla_seleccionada.capitalize %></div>
     </div>
@@ -143,7 +143,6 @@
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
         <input type="submit" class="submit-button" value='ⓘ Ver detalles'>
       </form>
-
     <% else %>
       <div class="equal-sign-2">Varios Niveles Posibles, los siguientes niveles coinciden con la vía de alimentación:</div>
       <% @niveles_posibles.each do |nivel| %>
@@ -151,18 +150,16 @@
           <div><%= @tabla_destino.capitalize %></div>
         </div>
       <% end %>
+      <% @numeros_niveles_posibles = @niveles_posibles.map { |nivel| nivel[:nivel] } %>
       <form action="/especificar" method="post">
         <input type="hidden" name="tabla_seleccionada" value="<%= @tabla_seleccionada %>">
-        <input type="hidden" name="nivel_seleccionado" value="<%= @nivel_seleccionado %>">
+        <input type="hidden" name="nivel_seleccionado" data-number="<%= @nivel_seleccionado %>">
         <input type="hidden" name="tabla_destino" value="<%= @tabla_destino %>">
-        <input type="hidden" name="niveles_posibles" value="<%= @niveles_posibles %>">
+        <input type="hidden" name="numeros_niveles_posibles" data-number="<%= @numeros_niveles_posibles.to_json %>">
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
         <input type="submit" class="submit-button" value='+ Especificar diagnóstico'>
       </form>
-      
     <% end %>
   </div>
-
 </body>
-
 </html>

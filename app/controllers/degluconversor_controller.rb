@@ -1,3 +1,5 @@
+require 'json'
+
 class DegluconversorController < ApplicationController
   helper DegluconversorHelper
 
@@ -232,12 +234,20 @@ class DegluconversorController < ApplicationController
     @tabla_seleccionada = params[:tabla_seleccionada]
     @nivel_seleccionado = params[:nivel_seleccionado]
     @tabla_destino = params[:tabla_destino]
+    # En tu controlador
+    @numeros_niveles_posibles = params[:numeros_niveles_posibles]
+    @numeros_niveles_posibles_array = JSON.parse(@numeros_niveles_posibles)
+
+
 
     # Obtén los niveles posibles desde alguna fuente de datos
-    @niveles_posibles = params[:niveles_posibles]
+    puts "tabla_seleccionada: " + @tabla_seleccionada
+    puts "tabla_destino: " + @tabla_destino
+    puts "nivel_seleccionado: " + @nivel_seleccionado
+    puts "numeros_niveles_posibles: " + @numeros_niveles_posibles_array.inspect[1]
 
     # Características faltantes que debes obtener de alguna fuente de datos
-    @faltantes = calcular_faltantes(@tabla_destino, @nivel_seleccionado)
+    @faltantes = calcular_faltantes(@tabla_destino, @nivel_destino, @tabla_seleccionada, @numeros_niveles_posibles[1])
 
     if params[:commit]
       respuestas = params.permit(@faltantes).to_h
@@ -277,12 +287,203 @@ class DegluconversorController < ApplicationController
     render 'degluconversor_especificar'
   end
 
-  def calcular_faltantes(tabla_destino, nivel_seleccionado, tablas)
-    caracteristicas_destino = set(tablas[tabla_destino][nivel_seleccionado].keys())
-    caracteristicas_seleccionadas = set(tablas[tabla_seleccionada][nivel_seleccionado].keys())
-    faltantes = caracteristicas_destino - caracteristicas_seleccionadas
-    return faltantes
+  def calcular_faltantes(tabla_destino, nivel_destino, tabla_seleccionada, nivel_seleccionado)
+    fils = {
+      "1" => {
+        "Nombre" => "Deglución severa nivel 1",
+        "Aspiración" => true,
+        "Reflejo de la deglución" => false,
+        "Posible entrenamiento de la deglución" => false,
+        "Alimentación por vía oral" => false,
+        "Vía de alimentación" => "Alternativa"
+      },
+      "2" => {
+        "Nombre" => "Deglución severa nivel 2",
+        "Aspiración" => true,
+        "Posible entrenamiento de la deglución" => true,
+        "Reflejo de la deglución" => false,
+        "Alimentación por vía oral" => false,
+        "Vía de alimentación" => "Alternativa"
+      },
+      "3" => {
+        "Nombre" => "Deglución severa nivel 3",
+        "Aspiración" => true,
+        "Posible entrenamiento de la deglución" => true,
+        "Reflejo de la deglución" => true,
+        "Alimentación por vía oral" => true,
+        "Vía de alimentación" => "Alternativa y oral"
+      },
+      "4" => {
+        "Nombre" => "Disfagia moderada nivel 4",
+        "Aspiración" => false,
+        "Posible entrenamiento de la deglución" => true,
+        "Alimentación por vía oral" => true,
+        "Reflejo de la deglución" => true,
+        "Vía de alimentación" => "Alternativa y oral"
+      },
+      "5" => {
+        "Nombre" => "Disfagia moderada nivel 5",
+        "Posible entrenamiento de la deglución" => true,
+        "Alimentación vía oral" => true,
+        "Vía de alimentación" => "Alternativa y oral",
+        "Cantidad de alimentacion oral al dia" => 1 || 2,
+        "Vía de alimentacion enteral para el agua" => true
+      },
+      "6" => {
+        "Nombre" => "Disfagia moderada nivel 6",
+        "Posible entrenamiento de la deglución" => true,
+        "Alimentación vía oral" => true,
+        "Vía de alimentación" => "Alternativa y oral",
+        "Cantidad de alimentacion oral al dia" => 3,
+        "Vía de alimentacion enteral para el agua" => true
+      },
+      "7" => {
+        "Nombre" => "Disfagia leve nivel 7",
+        "Posible entrenamiento de la deglución" => true,
+        "Alimentación vía oral" => true,
+        "Vía de alimentación" => "Oral",
+        "Cantidad de alimentacion oral al dia" => 3,
+        "Vía de alimentacion enteral para el agua" => true
+      },
+      "8" => {
+        "Nombre" => "Disfagia leve nivel 8",
+        "Posible entrenamiento de la deglución" => true,
+        "Alimentación vía oral" => true,
+        "Vía de alimentación" => "Oral",
+        "Vía de alimentacion enteral para el agua" => false,
+        "Agua con espesante" => true
+      },
+      "9" => {
+        "Nombre" => "Disfagia leve nivel 9",
+        "Posible entrenamiento de la deglución" => true,
+        "Alimentación vía oral" => true,
+        "Vía de alimentación" => "Oral",
+        "Vía de alimentacion enteral para el agua" => false,
+        "Agua con espesante" => false,
+        "Supervisión" => true
+      },
+      "10" => {
+        "Nombre" => "Disfagia leve nivel 10",
+        "Posible entrenamiento de la deglución" => true,
+        "Alimentación vía oral" => true,
+        "Vía de alimentación" => "Oral",
+        "Vía de alimentacion enteral para el agua" => false,
+        "Agua con espesante" => false,
+        "Supervisión" => false
+      }
+    }
 
+    doss = {
+      "1" => {
+        "Nombre" => "Disfagia severa",
+        "Aspiración" => true,
+        "Retención del bolo" => true,
+        "Tos" => true,
+        "Alimentación por vía oral" => false,
+        "Cantidad de consistencias" => 0,
+        "Vía de alimentación" => "Alternativa"
+      },
+      "2" => {
+        "Nombre" => "Disfagia moderada/severa",
+        "Aspiración" => true,
+        "Retención del bolo" => true,
+        "Tos" => false,
+        "Alimentación por vía oral" => false,
+        "Penetración en la vía aérea" => true,
+        "Supervisión/Asistencia en la alimentación" => true,
+        "Cantidad de consistencias" => 1,
+        "Vía de alimentación" => "Alternativa y oral"
+      },
+      "3" => {
+        "Nombre" => "Disfagia moderada",
+        "Alimentación por vía oral" => true,
+        "Supervisión/Asistencia en la alimentación" => true,
+        "Cantidad de consistencias" => 1,
+        "Vía de alimentación" => "Oral"
+      },
+      "4" => {
+        "Nombre" => "Disfagia leve a moderada",
+        "Alimentación por vía oral" => true,
+        "Supervisión/Asistencia en la alimentación" => "Supervisión intermitente",
+        "Vía de alimentación" => "Oral"
+      },
+      "5" => {
+        "Nombre" => "Disfagia leve",
+        "Alimentación por vía oral" => true,
+        "Supervisión/Asistencia en la alimentación" => "Supervisión a distancia",
+        "Vía de alimentación" => "Oral"
+      },
+      "6" => {
+        "Nombre" => "Disfagia dentro de límites funcionales",
+        "Alimentación por vía oral" => true,
+        "Penetración en la vía aérea" => false,
+        "Vía de alimentación" => "Oral"
+      },
+      "7" => {
+        "Nombre" => "Disfagia dentro de límites de normalidad",
+        "Alimentación por vía oral" => true,
+        "Vía de alimentación" => "Oral",
+        "Supervisión/Asistencia en la alimentación" => false
+      }
+    }
+
+    fois = {
+      "1" => {
+        "Nombre" => "Nivel 1",
+        "Alimentación por vía oral" => false,
+        "Cantidad de alimentación por vía oral" => "nada",
+        "Vía de alimentación" => "Alternativa"
+      },
+      "2" => {
+        "Nombre" => "Nivel 2",
+        "Alimentación por vía oral" => true,
+        "Cantidad de alimentación por vía oral" => "mínima",
+        "Vía de alimentación" => "Alternativa y oral"
+      },
+      "3" => {
+        "Nombre" => "Nivel 3",
+        "Alimentación por vía oral" => true,
+        "Cantidad de alimentación por vía oral" => "normal",
+        "Vía de alimentación" => "Alternativa y oral"
+      },
+      "4" => {
+        "Nombre" => "Nivel 4",
+        "Alimentación por vía oral" => true,
+        "Cantidad de alimentación por vía oral" => "total",
+        "Vía de alimentación" => "Oral"
+      },
+      "5" => {
+        "Nombre" => "Nivel 5",
+        "Alimentación por vía oral" => true,
+        "Vía de alimentación" => "Oral",
+        "Múltiples consistencias" => true,
+        "Necesidad de preparación especial" => true
+      },
+      "6" => {
+        "Nombre" => "Nivel 6",
+        "Alimentación por vía oral" => true,
+        "Vía de alimentación" => "Oral",
+        "Múltiples consistencias" => true,
+        "Necesidad de preparación especial" => false,
+        "Restricciones alimenticias" => true
+      },
+      "7" => {
+        "Nombre" => "Nivel 7",
+        "Alimentación por vía oral" => true,
+        "Vía de alimentación" => "Oral",
+        "Múltiples consistencias" => true,
+        "Necesidad de preparación especial" => false,
+        "Restricciones alimenticias" => false
+      }
+    }
+    
+    tablas = { "fils" => fils, "doss" => doss, "fois" => fois }
+
+    puts "diccionario nivel:" + tablas[fois]["1"]
+    caracteristicas_destino = tablas[tabla_destino][nivel_destino].keys
+    caracteristicas_seleccionadas = tablas[tabla_seleccionada][nivel_seleccionado].keys
+    faltantes = caracteristicas_destino - caracteristicas_seleccionadas
+    faltantes
   end
 
   
@@ -322,33 +523,33 @@ class DegluconversorController < ApplicationController
       doss: {
         "1" => "Vía oral suspendida. Nada de nutrición oral. Disfagia severa: vía oral suspendida. No tolera administración por vía oral de forma segura. " + 
             "Puede presentar uno o más de los siguiente síntomas: \n" +
-            "- Retención severa del bolo en la faringe, siendo incapaz de despejarlo. \n" +
-            "- Pérdida o retención severa del bolo en la etapa oral, siendo incapaz de despejarlo. \n" +
-            "- Aspiración silente en dos o más consistencias, con tos voluntaria no funcional. \n" +
-            "- Imposibilidad de tragar.",
+            " Retención severa del bolo en la faringe, siendo incapaz de despejarlo. \n" +
+            " Pérdida o retención severa del bolo en la etapa oral, siendo incapaz de despejarlo. \n" +
+            " Aspiración silente en dos o más consistencias, con tos voluntaria no funcional. \n" +
+            " Imposibilidad de tragar.",
         "2" => "Vía oral suspendida. Nada de nutrición oral. Disfagia moderada/severa: Máxima asistencia o uso de estrategias con vía oral parcial (tolerancia de al menos una consistencia de forma segura con uso total de estrategias). " +
             "Puede presentar uno o más de los siguientes síntomas: \n" +
-            "- Retención severa en la faringe, siendo incapaz de despejarlo o necesitando múltiples ayudas. \n" +
-            "- Pérdida o retención severa del bolo en la etapa oral, siendo incapaz de despejarlo o necesitando múltiples ayudas.",
+            " Retención severa en la faringe, siendo incapaz de despejarlo o necesitando múltiples ayudas. \n" +
+            " Pérdida o retención severa del bolo en la etapa oral, siendo incapaz de despejarlo o necesitando múltiples ayudas.",
         "3" => "Nutrición vía oral. Dieta modificada y/o independencia. Disfagia moderada: total asistencia, supervisión o estrategias, restricción de dos o más consistencias. " +
             "Puede presentar uno o más de los siguiente síntomas:\n" +
-            "- Retención moderada en la faringe, despejado con ayuda.\n" +
-            "- Retención moderada en la cavidad oral, despejado con ayuda.\n" +
-            "- Penetración en la vía aérea a nivel de las cuerdas vocales sin tos con dos o más consistencias.\n" +
-            "- Aspiración con dos consistencias con reflejo de tos débil o ausente.\n" +
-            "- Aspiración con una consistencia, sin tos ni penetración.",
+            " Retención moderada en la faringe, despejado con ayuda.\n" +
+            " Retención moderada en la cavidad oral, despejado con ayuda.\n" +
+            " Penetración en la vía aérea a nivel de las cuerdas vocales sin tos con dos o más consistencias.\n" +
+            " Aspiración con dos consistencias con reflejo de tos débil o ausente.\n" +
+            " Aspiración con una consistencia, sin tos ni penetración.",
         "4" => "Nutrición vía oral. Dieta modificada y/o independencia. Disfagia leve/moderada: supervisión intermitente, restricción de una o dos consistencias. " +
             "Puede presentar uno o más de los siguiente síntomas:\n" +
-            "- Retención en la faringe, despejado con ayuda.\n" +
-            "- Aspiración con una consistencia, con reflejo de tos débil o ausente.\n" +
-            "- Penetración a nivel de los pliegues vocales con tos en dos consistencias.\n" +
-            "- Penetración a nivel de los pliegues vocales sin tos con una consistencia.",
+            " Retención en la faringe, despejado con ayuda.\n" +
+            " Aspiración con una consistencia, con reflejo de tos débil o ausente.\n" +
+            " Penetración a nivel de los pliegues vocales con tos en dos consistencias.\n" +
+            " Penetración a nivel de los pliegues vocales sin tos con una consistencia.",
         "5" => "Nutrición vía oral. Dieta normal. Disfagia leve: supervisión a distancia, puede necesitar de restricciones de una consistencia. " +
             "Puede presentar uno o más de los siguiente síntomas:\n" +
-            "- Aspiración solamente de líquidos, pero con un fuerte reflejo de tos para despejar completamente.\n" +
-            "- Penetración a la vía aérea antes de los pliegues vocales con una o más consistencias, o sobre las cuerdas vocales despejado espontáneamente.\n" +
-            "- Retención en la faringe que es despejada espontáneamente.\n" +
-            "- Leve disfagia oral con reducción de la masticación y/o retención oral que se despeja espontáneamente.",
+            " Aspiración solamente de líquidos, pero con un fuerte reflejo de tos para despejar completamente.\n" +
+            " Penetración a la vía aérea antes de los pliegues vocales con una o más consistencias, o sobre las cuerdas vocales despejado espontáneamente.\n" +
+            " Retención en la faringe que es despejada espontáneamente.\n" +
+            " Leve disfagia oral con reducción de la masticación y/o retención oral que se despeja espontáneamente.",
         "6" => "Nutrición por vía oral. Dieta normal. Con límites funcionales/independencia modificada: Dieta normal, deglución funcional. El paciente puede tener un leve retraso en la fase oral o faríngea, que no compromete significativamente la seguridad, sin restricciones dietéticas. " +
             "El paciente puede necesitar de tiempo extra para las comidas. No hay aspiraciones ni penetraciones en todas las consistencias.",
         "7" => "Nutrición por vía oral. Dieta normal. Deglución funcional: No presenta disfagia."
