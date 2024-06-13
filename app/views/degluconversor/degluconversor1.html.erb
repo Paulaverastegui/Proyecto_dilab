@@ -153,9 +153,9 @@
       <% @numeros_niveles_posibles = @niveles_posibles.map { |nivel| nivel[:nivel] } %>
       <form action="/especificar" method="post">
         <input type="hidden" name="tabla_seleccionada" value="<%= @tabla_seleccionada %>">
-        <input type="hidden" name="nivel_seleccionado" data-number="<%= @nivel_seleccionado %>">
+        <input type="hidden" name="nivel_seleccionado" value="<%= @nivel_seleccionado %>">
         <input type="hidden" name="tabla_destino" value="<%= @tabla_destino %>">
-        <input type="hidden" name="numeros_niveles_posibles" data-number="<%= @numeros_niveles_posibles.to_json %>">
+        <input type="hidden" name="numeros_niveles_posibles" value="<%= @numeros_niveles_posibles %>">
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
         <input type="submit" class="submit-button" value='+ Especificar diagnóstico'>
       </form>

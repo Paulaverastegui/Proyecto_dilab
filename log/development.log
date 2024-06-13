@@ -36606,3 +36606,559 @@ Processing by DegluconversorController#enviar as HTML
 Completed 200 OK in 21ms (Views: 7.3ms | ActiveRecord: 1.8ms | Allocations: 12573)
 
 
+Started POST "/transformar" for 127.0.0.1 at 2024-06-13 10:16:11 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"5", "tabla_destino"=>"fils"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.8ms | Allocations: 188)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1404)
+  Rendered layout layouts/application.html.erb (Duration: 68.0ms | Allocations: 34378)
+Completed 200 OK in 123ms (Views: 78.5ms | ActiveRecord: 0.9ms | Allocations: 48896)
+
+
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 10:16:13 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.2ms | Allocations: 2075)
+
+
+  
+JSON::ParserError (859: unexpected token at ''):
+  
+app/controllers/degluconversor_controller.rb:239:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 10:16:51 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 2.0ms | Allocations: 10330)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass
+
+    puts "diccionario nivel:" + tablas[fois]["1"]
+                                            ^^^^^):
+  
+app/controllers/degluconversor_controller.rb:481:in `calcular_faltantes'
+app/controllers/degluconversor_controller.rb:249:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 10:17:50 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 1.6ms | Allocations: 10239)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass
+
+    puts "diccionario nivel:" + tablas[fois]["1"]
+                                            ^^^^^):
+  
+app/controllers/degluconversor_controller.rb:481:in `calcular_faltantes'
+app/controllers/degluconversor_controller.rb:249:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 10:18:18 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 2.0ms | Allocations: 5878)
+
+
+  
+TypeError (no implicit conversion of Hash into String):
+  
+app/controllers/degluconversor_controller.rb:481:in `+'
+app/controllers/degluconversor_controller.rb:481:in `calcular_faltantes'
+app/controllers/degluconversor_controller.rb:249:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 10:18:52 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 1.1ms | Allocations: 5852)
+
+
+  
+TypeError (no implicit conversion of Hash into String):
+  
+app/controllers/degluconversor_controller.rb:481:in `+'
+app/controllers/degluconversor_controller.rb:481:in `calcular_faltantes'
+app/controllers/degluconversor_controller.rb:249:in `especificar'
+Started POST "/transformar" for 127.0.0.1 at 2024-06-13 10:19:16 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"3", "tabla_destino"=>"fils"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.8ms | Allocations: 155)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1038)
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | Allocations: 7597)
+Completed 200 OK in 29ms (Views: 21.2ms | ActiveRecord: 0.2ms | Allocations: 10049)
+
+
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 10:19:18 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.1ms | Allocations: 2096)
+
+
+  
+TypeError (no implicit conversion of Hash into String):
+  
+app/controllers/degluconversor_controller.rb:481:in `+'
+app/controllers/degluconversor_controller.rb:481:in `calcular_faltantes'
+app/controllers/degluconversor_controller.rb:249:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 10:22:44 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 4.2ms | Allocations: 5740)
+
+
+  
+JSON::ParserError (859: unexpected token at ''):
+  
+app/controllers/degluconversor_controller.rb:239:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 10:23:35 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 2.9ms | Allocations: 5740)
+
+
+  
+JSON::ParserError (859: unexpected token at ''):
+  
+app/controllers/degluconversor_controller.rb:239:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 10:23:53 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.8ms | Allocations: 10252)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass
+
+    puts "diccionario nivel:" + tablas[fois]["1"]
+                                            ^^^^^):
+  
+app/controllers/degluconversor_controller.rb:481:in `calcular_faltantes'
+app/controllers/degluconversor_controller.rb:249:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 10:24:26 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.5ms | Allocations: 6343)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass
+
+    puts "diccionario nivel:" + tablas[fois]["1"]
+                                            ^^^^^):
+  
+app/controllers/degluconversor_controller.rb:481:in `calcular_faltantes'
+app/controllers/degluconversor_controller.rb:249:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 10:24:48 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.4ms | Allocations: 6271)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass
+
+    puts "diccionario nivel:" + tablas[fois]["1"]
+                                            ^^^^^):
+  
+app/controllers/degluconversor_controller.rb:481:in `calcular_faltantes'
+app/controllers/degluconversor_controller.rb:249:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 10:25:41 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.1ms | Allocations: 6271)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass
+
+    puts "diccionario nivel:" + tablas[fois]["1"]
+                                            ^^^^^):
+  
+app/controllers/degluconversor_controller.rb:481:in `calcular_faltantes'
+app/controllers/degluconversor_controller.rb:249:in `especificar'
+Started GET "/degluconversor" for 127.0.0.1 at 2024-06-13 10:25:51 -0400
+Processing by PagesController#degluconversor as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/degluconversor.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.8ms | Allocations: 165)
+  Rendered pages/degluconversor.html.erb within layouts/application (Duration: 13.5ms | Allocations: 6984)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 8999)
+Completed 200 OK in 23ms (Views: 19.2ms | ActiveRecord: 0.1ms | Allocations: 11383)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-13 10:25:54 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.2ms | Allocations: 46)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 3.3ms | Allocations: 835)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 7104)
+Completed 200 OK in 25ms (Views: 17.3ms | ActiveRecord: 0.2ms | Allocations: 9472)
+
+
+Started POST "/enviar" for 127.0.0.1 at 2024-06-13 10:25:55 -0400
+Processing by DegluconversorController#enviar as HTML
+  Parameters: {"tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "nivel"=>"2", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor_tablas.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.2ms | Allocations: 24)
+  Rendered degluconversor/degluconversor_tablas.html.erb within layouts/application (Duration: 3.2ms | Allocations: 445)
+  Rendered layout layouts/application.html.erb (Duration: 20.0ms | Allocations: 6523)
+Completed 200 OK in 29ms (Views: 21.3ms | ActiveRecord: 0.9ms | Allocations: 8567)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-13 10:26:06 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"5", "tabla_destino"=>"fils"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.2ms | Allocations: 24)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 2.1ms | Allocations: 167)
+  Rendered layout layouts/application.html.erb (Duration: 16.2ms | Allocations: 6244)
+Completed 200 OK in 25ms (Views: 17.2ms | ActiveRecord: 0.2ms | Allocations: 7927)
+
+
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 10:26:08 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"5", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"[7, 8, 9, 10]", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.3ms | Allocations: 6309)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass
+
+    puts "diccionario nivel:" + tablas[fois]["1"]
+                                            ^^^^^):
+  
+app/controllers/degluconversor_controller.rb:481:in `calcular_faltantes'
+app/controllers/degluconversor_controller.rb:249:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 10:26:55 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"5", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"[7, 8, 9, 10]", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 1.0ms | Allocations: 10228)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass
+
+    puts "diccionario nivel:" + tablas[fois][1]
+                                            ^^^):
+  
+app/controllers/degluconversor_controller.rb:481:in `calcular_faltantes'
+app/controllers/degluconversor_controller.rb:249:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 10:29:04 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"5", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"[7, 8, 9, 10]", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 1.7ms | Allocations: 10261)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass
+
+    puts "diccionario nivel:" + tablas[fois][1]
+                                            ^^^):
+  
+app/controllers/degluconversor_controller.rb:482:in `calcular_faltantes'
+app/controllers/degluconversor_controller.rb:250:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 10:30:11 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"5", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"[7, 8, 9, 10]", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 1.1ms | Allocations: 5780)
+
+
+  
+TypeError (no implicit conversion of Integer into String):
+  
+app/controllers/degluconversor_controller.rb:247:in `+'
+app/controllers/degluconversor_controller.rb:247:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 10:30:43 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"5", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"[7, 8, 9, 10]", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 1.0ms | Allocations: 5780)
+
+
+  
+TypeError (no implicit conversion of Array into String):
+  
+app/controllers/degluconversor_controller.rb:247:in `+'
+app/controllers/degluconversor_controller.rb:247:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 10:39:45 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"5", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"[7, 8, 9, 10]", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.4ms | Allocations: 9818)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass
+
+    puts "diccionario nivel:" + tablas[fois][1]
+                                            ^^^):
+  
+app/controllers/degluconversor_controller.rb:483:in `calcular_faltantes'
+app/controllers/degluconversor_controller.rb:251:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 10:41:00 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"5", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"[7, 8, 9, 10]", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.9ms | Allocations: 5787)
+
+
+  
+TypeError (no implicit conversion of Integer into String):
+  
+app/controllers/degluconversor_controller.rb:248:in `+'
+app/controllers/degluconversor_controller.rb:248:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 10:41:41 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"5", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"[7, 8, 9, 10]", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 1.7ms | Allocations: 5787)
+
+
+  
+TypeError (no implicit conversion of Integer into String):
+  
+app/controllers/degluconversor_controller.rb:248:in `+'
+app/controllers/degluconversor_controller.rb:248:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 10:46:12 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"5", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"[7, 8, 9, 10]", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 1.3ms | Allocations: 10288)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass
+
+    puts "diccionario nivel:" + tablas[fois][1]
+                                            ^^^):
+  
+app/controllers/degluconversor_controller.rb:483:in `calcular_faltantes'
+app/controllers/degluconversor_controller.rb:251:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 10:51:38 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"5", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"[7, 8, 9, 10]", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 1.6ms | Allocations: 10180)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass
+
+    puts tablas[fois][1]
+                     ^^^):
+  
+app/controllers/degluconversor_controller.rb:482:in `calcular_faltantes'
+app/controllers/degluconversor_controller.rb:250:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 10:55:45 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"5", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"[7, 8, 9, 10]", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 1.3ms | Allocations: 10268)
+
+
+  
+NoMethodError (undefined method `keys' for nil:NilClass
+
+    caracteristicas_destino = tablas[tabla_destino][nivel_destino].keys
+                                                                  ^^^^^):
+  
+app/controllers/degluconversor_controller.rb:483:in `calcular_faltantes'
+app/controllers/degluconversor_controller.rb:250:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 10:57:46 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"5", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"[7, 8, 9, 10]", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 1.4ms | Allocations: 10264)
+
+
+  
+NoMethodError (undefined method `keys' for nil:NilClass
+
+    caracteristicas_destino = tablas[tabla_destino][nivel_destino].keys
+                                                                  ^^^^^):
+  
+app/controllers/degluconversor_controller.rb:483:in `calcular_faltantes'
+app/controllers/degluconversor_controller.rb:250:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 10:58:42 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"5", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"[7, 8, 9, 10]", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 2.1ms | Allocations: 5801)
+
+
+  
+TypeError (no implicit conversion of Integer into String):
+  
+app/controllers/degluconversor_controller.rb:246:in `+'
+app/controllers/degluconversor_controller.rb:246:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 10:58:59 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"5", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"[7, 8, 9, 10]", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 1.4ms | Allocations: 10321)
+
+
+  
+NoMethodError (undefined method `keys' for nil:NilClass
+
+    caracteristicas_destino = tablas[tabla_destino][nivel_destino].keys
+                                                                  ^^^^^):
+  
+app/controllers/degluconversor_controller.rb:483:in `calcular_faltantes'
+app/controllers/degluconversor_controller.rb:250:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 11:39:17 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"5", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"[7, 8, 9, 10]", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 131ms (ActiveRecord: 74.4ms | Allocations: 9814)
+
+
+  
+NoMethodError (undefined method `keys' for nil:NilClass
+
+    caracteristicas_destino = tablas[tabla_destino][nivel_destino].keys
+                                                                  ^^^^^):
+  
+app/controllers/degluconversor_controller.rb:485:in `calcular_faltantes'
+app/controllers/degluconversor_controller.rb:250:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 11:42:29 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"5", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"[7, 8, 9, 10]", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 2.7ms | Allocations: 10274)
+
+
+  
+NoMethodError (undefined method `keys' for nil:NilClass
+
+    caracteristicas_destino = tablas[tabla_destino][nivel_destino].keys
+                                                                  ^^^^^):
+  
+app/controllers/degluconversor_controller.rb:484:in `calcular_faltantes'
+app/controllers/degluconversor_controller.rb:250:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 11:43:07 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"5", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"[7, 8, 9, 10]", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 1.7ms | Allocations: 10274)
+
+
+  
+NoMethodError (undefined method `keys' for nil:NilClass
+
+    caracteristicas_destino = tablas[tabla_destino][nivel_destino].keys
+                                                                  ^^^^^):
+  
+app/controllers/degluconversor_controller.rb:484:in `calcular_faltantes'
+app/controllers/degluconversor_controller.rb:250:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 11:43:49 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"5", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"[7, 8, 9, 10]", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.6ms | Allocations: 5892)
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+app/controllers/degluconversor_controller.rb:483:in `+'
+app/controllers/degluconversor_controller.rb:483:in `calcular_faltantes'
+app/controllers/degluconversor_controller.rb:250:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 11:44:03 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"5", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"[7, 8, 9, 10]", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 2.2ms | Allocations: 10311)
+
+
+  
+NoMethodError (undefined method `keys' for nil:NilClass
+
+    caracteristicas_destino = tablas[tabla_destino][nivel_destino].keys
+                                                                  ^^^^^):
+  
+app/controllers/degluconversor_controller.rb:484:in `calcular_faltantes'
+app/controllers/degluconversor_controller.rb:250:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 11:44:40 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"5", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"[7, 8, 9, 10]", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 1.7ms | Allocations: 10275)
+
+
+  
+NoMethodError (undefined method `keys' for nil:NilClass
+
+    caracteristicas_destino = tablas[tabla_destino][nivel_destino].keys
+                                                                  ^^^^^):
+  
+app/controllers/degluconversor_controller.rb:484:in `calcular_faltantes'
+app/controllers/degluconversor_controller.rb:250:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 11:45:09 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"5", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"[7, 8, 9, 10]", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.8ms | Allocations: 10250)
+
+
+  
+NoMethodError (undefined method `keys' for nil:NilClass
+
+    caracteristicas_destino = tablas[tabla_destino][nivel_destino].keys
+                                                                  ^^^^^):
+  
+app/controllers/degluconversor_controller.rb:484:in `calcular_faltantes'
+app/controllers/degluconversor_controller.rb:250:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 11:51:44 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"5", "tabla_destino"=>"fils", "numeros_niveles_posibles"=>"[7, 8, 9, 10]", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor_especificar.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.5ms | Allocations: 49)
+  Rendered degluconversor/degluconversor_especificar.html.erb within layouts/application (Duration: 20.1ms | Allocations: 4696)
+  Rendered layout layouts/application.html.erb (Duration: 38.3ms | Allocations: 11070)
+Completed 200 OK in 60ms (Views: 42.6ms | ActiveRecord: 1.4ms | Allocations: 16701)
+
+
+Started POST "/especificar" for 127.0.0.1 at 2024-06-13 11:52:00 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "Posible entrenamiento de la deglución"=>"si", "Alimentación vía oral"=>"oral", "Cantidad de alimentacion oral al dia"=>"1", "Vía de alimentacion enteral para el agua"=>"si", "tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"5", "tabla_destino"=>"fils"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.2ms | Allocations: 2084)
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+app/controllers/degluconversor_controller.rb:239:in `eval'
+app/controllers/degluconversor_controller.rb:239:in `especificar'

@@ -232,22 +232,22 @@ class DegluconversorController < ApplicationController
 
   def especificar
     @tabla_seleccionada = params[:tabla_seleccionada]
-    @nivel_seleccionado = params[:nivel_seleccionado]
+    @nivel_seleccionado = eval(params[:nivel_seleccionado])
     @tabla_destino = params[:tabla_destino]
     # En tu controlador
     @numeros_niveles_posibles = params[:numeros_niveles_posibles]
-    @numeros_niveles_posibles_array = JSON.parse(@numeros_niveles_posibles)
+    @numeros_niveles_posibles_array = eval(@numeros_niveles_posibles)
 
 
 
     # Obtén los niveles posibles desde alguna fuente de datos
     puts "tabla_seleccionada: " + @tabla_seleccionada
     puts "tabla_destino: " + @tabla_destino
-    puts "nivel_seleccionado: " + @nivel_seleccionado
-    puts "numeros_niveles_posibles: " + @numeros_niveles_posibles_array.inspect[1]
+    puts @nivel_seleccionado
+    puts @numeros_niveles_posibles_array[1]
 
     # Características faltantes que debes obtener de alguna fuente de datos
-    @faltantes = calcular_faltantes(@tabla_destino, @nivel_destino, @tabla_seleccionada, @numeros_niveles_posibles[1])
+    @faltantes = calcular_faltantes(@tabla_destino, @numeros_niveles_posibles_array[0], @tabla_seleccionada, @nivel_seleccionado)
 
     if params[:commit]
       respuestas = params.permit(@faltantes).to_h
@@ -289,7 +289,7 @@ class DegluconversorController < ApplicationController
 
   def calcular_faltantes(tabla_destino, nivel_destino, tabla_seleccionada, nivel_seleccionado)
     fils = {
-      "1" => {
+      1 => {
         "Nombre" => "Deglución severa nivel 1",
         "Aspiración" => true,
         "Reflejo de la deglución" => false,
@@ -297,7 +297,7 @@ class DegluconversorController < ApplicationController
         "Alimentación por vía oral" => false,
         "Vía de alimentación" => "Alternativa"
       },
-      "2" => {
+      2 => {
         "Nombre" => "Deglución severa nivel 2",
         "Aspiración" => true,
         "Posible entrenamiento de la deglución" => true,
@@ -305,7 +305,7 @@ class DegluconversorController < ApplicationController
         "Alimentación por vía oral" => false,
         "Vía de alimentación" => "Alternativa"
       },
-      "3" => {
+      3 => {
         "Nombre" => "Deglución severa nivel 3",
         "Aspiración" => true,
         "Posible entrenamiento de la deglución" => true,
@@ -313,7 +313,7 @@ class DegluconversorController < ApplicationController
         "Alimentación por vía oral" => true,
         "Vía de alimentación" => "Alternativa y oral"
       },
-      "4" => {
+      4 => {
         "Nombre" => "Disfagia moderada nivel 4",
         "Aspiración" => false,
         "Posible entrenamiento de la deglución" => true,
@@ -321,7 +321,7 @@ class DegluconversorController < ApplicationController
         "Reflejo de la deglución" => true,
         "Vía de alimentación" => "Alternativa y oral"
       },
-      "5" => {
+      5 => {
         "Nombre" => "Disfagia moderada nivel 5",
         "Posible entrenamiento de la deglución" => true,
         "Alimentación vía oral" => true,
@@ -329,7 +329,7 @@ class DegluconversorController < ApplicationController
         "Cantidad de alimentacion oral al dia" => 1 || 2,
         "Vía de alimentacion enteral para el agua" => true
       },
-      "6" => {
+      6 => {
         "Nombre" => "Disfagia moderada nivel 6",
         "Posible entrenamiento de la deglución" => true,
         "Alimentación vía oral" => true,
@@ -337,7 +337,7 @@ class DegluconversorController < ApplicationController
         "Cantidad de alimentacion oral al dia" => 3,
         "Vía de alimentacion enteral para el agua" => true
       },
-      "7" => {
+      7 => {
         "Nombre" => "Disfagia leve nivel 7",
         "Posible entrenamiento de la deglución" => true,
         "Alimentación vía oral" => true,
@@ -345,7 +345,7 @@ class DegluconversorController < ApplicationController
         "Cantidad de alimentacion oral al dia" => 3,
         "Vía de alimentacion enteral para el agua" => true
       },
-      "8" => {
+      8 => {
         "Nombre" => "Disfagia leve nivel 8",
         "Posible entrenamiento de la deglución" => true,
         "Alimentación vía oral" => true,
@@ -353,7 +353,7 @@ class DegluconversorController < ApplicationController
         "Vía de alimentacion enteral para el agua" => false,
         "Agua con espesante" => true
       },
-      "9" => {
+      9 => {
         "Nombre" => "Disfagia leve nivel 9",
         "Posible entrenamiento de la deglución" => true,
         "Alimentación vía oral" => true,
@@ -362,7 +362,7 @@ class DegluconversorController < ApplicationController
         "Agua con espesante" => false,
         "Supervisión" => true
       },
-      "10" => {
+      10 => {
         "Nombre" => "Disfagia leve nivel 10",
         "Posible entrenamiento de la deglución" => true,
         "Alimentación vía oral" => true,
@@ -372,9 +372,9 @@ class DegluconversorController < ApplicationController
         "Supervisión" => false
       }
     }
-
+  
     doss = {
-      "1" => {
+      1 => {
         "Nombre" => "Disfagia severa",
         "Aspiración" => true,
         "Retención del bolo" => true,
@@ -383,7 +383,7 @@ class DegluconversorController < ApplicationController
         "Cantidad de consistencias" => 0,
         "Vía de alimentación" => "Alternativa"
       },
-      "2" => {
+      2 => {
         "Nombre" => "Disfagia moderada/severa",
         "Aspiración" => true,
         "Retención del bolo" => true,
@@ -394,72 +394,72 @@ class DegluconversorController < ApplicationController
         "Cantidad de consistencias" => 1,
         "Vía de alimentación" => "Alternativa y oral"
       },
-      "3" => {
+      3 => {
         "Nombre" => "Disfagia moderada",
         "Alimentación por vía oral" => true,
         "Supervisión/Asistencia en la alimentación" => true,
         "Cantidad de consistencias" => 1,
         "Vía de alimentación" => "Oral"
       },
-      "4" => {
+      4 => {
         "Nombre" => "Disfagia leve a moderada",
         "Alimentación por vía oral" => true,
         "Supervisión/Asistencia en la alimentación" => "Supervisión intermitente",
         "Vía de alimentación" => "Oral"
       },
-      "5" => {
+      5 => {
         "Nombre" => "Disfagia leve",
         "Alimentación por vía oral" => true,
         "Supervisión/Asistencia en la alimentación" => "Supervisión a distancia",
         "Vía de alimentación" => "Oral"
       },
-      "6" => {
+      6 => {
         "Nombre" => "Disfagia dentro de límites funcionales",
         "Alimentación por vía oral" => true,
         "Penetración en la vía aérea" => false,
         "Vía de alimentación" => "Oral"
       },
-      "7" => {
+      7 => {
         "Nombre" => "Disfagia dentro de límites de normalidad",
         "Alimentación por vía oral" => true,
         "Vía de alimentación" => "Oral",
         "Supervisión/Asistencia en la alimentación" => false
       }
     }
-
+  
     fois = {
-      "1" => {
+      1 => {
         "Nombre" => "Nivel 1",
         "Alimentación por vía oral" => false,
         "Cantidad de alimentación por vía oral" => "nada",
         "Vía de alimentación" => "Alternativa"
       },
-      "2" => {
+      2 => {
         "Nombre" => "Nivel 2",
         "Alimentación por vía oral" => true,
         "Cantidad de alimentación por vía oral" => "mínima",
         "Vía de alimentación" => "Alternativa y oral"
       },
-      "3" => {
+      3 => {
         "Nombre" => "Nivel 3",
         "Alimentación por vía oral" => true,
         "Cantidad de alimentación por vía oral" => "normal",
         "Vía de alimentación" => "Alternativa y oral"
       },
-      "4" => {
+      4 => {
         "Nombre" => "Nivel 4",
         "Alimentación por vía oral" => true,
         "Cantidad de alimentación por vía oral" => "total",
         "Vía de alimentación" => "Oral"
       },
-      "5" => {
+      5 => {
         "Nombre" => "Nivel 5",
         "Alimentación por vía oral" => true,
         "Vía de alimentación" => "Oral",
         "Múltiples consistencias" => true,
         "Necesidad de preparación especial" => true
       },
-      "6" => {
+      6 => {
         "Nombre" => "Nivel 6",
         "Alimentación por vía oral" => true,
         "Vía de alimentación" => "Oral",
@@ -467,7 +467,7 @@ class DegluconversorController < ApplicationController
         "Necesidad de preparación especial" => false,
         "Restricciones alimenticias" => true
       },
-      "7" => {
+      7 => {
         "Nombre" => "Nivel 7",
         "Alimentación por vía oral" => true,
         "Vía de alimentación" => "Oral",
@@ -476,10 +476,11 @@ class DegluconversorController < ApplicationController
         "Restricciones alimenticias" => false
       }
     }
-    
+  
     tablas = { "fils" => fils, "doss" => doss, "fois" => fois }
-
-    puts "diccionario nivel:" + tablas[fois]["1"]
+  
+    # Aquí accedemos al primer nivel de la tabla fois
+    puts tablas[tabla_seleccionada][nivel_seleccionado]
     caracteristicas_destino = tablas[tabla_destino][nivel_destino].keys
     caracteristicas_seleccionadas = tablas[tabla_seleccionada][nivel_seleccionado].keys
     faltantes = caracteristicas_destino - caracteristicas_seleccionadas
