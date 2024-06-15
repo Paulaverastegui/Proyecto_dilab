@@ -125,10 +125,7 @@
 
                 <% if diagnosis.guss_scale.present? %>
                   <div class="guss-details">
-                    <% total_score = diagnosis.guss_scale.preliminary_score.to_i +
-                    diagnosis.guss_scale.semi_solids_score.to_i +
-                    diagnosis.guss_scale.liquids_score.to_i +
-                    diagnosis.guss_scale.solids_score.to_i %>
+                    <% total_score = diagnosis.guss_scale.total_score%>
                     
                     <h5>Detalles de la Escala GUSS</h5>
                     <p>Puntaje Total: <%= total_score %></p>

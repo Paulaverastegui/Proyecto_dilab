@@ -20,7 +20,10 @@ class GussScale < ApplicationRecord
   end
 
   def total_score
-    preliminary_score + semi_solids_score + liquids_score + solids_score
+    (preliminary_score || 0) + 
+    (semi_solids_score || 0) + 
+    (liquids_score || 0) + 
+    (solids_score || 0)
   end
 
   def preliminary_completed?

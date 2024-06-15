@@ -80,10 +80,8 @@
     <div class="header">Detalles de la Escala GUSS</div>
     <div class="content">
       <div class="details-box">
-      <% total_score = @guss_scale.preliminary_score.to_i +
-                      @guss_scale.semi_solids_score.to_i +
-                      @guss_scale.liquids_score.to_i +
-                      @guss_scale.solids_score.to_i %>
+      <% total_score = @guss_scale.total_score %>
+      
       <p>Puntaje Total: <%= total_score %></p>
 
         <% case total_score %>
