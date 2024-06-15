@@ -19,7 +19,7 @@ class PatientsController < ApplicationController
         levels: diagnosis.levels.map { |level| { escala: level.escala, severidad: level.severidad } }
       }
     end
-    @diagnoses = @patient.diagnoses.includes(:guss_scale) 
+    @diagnoses = @patient.diagnoses.includes(:guss_scale)
   end
 
   def create

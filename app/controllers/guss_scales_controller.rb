@@ -25,13 +25,13 @@ class GussScalesController < ApplicationController
       render :edit_semi_solids
     when 'liquids'
       if @guss_scale.semi_solids_score < 5
-        redirect_to intermediate_view_diagnosis_guss_scale_path(@diagnosis, @guss_scale), alert: 'Semi-solids check failed. Additional tests required.'
+        redirect_to intermediate_view_diagnosis_guss_scale_path(@diagnosis.patient_id, @diagnosis.id, @guss_scale.id), alert: 'Semi-solids check failed. Additional tests required.'
       else
         render :edit_liquids
       end
     when 'solids'
       if @guss_scale.liquids_score < 5
-        redirect_to intermediate_view_diagnosis_guss_scale_path(@diagnosis, @guss_scale), alert: 'Liquids check failed. Additional tests required.'
+        redirect_to intermediate_view_diagnosis_guss_scale_path(@diagnosis.patient_id, @diagnosis.id, @guss_scale.id), alert: 'Liquids check failed. Additional tests required.'
       else
         render :edit_solids
       end
@@ -45,24 +45,24 @@ class GussScalesController < ApplicationController
       case params[:phase]
       when 'semi_solids'
         if @guss_scale.semi_solids_score < 5
-          redirect_to guss_scale_path(@guss_scale), alert: 'Semi-solids check failed. Additional tests required.'
+          redirect_to intermediate_view_patient_diagnosis_guss_scale_path(@diagnosis.patient_id, @diagnosis.id, @guss_scale.id), alert: 'Semi-solids check failed. Additional tests required.'
         else
           redirect_to edit_patient_diagnosis_guss_scale_path(@diagnosis.patient.id, @diagnosis.id, @guss_scale.id, phase: 'liquids'), notice: 'Semi-solids check passed. Continue with liquids phase.'
         end
       when 'liquids'
         if @guss_scale.liquids_score < 5
-          redirect_to guss_scale_path(@guss_scale), alert:'Liquids check failed. Additional tests required.'
+          redirect_to intermediate_view_patient_diagnosis_guss_scale_path(@diagnosis.patient_id, @diagnosis.id, @guss_scale.id), alert: 'Liquids check failed. Additional tests required.'
         else
           redirect_to edit_patient_diagnosis_guss_scale_path(@diagnosis.patient.id, @diagnosis.id, @guss_scale.id, phase: 'solids'), notice: 'Liquids check passed. Continue with solids phase.'
         end
       when 'solids'
         if @guss_scale.solids_score < 5
-          redirect_to guss_scale_path(@guss_scale), alert:'Solids check failed. Additional tests required.'
+          redirect_to intermediate_view_patient_diagnosis_guss_scale_path(@diagnosis.patient_id, @diagnosis.id, @guss_scale.id), alert: 'Solids check failed. Additional tests required.'
         else
-          redirect_to guss_scale_path(@guss_scale), notice: 'GUSS scale completed successfully.'
+          redirect_to patient_diagnosis_guss_scale_path(@diagnosis.patient.id, @diagnosis.id, @guss_scale.id), notice: 'All checks passed. GUSS scale completed.'
         end
       else
-        redirect_to edit_patient_diagnosis_guss_scale_path(@diagnosis.patient.id, @diagnosis.id, @guss_scale.id, phase: 'semi_solids'), notice: 'Preliminary check passed. Continue with semi-solids phase.'
+        redirect_to patient_diagnosis_guss_scale_path(@diagnosis.patient.id, @diagnosis.id, @guss_scale.id), notice: 'Phase not recognized. GUSS scale updated.'
       end
     else
       render :edit
@@ -73,11 +73,12 @@ class GussScalesController < ApplicationController
     @diagnosis = Diagnosis.find(params[:diagnosis_id])
     @guss_scale = @diagnosis.guss_scale
   end
-
+  
   private
 
+
   def set_diagnosis
-    @diagnosis = Diagnosis.find_by(params[:diagnosis_id])
+    @diagnosis = Diagnosis.find(params[:diagnosis_id])
   end
 
   def set_guss_scale
@@ -91,3 +92,4 @@ class GussScalesController < ApplicationController
                                        :solids_swallow, :solids_cough, :solids_sialorrhea, :solids_voice_changes)
   end
 end
+

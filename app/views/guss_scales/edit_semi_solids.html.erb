@@ -124,7 +124,7 @@
         <h2>Prueba Semisolidos</h2>
         <%= form_with(model: [@diagnosis, @guss_scale], url: patient_diagnosis_guss_scale_path(@diagnosis, @guss_scale, phase: 'semi_solids'), method: :patch, local: true) do |form| %>
           <div class="field">
-            <%= form.label :semi_solids_swallow, "¿Cómo es la deglución del paciente?" %><br>
+            <%= form.label :semi_solids_swallow, "¿Cómo es la degluación del paciente?" %><br>
             <div class="radio-group-vertical">
               <label class="radio-with-image">
                 <%= form.radio_button :semi_solids_swallow, 0 %>
@@ -169,7 +169,7 @@
           </div>
         
           <div class="actions">
-            <%= form.submit 'Guardar' %>
+            <%= form.submit 'Guardas' %>
           </div>
         <% end %>  
       </div>

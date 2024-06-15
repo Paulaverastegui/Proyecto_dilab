@@ -55,7 +55,7 @@
     
     <h4>Diagnósticos</h4>
     <div class="diagnosis-buttons">
-      <% @patient.diagnoses.each_with_index do |diagnosis, index| %>
+      <% @diagnoses.each_with_index do |diagnosis, index| %>
         <!-- Botón para abrir el modal -->
         <button type="button" class="btn btn-custom diagnosis-btn" data-toggle="modal" data-target="#diagnosisModal<%= index %>">
           Diagnóstico - <%= diagnosis.date %>
@@ -77,10 +77,10 @@
                   <div class="detail-item"><strong>Descripción:</strong> <%= diagnosis.description %></div>
                 <% end %>
                 <% if diagnosis.levels.present? %>
-                    <% diagnosis.levels.each do |level| %>
-                        <div class="detail-item level-text"><strong>Escala:</strong> <%= level.escala %></div>
-                        <div class="detail-item level-text"><strong>Severidad:</strong> <%= level.severidad %></div>
-                    <% end %>
+                  <% diagnosis.levels.each do |level| %>
+                    <div class="detail-item level-text"><strong>Escala:</strong> <%= level.escala %></div>
+                    <div class="detail-item level-text"><strong>Severidad:</strong> <%= level.severidad %></div>
+                  <% end %>
                 <% end %>
 
                 <% if diagnosis.historia_desde.present? %>
@@ -124,79 +124,59 @@
                 <% end %>
 
                 <% if diagnosis.guss_scale.present? %>
-                  <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#gussModal<%= index %>">
-                    Ver Detalles de la Escala GUSS
-                  </button>
+                  <div class="guss-details">
+                    <% total_score = diagnosis.guss_scale.preliminary_score.to_i +
+                    diagnosis.guss_scale.semi_solids_score.to_i +
+                    diagnosis.guss_scale.liquids_score.to_i +
+                    diagnosis.guss_scale.solids_score.to_i %>
+                    
+                    <h5>Detalles de la Escala GUSS</h5>
+                    <p>Puntaje Total: <%= total_score %></p>
 
-                  <!-- Modal para GUSS -->
-                  <div class="modal fade" id="gussModal<%= index %>" tabindex="-1" aria-labelledby="gussModalLabel<%= index %>" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="gussModalLabel<%= index %>">Detalles de la Escala GUSS</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                        <% total_score = diagnosis.guss_scale.preliminary_score.to_i +
-                        diagnosis.guss_scale.semi_solids_score.to_i +
-                        diagnosis.guss_scale.liquids_score.to_i +
-                        diagnosis.guss_scale.solids_score.to_i %>
-                          
-                          <p>Puntaje Total: <%= total_score %></p>
-
-                          <% case total_score %>
-                          <% when 0..9 %>
-                            <p>Resultados: Fracaso en investigación preliminar</p>
-                            <p>Código: Disfagia con alto riesgo</p>
-                            <p>Recomendaciones: 
-                            <ul>
-                              <li>Nada por boca.</li>
-                              <li>Evaluaciones funcionales de la deglución (FEES, VFES).</li>
-                              <li>Derivar a fonoaudiólogo.</li>
-                              <li>Suplemento con Sonda Nasogástrica o Alimentación Parenteral.</li>
-                            </ul>
-                          <% when 10..14 %>
-                            <p>Resultados: Éxito al deglutir semisólidos</p>
-                            <p>Código: Disfagia moderada con riesgo de aspiración</p>
-                            <p>Recomendaciones: La dieta para la disfagia comienza con:</p>
-                            <ul>
-                              <li>Textura semisólidas, espesar todos los líquidos.</li>
-                              <li>Todos los líquidos deben ser espesados.</li>
-                              <li>Las píldoras deben molerse y mezclarse con líquido espeso.</li>
-                              <li>Ninguna medicación líquida.</li>
-                              <li>Evaluaciones funcionales de la Deglución (FEES, VFES).</li>
-                              <li>Derivar a fonoaudiólogo.</li>
-                              <li>Suplemento con Sonda Nasogástrica o Alimentación Parenteral.</li>
-                            </ul>
-                          <% when 15..19 %>
-                            <p>Resultados: Éxito con texturas semisólidas y líquido, fracaso con sólida</p>
-                            <p>Código: Disfagia leve con bajo riesgo de aspiración</p>
-                            <p>Recomendaciones:</p>
-                            <ul>
-                              <li>Dieta para disfagia, líquidos muy lentamente.</li>
-                              <li>Líquidos muy lentamente - un sorbo a la vez.</li>
-                              <li>Evaluaciones funcional de la Deglución, tales como Evaluación Fibroscópica de la Deglución (FEES) ó Evaluación Videofluoroscópica de la Deglución (VFES).</li>
-                              <li>Derivar a fonoaudiólogo.</li>
-                            </ul>
-                          <% when 20 %>
-                            <p>Resultados: Éxito con semisólidos, líquidos y sólidos</p>
-                            <p>Código: Leve sin disfagia, mínimo riesgo de aspiración</p>
-                            <p>Recomendaciones: </p>
-                            <ul>
-                              <li>Dieta normal.</li>
-                              <li>Líquidos regulares (la primera vez bajo la supervisión de un Fonoaudiólogo o una Enfermera entrenada).</li>
-                            </ul>
-                          <% else %>
-                            <p>Resultados no disponibles para el puntaje proporcionado</p>
-                          <% end %>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        </div>
-                      </div>
-                    </div>
+                    <% case total_score %>
+                    <% when 0..9 %>
+                      <p>Resultados: Fracaso en investigación preliminar</p>
+                      <p>Código: Disfagia con alto riesgo</p>
+                      <p>Recomendaciones: La dieta para la disfagia comienza con:</p>
+                      <ul>
+                        <li>Sonda Nasogástrica o Alimentación Parenteral.</li>
+                        <li>Evaluaciones funcionales de la Deglución (FEES, VFES).</li>
+                        <li>Derivar a fonoaudiólogo.</li>
+                      </ul>
+                    <% when 10..14 %>
+                      <p>Resultados: Éxito al deglutir semisólidos</p>
+                      <p>Código: Disfagia moderada con riesgo de aspiración</p>
+                      <p>Recomendaciones: La dieta para la disfagia comienza con:</p>
+                      <ul>
+                        <li>Textura semisólidas, espesar todos los líquidos.</li>
+                        <li>Todos los líquidos deben ser espesados.</li>
+                        <li>Las píldoras deben molerse y mezclarse con líquido espeso.</li>
+                        <li>Ninguna medicación líquida.</li>
+                        <li>Evaluaciones funcionales de la Deglución (FEES, VFES).</li>
+                        <li>Derivar a fonoaudiólogo.</li>
+                        <li>Suplemento con Sonda Nasogástrica o Alimentación Parenteral.</li>
+                      </ul>
+                    <% when 15..19 %>
+                      <p>Resultados: Éxito con texturas semisólidas y líquido, fracaso con sólida</p>
+                      <p>Código: Disfagia leve con bajo riesgo de aspiración</p>
+                      <p>Recomendaciones:</p>
+                      <ul>
+                        <li>Dieta para disfagia, líquidos muy lentamente.</li>
+                        <li>Líquidos muy lentamente - un sorbo a la vez.</li>
+                        <li>Evaluaciones funcional de la Deglución, tales como Evaluación Fibroscópica de la Deglución (FEES) ó Evaluación Videofluoroscópica de la Deglución (VFES).</li>
+                        <li>Derivar a fonoaudiólogo.</li>
+                      </ul>
+                    <% when 20 %>
+                      <p>Resultados: Éxito con semisólidos, líquidos y sólidos</p>
+                      <p>Código: Leve sin disfagia, mínimo riesgo de aspiración</p>
+                      <p>Recomendaciones: </p>
+                      <ul>
+                        <li>Dieta normal.</li>
+                        <li>Líquidos regulares (la primera vez bajo la supervisión de un Fonoaudiólogo o una Enfermera entrenada).</li>
+                      </ul>
+                    <% else %>
+                      <p>Resultados no disponibles para el puntaje proporcionado</p>
+                    <% end %>
                   </div>
                 <% end %>
               </div>
@@ -208,15 +188,12 @@
         </div>
       <% end %>
     </div>
-    
+
     <a href="<%= patients_path %>" class="btn btn-custom">Volver</a>
   </div>
-  
+
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-
-

@@ -86,7 +86,7 @@
                       @guss_scale.solids_score.to_i %>
       <p>Puntaje Total: <%= total_score %></p>
 
-        <% case @guss_scale.total_score %>
+        <% case total_score %>
         <% when 0..9 %>
           <p>Resultados: Fracaso en investigación preliminar</p>
           <p>Código: Disfagia con alto riesgo</p>
