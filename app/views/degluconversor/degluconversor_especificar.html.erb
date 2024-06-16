@@ -90,55 +90,6 @@
       background-color: #1e5372;
     }
   </style>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const options = {
-        "Cantidad de alimentación por vía oral": ["nada", "mínima", "normal", "total"],
-        "Vía de alimentación": ["alternativa", "oral", "alternativa y oral"],
-        "Cantidad de alimentación oral al día": ["1", "2", "3"],
-        "Supervisión/Asistencia en la alimentación": ["true", "false", "supervisión intermitente", "supervisión a distancia"],
-        "Cantidad de consistencias": ["0", "1"],
-        "default": ["True", "False", "None"]
-      };
-
-      const faltantes = <%= @faltantes.to_json.html_safe %>;
-
-      const container = document.querySelector('.container');
-      faltantes.forEach(caracteristica => {
-        const formGroup = document.createElement('div');
-        formGroup.classList.add('form-group');
-
-        const label = document.createElement('label');
-        label.setAttribute('for', caracteristica);
-        label.textContent = caracteristica.replace(/_/g, ' ').replace(/\b\w/g, char => char.toUpperCase());
-
-        const select = document.createElement('select');
-        select.setAttribute('id', caracteristica);
-        select.setAttribute('name', caracteristica);
-
-        const blankOption = document.createElement('option');
-        blankOption.value = "";
-        blankOption.textContent = "Selecciona una opción";
-        select.appendChild(blankOption);
-
-        const caracteristicaOptions = options[caracteristica] || options["default"];
-        caracteristicaOptions.forEach(option => {
-          const opt = document.createElement('option');
-          opt.value = option;
-          opt.textContent = option;
-          select.appendChild(opt);
-        });
-
-        formGroup.appendChild(label);
-        formGroup.appendChild(select);
-        container.appendChild(formGroup);
-      });
-    });
-
-    String.prototype.capitalize = function() {
-      return this.charAt(0).toUpperCase() + this.slice(1);
-    };
-  </script>
 </head>
 <body>
   <%= render 'shared/header' %>
@@ -146,11 +97,25 @@
   <div class="container">
     <div class="text">Por favor, completa las características adicionales para mejorar el diagnóstico:</div>
     <%= form_with url: especificar_path, method: :post do |f| %>
-      <!-- Form elements will be dynamically added here by JavaScript -->
+      <% options = {
+            "Cantidad de alimentación por vía oral" => ["nada", "mínima", "normal", "total"],
+            "Vía de alimentación" => ["alternativa", "oral", "alternativa y oral"],
+            "Cantidad de alimentación oral al día" => ["1", "2", "3"],
+            "Supervisión/Asistencia en la alimentación" => ["true", "false", "supervisión intermitente", "supervisión a distancia"],
+            "Cantidad de consistencias" => ["0", "1"],
+            "default" => ["True", "False", "None"]
+          } %>
+      <% @faltantes.each do |caracteristica| %>
+        <div class="form-group">
+          <label for="<%= caracteristica %>"><%= caracteristica.to_s.humanize %>:</label>
+          <% caracteristica_options = options.fetch(caracteristica, options["default"]) %>
+          <%= f.select caracteristica, options_for_select(caracteristica_options), { include_blank: 'Selecciona una opción' }, { id: caracteristica } %>
+        </div>
+      <% end %>
       <%= f.hidden_field :tabla_seleccionada, value: @tabla_seleccionada %>
       <%= f.hidden_field :nivel_seleccionado, value: @nivel_seleccionado %>
       <%= f.hidden_field :tabla_destino, value: @tabla_destino %>
-      <div class="form-group">
+      <div class="form-group"> 
         <button type="submit" class="submit-button">Enviar</button>
       </div>
     <% end %>
