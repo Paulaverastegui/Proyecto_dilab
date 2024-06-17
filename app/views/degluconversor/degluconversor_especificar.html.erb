@@ -24,9 +24,9 @@
 
     .container {
       display: flex;
-      flex-wrap: wrap; /* Permite que los elementos se envuelvan en varias líneas */
-      justify-content: space-around; /* Distribuye los elementos horizontalmente */
-      align-items: center; /* Alinea los elementos verticalmente */
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
       padding: 20px;
     }
 
@@ -42,7 +42,7 @@
       font-size: 1.8em; 
       color: #256490;
       border-radius: 20px;
-      width: 45%; /* Ajusta el ancho de cada cuadrado */
+      width: 45%;
     }
 
     .text {
@@ -55,7 +55,7 @@
       padding: 10px;
       font-size: 1.8em; 
       color: #256490;
-      width: 90%; /* Ajusta el ancho del texto */
+      width: 90%;
     }
 
     .form-group {
@@ -97,16 +97,25 @@
   <div class="container">
     <div class="text">Por favor, completa las características adicionales para mejorar el diagnóstico:</div>
     <%= form_with url: especificar_path, method: :post do |f| %>
+      <% options = {
+            "Cantidad de alimentación por vía oral" => ["nada", "mínima", "normal", "total"],
+            "Vía de alimentación" => ["alternativa", "oral", "alternativa y oral"],
+            "Cantidad de alimentación oral al día" => ["1", "2", "3"],
+            "Supervisión/Asistencia en la alimentación" => ["true", "false", "supervisión intermitente", "supervisión a distancia"],
+            "Cantidad de consistencias" => ["0", "1"],
+            "default" => ["True", "False", "None"]
+          } %>
       <% @faltantes.each do |caracteristica| %>
         <div class="form-group">
           <label for="<%= caracteristica %>"><%= caracteristica.to_s.humanize %>:</label>
-          <%= f.text_field caracteristica, id: caracteristica %>
+          <% caracteristica_options = options.fetch(caracteristica, options["default"]) %>
+          <%= f.select caracteristica, options_for_select(caracteristica_options), { include_blank: 'Selecciona una opción' }, { id: caracteristica } %>
         </div>
       <% end %>
       <%= f.hidden_field :tabla_seleccionada, value: @tabla_seleccionada %>
       <%= f.hidden_field :nivel_seleccionado, value: @nivel_seleccionado %>
       <%= f.hidden_field :tabla_destino, value: @tabla_destino %>
-      <div class="form-group">
+      <div class="form-group"> 
         <button type="submit" class="submit-button">Enviar</button>
       </div>
     <% end %>
