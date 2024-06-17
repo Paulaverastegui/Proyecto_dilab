@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   # get 'diagnostico/:patient_id', to: 'pages#diagnostico', as: :diagnostico_patient
   
   get 'mispacientes', to: 'patients#index', as: :mispacientes
+  get 'export_patients', to: 'patients#export', as: 'export_patients'
   post '/transformar', to: 'degluconversor#transformar'
   post '/enviar', to: 'degluconversor#enviar'
   post '/especificar', to: 'degluconversor#especificar'

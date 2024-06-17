@@ -42,6 +42,7 @@
   <div class="container">
     <h1>Mis Pacientes</h1>
     <%= link_to 'Agregar Nuevo Paciente', new_patient_path, class: 'btn btn-pacientes' %>
+    <%= link_to 'Exportar Datos', export_patients_path(format: :csv), class: 'btn btn-pacientes' %>
     <% @patients.each do |patient| %>
       <div class="patient-box">
         <h3 class="patient-name"><%= patient.name %></h3>

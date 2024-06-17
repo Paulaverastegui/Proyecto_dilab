@@ -1,3 +1,4 @@
+require 'csv'
 class PatientsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
@@ -57,6 +58,15 @@ class PatientsController < ApplicationController
     redirect_to patients_path, notice: 'Paciente eliminado exitosamente.'
   end
 
+  def export
+    @patients = current_user.patients.includes(diagnoses: :guss_scale)
+
+    respond_to do |format|
+      format.csv { send_data generate_csv(@patients), filename: "patients-#{Date.today}.csv" }
+    end
+  end
+
+
   private
 
   def set_patient
@@ -66,9 +76,52 @@ class PatientsController < ApplicationController
   def patient_params
     params.require(:patient).permit(:name, :rut, :birthdate, :sex, :email)
   end
-end
+  
+  def generate_csv(patients)
+    headers = ["Nombre", "RUT", "Fecha de Nacimiento", "Sexo", "Email", "Fecha del Diagnóstico", "Descripción", "Historia Desde", "Pérdida de Peso", "Historia de Condición", "Historia de Cirugía", "Episodios de Atragantamiento o Tos", "Dificultad para Tragar", "Sensación de Comida Atascada", "Dolor al Tragar", "Frecuencia de Problemas para Tragar", "Evita Alimentos", "Cansancio al Comer o Beber", "Tiempo para Almorzar", "Nuevos Síntomas", "Escala", "Severidad", "Puntaje Total GUSS"]
 
+    CSV.generate(headers: true) do |csv|
+      csv << headers
+
+      patients.each do |patient|
+        patient.diagnoses.each do |diagnosis|
+          diagnosis.levels.each do |level|
+            guss = diagnosis.guss_scale
+            guss_total = guss.present? ? guss.total_score : nil
+
+            csv << [
+              patient.name,
+              patient.rut,
+              patient.birthdate,
+              patient.sex,
+              patient.email,
+              diagnosis.date,
+              diagnosis.description,
+              diagnosis.historia_desde,
+              diagnosis.perdida_peso,
+              diagnosis.historia_condicion,
+              diagnosis.historia_cirugia,
+              diagnosis.sintomas_episodios,
+              diagnosis.sintomas_dificultad,
+              diagnosis.sintomas_sensacion,
+              diagnosis.sintomas_dolor,
+              diagnosis.sintomas_frecuencia,
+              diagnosis.sintomas_evita_alimentos,
+              diagnosis.sintomas_cansancio,
+              diagnosis.sintomas_tiempo,
+              diagnosis.sintomas_nuevo,
+              level.escala,
+              level.severidad,
+              guss_total
+            ]
+          end
+        end
+      end
+    end
+  end
+end
 
   
  
+  
   

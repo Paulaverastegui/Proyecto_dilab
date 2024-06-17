@@ -92,4 +92,3 @@ class GussScalesController < ApplicationController
                                        :solids_swallow, :solids_cough, :solids_sialorrhea, :solids_voice_changes)
   end
 end
-
