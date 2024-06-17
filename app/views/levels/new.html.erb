@@ -113,7 +113,7 @@
   <%= render 'shared/header' %>
   <div class="degluconversor-header">Diagnóstico</div>
   <div class="container">
-    <h1>Guardar Nivel de Diagnóstico</h1>
+    <h1>Registrar nivel de Disfagia</h1>
     <%= form_with(model: @level, url: patient_diagnosis_levels_path(@patient, @diagnosis), method: :post) do |f| %>
       <div class="form-group">
         <%= f.label :escala, "Escala" %>

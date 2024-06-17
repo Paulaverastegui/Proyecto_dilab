@@ -9,36 +9,36 @@
       </ul>
     </div>
   <% end %>
-  <div class="header">Menú de Inicio</div>
+  <div class="header">Nuevo Paciente</div>
 
-  <div class="field">
-    <%= form.label :name, "Ingresa el nombre de tu paciente:" %>
-    <%= form.text_field :name %>
-  </div>
+    <div class="field">
+      <%= form.label :name, "Ingresa el nombre de tu paciente:" %>
+      <%= form.text_field :name %>
+    </div>
 
-  <div class="field">
-    <%= form.label :rut, "Ingresa el RUT de tu paciente:" %>
-    <%= form.text_field :rut %>
-  </div>
+    <div class="field">
+      <%= form.label :rut, "Ingresa el RUT de tu paciente:" %>
+      <%= form.text_field :rut %>
+    </div>
 
-  <div class="field">
-    <%= form.label :birthdate, "Ingresa la fecha de nacimiento de tu paciente:" %>
-    <%= form.date_select :birthdate, start_year: 1924, end_year: Date.current.year, prompt: { day: 'Día', month: 'Mes', year: 'Año' } %>
-  </div>
+    <div class="field">
+      <%= form.label :birthdate, "Ingresa la fecha de nacimiento de tu paciente:" %>
+      <%= form.date_select :birthdate, start_year: 1924, end_year: Date.current.year, prompt: { day: 'Día', month: 'Mes', year: 'Año' } %>
+    </div>
 
-  <div class="field">
-    <%= form.label :sex, "Selecciona el sexo de tu paciente:" %>
-    <%= form.select :sex, ['Masculino', 'Femenino', 'Otro'], prompt: '' %>
-  </div>
+    <div class="field">
+      <%= form.label :sex, "Selecciona el sexo de tu paciente:" %>
+      <%= form.select :sex, ['Masculino', 'Femenino', 'Otro'], prompt: '' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :email, "Ingresa el email de tu paciente:" %>
-    <%= form.email_field :email %>
-  </div>
+    <div class="field">
+      <%= form.label :email, "Ingresa el email de tu paciente:" %>
+      <%= form.email_field :email %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit "Guardar", class: 'btn' %>
-  </div>
+    <div class="actions">
+      <%= form.submit "Guardar", class: 'btn' %>
+    </div>
 <% end %>
 
 

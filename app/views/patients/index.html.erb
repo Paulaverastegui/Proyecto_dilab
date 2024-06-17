@@ -7,40 +7,64 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-      background-color: #256490;
-      color: #FFFFFF;
+      background-color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
       font-family: 'Arial', sans-serif;
     }
+
+    .header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2.5em;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      width: 100%;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
     .container {
-      margin-top: 100px;
+      margin-top: 150px;
     }
     .patient-box {
-      background-color: #FFFFFF;
+      background-color: #709795;
+      color: white;
       padding: 20px;
       border-radius: 10px;
       margin-top: 30px;
     }
     .patient-name {
-      color: #709795;
+      color: white;
     }
     .btn {
       border-radius: 5px;
       margin-right: 10px;
     }
     .btn-pacientes {
-      background-color: #709795;
+      margin-top: 50px;
+      background-color: #B5B0C9;
       color: #FFFFFF;
     }
     .btn-ver-detalles {
       background-color: #256490;
       color: #FFFFFF;
     }
+
+    
   </style>
 </head>
 <body>
   <%= render 'shared/header' %>
   <div class="container">
-    <h1>Mis Pacientes</h1>
+    <div class="header">Mis Pacientes</div>
     <%= link_to 'Agregar Nuevo Paciente', new_patient_path, class: 'btn btn-pacientes' %>
     <% @patients.each do |patient| %>
       <div class="patient-box">
