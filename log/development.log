@@ -27708,3 +27708,1110 @@ NoMethodError (undefined method `update' for nil:NilClass
                   ^^^^^^^):
   
 app/controllers/guss_scales_controller.rb:44:in `update'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "diagnoses"[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "diagnoses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "patient_id" integer NOT NULL, "description" text, "date" date, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "historia_desde" varchar, "perdida_peso" varchar, "historia_condicion" varchar, "historia_cirugia" varchar, "sintomas_episodios" varchar, "sintomas_dificultad" varchar, "sintomas_sensacion" varchar, "sintomas_dolor" varchar, "sintomas_frecuencia" varchar, "sintomas_evita_alimentos" varchar, "sintomas_cansancio" varchar, "sintomas_tiempo" varchar, "sintomas_nuevo" varchar)[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE INDEX "index_diagnoses_on_patient_id" ON "diagnoses" ("patient_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "guss_scales"[0m
+  [1m[35m (16.8ms)[0m  [1m[35mCREATE TABLE "guss_scales" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "vigilance" integer, "cough" integer, "saliva_swallow" integer, "sialorrhea" integer, "voice_changes" integer, "semi_solids_swallow" integer, "semi_solids_cough" integer, "semi_solids_sialorrhea" integer, "semi_solids_voice_changes" integer, "liquids_swallow" integer, "liquids_cough" integer, "liquids_sialorrhea" integer, "liquids_voice_changes" integer, "solids_swallow" integer, "solids_cough" integer, "solids_sialorrhea" integer, "solids_voice_changes" integer, "diagnosis_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (16.6ms)[0m  [1m[35mCREATE INDEX "index_guss_scales_on_diagnosis_id" ON "guss_scales" ("diagnosis_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "levels"[0m
+  [1m[35m (17.1ms)[0m  [1m[35mCREATE TABLE "levels" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "escala" varchar, "severidad" integer, "diagnosis_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE INDEX "index_levels_on_diagnosis_id" ON "levels" ("diagnosis_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "patients"[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "patients" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "rut" varchar, "birthdate" date, "sex" varchar, "email" varchar, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE INDEX "index_patients_on_user_id" ON "patients" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (21.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime(6), "remember_created_at" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TEMPORARY TABLE "adiagnoses" ("id" integer NOT NULL PRIMARY KEY, "patient_id" integer NOT NULL, "description" text DEFAULT NULL, "date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "historia_desde" varchar DEFAULT NULL, "perdida_peso" varchar DEFAULT NULL, "historia_condicion" varchar DEFAULT NULL, "historia_cirugia" varchar DEFAULT NULL, "sintomas_episodios" varchar DEFAULT NULL, "sintomas_dificultad" varchar DEFAULT NULL, "sintomas_sensacion" varchar DEFAULT NULL, "sintomas_dolor" varchar DEFAULT NULL, "sintomas_frecuencia" varchar DEFAULT NULL, "sintomas_evita_alimentos" varchar DEFAULT NULL, "sintomas_cansancio" varchar DEFAULT NULL, "sintomas_tiempo" varchar DEFAULT NULL, "sintomas_nuevo" varchar DEFAULT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "tindex_adiagnoses_on_patient_id" ON "adiagnoses" ("patient_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "adiagnoses" ("id","patient_id","description","date","created_at","updated_at","historia_desde","perdida_peso","historia_condicion","historia_cirugia","sintomas_episodios","sintomas_dificultad","sintomas_sensacion","sintomas_dolor","sintomas_frecuencia","sintomas_evita_alimentos","sintomas_cansancio","sintomas_tiempo","sintomas_nuevo")
+                     SELECT "id","patient_id","description","date","created_at","updated_at","historia_desde","perdida_peso","historia_condicion","historia_cirugia","sintomas_episodios","sintomas_dificultad","sintomas_sensacion","sintomas_dolor","sintomas_frecuencia","sintomas_evita_alimentos","sintomas_cansancio","sintomas_tiempo","sintomas_nuevo" FROM "diagnoses"[0m
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE "diagnoses"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "diagnoses" ("id" integer NOT NULL PRIMARY KEY, "patient_id" integer NOT NULL, "description" text DEFAULT NULL, "date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "historia_desde" varchar DEFAULT NULL, "perdida_peso" varchar DEFAULT NULL, "historia_condicion" varchar DEFAULT NULL, "historia_cirugia" varchar DEFAULT NULL, "sintomas_episodios" varchar DEFAULT NULL, "sintomas_dificultad" varchar DEFAULT NULL, "sintomas_sensacion" varchar DEFAULT NULL, "sintomas_dolor" varchar DEFAULT NULL, "sintomas_frecuencia" varchar DEFAULT NULL, "sintomas_evita_alimentos" varchar DEFAULT NULL, "sintomas_cansancio" varchar DEFAULT NULL, "sintomas_tiempo" varchar DEFAULT NULL, "sintomas_nuevo" varchar DEFAULT NULL, CONSTRAINT "fk_rails_b4ae3dea5a"
+FOREIGN KEY ("patient_id")
+  REFERENCES "patients" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_diagnoses_on_patient_id" ON "diagnoses" ("patient_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "diagnoses" ("id","patient_id","description","date","created_at","updated_at","historia_desde","perdida_peso","historia_condicion","historia_cirugia","sintomas_episodios","sintomas_dificultad","sintomas_sensacion","sintomas_dolor","sintomas_frecuencia","sintomas_evita_alimentos","sintomas_cansancio","sintomas_tiempo","sintomas_nuevo")
+                     SELECT "id","patient_id","description","date","created_at","updated_at","historia_desde","perdida_peso","historia_condicion","historia_cirugia","sintomas_episodios","sintomas_dificultad","sintomas_sensacion","sintomas_dolor","sintomas_frecuencia","sintomas_evita_alimentos","sintomas_cansancio","sintomas_tiempo","sintomas_nuevo" FROM "adiagnoses"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "adiagnoses"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aguss_scales" ("id" integer NOT NULL PRIMARY KEY, "vigilance" integer DEFAULT NULL, "cough" integer DEFAULT NULL, "saliva_swallow" integer DEFAULT NULL, "sialorrhea" integer DEFAULT NULL, "voice_changes" integer DEFAULT NULL, "semi_solids_swallow" integer DEFAULT NULL, "semi_solids_cough" integer DEFAULT NULL, "semi_solids_sialorrhea" integer DEFAULT NULL, "semi_solids_voice_changes" integer DEFAULT NULL, "liquids_swallow" integer DEFAULT NULL, "liquids_cough" integer DEFAULT NULL, "liquids_sialorrhea" integer DEFAULT NULL, "liquids_voice_changes" integer DEFAULT NULL, "solids_swallow" integer DEFAULT NULL, "solids_cough" integer DEFAULT NULL, "solids_sialorrhea" integer DEFAULT NULL, "solids_voice_changes" integer DEFAULT NULL, "diagnosis_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "tindex_aguss_scales_on_diagnosis_id" ON "aguss_scales" ("diagnosis_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aguss_scales" ("id","vigilance","cough","saliva_swallow","sialorrhea","voice_changes","semi_solids_swallow","semi_solids_cough","semi_solids_sialorrhea","semi_solids_voice_changes","liquids_swallow","liquids_cough","liquids_sialorrhea","liquids_voice_changes","solids_swallow","solids_cough","solids_sialorrhea","solids_voice_changes","diagnosis_id","created_at","updated_at")
+                     SELECT "id","vigilance","cough","saliva_swallow","sialorrhea","voice_changes","semi_solids_swallow","semi_solids_cough","semi_solids_sialorrhea","semi_solids_voice_changes","liquids_swallow","liquids_cough","liquids_sialorrhea","liquids_voice_changes","solids_swallow","solids_cough","solids_sialorrhea","solids_voice_changes","diagnosis_id","created_at","updated_at" FROM "guss_scales"[0m
+  [1m[35m (1.1ms)[0m  [1m[35mDROP TABLE "guss_scales"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "guss_scales" ("id" integer NOT NULL PRIMARY KEY, "vigilance" integer DEFAULT NULL, "cough" integer DEFAULT NULL, "saliva_swallow" integer DEFAULT NULL, "sialorrhea" integer DEFAULT NULL, "voice_changes" integer DEFAULT NULL, "semi_solids_swallow" integer DEFAULT NULL, "semi_solids_cough" integer DEFAULT NULL, "semi_solids_sialorrhea" integer DEFAULT NULL, "semi_solids_voice_changes" integer DEFAULT NULL, "liquids_swallow" integer DEFAULT NULL, "liquids_cough" integer DEFAULT NULL, "liquids_sialorrhea" integer DEFAULT NULL, "liquids_voice_changes" integer DEFAULT NULL, "solids_swallow" integer DEFAULT NULL, "solids_cough" integer DEFAULT NULL, "solids_sialorrhea" integer DEFAULT NULL, "solids_voice_changes" integer DEFAULT NULL, "diagnosis_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_32808ee9fc"
+FOREIGN KEY ("diagnosis_id")
+  REFERENCES "diagnoses" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_guss_scales_on_diagnosis_id" ON "guss_scales" ("diagnosis_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "guss_scales" ("id","vigilance","cough","saliva_swallow","sialorrhea","voice_changes","semi_solids_swallow","semi_solids_cough","semi_solids_sialorrhea","semi_solids_voice_changes","liquids_swallow","liquids_cough","liquids_sialorrhea","liquids_voice_changes","solids_swallow","solids_cough","solids_sialorrhea","solids_voice_changes","diagnosis_id","created_at","updated_at")
+                     SELECT "id","vigilance","cough","saliva_swallow","sialorrhea","voice_changes","semi_solids_swallow","semi_solids_cough","semi_solids_sialorrhea","semi_solids_voice_changes","liquids_swallow","liquids_cough","liquids_sialorrhea","liquids_voice_changes","solids_swallow","solids_cough","solids_sialorrhea","solids_voice_changes","diagnosis_id","created_at","updated_at" FROM "aguss_scales"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "aguss_scales"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TEMPORARY TABLE "alevels" ("id" integer NOT NULL PRIMARY KEY, "escala" varchar DEFAULT NULL, "severidad" integer DEFAULT NULL, "diagnosis_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_alevels_on_diagnosis_id" ON "alevels" ("diagnosis_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "alevels" ("id","escala","severidad","diagnosis_id","created_at","updated_at")
+                     SELECT "id","escala","severidad","diagnosis_id","created_at","updated_at" FROM "levels"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE "levels"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "levels" ("id" integer NOT NULL PRIMARY KEY, "escala" varchar DEFAULT NULL, "severidad" integer DEFAULT NULL, "diagnosis_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_a1cee0139c"
+FOREIGN KEY ("diagnosis_id")
+  REFERENCES "diagnoses" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_levels_on_diagnosis_id" ON "levels" ("diagnosis_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "levels" ("id","escala","severidad","diagnosis_id","created_at","updated_at")
+                     SELECT "id","escala","severidad","diagnosis_id","created_at","updated_at" FROM "alevels"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "alevels"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "apatients" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "rut" varchar DEFAULT NULL, "birthdate" date DEFAULT NULL, "sex" varchar DEFAULT NULL, "email" varchar DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_apatients_on_user_id" ON "apatients" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "apatients" ("id","name","rut","birthdate","sex","email","user_id","created_at","updated_at")
+                     SELECT "id","name","rut","birthdate","sex","email","user_id","created_at","updated_at" FROM "patients"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE "patients"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "patients" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "rut" varchar DEFAULT NULL, "birthdate" date DEFAULT NULL, "sex" varchar DEFAULT NULL, "email" varchar DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_623f05c630"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_patients_on_user_id" ON "patients" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "patients" ("id","name","rut","birthdate","sex","email","user_id","created_at","updated_at")
+                     SELECT "id","name","rut","birthdate","sex","email","user_id","created_at","updated_at" FROM "apatients"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "apatients"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20240605192031)[0m
+  [1m[35m (1.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20240603135824),
+(20240603193436),
+(20240603193602),
+(20240604123807),
+(20240604123852),
+(20240604124107),
+(20240604133425),
+(20240604133859),
+(20240604134503),
+(20240604134553),
+(20240604134618),
+(20240604134639),
+(20240604134711),
+(20240604134818),
+(20240604134836),
+(20240604134854),
+(20240604142622),
+(20240604233529),
+(20240604233735);
+
+[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-06-17 16:35:16.387943"], ["updated_at", "2024-06-17 16:35:16.387943"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "d0898d735e56b5cfbd318a318467adc4e90d2cbf"], ["created_at", "2024-06-17 16:35:16.398989"], ["updated_at", "2024-06-17 16:35:16.398989"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "diagnoses"[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "diagnoses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "patient_id" integer NOT NULL, "description" text, "date" date, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "historia_desde" varchar, "perdida_peso" varchar, "historia_condicion" varchar, "historia_cirugia" varchar, "sintomas_episodios" varchar, "sintomas_dificultad" varchar, "sintomas_sensacion" varchar, "sintomas_dolor" varchar, "sintomas_frecuencia" varchar, "sintomas_evita_alimentos" varchar, "sintomas_cansancio" varchar, "sintomas_tiempo" varchar, "sintomas_nuevo" varchar)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE INDEX "index_diagnoses_on_patient_id" ON "diagnoses" ("patient_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "guss_scales"[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "guss_scales" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "vigilance" integer, "cough" integer, "saliva_swallow" integer, "sialorrhea" integer, "voice_changes" integer, "semi_solids_swallow" integer, "semi_solids_cough" integer, "semi_solids_sialorrhea" integer, "semi_solids_voice_changes" integer, "liquids_swallow" integer, "liquids_cough" integer, "liquids_sialorrhea" integer, "liquids_voice_changes" integer, "solids_swallow" integer, "solids_cough" integer, "solids_sialorrhea" integer, "solids_voice_changes" integer, "diagnosis_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE INDEX "index_guss_scales_on_diagnosis_id" ON "guss_scales" ("diagnosis_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "levels"[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "levels" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "escala" varchar, "severidad" integer, "diagnosis_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE INDEX "index_levels_on_diagnosis_id" ON "levels" ("diagnosis_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "patients"[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "patients" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "rut" varchar, "birthdate" date, "sex" varchar, "email" varchar, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE INDEX "index_patients_on_user_id" ON "patients" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime(6), "remember_created_at" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "adiagnoses" ("id" integer NOT NULL PRIMARY KEY, "patient_id" integer NOT NULL, "description" text DEFAULT NULL, "date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "historia_desde" varchar DEFAULT NULL, "perdida_peso" varchar DEFAULT NULL, "historia_condicion" varchar DEFAULT NULL, "historia_cirugia" varchar DEFAULT NULL, "sintomas_episodios" varchar DEFAULT NULL, "sintomas_dificultad" varchar DEFAULT NULL, "sintomas_sensacion" varchar DEFAULT NULL, "sintomas_dolor" varchar DEFAULT NULL, "sintomas_frecuencia" varchar DEFAULT NULL, "sintomas_evita_alimentos" varchar DEFAULT NULL, "sintomas_cansancio" varchar DEFAULT NULL, "sintomas_tiempo" varchar DEFAULT NULL, "sintomas_nuevo" varchar DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_adiagnoses_on_patient_id" ON "adiagnoses" ("patient_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "adiagnoses" ("id","patient_id","description","date","created_at","updated_at","historia_desde","perdida_peso","historia_condicion","historia_cirugia","sintomas_episodios","sintomas_dificultad","sintomas_sensacion","sintomas_dolor","sintomas_frecuencia","sintomas_evita_alimentos","sintomas_cansancio","sintomas_tiempo","sintomas_nuevo")
+                     SELECT "id","patient_id","description","date","created_at","updated_at","historia_desde","perdida_peso","historia_condicion","historia_cirugia","sintomas_episodios","sintomas_dificultad","sintomas_sensacion","sintomas_dolor","sintomas_frecuencia","sintomas_evita_alimentos","sintomas_cansancio","sintomas_tiempo","sintomas_nuevo" FROM "diagnoses"[0m
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE "diagnoses"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "diagnoses" ("id" integer NOT NULL PRIMARY KEY, "patient_id" integer NOT NULL, "description" text DEFAULT NULL, "date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "historia_desde" varchar DEFAULT NULL, "perdida_peso" varchar DEFAULT NULL, "historia_condicion" varchar DEFAULT NULL, "historia_cirugia" varchar DEFAULT NULL, "sintomas_episodios" varchar DEFAULT NULL, "sintomas_dificultad" varchar DEFAULT NULL, "sintomas_sensacion" varchar DEFAULT NULL, "sintomas_dolor" varchar DEFAULT NULL, "sintomas_frecuencia" varchar DEFAULT NULL, "sintomas_evita_alimentos" varchar DEFAULT NULL, "sintomas_cansancio" varchar DEFAULT NULL, "sintomas_tiempo" varchar DEFAULT NULL, "sintomas_nuevo" varchar DEFAULT NULL, CONSTRAINT "fk_rails_b4ae3dea5a"
+FOREIGN KEY ("patient_id")
+  REFERENCES "patients" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_diagnoses_on_patient_id" ON "diagnoses" ("patient_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "diagnoses" ("id","patient_id","description","date","created_at","updated_at","historia_desde","perdida_peso","historia_condicion","historia_cirugia","sintomas_episodios","sintomas_dificultad","sintomas_sensacion","sintomas_dolor","sintomas_frecuencia","sintomas_evita_alimentos","sintomas_cansancio","sintomas_tiempo","sintomas_nuevo")
+                     SELECT "id","patient_id","description","date","created_at","updated_at","historia_desde","perdida_peso","historia_condicion","historia_cirugia","sintomas_episodios","sintomas_dificultad","sintomas_sensacion","sintomas_dolor","sintomas_frecuencia","sintomas_evita_alimentos","sintomas_cansancio","sintomas_tiempo","sintomas_nuevo" FROM "adiagnoses"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "adiagnoses"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aguss_scales" ("id" integer NOT NULL PRIMARY KEY, "vigilance" integer DEFAULT NULL, "cough" integer DEFAULT NULL, "saliva_swallow" integer DEFAULT NULL, "sialorrhea" integer DEFAULT NULL, "voice_changes" integer DEFAULT NULL, "semi_solids_swallow" integer DEFAULT NULL, "semi_solids_cough" integer DEFAULT NULL, "semi_solids_sialorrhea" integer DEFAULT NULL, "semi_solids_voice_changes" integer DEFAULT NULL, "liquids_swallow" integer DEFAULT NULL, "liquids_cough" integer DEFAULT NULL, "liquids_sialorrhea" integer DEFAULT NULL, "liquids_voice_changes" integer DEFAULT NULL, "solids_swallow" integer DEFAULT NULL, "solids_cough" integer DEFAULT NULL, "solids_sialorrhea" integer DEFAULT NULL, "solids_voice_changes" integer DEFAULT NULL, "diagnosis_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aguss_scales_on_diagnosis_id" ON "aguss_scales" ("diagnosis_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aguss_scales" ("id","vigilance","cough","saliva_swallow","sialorrhea","voice_changes","semi_solids_swallow","semi_solids_cough","semi_solids_sialorrhea","semi_solids_voice_changes","liquids_swallow","liquids_cough","liquids_sialorrhea","liquids_voice_changes","solids_swallow","solids_cough","solids_sialorrhea","solids_voice_changes","diagnosis_id","created_at","updated_at")
+                     SELECT "id","vigilance","cough","saliva_swallow","sialorrhea","voice_changes","semi_solids_swallow","semi_solids_cough","semi_solids_sialorrhea","semi_solids_voice_changes","liquids_swallow","liquids_cough","liquids_sialorrhea","liquids_voice_changes","solids_swallow","solids_cough","solids_sialorrhea","solids_voice_changes","diagnosis_id","created_at","updated_at" FROM "guss_scales"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE "guss_scales"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "guss_scales" ("id" integer NOT NULL PRIMARY KEY, "vigilance" integer DEFAULT NULL, "cough" integer DEFAULT NULL, "saliva_swallow" integer DEFAULT NULL, "sialorrhea" integer DEFAULT NULL, "voice_changes" integer DEFAULT NULL, "semi_solids_swallow" integer DEFAULT NULL, "semi_solids_cough" integer DEFAULT NULL, "semi_solids_sialorrhea" integer DEFAULT NULL, "semi_solids_voice_changes" integer DEFAULT NULL, "liquids_swallow" integer DEFAULT NULL, "liquids_cough" integer DEFAULT NULL, "liquids_sialorrhea" integer DEFAULT NULL, "liquids_voice_changes" integer DEFAULT NULL, "solids_swallow" integer DEFAULT NULL, "solids_cough" integer DEFAULT NULL, "solids_sialorrhea" integer DEFAULT NULL, "solids_voice_changes" integer DEFAULT NULL, "diagnosis_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_32808ee9fc"
+FOREIGN KEY ("diagnosis_id")
+  REFERENCES "diagnoses" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_guss_scales_on_diagnosis_id" ON "guss_scales" ("diagnosis_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "guss_scales" ("id","vigilance","cough","saliva_swallow","sialorrhea","voice_changes","semi_solids_swallow","semi_solids_cough","semi_solids_sialorrhea","semi_solids_voice_changes","liquids_swallow","liquids_cough","liquids_sialorrhea","liquids_voice_changes","solids_swallow","solids_cough","solids_sialorrhea","solids_voice_changes","diagnosis_id","created_at","updated_at")
+                     SELECT "id","vigilance","cough","saliva_swallow","sialorrhea","voice_changes","semi_solids_swallow","semi_solids_cough","semi_solids_sialorrhea","semi_solids_voice_changes","liquids_swallow","liquids_cough","liquids_sialorrhea","liquids_voice_changes","solids_swallow","solids_cough","solids_sialorrhea","solids_voice_changes","diagnosis_id","created_at","updated_at" FROM "aguss_scales"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "aguss_scales"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "alevels" ("id" integer NOT NULL PRIMARY KEY, "escala" varchar DEFAULT NULL, "severidad" integer DEFAULT NULL, "diagnosis_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_alevels_on_diagnosis_id" ON "alevels" ("diagnosis_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "alevels" ("id","escala","severidad","diagnosis_id","created_at","updated_at")
+                     SELECT "id","escala","severidad","diagnosis_id","created_at","updated_at" FROM "levels"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "levels"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "levels" ("id" integer NOT NULL PRIMARY KEY, "escala" varchar DEFAULT NULL, "severidad" integer DEFAULT NULL, "diagnosis_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_a1cee0139c"
+FOREIGN KEY ("diagnosis_id")
+  REFERENCES "diagnoses" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_levels_on_diagnosis_id" ON "levels" ("diagnosis_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "levels" ("id","escala","severidad","diagnosis_id","created_at","updated_at")
+                     SELECT "id","escala","severidad","diagnosis_id","created_at","updated_at" FROM "alevels"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "alevels"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "apatients" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "rut" varchar DEFAULT NULL, "birthdate" date DEFAULT NULL, "sex" varchar DEFAULT NULL, "email" varchar DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_apatients_on_user_id" ON "apatients" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "apatients" ("id","name","rut","birthdate","sex","email","user_id","created_at","updated_at")
+                     SELECT "id","name","rut","birthdate","sex","email","user_id","created_at","updated_at" FROM "patients"[0m
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE "patients"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "patients" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "rut" varchar DEFAULT NULL, "birthdate" date DEFAULT NULL, "sex" varchar DEFAULT NULL, "email" varchar DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_623f05c630"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_patients_on_user_id" ON "patients" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "patients" ("id","name","rut","birthdate","sex","email","user_id","created_at","updated_at")
+                     SELECT "id","name","rut","birthdate","sex","email","user_id","created_at","updated_at" FROM "apatients"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "apatients"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20240605192031)[0m
+  [1m[35m (2.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20240603135824),
+(20240603193436),
+(20240603193602),
+(20240604123807),
+(20240604123852),
+(20240604124107),
+(20240604133425),
+(20240604133859),
+(20240604134503),
+(20240604134553),
+(20240604134618),
+(20240604134639),
+(20240604134711),
+(20240604134818),
+(20240604134836),
+(20240604134854),
+(20240604142622),
+(20240604233529),
+(20240604233735);
+
+[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-06-17 16:35:16.545897"], ["updated_at", "2024-06-17 16:35:16.545897"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.6ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2024-06-17 16:35:16.552954"], ["key", "environment"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "d0898d735e56b5cfbd318a318467adc4e90d2cbf"], ["created_at", "2024-06-17 16:35:16.563663"], ["updated_at", "2024-06-17 16:35:16.563663"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2024-06-17 12:35:30 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 207.0ms | Allocations: 29262)
+  Rendered layout layouts/application.html.erb (Duration: 237.1ms | Allocations: 36191)
+Completed 200 OK in 265ms (Views: 243.8ms | ActiveRecord: 0.0ms | Allocations: 40733)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-17 12:35:32 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 23.0ms | Allocations: 3435)
+  Rendered layout layouts/application.html.erb (Duration: 48.1ms | Allocations: 9895)
+Completed 200 OK in 91ms (Views: 52.9ms | ActiveRecord: 2.1ms | Allocations: 19994)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-06-17 12:35:37 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"paula.verastegui@uc.cl", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "paula.verastegui@uc.cl"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 9ms (ActiveRecord: 1.2ms | Allocations: 2060)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"paula.verastegui@uc.cl", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1193)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 7587)
+Completed 200 OK in 434ms (Views: 12.9ms | ActiveRecord: 0.0ms | Allocations: 8908)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-06-17 12:35:39 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.8ms | Allocations: 221)
+  Rendered devise/shared/_links.html.erb (Duration: 3.7ms | Allocations: 567)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 14.8ms | Allocations: 2842)
+  Rendered layout layouts/application.html.erb (Duration: 28.2ms | Allocations: 9405)
+Completed 200 OK in 34ms (Views: 32.1ms | ActiveRecord: 0.0ms | Allocations: 10730)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-06-17 12:35:44 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"paula.verastegui@uc.cl", "password"=>"[FILTERED]", "confirmación_contraseña"=>""}, "commit"=>"Sign up"}
+[31mUnpermitted parameter: :confirmación_contraseña. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x0000000107b92370>, params: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"paula.verastegui@uc.cl", "password"=>"[FILTERED]", "confirmación_contraseña"=>""}, "commit"=>"Sign up", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "paula.verastegui@uc.cl"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "paula.verastegui@uc.cl"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2024-06-17 16:35:44.863897"], ["updated_at", "2024-06-17 16:35:44.863897"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://127.0.0.1:3000/menu
+Completed 303 See Other in 477ms (ActiveRecord: 3.8ms | Allocations: 8436)
+
+
+Started GET "/menu" for 127.0.0.1 at 2024-06-17 12:35:44 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 13.4ms | Allocations: 3248)
+  Rendered layout layouts/application.html.erb (Duration: 25.4ms | Allocations: 9415)
+Completed 200 OK in 31ms (Views: 26.3ms | ActiveRecord: 0.2ms | Allocations: 11313)
+
+
+Started GET "/mispacientes" for 127.0.0.1 at 2024-06-17 12:35:46 -0400
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 3.3ms | Allocations: 654)
+  [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/patients/index.html.erb:46
+  Rendered patients/index.html.erb within layouts/application (Duration: 16.4ms | Allocations: 3819)
+  Rendered layout layouts/application.html.erb (Duration: 34.4ms | Allocations: 10401)
+Completed 200 OK in 68ms (Views: 36.4ms | ActiveRecord: 1.0ms | Allocations: 15575)
+
+
+Started GET "/patients/new" for 127.0.0.1 at 2024-06-17 12:35:47 -0400
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.7ms | Allocations: 347)
+  Rendered patients/_form.html.erb (Duration: 11.1ms | Allocations: 5675)
+  Rendered patients/new.html.erb within layouts/application (Duration: 16.1ms | Allocations: 6467)
+  Rendered layout layouts/application.html.erb (Duration: 29.1ms | Allocations: 12882)
+Completed 200 OK in 52ms (Views: 29.8ms | ActiveRecord: 0.7ms | Allocations: 19653)
+
+
+Started POST "/patients" for 127.0.0.1 at 2024-06-17 12:35:54 -0400
+Processing by PatientsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "patient"=>{"name"=>"Ingrid Grunewald", "rut"=>"123456", "birthdate(1i)"=>"1927", "birthdate(2i)"=>"3", "birthdate(3i)"=>"3", "sex"=>"", "email"=>""}, "commit"=>"Guardar"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/patients_controller.rb:34:in `create'
+  [1m[36mPatient Create (2.2ms)[0m  [1m[32mINSERT INTO "patients" ("name", "rut", "birthdate", "sex", "email", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Ingrid Grunewald"], ["rut", "123456"], ["birthdate", "1927-03-03"], ["sex", ""], ["email", ""], ["user_id", 1], ["created_at", "2024-06-17 16:35:54.653847"], ["updated_at", "2024-06-17 16:35:54.653847"]]
+  ↳ app/controllers/patients_controller.rb:34:in `create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/patients_controller.rb:34:in `create'
+Redirected to http://127.0.0.1:3000/patients
+Completed 302 Found in 16ms (ActiveRecord: 4.4ms | Allocations: 4371)
+
+
+Started GET "/patients" for 127.0.0.1 at 2024-06-17 12:35:54 -0400
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.8ms | Allocations: 297)
+  [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/patients/index.html.erb:46
+  Rendered patients/index.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1184)
+  Rendered layout layouts/application.html.erb (Duration: 22.3ms | Allocations: 7471)
+Completed 200 OK in 26ms (Views: 22.6ms | ActiveRecord: 0.4ms | Allocations: 9108)
+
+
+Started GET "/diagnoses" for 127.0.0.1 at 2024-06-17 12:35:56 -0400
+Processing by DiagnosesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.6ms | Allocations: 405)
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/diagnoses/index.html.erb:172:in `each_with_index'
+  Rendered diagnoses/index.html.erb within layouts/application (Duration: 42.1ms | Allocations: 6729)
+  Rendered layout layouts/application.html.erb (Duration: 63.4ms | Allocations: 13200)
+Completed 200 OK in 76ms (Views: 67.5ms | ActiveRecord: 0.3ms | Allocations: 15626)
+
+
+Started GET "/patients/1/diagnoses/new" for 127.0.0.1 at 2024-06-17 12:36:02 -0400
+Processing by DiagnosesController#new as HTML
+  Parameters: {"patient_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:5:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/new.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.6ms | Allocations: 346)
+  Rendered diagnoses/new.html.erb within layouts/application (Duration: 10.3ms | Allocations: 3792)
+  Rendered layout layouts/application.html.erb (Duration: 21.7ms | Allocations: 10302)
+Completed 200 OK in 68ms (Views: 22.7ms | ActiveRecord: 2.7ms | Allocations: 24402)
+
+
+Started POST "/patients/1/diagnoses" for 127.0.0.1 at 2024-06-17 12:36:20 -0400
+Processing by DiagnosesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "diagnosis"=>{"patient_id"=>"1", "historia_desde"=>"nose", "perdida_peso"=>"porque", "historia_condicion"=>"no", "historia_cirugia"=>"me", "sintomas_episodios"=>"funciona", "sintomas_dificultad"=>"esta", "sintomas_sensacion"=>"cosa", "sintomas_dolor"=>"rar", "sintomas_frecuencia"=>"si", "sintomas_evita_alimentos"=>"en", "sintomas_cansancio"=>"el", "sintomas_tiempo"=>"otro", "sintomas_nuevo"=>"funcionaba :("}, "commit"=>"Guardar Diagnóstico", "patient_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:13:in `create'
+[31mUnpermitted parameter: :patient_id. Context: { controller: DiagnosesController, action: create, request: #<ActionDispatch::Request:0x0000000108565960>, params: {"authenticity_token"=>"[FILTERED]", "diagnosis"=>{"patient_id"=>"1", "historia_desde"=>"nose", "perdida_peso"=>"porque", "historia_condicion"=>"no", "historia_cirugia"=>"me", "sintomas_episodios"=>"funciona", "sintomas_dificultad"=>"esta", "sintomas_sensacion"=>"cosa", "sintomas_dolor"=>"rar", "sintomas_frecuencia"=>"si", "sintomas_evita_alimentos"=>"en", "sintomas_cansancio"=>"el", "sintomas_tiempo"=>"otro", "sintomas_nuevo"=>"funcionaba :("}, "commit"=>"Guardar Diagnóstico", "controller"=>"diagnoses", "action"=>"create", "patient_id"=>"1"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/diagnoses_controller.rb:16:in `create'
+  [1m[36mDiagnosis Create (0.6ms)[0m  [1m[32mINSERT INTO "diagnoses" ("patient_id", "description", "date", "created_at", "updated_at", "historia_desde", "perdida_peso", "historia_condicion", "historia_cirugia", "sintomas_episodios", "sintomas_dificultad", "sintomas_sensacion", "sintomas_dolor", "sintomas_frecuencia", "sintomas_evita_alimentos", "sintomas_cansancio", "sintomas_tiempo", "sintomas_nuevo") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["patient_id", 1], ["description", nil], ["date", "2024-06-17"], ["created_at", "2024-06-17 16:36:20.110192"], ["updated_at", "2024-06-17 16:36:20.110192"], ["historia_desde", "nose"], ["perdida_peso", "porque"], ["historia_condicion", "no"], ["historia_cirugia", "me"], ["sintomas_episodios", "funciona"], ["sintomas_dificultad", "esta"], ["sintomas_sensacion", "cosa"], ["sintomas_dolor", "rar"], ["sintomas_frecuencia", "si"], ["sintomas_evita_alimentos", "en"], ["sintomas_cansancio", "el"], ["sintomas_tiempo", "otro"], ["sintomas_nuevo", "funcionaba :("]]
+  ↳ app/controllers/diagnoses_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/diagnoses_controller.rb:16:in `create'
+Redirected to http://127.0.0.1:3000/patients/1/diagnoses/1/intermediate_view
+Completed 302 Found in 18ms (ActiveRecord: 3.0ms | Allocations: 6418)
+
+
+Started GET "/patients/1/diagnoses/1/intermediate_view" for 127.0.0.1 at 2024-06-17 12:36:20 -0400
+Processing by DiagnosesController#intermediate_view as HTML
+  Parameters: {"patient_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:24:in `intermediate_view'
+  [1m[36mDiagnosis Load (0.3ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."patient_id" = ? AND "diagnoses"."id" = ? LIMIT ?[0m  [["patient_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:25:in `intermediate_view'
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/intermediate_view.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.5ms | Allocations: 298)
+  Rendered diagnoses/intermediate_view.html.erb within layouts/application (Duration: 2.4ms | Allocations: 727)
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 7006)
+Completed 200 OK in 23ms (Views: 13.5ms | ActiveRecord: 0.6ms | Allocations: 10404)
+
+
+Started GET "/patients/1/diagnoses/1/guss_scales/new" for 127.0.0.1 at 2024-06-17 12:36:21 -0400
+Processing by GussScalesController#new as HTML
+  Parameters: {"patient_id"=>"1", "diagnosis_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDiagnosis Load (0.7ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:81:in `set_diagnosis'
+  [1m[36mGussScale Load (0.5ms)[0m  [1m[34mSELECT "guss_scales".* FROM "guss_scales" WHERE "guss_scales"."diagnosis_id" = ? LIMIT ?[0m  [["diagnosis_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:6:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering guss_scales/new.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.6ms | Allocations: 405)
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/guss_scales/new.html.erb:109
+  Rendered guss_scales/new.html.erb within layouts/application (Duration: 8.9ms | Allocations: 5065)
+  Rendered layout layouts/application.html.erb (Duration: 21.7ms | Allocations: 11541)
+Completed 200 OK in 64ms (Views: 23.7ms | ActiveRecord: 2.6ms | Allocations: 29426)
+
+
+Started POST "/patients/1/diagnoses/1/guss_scales" for 127.0.0.1 at 2024-06-17 12:36:26 -0400
+Processing by GussScalesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "guss_scale"=>{"vigilance"=>"1", "cough"=>"1", "saliva_swallow"=>"1", "sialorrhea"=>"1", "voice_changes"=>"1"}, "commit"=>"Guardar", "patient_id"=>"1", "diagnosis_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDiagnosis Load (0.2ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:81:in `set_diagnosis'
+  [1m[36mGussScale Load (0.1ms)[0m  [1m[34mSELECT "guss_scales".* FROM "guss_scales" WHERE "guss_scales"."diagnosis_id" = ? LIMIT ?[0m  [["diagnosis_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/guss_scales_controller.rb:11:in `create'
+  [1m[36mGussScale Create (0.7ms)[0m  [1m[32mINSERT INTO "guss_scales" ("vigilance", "cough", "saliva_swallow", "sialorrhea", "voice_changes", "semi_solids_swallow", "semi_solids_cough", "semi_solids_sialorrhea", "semi_solids_voice_changes", "liquids_swallow", "liquids_cough", "liquids_sialorrhea", "liquids_voice_changes", "solids_swallow", "solids_cough", "solids_sialorrhea", "solids_voice_changes", "diagnosis_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["vigilance", 1], ["cough", 1], ["saliva_swallow", 1], ["sialorrhea", 1], ["voice_changes", 1], ["semi_solids_swallow", nil], ["semi_solids_cough", nil], ["semi_solids_sialorrhea", nil], ["semi_solids_voice_changes", nil], ["liquids_swallow", nil], ["liquids_cough", nil], ["liquids_sialorrhea", nil], ["liquids_voice_changes", nil], ["solids_swallow", nil], ["solids_cough", nil], ["solids_sialorrhea", nil], ["solids_voice_changes", nil], ["diagnosis_id", 1], ["created_at", "2024-06-17 16:36:27.000837"], ["updated_at", "2024-06-17 16:36:27.000837"]]
+  ↳ app/controllers/guss_scales_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/guss_scales_controller.rb:11:in `create'
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:15:in `create'
+Redirected to http://127.0.0.1:3000/patients/1/diagnoses/1/guss_scales/1/edit?phase=semi_solids
+Completed 302 Found in 20ms (ActiveRecord: 5.3ms | Allocations: 5974)
+
+
+Started GET "/patients/1/diagnoses/1/guss_scales/1/edit?phase=semi_solids" for 127.0.0.1 at 2024-06-17 12:36:27 -0400
+Processing by GussScalesController#edit as HTML
+  Parameters: {"phase"=>"semi_solids", "patient_id"=>"1", "diagnosis_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDiagnosis Load (0.1ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:81:in `set_diagnosis'
+  [1m[36mGussScale Load (0.2ms)[0m  [1m[34mSELECT "guss_scales".* FROM "guss_scales" WHERE "guss_scales"."diagnosis_id" = ? LIMIT ?[0m  [["diagnosis_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:85:in `set_guss_scale'
+  Rendering layout layouts/application.html.erb
+  Rendering guss_scales/edit_semi_solids.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.6ms | Allocations: 299)
+  Rendered guss_scales/edit_semi_solids.html.erb within layouts/application (Duration: 10.5ms | Allocations: 4021)
+  Rendered layout layouts/application.html.erb (Duration: 22.2ms | Allocations: 10166)
+Completed 200 OK in 29ms (Views: 23.5ms | ActiveRecord: 0.4ms | Allocations: 12957)
+
+
+Started PATCH "/patients/1/diagnoses/1/guss_scales/1?phase=semi_solids" for 127.0.0.1 at 2024-06-17 12:36:31 -0400
+Processing by GussScalesController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "guss_scale"=>{"semi_solids_swallow"=>"2", "semi_solids_cough"=>"1", "semi_solids_sialorrhea"=>"1", "semi_solids_voice_changes"=>"1"}, "commit"=>"Guardar", "phase"=>"semi_solids", "patient_id"=>"1", "diagnosis_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDiagnosis Load (0.5ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:81:in `set_diagnosis'
+  [1m[36mGussScale Load (0.1ms)[0m  [1m[34mSELECT "guss_scales".* FROM "guss_scales" WHERE "guss_scales"."diagnosis_id" = ? LIMIT ?[0m  [["diagnosis_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:85:in `set_guss_scale'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/guss_scales_controller.rb:44:in `update'
+  [1m[36mGussScale Update (1.1ms)[0m  [1m[33mUPDATE "guss_scales" SET "semi_solids_swallow" = ?, "semi_solids_cough" = ?, "semi_solids_sialorrhea" = ?, "semi_solids_voice_changes" = ?, "updated_at" = ? WHERE "guss_scales"."id" = ?[0m  [["semi_solids_swallow", 2], ["semi_solids_cough", 1], ["semi_solids_sialorrhea", 1], ["semi_solids_voice_changes", 1], ["updated_at", "2024-06-17 16:36:31.930877"], ["id", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:44:in `update'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/guss_scales_controller.rb:44:in `update'
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:50:in `update'
+Redirected to http://127.0.0.1:3000/patients/1/diagnoses/1/guss_scales/1/edit?phase=liquids
+Completed 302 Found in 52ms (ActiveRecord: 6.3ms | Allocations: 5438)
+
+
+Started GET "/patients/1/diagnoses/1/guss_scales/1/edit?phase=liquids" for 127.0.0.1 at 2024-06-17 12:36:31 -0400
+Processing by GussScalesController#edit as HTML
+  Parameters: {"phase"=>"liquids", "patient_id"=>"1", "diagnosis_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDiagnosis Load (0.2ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:81:in `set_diagnosis'
+  [1m[36mGussScale Load (0.2ms)[0m  [1m[34mSELECT "guss_scales".* FROM "guss_scales" WHERE "guss_scales"."diagnosis_id" = ? LIMIT ?[0m  [["diagnosis_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:85:in `set_guss_scale'
+  Rendering layout layouts/application.html.erb
+  Rendering guss_scales/edit_liquids.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 1.0ms | Allocations: 294)
+  Rendered guss_scales/edit_liquids.html.erb within layouts/application (Duration: 8.0ms | Allocations: 3929)
+  Rendered layout layouts/application.html.erb (Duration: 18.0ms | Allocations: 10184)
+Completed 200 OK in 28ms (Views: 19.1ms | ActiveRecord: 0.5ms | Allocations: 12922)
+
+
+Started PATCH "/patients/1/diagnoses/1/guss_scales/1?phase=liquids" for 127.0.0.1 at 2024-06-17 12:36:40 -0400
+Processing by GussScalesController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "guss_scale"=>{"liquids_swallow"=>"2", "liquids_cough"=>"1", "liquids_sialorrhea"=>"1", "liquids_voice_changes"=>"1"}, "commit"=>"Guardar", "phase"=>"liquids", "patient_id"=>"1", "diagnosis_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDiagnosis Load (0.1ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:81:in `set_diagnosis'
+  [1m[36mGussScale Load (0.1ms)[0m  [1m[34mSELECT "guss_scales".* FROM "guss_scales" WHERE "guss_scales"."diagnosis_id" = ? LIMIT ?[0m  [["diagnosis_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:85:in `set_guss_scale'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/guss_scales_controller.rb:44:in `update'
+  [1m[36mGussScale Update (0.8ms)[0m  [1m[33mUPDATE "guss_scales" SET "liquids_swallow" = ?, "liquids_cough" = ?, "liquids_sialorrhea" = ?, "liquids_voice_changes" = ?, "updated_at" = ? WHERE "guss_scales"."id" = ?[0m  [["liquids_swallow", 2], ["liquids_cough", 1], ["liquids_sialorrhea", 1], ["liquids_voice_changes", 1], ["updated_at", "2024-06-17 16:36:40.172658"], ["id", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:44:in `update'
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/guss_scales_controller.rb:44:in `update'
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:56:in `update'
+Redirected to http://127.0.0.1:3000/patients/1/diagnoses/1/guss_scales/1/edit?phase=solids
+Completed 302 Found in 20ms (ActiveRecord: 5.5ms | Allocations: 5272)
+
+
+Started GET "/patients/1/diagnoses/1/guss_scales/1/edit?phase=solids" for 127.0.0.1 at 2024-06-17 12:36:40 -0400
+Processing by GussScalesController#edit as HTML
+  Parameters: {"phase"=>"solids", "patient_id"=>"1", "diagnosis_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDiagnosis Load (0.1ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:81:in `set_diagnosis'
+  [1m[36mGussScale Load (0.1ms)[0m  [1m[34mSELECT "guss_scales".* FROM "guss_scales" WHERE "guss_scales"."diagnosis_id" = ? LIMIT ?[0m  [["diagnosis_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:85:in `set_guss_scale'
+  Rendering layout layouts/application.html.erb
+  Rendering guss_scales/edit_solids.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.5ms | Allocations: 294)
+  Rendered guss_scales/edit_solids.html.erb within layouts/application (Duration: 9.2ms | Allocations: 3922)
+  Rendered layout layouts/application.html.erb (Duration: 19.5ms | Allocations: 10169)
+Completed 200 OK in 26ms (Views: 20.6ms | ActiveRecord: 0.4ms | Allocations: 12885)
+
+
+Started PATCH "/patients/1/diagnoses/1/guss_scales/1?phase=solids" for 127.0.0.1 at 2024-06-17 12:36:44 -0400
+Processing by GussScalesController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "guss_scale"=>{"solids_swallow"=>"0", "solids_cough"=>"0", "solids_sialorrhea"=>"0", "solids_voice_changes"=>"0"}, "commit"=>"Guardar", "phase"=>"solids", "patient_id"=>"1", "diagnosis_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDiagnosis Load (0.2ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:81:in `set_diagnosis'
+  [1m[36mGussScale Load (0.2ms)[0m  [1m[34mSELECT "guss_scales".* FROM "guss_scales" WHERE "guss_scales"."diagnosis_id" = ? LIMIT ?[0m  [["diagnosis_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:85:in `set_guss_scale'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/guss_scales_controller.rb:44:in `update'
+  [1m[36mGussScale Update (0.8ms)[0m  [1m[33mUPDATE "guss_scales" SET "solids_swallow" = ?, "solids_cough" = ?, "solids_sialorrhea" = ?, "solids_voice_changes" = ?, "updated_at" = ? WHERE "guss_scales"."id" = ?[0m  [["solids_swallow", 0], ["solids_cough", 0], ["solids_sialorrhea", 0], ["solids_voice_changes", 0], ["updated_at", "2024-06-17 16:36:45.002312"], ["id", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:44:in `update'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/guss_scales_controller.rb:44:in `update'
+Redirected to http://127.0.0.1:3000/patients/1/diagnoses/1/guss_scales/1/intermediate_view
+Completed 302 Found in 46ms (ActiveRecord: 4.0ms | Allocations: 4631)
+
+
+Started GET "/patients/1/diagnoses/1/guss_scales/1/intermediate_view" for 127.0.0.1 at 2024-06-17 12:36:45 -0400
+Processing by GussScalesController#intermediate_view as HTML
+  Parameters: {"patient_id"=>"1", "diagnosis_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDiagnosis Load (0.2ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:73:in `intermediate_view'
+  [1m[36mGussScale Load (0.2ms)[0m  [1m[34mSELECT "guss_scales".* FROM "guss_scales" WHERE "guss_scales"."diagnosis_id" = ? LIMIT ?[0m  [["diagnosis_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:74:in `intermediate_view'
+  Rendering layout layouts/application.html.erb
+  Rendering guss_scales/intermediate_view.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.5ms | Allocations: 294)
+  Rendered guss_scales/intermediate_view.html.erb within layouts/application (Duration: 3.2ms | Allocations: 829)
+  Rendered layout layouts/application.html.erb (Duration: 19.7ms | Allocations: 7195)
+Completed 200 OK in 28ms (Views: 20.4ms | ActiveRecord: 0.5ms | Allocations: 9926)
+
+
+Started GET "/menu" for 127.0.0.1 at 2024-06-17 12:36:47 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 11.7ms | Allocations: 2523)
+  Rendered layout layouts/application.html.erb (Duration: 26.0ms | Allocations: 8695)
+Completed 200 OK in 31ms (Views: 26.7ms | ActiveRecord: 0.2ms | Allocations: 10264)
+
+
+Started GET "/mispacientes" for 127.0.0.1 at 2024-06-17 12:36:55 -0400
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.5ms | Allocations: 294)
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/patients/index.html.erb:46
+  Rendered patients/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1138)
+  Rendered layout layouts/application.html.erb (Duration: 17.7ms | Allocations: 7424)
+Completed 200 OK in 23ms (Views: 18.2ms | ActiveRecord: 0.4ms | Allocations: 9044)
+
+
+Started GET "/patients/1" for 127.0.0.1 at 2024-06-17 12:36:56 -0400
+Processing by PatientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:73:in `set_patient'
+  [1m[36mCACHE Patient Load (0.0ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:15:in `show'
+  [1m[36mDiagnosis Load (0.4ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."patient_id" = ?[0m  [["patient_id", 1]]
+  ↳ app/controllers/patients_controller.rb:16:in `show'
+  [1m[36mLevel Load (0.3ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 1]]
+  ↳ app/controllers/patients_controller.rb:16:in `block in show'
+  [1m[36mCACHE Diagnosis Load (0.0ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."patient_id" = ?[0m  [["patient_id", 1]]
+  ↳ app/controllers/patients_controller.rb:20:in `map'
+  [1m[36mCACHE Level Load (0.0ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 1]]
+  ↳ app/controllers/patients_controller.rb:20:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering patients/show.html.erb within layouts/application
+  [1m[36mCACHE Diagnosis Load (0.0ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."patient_id" = ?[0m  [["patient_id", 1]]
+  ↳ app/views/patients/show.html.erb:58:in `each_with_index'
+  [1m[36mGussScale Load (0.5ms)[0m  [1m[34mSELECT "guss_scales".* FROM "guss_scales" WHERE "guss_scales"."diagnosis_id" = ?[0m  [["diagnosis_id", 1]]
+  ↳ app/views/patients/show.html.erb:58:in `each_with_index'
+  [1m[36mCACHE Level Load (0.1ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 1]]
+  ↳ app/views/patients/show.html.erb:79
+  Rendered patients/show.html.erb within layouts/application (Duration: 13.4ms | Allocations: 3737)
+  Rendered layout layouts/application.html.erb (Duration: 32.1ms | Allocations: 10240)
+Completed 200 OK in 85ms (Views: 32.6ms | ActiveRecord: 2.6ms | Allocations: 22485)
+
+
+Started GET "/patients/1" for 127.0.0.1 at 2024-06-17 12:40:29 -0400
+Processing by PatientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:73:in `set_patient'
+  [1m[36mCACHE Patient Load (0.0ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:15:in `show'
+  [1m[36mDiagnosis Load (0.4ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."patient_id" = ?[0m  [["patient_id", 1]]
+  ↳ app/controllers/patients_controller.rb:16:in `show'
+  [1m[36mLevel Load (0.1ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 1]]
+  ↳ app/controllers/patients_controller.rb:16:in `block in show'
+  [1m[36mCACHE Diagnosis Load (0.0ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."patient_id" = ?[0m  [["patient_id", 1]]
+  ↳ app/controllers/patients_controller.rb:20:in `map'
+  [1m[36mCACHE Level Load (0.0ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 1]]
+  ↳ app/controllers/patients_controller.rb:20:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering patients/show.html.erb within layouts/application
+  [1m[36mCACHE Diagnosis Load (0.0ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."patient_id" = ?[0m  [["patient_id", 1]]
+  ↳ app/views/patients/show.html.erb:58:in `each_with_index'
+  [1m[36mGussScale Load (0.2ms)[0m  [1m[34mSELECT "guss_scales".* FROM "guss_scales" WHERE "guss_scales"."diagnosis_id" = ?[0m  [["diagnosis_id", 1]]
+  ↳ app/views/patients/show.html.erb:58:in `each_with_index'
+  [1m[36mCACHE Level Load (0.1ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 1]]
+  ↳ app/views/patients/show.html.erb:79
+  Rendered patients/show.html.erb within layouts/application (Duration: 20.2ms | Allocations: 3859)
+  Rendered layout layouts/application.html.erb (Duration: 43.3ms | Allocations: 10599)
+Completed 200 OK in 70ms (Views: 49.8ms | ActiveRecord: 1.3ms | Allocations: 17004)
+
+
+Started GET "/mispacientes" for 127.0.0.1 at 2024-06-17 12:40:33 -0400
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 2.2ms | Allocations: 563)
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/patients/index.html.erb:46
+  Rendered patients/index.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1763)
+  Rendered layout layouts/application.html.erb (Duration: 20.4ms | Allocations: 8085)
+Completed 200 OK in 27ms (Views: 20.8ms | ActiveRecord: 0.3ms | Allocations: 9815)
+
+
+Started GET "/mispacientes" for 127.0.0.1 at 2024-06-17 12:40:34 -0400
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 2.6ms | Allocations: 294)
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/patients/index.html.erb:46
+  Rendered patients/index.html.erb within layouts/application (Duration: 7.3ms | Allocations: 1137)
+  Rendered layout layouts/application.html.erb (Duration: 28.8ms | Allocations: 7491)
+Completed 200 OK in 34ms (Views: 29.4ms | ActiveRecord: 0.8ms | Allocations: 9094)
+
+
+Started GET "/patients/new" for 127.0.0.1 at 2024-06-17 12:40:36 -0400
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.5ms | Allocations: 294)
+  Rendered patients/_form.html.erb (Duration: 12.3ms | Allocations: 5130)
+  Rendered patients/new.html.erb within layouts/application (Duration: 15.3ms | Allocations: 5808)
+  Rendered layout layouts/application.html.erb (Duration: 27.9ms | Allocations: 12182)
+Completed 200 OK in 35ms (Views: 28.9ms | ActiveRecord: 0.2ms | Allocations: 14030)
+
+
+Started POST "/patients" for 127.0.0.1 at 2024-06-17 12:40:44 -0400
+Processing by PatientsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "patient"=>{"name"=>"Alicia Garcia", "rut"=>"3243", "birthdate(1i)"=>"1926", "birthdate(2i)"=>"3", "birthdate(3i)"=>"4", "sex"=>"Femenino", "email"=>""}, "commit"=>"Guardar"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/patients_controller.rb:34:in `create'
+  [1m[36mPatient Create (0.6ms)[0m  [1m[32mINSERT INTO "patients" ("name", "rut", "birthdate", "sex", "email", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Alicia Garcia"], ["rut", "3243"], ["birthdate", "1926-03-04"], ["sex", "Femenino"], ["email", ""], ["user_id", 1], ["created_at", "2024-06-17 16:40:44.973629"], ["updated_at", "2024-06-17 16:40:44.973629"]]
+  ↳ app/controllers/patients_controller.rb:34:in `create'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/patients_controller.rb:34:in `create'
+Redirected to http://127.0.0.1:3000/patients
+Completed 302 Found in 12ms (ActiveRecord: 2.8ms | Allocations: 3793)
+
+
+Started GET "/patients" for 127.0.0.1 at 2024-06-17 12:40:44 -0400
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.4ms | Allocations: 294)
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/patients/index.html.erb:46
+  Rendered patients/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1199)
+  Rendered layout layouts/application.html.erb (Duration: 14.4ms | Allocations: 7505)
+Completed 200 OK in 19ms (Views: 15.0ms | ActiveRecord: 0.3ms | Allocations: 9076)
+
+
+Started GET "/diagnoses" for 127.0.0.1 at 2024-06-17 12:40:46 -0400
+Processing by DiagnosesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 1.0ms | Allocations: 387)
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/diagnoses/index.html.erb:172:in `each_with_index'
+  Rendered diagnoses/index.html.erb within layouts/application (Duration: 17.5ms | Allocations: 6772)
+  Rendered layout layouts/application.html.erb (Duration: 29.5ms | Allocations: 13336)
+Completed 200 OK in 36ms (Views: 31.7ms | ActiveRecord: 0.3ms | Allocations: 15335)
+
+
+Started GET "/patients/2/diagnoses/new" for 127.0.0.1 at 2024-06-17 12:40:47 -0400
+Processing by DiagnosesController#new as HTML
+  Parameters: {"patient_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:5:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/new.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.6ms | Allocations: 294)
+  Rendered diagnoses/new.html.erb within layouts/application (Duration: 9.9ms | Allocations: 3294)
+  Rendered layout layouts/application.html.erb (Duration: 24.0ms | Allocations: 9649)
+Completed 200 OK in 33ms (Views: 24.7ms | ActiveRecord: 0.4ms | Allocations: 12220)
+
+
+Started POST "/patients/2/diagnoses" for 127.0.0.1 at 2024-06-17 12:40:55 -0400
+Processing by DiagnosesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "diagnosis"=>{"patient_id"=>"2", "historia_desde"=>"ahora", "perdida_peso"=>"si", "historia_condicion"=>"que", "historia_cirugia"=>"funcione", "sintomas_episodios"=>"porfavor", "sintomas_dificultad"=>"", "sintomas_sensacion"=>"", "sintomas_dolor"=>"", "sintomas_frecuencia"=>"", "sintomas_evita_alimentos"=>"", "sintomas_cansancio"=>"", "sintomas_tiempo"=>"", "sintomas_nuevo"=>""}, "commit"=>"Guardar Diagnóstico", "patient_id"=>"2"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:13:in `create'
+[31mUnpermitted parameter: :patient_id. Context: { controller: DiagnosesController, action: create, request: #<ActionDispatch::Request:0x0000000107ecae20>, params: {"authenticity_token"=>"[FILTERED]", "diagnosis"=>{"patient_id"=>"2", "historia_desde"=>"ahora", "perdida_peso"=>"si", "historia_condicion"=>"que", "historia_cirugia"=>"funcione", "sintomas_episodios"=>"porfavor", "sintomas_dificultad"=>"", "sintomas_sensacion"=>"", "sintomas_dolor"=>"", "sintomas_frecuencia"=>"", "sintomas_evita_alimentos"=>"", "sintomas_cansancio"=>"", "sintomas_tiempo"=>"", "sintomas_nuevo"=>""}, "commit"=>"Guardar Diagnóstico", "controller"=>"diagnoses", "action"=>"create", "patient_id"=>"2"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/diagnoses_controller.rb:16:in `create'
+  [1m[36mDiagnosis Create (1.0ms)[0m  [1m[32mINSERT INTO "diagnoses" ("patient_id", "description", "date", "created_at", "updated_at", "historia_desde", "perdida_peso", "historia_condicion", "historia_cirugia", "sintomas_episodios", "sintomas_dificultad", "sintomas_sensacion", "sintomas_dolor", "sintomas_frecuencia", "sintomas_evita_alimentos", "sintomas_cansancio", "sintomas_tiempo", "sintomas_nuevo") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["patient_id", 2], ["description", nil], ["date", "2024-06-17"], ["created_at", "2024-06-17 16:40:55.380355"], ["updated_at", "2024-06-17 16:40:55.380355"], ["historia_desde", "ahora"], ["perdida_peso", "si"], ["historia_condicion", "que"], ["historia_cirugia", "funcione"], ["sintomas_episodios", "porfavor"], ["sintomas_dificultad", ""], ["sintomas_sensacion", ""], ["sintomas_dolor", ""], ["sintomas_frecuencia", ""], ["sintomas_evita_alimentos", ""], ["sintomas_cansancio", ""], ["sintomas_tiempo", ""], ["sintomas_nuevo", ""]]
+  ↳ app/controllers/diagnoses_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/diagnoses_controller.rb:16:in `create'
+Redirected to http://127.0.0.1:3000/patients/2/diagnoses/2/intermediate_view
+Completed 302 Found in 21ms (ActiveRecord: 4.6ms | Allocations: 4764)
+
+
+Started GET "/patients/2/diagnoses/2/intermediate_view" for 127.0.0.1 at 2024-06-17 12:40:55 -0400
+Processing by DiagnosesController#intermediate_view as HTML
+  Parameters: {"patient_id"=>"2", "id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:24:in `intermediate_view'
+  [1m[36mDiagnosis Load (0.2ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."patient_id" = ? AND "diagnoses"."id" = ? LIMIT ?[0m  [["patient_id", 2], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:25:in `intermediate_view'
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/intermediate_view.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.5ms | Allocations: 294)
+  Rendered diagnoses/intermediate_view.html.erb within layouts/application (Duration: 2.2ms | Allocations: 680)
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 7066)
+Completed 200 OK in 23ms (Views: 14.1ms | ActiveRecord: 0.5ms | Allocations: 10250)
+
+
+Started GET "/patients/2/diagnoses/2/levels/new" for 127.0.0.1 at 2024-06-17 12:40:56 -0400
+Processing by LevelsController#new as HTML
+  Parameters: {"patient_id"=>"2", "diagnosis_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDiagnosis Load (0.1ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/levels_controller.rb:20:in `set_patient_and_diagnosis'
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/levels_controller.rb:21:in `set_patient_and_diagnosis'
+  Rendering layout layouts/application.html.erb
+  Rendering levels/new.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.6ms | Allocations: 379)
+  Rendered levels/new.html.erb within layouts/application (Duration: 26.0ms | Allocations: 7926)
+  Rendered layout layouts/application.html.erb (Duration: 59.6ms | Allocations: 9925)
+Completed 200 OK in 82ms (Views: 62.0ms | ActiveRecord: 1.1ms | Allocations: 16056)
+
+
+Started POST "/patients/2/diagnoses/2/levels" for 127.0.0.1 at 2024-06-17 12:40:57 -0400
+Processing by LevelsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "level"=>{"escala"=>"fils", "severidad"=>"1"}, "commit"=>"Guardar", "patient_id"=>"2", "diagnosis_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDiagnosis Load (0.1ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/levels_controller.rb:20:in `set_patient_and_diagnosis'
+  [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/levels_controller.rb:21:in `set_patient_and_diagnosis'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/levels_controller.rb:10:in `create'
+  [1m[36mLevel Create (0.7ms)[0m  [1m[32mINSERT INTO "levels" ("escala", "severidad", "diagnosis_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["escala", "fils"], ["severidad", 1], ["diagnosis_id", 2], ["created_at", "2024-06-17 16:40:57.822023"], ["updated_at", "2024-06-17 16:40:57.822023"]]
+  ↳ app/controllers/levels_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/levels_controller.rb:10:in `create'
+Redirected to http://127.0.0.1:3000/menu
+Completed 302 Found in 33ms (ActiveRecord: 3.2ms | Allocations: 5611)
+
+
+Started GET "/menu" for 127.0.0.1 at 2024-06-17 12:40:57 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 11.9ms | Allocations: 3229)
+  Rendered layout layouts/application.html.erb (Duration: 26.6ms | Allocations: 9527)
+Completed 200 OK in 33ms (Views: 28.9ms | ActiveRecord: 0.2ms | Allocations: 11528)
+
+
+Started GET "/diagnoses" for 127.0.0.1 at 2024-06-17 12:40:59 -0400
+Processing by DiagnosesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.4ms | Allocations: 294)
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/diagnoses/index.html.erb:172:in `each_with_index'
+  Rendered diagnoses/index.html.erb within layouts/application (Duration: 19.5ms | Allocations: 5820)
+  Rendered layout layouts/application.html.erb (Duration: 30.3ms | Allocations: 12220)
+Completed 200 OK in 35ms (Views: 30.8ms | ActiveRecord: 0.4ms | Allocations: 14023)
+
+
+Started GET "/patients/2/diagnoses/new" for 127.0.0.1 at 2024-06-17 12:41:00 -0400
+Processing by DiagnosesController#new as HTML
+  Parameters: {"patient_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:5:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/new.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.7ms | Allocations: 294)
+  Rendered diagnoses/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 2438)
+  Rendered layout layouts/application.html.erb (Duration: 15.5ms | Allocations: 8758)
+Completed 200 OK in 27ms (Views: 16.5ms | ActiveRecord: 0.3ms | Allocations: 11141)
+
+
+Started POST "/patients/2/diagnoses" for 127.0.0.1 at 2024-06-17 12:41:10 -0400
+Processing by DiagnosesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "diagnosis"=>{"patient_id"=>"2", "historia_desde"=>"vamos", "perdida_peso"=>"que", "historia_condicion"=>"funciona", "historia_cirugia"=>"pero", "sintomas_episodios"=>"nose", "sintomas_dificultad"=>"cual", "sintomas_sensacion"=>"es", "sintomas_dolor"=>"la", "sintomas_frecuencia"=>"logica", "sintomas_evita_alimentos"=>"", "sintomas_cansancio"=>"", "sintomas_tiempo"=>"", "sintomas_nuevo"=>""}, "commit"=>"Guardar Diagnóstico", "patient_id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:13:in `create'
+[31mUnpermitted parameter: :patient_id. Context: { controller: DiagnosesController, action: create, request: #<ActionDispatch::Request:0x0000000107e381b0>, params: {"authenticity_token"=>"[FILTERED]", "diagnosis"=>{"patient_id"=>"2", "historia_desde"=>"vamos", "perdida_peso"=>"que", "historia_condicion"=>"funciona", "historia_cirugia"=>"pero", "sintomas_episodios"=>"nose", "sintomas_dificultad"=>"cual", "sintomas_sensacion"=>"es", "sintomas_dolor"=>"la", "sintomas_frecuencia"=>"logica", "sintomas_evita_alimentos"=>"", "sintomas_cansancio"=>"", "sintomas_tiempo"=>"", "sintomas_nuevo"=>""}, "commit"=>"Guardar Diagnóstico", "controller"=>"diagnoses", "action"=>"create", "patient_id"=>"2"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/diagnoses_controller.rb:16:in `create'
+  [1m[36mDiagnosis Create (1.2ms)[0m  [1m[32mINSERT INTO "diagnoses" ("patient_id", "description", "date", "created_at", "updated_at", "historia_desde", "perdida_peso", "historia_condicion", "historia_cirugia", "sintomas_episodios", "sintomas_dificultad", "sintomas_sensacion", "sintomas_dolor", "sintomas_frecuencia", "sintomas_evita_alimentos", "sintomas_cansancio", "sintomas_tiempo", "sintomas_nuevo") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["patient_id", 2], ["description", nil], ["date", "2024-06-17"], ["created_at", "2024-06-17 16:41:10.610145"], ["updated_at", "2024-06-17 16:41:10.610145"], ["historia_desde", "vamos"], ["perdida_peso", "que"], ["historia_condicion", "funciona"], ["historia_cirugia", "pero"], ["sintomas_episodios", "nose"], ["sintomas_dificultad", "cual"], ["sintomas_sensacion", "es"], ["sintomas_dolor", "la"], ["sintomas_frecuencia", "logica"], ["sintomas_evita_alimentos", ""], ["sintomas_cansancio", ""], ["sintomas_tiempo", ""], ["sintomas_nuevo", ""]]
+  ↳ app/controllers/diagnoses_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/diagnoses_controller.rb:16:in `create'
+Redirected to http://127.0.0.1:3000/patients/2/diagnoses/3/intermediate_view
+Completed 302 Found in 17ms (ActiveRecord: 3.3ms | Allocations: 4779)
+
+
+Started GET "/patients/2/diagnoses/3/intermediate_view" for 127.0.0.1 at 2024-06-17 12:41:10 -0400
+Processing by DiagnosesController#intermediate_view as HTML
+  Parameters: {"patient_id"=>"2", "id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:24:in `intermediate_view'
+  [1m[36mDiagnosis Load (0.2ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."patient_id" = ? AND "diagnoses"."id" = ? LIMIT ?[0m  [["patient_id", 2], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:25:in `intermediate_view'
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/intermediate_view.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.9ms | Allocations: 294)
+  Rendered diagnoses/intermediate_view.html.erb within layouts/application (Duration: 1.8ms | Allocations: 448)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 6804)
+Completed 200 OK in 28ms (Views: 17.0ms | ActiveRecord: 0.8ms | Allocations: 9948)
+
+
+Started GET "/patients/2/diagnoses/3/levels/new" for 127.0.0.1 at 2024-06-17 12:41:11 -0400
+Processing by LevelsController#new as HTML
+  Parameters: {"patient_id"=>"2", "diagnosis_id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDiagnosis Load (0.2ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/levels_controller.rb:20:in `set_patient_and_diagnosis'
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/levels_controller.rb:21:in `set_patient_and_diagnosis'
+  Rendering layout layouts/application.html.erb
+  Rendering levels/new.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.5ms | Allocations: 293)
+  Rendered levels/new.html.erb within layouts/application (Duration: 16.1ms | Allocations: 7079)
+  Rendered layout layouts/application.html.erb (Duration: 18.3ms | Allocations: 9060)
+Completed 200 OK in 29ms (Views: 19.0ms | ActiveRecord: 0.7ms | Allocations: 11772)
+
+
+Started POST "/patients/2/diagnoses/3/levels" for 127.0.0.1 at 2024-06-17 12:41:15 -0400
+Processing by LevelsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "level"=>{"escala"=>"fils", "severidad"=>"3"}, "commit"=>"Guardar", "patient_id"=>"2", "diagnosis_id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDiagnosis Load (0.2ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/levels_controller.rb:20:in `set_patient_and_diagnosis'
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/levels_controller.rb:21:in `set_patient_and_diagnosis'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/levels_controller.rb:10:in `create'
+  [1m[36mLevel Create (2.0ms)[0m  [1m[32mINSERT INTO "levels" ("escala", "severidad", "diagnosis_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["escala", "fils"], ["severidad", 3], ["diagnosis_id", 3], ["created_at", "2024-06-17 16:41:15.103885"], ["updated_at", "2024-06-17 16:41:15.103885"]]
+  ↳ app/controllers/levels_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/levels_controller.rb:10:in `create'
+Redirected to http://127.0.0.1:3000/menu
+Completed 302 Found in 18ms (ActiveRecord: 5.0ms | Allocations: 4575)
+
+
+Started GET "/menu" for 127.0.0.1 at 2024-06-17 12:41:15 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 6.5ms | Allocations: 2522)
+  Rendered layout layouts/application.html.erb (Duration: 18.3ms | Allocations: 8742)
+Completed 200 OK in 22ms (Views: 19.1ms | ActiveRecord: 0.1ms | Allocations: 10327)
+
+
+Started GET "/diagnoses" for 127.0.0.1 at 2024-06-17 12:41:16 -0400
+Processing by DiagnosesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/index.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.9ms | Allocations: 294)
+  [1m[36mPatient Load (0.7ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/diagnoses/index.html.erb:172:in `each_with_index'
+  Rendered diagnoses/index.html.erb within layouts/application (Duration: 10.4ms | Allocations: 5708)
+  Rendered layout layouts/application.html.erb (Duration: 27.3ms | Allocations: 12091)
+Completed 200 OK in 35ms (Views: 27.8ms | ActiveRecord: 0.8ms | Allocations: 13695)
+
+
+Started GET "/patients/2/diagnoses/new" for 127.0.0.1 at 2024-06-17 12:41:17 -0400
+Processing by DiagnosesController#new as HTML
+  Parameters: {"patient_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:5:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/new.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 1.7ms | Allocations: 294)
+  Rendered diagnoses/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 2436)
+  Rendered layout layouts/application.html.erb (Duration: 14.1ms | Allocations: 8822)
+Completed 200 OK in 28ms (Views: 15.1ms | ActiveRecord: 0.4ms | Allocations: 11216)
+
+
+Started POST "/patients/2/diagnoses" for 127.0.0.1 at 2024-06-17 12:41:19 -0400
+Processing by DiagnosesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "diagnosis"=>{"patient_id"=>"2", "historia_desde"=>"", "perdida_peso"=>"", "historia_condicion"=>"", "historia_cirugia"=>"", "sintomas_episodios"=>"", "sintomas_dificultad"=>"", "sintomas_sensacion"=>"", "sintomas_dolor"=>"", "sintomas_frecuencia"=>"", "sintomas_evita_alimentos"=>"", "sintomas_cansancio"=>"", "sintomas_tiempo"=>"", "sintomas_nuevo"=>""}, "commit"=>"Guardar Diagnóstico", "patient_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:13:in `create'
+[31mUnpermitted parameter: :patient_id. Context: { controller: DiagnosesController, action: create, request: #<ActionDispatch::Request:0x0000000107bbac80>, params: {"authenticity_token"=>"[FILTERED]", "diagnosis"=>{"patient_id"=>"2", "historia_desde"=>"", "perdida_peso"=>"", "historia_condicion"=>"", "historia_cirugia"=>"", "sintomas_episodios"=>"", "sintomas_dificultad"=>"", "sintomas_sensacion"=>"", "sintomas_dolor"=>"", "sintomas_frecuencia"=>"", "sintomas_evita_alimentos"=>"", "sintomas_cansancio"=>"", "sintomas_tiempo"=>"", "sintomas_nuevo"=>""}, "commit"=>"Guardar Diagnóstico", "controller"=>"diagnoses", "action"=>"create", "patient_id"=>"2"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/diagnoses_controller.rb:16:in `create'
+  [1m[36mDiagnosis Create (1.1ms)[0m  [1m[32mINSERT INTO "diagnoses" ("patient_id", "description", "date", "created_at", "updated_at", "historia_desde", "perdida_peso", "historia_condicion", "historia_cirugia", "sintomas_episodios", "sintomas_dificultad", "sintomas_sensacion", "sintomas_dolor", "sintomas_frecuencia", "sintomas_evita_alimentos", "sintomas_cansancio", "sintomas_tiempo", "sintomas_nuevo") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["patient_id", 2], ["description", nil], ["date", "2024-06-17"], ["created_at", "2024-06-17 16:41:19.101766"], ["updated_at", "2024-06-17 16:41:19.101766"], ["historia_desde", ""], ["perdida_peso", ""], ["historia_condicion", ""], ["historia_cirugia", ""], ["sintomas_episodios", ""], ["sintomas_dificultad", ""], ["sintomas_sensacion", ""], ["sintomas_dolor", ""], ["sintomas_frecuencia", ""], ["sintomas_evita_alimentos", ""], ["sintomas_cansancio", ""], ["sintomas_tiempo", ""], ["sintomas_nuevo", ""]]
+  ↳ app/controllers/diagnoses_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/diagnoses_controller.rb:16:in `create'
+Redirected to http://127.0.0.1:3000/patients/2/diagnoses/4/intermediate_view
+Completed 302 Found in 19ms (ActiveRecord: 3.8ms | Allocations: 4691)
+
+
+Started GET "/patients/2/diagnoses/4/intermediate_view" for 127.0.0.1 at 2024-06-17 12:41:19 -0400
+Processing by DiagnosesController#intermediate_view as HTML
+  Parameters: {"patient_id"=>"2", "id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:24:in `intermediate_view'
+  [1m[36mDiagnosis Load (0.1ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."patient_id" = ? AND "diagnoses"."id" = ? LIMIT ?[0m  [["patient_id", 2], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/diagnoses_controller.rb:25:in `intermediate_view'
+  Rendering layout layouts/application.html.erb
+  Rendering diagnoses/intermediate_view.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.6ms | Allocations: 294)
+  Rendered diagnoses/intermediate_view.html.erb within layouts/application (Duration: 1.1ms | Allocations: 448)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 6768)
+Completed 200 OK in 22ms (Views: 14.5ms | ActiveRecord: 0.4ms | Allocations: 9890)
+
+
+Started GET "/patients/2/diagnoses/4/guss_scales/new" for 127.0.0.1 at 2024-06-17 12:41:20 -0400
+Processing by GussScalesController#new as HTML
+  Parameters: {"patient_id"=>"2", "diagnosis_id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDiagnosis Load (0.2ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:81:in `set_diagnosis'
+  [1m[36mGussScale Load (0.2ms)[0m  [1m[34mSELECT "guss_scales".* FROM "guss_scales" WHERE "guss_scales"."diagnosis_id" = ? LIMIT ?[0m  [["diagnosis_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:6:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering guss_scales/new.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 1.0ms | Allocations: 387)
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/guss_scales/new.html.erb:109
+  Rendered guss_scales/new.html.erb within layouts/application (Duration: 10.4ms | Allocations: 3993)
+  Rendered layout layouts/application.html.erb (Duration: 20.3ms | Allocations: 10512)
+Completed 200 OK in 33ms (Views: 23.4ms | ActiveRecord: 0.9ms | Allocations: 13709)
+
+
+Started POST "/patients/2/diagnoses/4/guss_scales" for 127.0.0.1 at 2024-06-17 12:41:24 -0400
+Processing by GussScalesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "guss_scale"=>{"vigilance"=>"1", "cough"=>"1", "saliva_swallow"=>"1", "sialorrhea"=>"1", "voice_changes"=>"1"}, "commit"=>"Guardar", "patient_id"=>"2", "diagnosis_id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDiagnosis Load (0.3ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:81:in `set_diagnosis'
+  [1m[36mGussScale Load (0.1ms)[0m  [1m[34mSELECT "guss_scales".* FROM "guss_scales" WHERE "guss_scales"."diagnosis_id" = ? LIMIT ?[0m  [["diagnosis_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/guss_scales_controller.rb:11:in `create'
+  [1m[36mGussScale Create (0.7ms)[0m  [1m[32mINSERT INTO "guss_scales" ("vigilance", "cough", "saliva_swallow", "sialorrhea", "voice_changes", "semi_solids_swallow", "semi_solids_cough", "semi_solids_sialorrhea", "semi_solids_voice_changes", "liquids_swallow", "liquids_cough", "liquids_sialorrhea", "liquids_voice_changes", "solids_swallow", "solids_cough", "solids_sialorrhea", "solids_voice_changes", "diagnosis_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["vigilance", 1], ["cough", 1], ["saliva_swallow", 1], ["sialorrhea", 1], ["voice_changes", 1], ["semi_solids_swallow", nil], ["semi_solids_cough", nil], ["semi_solids_sialorrhea", nil], ["semi_solids_voice_changes", nil], ["liquids_swallow", nil], ["liquids_cough", nil], ["liquids_sialorrhea", nil], ["liquids_voice_changes", nil], ["solids_swallow", nil], ["solids_cough", nil], ["solids_sialorrhea", nil], ["solids_voice_changes", nil], ["diagnosis_id", 4], ["created_at", "2024-06-17 16:41:24.724358"], ["updated_at", "2024-06-17 16:41:24.724358"]]
+  ↳ app/controllers/guss_scales_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/guss_scales_controller.rb:11:in `create'
+  [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:15:in `create'
+Redirected to http://127.0.0.1:3000/patients/2/diagnoses/4/guss_scales/2/edit?phase=semi_solids
+Completed 302 Found in 21ms (ActiveRecord: 4.7ms | Allocations: 5577)
+
+
+Started GET "/patients/2/diagnoses/4/guss_scales/2/edit?phase=semi_solids" for 127.0.0.1 at 2024-06-17 12:41:24 -0400
+Processing by GussScalesController#edit as HTML
+  Parameters: {"phase"=>"semi_solids", "patient_id"=>"2", "diagnosis_id"=>"4", "id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDiagnosis Load (0.1ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:81:in `set_diagnosis'
+  [1m[36mGussScale Load (0.1ms)[0m  [1m[34mSELECT "guss_scales".* FROM "guss_scales" WHERE "guss_scales"."diagnosis_id" = ? LIMIT ?[0m  [["diagnosis_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:85:in `set_guss_scale'
+  Rendering layout layouts/application.html.erb
+  Rendering guss_scales/edit_semi_solids.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.5ms | Allocations: 294)
+  Rendered guss_scales/edit_semi_solids.html.erb within layouts/application (Duration: 9.9ms | Allocations: 3914)
+  Rendered layout layouts/application.html.erb (Duration: 20.3ms | Allocations: 10123)
+Completed 200 OK in 27ms (Views: 21.3ms | ActiveRecord: 0.4ms | Allocations: 12877)
+
+
+Started PATCH "/patients/4/diagnoses/2/guss_scales/2?phase=semi_solids" for 127.0.0.1 at 2024-06-17 12:41:28 -0400
+Processing by GussScalesController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "guss_scale"=>{"semi_solids_swallow"=>"0", "semi_solids_cough"=>"1", "semi_solids_sialorrhea"=>"1", "semi_solids_voice_changes"=>"1"}, "commit"=>"Guardar", "phase"=>"semi_solids", "patient_id"=>"4", "diagnosis_id"=>"2", "id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDiagnosis Load (0.1ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:81:in `set_diagnosis'
+  [1m[36mGussScale Load (0.2ms)[0m  [1m[34mSELECT "guss_scales".* FROM "guss_scales" WHERE "guss_scales"."diagnosis_id" = ? LIMIT ?[0m  [["diagnosis_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/guss_scales_controller.rb:85:in `set_guss_scale'
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.5ms | Allocations: 4177)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass
+
+    if @guss_scale.update(guss_scale_params)
+                  ^^^^^^^):
+  
+app/controllers/guss_scales_controller.rb:44:in `update'

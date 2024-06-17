@@ -116,6 +116,59 @@
                 <% if diagnosis.sintomas_cansancio.present? %>
                   <div class="detail-item"><strong>Cansancio al Comer o Beber:</strong> <%= diagnosis.sintomas_cansancio %></div>
                 <% end %>
+                <% if diagnosis.guss_scale.present? %>
+                  <div class="guss-details">
+                    <% total_score = diagnosis.guss_scale.total_score%>
+                    
+                    <h5>Detalles de la Escala GUSS</h5>
+                    <p>Puntaje Total: <%= total_score %></p>
+
+                    <% case total_score %>
+                    <% when 0..9 %>
+                      <p>Resultados: Fracaso en investigación preliminar</p>
+                      <p>Código: Disfagia con alto riesgo</p>
+                      <p>Recomendaciones: La dieta para la disfagia comienza con:</p>
+                      <ul>
+                        <li>Sonda Nasogástrica o Alimentación Parenteral.</li>
+                        <li>Evaluaciones funcionales de la Deglución (FEES, VFES).</li>
+                        <li>Derivar a fonoaudiólogo.</li>
+                      </ul>
+                    <% when 10..14 %>
+                      <p>Resultados: Éxito al deglutir semisólidos</p>
+                      <p>Código: Disfagia moderada con riesgo de aspiración</p>
+                      <p>Recomendaciones: La dieta para la disfagia comienza con:</p>
+                      <ul>
+                        <li>Textura semisólidas, espesar todos los líquidos.</li>
+                        <li>Todos los líquidos deben ser espesados.</li>
+                        <li>Las píldoras deben molerse y mezclarse con líquido espeso.</li>
+                        <li>Ninguna medicación líquida.</li>
+                        <li>Evaluaciones funcionales de la Deglución (FEES, VFES).</li>
+                        <li>Derivar a fonoaudiólogo.</li>
+                        <li>Suplemento con Sonda Nasogástrica o Alimentación Parenteral.</li>
+                      </ul>
+                    <% when 15..19 %>
+                      <p>Resultados: Éxito con texturas semisólidas y líquido, fracaso con sólida</p>
+                      <p>Código: Disfagia leve con bajo riesgo de aspiración</p>
+                      <p>Recomendaciones:</p>
+                      <ul>
+                        <li>Dieta para disfagia, líquidos muy lentamente.</li>
+                        <li>Líquidos muy lentamente - un sorbo a la vez.</li>
+                        <li>Evaluaciones funcional de la Deglución, tales como Evaluación Fibroscópica de la Deglución (FEES) ó Evaluación Videofluoroscópica de la Deglución (VFES).</li>
+                        <li>Derivar a fonoaudiólogo.</li>
+                      </ul>
+                    <% when 20 %>
+                      <p>Resultados: Éxito con semisólidos, líquidos y sólidos</p>
+                      <p>Código: Leve sin disfagia, mínimo riesgo de aspiración</p>
+                      <p>Recomendaciones: </p>
+                      <ul>
+                        <li>Dieta normal.</li>
+                        <li>Líquidos regulares (la primera vez bajo la supervisión de un Fonoaudiólogo o una Enfermera entrenada).</li>
+                      </ul>
+                    <% else %>
+                      <p>Resultados no disponibles para el puntaje proporcionado</p>
+                    <% end %>
+                  </div>
+                <% end %>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -225,6 +278,3 @@
   </script>
 </body>
 </html>
-
-
-
