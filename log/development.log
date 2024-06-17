@@ -25232,3 +25232,283 @@ Completed 200 OK in 27ms (Views: 21.3ms | ActiveRecord: 0.2ms | Allocations: 141
 >>>>>>> origin/alicia-lluvia
 
 
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (1.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "diagnoses"[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "diagnoses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "patient_id" integer NOT NULL, "description" text, "date" date, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "historia_desde" varchar, "perdida_peso" varchar, "historia_condicion" varchar, "historia_cirugia" varchar, "sintomas_episodios" varchar, "sintomas_dificultad" varchar, "sintomas_sensacion" varchar, "sintomas_dolor" varchar, "sintomas_frecuencia" varchar, "sintomas_evita_alimentos" varchar, "sintomas_cansancio" varchar, "sintomas_tiempo" varchar, "sintomas_nuevo" varchar)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE INDEX "index_diagnoses_on_patient_id" ON "diagnoses" ("patient_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "guss_scales"[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "guss_scales" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "vigilance" integer, "cough" integer, "saliva_swallow" integer, "sialorrhea" integer, "voice_changes" integer, "semi_solids_swallow" integer, "semi_solids_cough" integer, "semi_solids_sialorrhea" integer, "semi_solids_voice_changes" integer, "liquids_swallow" integer, "liquids_cough" integer, "liquids_sialorrhea" integer, "liquids_voice_changes" integer, "solids_swallow" integer, "solids_cough" integer, "solids_sialorrhea" integer, "solids_voice_changes" integer, "diagnosis_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_guss_scales_on_diagnosis_id" ON "guss_scales" ("diagnosis_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "levels"[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "levels" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "escala" varchar, "severidad" integer, "diagnosis_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE INDEX "index_levels_on_diagnosis_id" ON "levels" ("diagnosis_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "patients"[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "patients" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "rut" varchar, "birthdate" date, "sex" varchar, "email" varchar, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE INDEX "index_patients_on_user_id" ON "patients" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime(6), "remember_created_at" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "adiagnoses" ("id" integer NOT NULL PRIMARY KEY, "patient_id" integer NOT NULL, "description" text DEFAULT NULL, "date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "historia_desde" varchar DEFAULT NULL, "perdida_peso" varchar DEFAULT NULL, "historia_condicion" varchar DEFAULT NULL, "historia_cirugia" varchar DEFAULT NULL, "sintomas_episodios" varchar DEFAULT NULL, "sintomas_dificultad" varchar DEFAULT NULL, "sintomas_sensacion" varchar DEFAULT NULL, "sintomas_dolor" varchar DEFAULT NULL, "sintomas_frecuencia" varchar DEFAULT NULL, "sintomas_evita_alimentos" varchar DEFAULT NULL, "sintomas_cansancio" varchar DEFAULT NULL, "sintomas_tiempo" varchar DEFAULT NULL, "sintomas_nuevo" varchar DEFAULT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_adiagnoses_on_patient_id" ON "adiagnoses" ("patient_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "adiagnoses" ("id","patient_id","description","date","created_at","updated_at","historia_desde","perdida_peso","historia_condicion","historia_cirugia","sintomas_episodios","sintomas_dificultad","sintomas_sensacion","sintomas_dolor","sintomas_frecuencia","sintomas_evita_alimentos","sintomas_cansancio","sintomas_tiempo","sintomas_nuevo")
+                     SELECT "id","patient_id","description","date","created_at","updated_at","historia_desde","perdida_peso","historia_condicion","historia_cirugia","sintomas_episodios","sintomas_dificultad","sintomas_sensacion","sintomas_dolor","sintomas_frecuencia","sintomas_evita_alimentos","sintomas_cansancio","sintomas_tiempo","sintomas_nuevo" FROM "diagnoses"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE "diagnoses"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "diagnoses" ("id" integer NOT NULL PRIMARY KEY, "patient_id" integer NOT NULL, "description" text DEFAULT NULL, "date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "historia_desde" varchar DEFAULT NULL, "perdida_peso" varchar DEFAULT NULL, "historia_condicion" varchar DEFAULT NULL, "historia_cirugia" varchar DEFAULT NULL, "sintomas_episodios" varchar DEFAULT NULL, "sintomas_dificultad" varchar DEFAULT NULL, "sintomas_sensacion" varchar DEFAULT NULL, "sintomas_dolor" varchar DEFAULT NULL, "sintomas_frecuencia" varchar DEFAULT NULL, "sintomas_evita_alimentos" varchar DEFAULT NULL, "sintomas_cansancio" varchar DEFAULT NULL, "sintomas_tiempo" varchar DEFAULT NULL, "sintomas_nuevo" varchar DEFAULT NULL, CONSTRAINT "fk_rails_b4ae3dea5a"
+FOREIGN KEY ("patient_id")
+  REFERENCES "patients" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_diagnoses_on_patient_id" ON "diagnoses" ("patient_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "diagnoses" ("id","patient_id","description","date","created_at","updated_at","historia_desde","perdida_peso","historia_condicion","historia_cirugia","sintomas_episodios","sintomas_dificultad","sintomas_sensacion","sintomas_dolor","sintomas_frecuencia","sintomas_evita_alimentos","sintomas_cansancio","sintomas_tiempo","sintomas_nuevo")
+                     SELECT "id","patient_id","description","date","created_at","updated_at","historia_desde","perdida_peso","historia_condicion","historia_cirugia","sintomas_episodios","sintomas_dificultad","sintomas_sensacion","sintomas_dolor","sintomas_frecuencia","sintomas_evita_alimentos","sintomas_cansancio","sintomas_tiempo","sintomas_nuevo" FROM "adiagnoses"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "adiagnoses"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aguss_scales" ("id" integer NOT NULL PRIMARY KEY, "vigilance" integer DEFAULT NULL, "cough" integer DEFAULT NULL, "saliva_swallow" integer DEFAULT NULL, "sialorrhea" integer DEFAULT NULL, "voice_changes" integer DEFAULT NULL, "semi_solids_swallow" integer DEFAULT NULL, "semi_solids_cough" integer DEFAULT NULL, "semi_solids_sialorrhea" integer DEFAULT NULL, "semi_solids_voice_changes" integer DEFAULT NULL, "liquids_swallow" integer DEFAULT NULL, "liquids_cough" integer DEFAULT NULL, "liquids_sialorrhea" integer DEFAULT NULL, "liquids_voice_changes" integer DEFAULT NULL, "solids_swallow" integer DEFAULT NULL, "solids_cough" integer DEFAULT NULL, "solids_sialorrhea" integer DEFAULT NULL, "solids_voice_changes" integer DEFAULT NULL, "diagnosis_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aguss_scales_on_diagnosis_id" ON "aguss_scales" ("diagnosis_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "aguss_scales" ("id","vigilance","cough","saliva_swallow","sialorrhea","voice_changes","semi_solids_swallow","semi_solids_cough","semi_solids_sialorrhea","semi_solids_voice_changes","liquids_swallow","liquids_cough","liquids_sialorrhea","liquids_voice_changes","solids_swallow","solids_cough","solids_sialorrhea","solids_voice_changes","diagnosis_id","created_at","updated_at")
+                     SELECT "id","vigilance","cough","saliva_swallow","sialorrhea","voice_changes","semi_solids_swallow","semi_solids_cough","semi_solids_sialorrhea","semi_solids_voice_changes","liquids_swallow","liquids_cough","liquids_sialorrhea","liquids_voice_changes","solids_swallow","solids_cough","solids_sialorrhea","solids_voice_changes","diagnosis_id","created_at","updated_at" FROM "guss_scales"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE "guss_scales"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "guss_scales" ("id" integer NOT NULL PRIMARY KEY, "vigilance" integer DEFAULT NULL, "cough" integer DEFAULT NULL, "saliva_swallow" integer DEFAULT NULL, "sialorrhea" integer DEFAULT NULL, "voice_changes" integer DEFAULT NULL, "semi_solids_swallow" integer DEFAULT NULL, "semi_solids_cough" integer DEFAULT NULL, "semi_solids_sialorrhea" integer DEFAULT NULL, "semi_solids_voice_changes" integer DEFAULT NULL, "liquids_swallow" integer DEFAULT NULL, "liquids_cough" integer DEFAULT NULL, "liquids_sialorrhea" integer DEFAULT NULL, "liquids_voice_changes" integer DEFAULT NULL, "solids_swallow" integer DEFAULT NULL, "solids_cough" integer DEFAULT NULL, "solids_sialorrhea" integer DEFAULT NULL, "solids_voice_changes" integer DEFAULT NULL, "diagnosis_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_32808ee9fc"
+FOREIGN KEY ("diagnosis_id")
+  REFERENCES "diagnoses" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_guss_scales_on_diagnosis_id" ON "guss_scales" ("diagnosis_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "guss_scales" ("id","vigilance","cough","saliva_swallow","sialorrhea","voice_changes","semi_solids_swallow","semi_solids_cough","semi_solids_sialorrhea","semi_solids_voice_changes","liquids_swallow","liquids_cough","liquids_sialorrhea","liquids_voice_changes","solids_swallow","solids_cough","solids_sialorrhea","solids_voice_changes","diagnosis_id","created_at","updated_at")
+                     SELECT "id","vigilance","cough","saliva_swallow","sialorrhea","voice_changes","semi_solids_swallow","semi_solids_cough","semi_solids_sialorrhea","semi_solids_voice_changes","liquids_swallow","liquids_cough","liquids_sialorrhea","liquids_voice_changes","solids_swallow","solids_cough","solids_sialorrhea","solids_voice_changes","diagnosis_id","created_at","updated_at" FROM "aguss_scales"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aguss_scales"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "alevels" ("id" integer NOT NULL PRIMARY KEY, "escala" varchar DEFAULT NULL, "severidad" integer DEFAULT NULL, "diagnosis_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_alevels_on_diagnosis_id" ON "alevels" ("diagnosis_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "alevels" ("id","escala","severidad","diagnosis_id","created_at","updated_at")
+                     SELECT "id","escala","severidad","diagnosis_id","created_at","updated_at" FROM "levels"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "levels"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "levels" ("id" integer NOT NULL PRIMARY KEY, "escala" varchar DEFAULT NULL, "severidad" integer DEFAULT NULL, "diagnosis_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_a1cee0139c"
+FOREIGN KEY ("diagnosis_id")
+  REFERENCES "diagnoses" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_levels_on_diagnosis_id" ON "levels" ("diagnosis_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "levels" ("id","escala","severidad","diagnosis_id","created_at","updated_at")
+                     SELECT "id","escala","severidad","diagnosis_id","created_at","updated_at" FROM "alevels"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "alevels"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "apatients" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "rut" varchar DEFAULT NULL, "birthdate" date DEFAULT NULL, "sex" varchar DEFAULT NULL, "email" varchar DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_apatients_on_user_id" ON "apatients" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "apatients" ("id","name","rut","birthdate","sex","email","user_id","created_at","updated_at")
+                     SELECT "id","name","rut","birthdate","sex","email","user_id","created_at","updated_at" FROM "patients"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "patients"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "patients" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "rut" varchar DEFAULT NULL, "birthdate" date DEFAULT NULL, "sex" varchar DEFAULT NULL, "email" varchar DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_623f05c630"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_patients_on_user_id" ON "patients" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "patients" ("id","name","rut","birthdate","sex","email","user_id","created_at","updated_at")
+                     SELECT "id","name","rut","birthdate","sex","email","user_id","created_at","updated_at" FROM "apatients"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "apatients"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20240605192031)[0m
+  [1m[35m (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20240603135824),
+(20240603193436),
+(20240603193602),
+(20240604123807),
+(20240604123852),
+(20240604124107),
+(20240604133425),
+(20240604133859),
+(20240604134503),
+(20240604134553),
+(20240604134618),
+(20240604134639),
+(20240604134711),
+(20240604134818),
+(20240604134836),
+(20240604134854),
+(20240604142622),
+(20240604233529),
+(20240604233735);
+
+[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-06-17 13:54:58.533087"], ["updated_at", "2024-06-17 13:54:58.533087"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "d0898d735e56b5cfbd318a318467adc4e90d2cbf"], ["created_at", "2024-06-17 13:54:58.544059"], ["updated_at", "2024-06-17 13:54:58.544059"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "diagnoses"[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "diagnoses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "patient_id" integer NOT NULL, "description" text, "date" date, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "historia_desde" varchar, "perdida_peso" varchar, "historia_condicion" varchar, "historia_cirugia" varchar, "sintomas_episodios" varchar, "sintomas_dificultad" varchar, "sintomas_sensacion" varchar, "sintomas_dolor" varchar, "sintomas_frecuencia" varchar, "sintomas_evita_alimentos" varchar, "sintomas_cansancio" varchar, "sintomas_tiempo" varchar, "sintomas_nuevo" varchar)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_diagnoses_on_patient_id" ON "diagnoses" ("patient_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "guss_scales"[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "guss_scales" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "vigilance" integer, "cough" integer, "saliva_swallow" integer, "sialorrhea" integer, "voice_changes" integer, "semi_solids_swallow" integer, "semi_solids_cough" integer, "semi_solids_sialorrhea" integer, "semi_solids_voice_changes" integer, "liquids_swallow" integer, "liquids_cough" integer, "liquids_sialorrhea" integer, "liquids_voice_changes" integer, "solids_swallow" integer, "solids_cough" integer, "solids_sialorrhea" integer, "solids_voice_changes" integer, "diagnosis_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE INDEX "index_guss_scales_on_diagnosis_id" ON "guss_scales" ("diagnosis_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "levels"[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "levels" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "escala" varchar, "severidad" integer, "diagnosis_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE INDEX "index_levels_on_diagnosis_id" ON "levels" ("diagnosis_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "patients"[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "patients" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "rut" varchar, "birthdate" date, "sex" varchar, "email" varchar, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE INDEX "index_patients_on_user_id" ON "patients" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime(6), "remember_created_at" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "adiagnoses" ("id" integer NOT NULL PRIMARY KEY, "patient_id" integer NOT NULL, "description" text DEFAULT NULL, "date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "historia_desde" varchar DEFAULT NULL, "perdida_peso" varchar DEFAULT NULL, "historia_condicion" varchar DEFAULT NULL, "historia_cirugia" varchar DEFAULT NULL, "sintomas_episodios" varchar DEFAULT NULL, "sintomas_dificultad" varchar DEFAULT NULL, "sintomas_sensacion" varchar DEFAULT NULL, "sintomas_dolor" varchar DEFAULT NULL, "sintomas_frecuencia" varchar DEFAULT NULL, "sintomas_evita_alimentos" varchar DEFAULT NULL, "sintomas_cansancio" varchar DEFAULT NULL, "sintomas_tiempo" varchar DEFAULT NULL, "sintomas_nuevo" varchar DEFAULT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_adiagnoses_on_patient_id" ON "adiagnoses" ("patient_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "adiagnoses" ("id","patient_id","description","date","created_at","updated_at","historia_desde","perdida_peso","historia_condicion","historia_cirugia","sintomas_episodios","sintomas_dificultad","sintomas_sensacion","sintomas_dolor","sintomas_frecuencia","sintomas_evita_alimentos","sintomas_cansancio","sintomas_tiempo","sintomas_nuevo")
+                     SELECT "id","patient_id","description","date","created_at","updated_at","historia_desde","perdida_peso","historia_condicion","historia_cirugia","sintomas_episodios","sintomas_dificultad","sintomas_sensacion","sintomas_dolor","sintomas_frecuencia","sintomas_evita_alimentos","sintomas_cansancio","sintomas_tiempo","sintomas_nuevo" FROM "diagnoses"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "diagnoses"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "diagnoses" ("id" integer NOT NULL PRIMARY KEY, "patient_id" integer NOT NULL, "description" text DEFAULT NULL, "date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "historia_desde" varchar DEFAULT NULL, "perdida_peso" varchar DEFAULT NULL, "historia_condicion" varchar DEFAULT NULL, "historia_cirugia" varchar DEFAULT NULL, "sintomas_episodios" varchar DEFAULT NULL, "sintomas_dificultad" varchar DEFAULT NULL, "sintomas_sensacion" varchar DEFAULT NULL, "sintomas_dolor" varchar DEFAULT NULL, "sintomas_frecuencia" varchar DEFAULT NULL, "sintomas_evita_alimentos" varchar DEFAULT NULL, "sintomas_cansancio" varchar DEFAULT NULL, "sintomas_tiempo" varchar DEFAULT NULL, "sintomas_nuevo" varchar DEFAULT NULL, CONSTRAINT "fk_rails_b4ae3dea5a"
+FOREIGN KEY ("patient_id")
+  REFERENCES "patients" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_diagnoses_on_patient_id" ON "diagnoses" ("patient_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "diagnoses" ("id","patient_id","description","date","created_at","updated_at","historia_desde","perdida_peso","historia_condicion","historia_cirugia","sintomas_episodios","sintomas_dificultad","sintomas_sensacion","sintomas_dolor","sintomas_frecuencia","sintomas_evita_alimentos","sintomas_cansancio","sintomas_tiempo","sintomas_nuevo")
+                     SELECT "id","patient_id","description","date","created_at","updated_at","historia_desde","perdida_peso","historia_condicion","historia_cirugia","sintomas_episodios","sintomas_dificultad","sintomas_sensacion","sintomas_dolor","sintomas_frecuencia","sintomas_evita_alimentos","sintomas_cansancio","sintomas_tiempo","sintomas_nuevo" FROM "adiagnoses"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "adiagnoses"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aguss_scales" ("id" integer NOT NULL PRIMARY KEY, "vigilance" integer DEFAULT NULL, "cough" integer DEFAULT NULL, "saliva_swallow" integer DEFAULT NULL, "sialorrhea" integer DEFAULT NULL, "voice_changes" integer DEFAULT NULL, "semi_solids_swallow" integer DEFAULT NULL, "semi_solids_cough" integer DEFAULT NULL, "semi_solids_sialorrhea" integer DEFAULT NULL, "semi_solids_voice_changes" integer DEFAULT NULL, "liquids_swallow" integer DEFAULT NULL, "liquids_cough" integer DEFAULT NULL, "liquids_sialorrhea" integer DEFAULT NULL, "liquids_voice_changes" integer DEFAULT NULL, "solids_swallow" integer DEFAULT NULL, "solids_cough" integer DEFAULT NULL, "solids_sialorrhea" integer DEFAULT NULL, "solids_voice_changes" integer DEFAULT NULL, "diagnosis_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aguss_scales_on_diagnosis_id" ON "aguss_scales" ("diagnosis_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aguss_scales" ("id","vigilance","cough","saliva_swallow","sialorrhea","voice_changes","semi_solids_swallow","semi_solids_cough","semi_solids_sialorrhea","semi_solids_voice_changes","liquids_swallow","liquids_cough","liquids_sialorrhea","liquids_voice_changes","solids_swallow","solids_cough","solids_sialorrhea","solids_voice_changes","diagnosis_id","created_at","updated_at")
+                     SELECT "id","vigilance","cough","saliva_swallow","sialorrhea","voice_changes","semi_solids_swallow","semi_solids_cough","semi_solids_sialorrhea","semi_solids_voice_changes","liquids_swallow","liquids_cough","liquids_sialorrhea","liquids_voice_changes","solids_swallow","solids_cough","solids_sialorrhea","solids_voice_changes","diagnosis_id","created_at","updated_at" FROM "guss_scales"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "guss_scales"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "guss_scales" ("id" integer NOT NULL PRIMARY KEY, "vigilance" integer DEFAULT NULL, "cough" integer DEFAULT NULL, "saliva_swallow" integer DEFAULT NULL, "sialorrhea" integer DEFAULT NULL, "voice_changes" integer DEFAULT NULL, "semi_solids_swallow" integer DEFAULT NULL, "semi_solids_cough" integer DEFAULT NULL, "semi_solids_sialorrhea" integer DEFAULT NULL, "semi_solids_voice_changes" integer DEFAULT NULL, "liquids_swallow" integer DEFAULT NULL, "liquids_cough" integer DEFAULT NULL, "liquids_sialorrhea" integer DEFAULT NULL, "liquids_voice_changes" integer DEFAULT NULL, "solids_swallow" integer DEFAULT NULL, "solids_cough" integer DEFAULT NULL, "solids_sialorrhea" integer DEFAULT NULL, "solids_voice_changes" integer DEFAULT NULL, "diagnosis_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_32808ee9fc"
+FOREIGN KEY ("diagnosis_id")
+  REFERENCES "diagnoses" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_guss_scales_on_diagnosis_id" ON "guss_scales" ("diagnosis_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "guss_scales" ("id","vigilance","cough","saliva_swallow","sialorrhea","voice_changes","semi_solids_swallow","semi_solids_cough","semi_solids_sialorrhea","semi_solids_voice_changes","liquids_swallow","liquids_cough","liquids_sialorrhea","liquids_voice_changes","solids_swallow","solids_cough","solids_sialorrhea","solids_voice_changes","diagnosis_id","created_at","updated_at")
+                     SELECT "id","vigilance","cough","saliva_swallow","sialorrhea","voice_changes","semi_solids_swallow","semi_solids_cough","semi_solids_sialorrhea","semi_solids_voice_changes","liquids_swallow","liquids_cough","liquids_sialorrhea","liquids_voice_changes","solids_swallow","solids_cough","solids_sialorrhea","solids_voice_changes","diagnosis_id","created_at","updated_at" FROM "aguss_scales"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aguss_scales"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "alevels" ("id" integer NOT NULL PRIMARY KEY, "escala" varchar DEFAULT NULL, "severidad" integer DEFAULT NULL, "diagnosis_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_alevels_on_diagnosis_id" ON "alevels" ("diagnosis_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "alevels" ("id","escala","severidad","diagnosis_id","created_at","updated_at")
+                     SELECT "id","escala","severidad","diagnosis_id","created_at","updated_at" FROM "levels"[0m
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE "levels"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "levels" ("id" integer NOT NULL PRIMARY KEY, "escala" varchar DEFAULT NULL, "severidad" integer DEFAULT NULL, "diagnosis_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_a1cee0139c"
+FOREIGN KEY ("diagnosis_id")
+  REFERENCES "diagnoses" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_levels_on_diagnosis_id" ON "levels" ("diagnosis_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "levels" ("id","escala","severidad","diagnosis_id","created_at","updated_at")
+                     SELECT "id","escala","severidad","diagnosis_id","created_at","updated_at" FROM "alevels"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "alevels"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "apatients" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "rut" varchar DEFAULT NULL, "birthdate" date DEFAULT NULL, "sex" varchar DEFAULT NULL, "email" varchar DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_apatients_on_user_id" ON "apatients" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "apatients" ("id","name","rut","birthdate","sex","email","user_id","created_at","updated_at")
+                     SELECT "id","name","rut","birthdate","sex","email","user_id","created_at","updated_at" FROM "patients"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE "patients"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "patients" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "rut" varchar DEFAULT NULL, "birthdate" date DEFAULT NULL, "sex" varchar DEFAULT NULL, "email" varchar DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_623f05c630"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_patients_on_user_id" ON "patients" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "patients" ("id","name","rut","birthdate","sex","email","user_id","created_at","updated_at")
+                     SELECT "id","name","rut","birthdate","sex","email","user_id","created_at","updated_at" FROM "apatients"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "apatients"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20240605192031)[0m
+  [1m[35m (1.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20240603135824),
+(20240603193436),
+(20240603193602),
+(20240604123807),
+(20240604123852),
+(20240604124107),
+(20240604133425),
+(20240604133859),
+(20240604134503),
+(20240604134553),
+(20240604134618),
+(20240604134639),
+(20240604134711),
+(20240604134818),
+(20240604134836),
+(20240604134854),
+(20240604142622),
+(20240604233529),
+(20240604233735);
+
+[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-06-17 13:54:58.687858"], ["updated_at", "2024-06-17 13:54:58.687858"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2024-06-17 13:54:58.695630"], ["key", "environment"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "d0898d735e56b5cfbd318a318467adc4e90d2cbf"], ["created_at", "2024-06-17 13:54:58.706612"], ["updated_at", "2024-06-17 13:54:58.706612"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
