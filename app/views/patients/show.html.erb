@@ -116,66 +116,6 @@
                 <% if diagnosis.sintomas_cansancio.present? %>
                   <div class="detail-item"><strong>Cansancio al Comer o Beber:</strong> <%= diagnosis.sintomas_cansancio %></div>
                 <% end %>
-                <% if diagnosis.sintomas_tiempo.present? %>
-                  <div class="detail-item"><strong>Tiempo para Almorzar:</strong> <%= diagnosis.sintomas_tiempo %></div>
-                <% end %>
-                <% if diagnosis.sintomas_nuevo.present? %>
-                  <div class="detail-item"><strong>Nuevos Síntomas:</strong> <%= diagnosis.sintomas_nuevo %></div>
-                <% end %>
-
-                <% if diagnosis.guss_scale.present? %>
-                  <div class="guss-details">
-                    <% total_score = diagnosis.guss_scale.total_score%>
-                    
-                    <h5>Detalles de la Escala GUSS</h5>
-                    <p>Puntaje Total: <%= total_score %></p>
-
-                    <% case total_score %>
-                    <% when 0..9 %>
-                      <p>Resultados: Fracaso en investigación preliminar</p>
-                      <p>Código: Disfagia con alto riesgo</p>
-                      <p>Recomendaciones: La dieta para la disfagia comienza con:</p>
-                      <ul>
-                        <li>Sonda Nasogástrica o Alimentación Parenteral.</li>
-                        <li>Evaluaciones funcionales de la Deglución (FEES, VFES).</li>
-                        <li>Derivar a fonoaudiólogo.</li>
-                      </ul>
-                    <% when 10..14 %>
-                      <p>Resultados: Éxito al deglutir semisólidos</p>
-                      <p>Código: Disfagia moderada con riesgo de aspiración</p>
-                      <p>Recomendaciones: La dieta para la disfagia comienza con:</p>
-                      <ul>
-                        <li>Textura semisólidas, espesar todos los líquidos.</li>
-                        <li>Todos los líquidos deben ser espesados.</li>
-                        <li>Las píldoras deben molerse y mezclarse con líquido espeso.</li>
-                        <li>Ninguna medicación líquida.</li>
-                        <li>Evaluaciones funcionales de la Deglución (FEES, VFES).</li>
-                        <li>Derivar a fonoaudiólogo.</li>
-                        <li>Suplemento con Sonda Nasogástrica o Alimentación Parenteral.</li>
-                      </ul>
-                    <% when 15..19 %>
-                      <p>Resultados: Éxito con texturas semisólidas y líquido, fracaso con sólida</p>
-                      <p>Código: Disfagia leve con bajo riesgo de aspiración</p>
-                      <p>Recomendaciones:</p>
-                      <ul>
-                        <li>Dieta para disfagia, líquidos muy lentamente.</li>
-                        <li>Líquidos muy lentamente - un sorbo a la vez.</li>
-                        <li>Evaluaciones funcional de la Deglución, tales como Evaluación Fibroscópica de la Deglución (FEES) ó Evaluación Videofluoroscópica de la Deglución (VFES).</li>
-                        <li>Derivar a fonoaudiólogo.</li>
-                      </ul>
-                    <% when 20 %>
-                      <p>Resultados: Éxito con semisólidos, líquidos y sólidos</p>
-                      <p>Código: Leve sin disfagia, mínimo riesgo de aspiración</p>
-                      <p>Recomendaciones: </p>
-                      <ul>
-                        <li>Dieta normal.</li>
-                        <li>Líquidos regulares (la primera vez bajo la supervisión de un Fonoaudiólogo o una Enfermera entrenada).</li>
-                      </ul>
-                    <% else %>
-                      <p>Resultados no disponibles para el puntaje proporcionado</p>
-                    <% end %>
-                  </div>
-                <% end %>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -186,11 +126,75 @@
       <% end %>
     </div>
 
-    <a href="<%= patients_path %>" class="btn btn-custom">Volver</a>
+    <h4>Evolución de Diagnósticos</h4>
+    <canvas id="evolutionChart"></canvas>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      <% if @has_diagnosis_with_levels %>
+        const ctx = document.getElementById('evolutionChart').getContext('2d');
+        
+        // Obtener las etiquetas y los datos desde el controlador
+        const labels = <%= @scales.to_json.html_safe %>;
+        const datasets = [];
+
+        <% @diagnosis_data.each_with_index do |diagnosis, index| %>
+          datasets.push({
+            label: "Diagnóstico - <%= diagnosis[:date] %>",
+            data: <%= diagnosis[:levels].to_json.html_safe %>,
+            backgroundColor: 'rgba(37, 100, 144, 0.6)',
+            borderColor: 'rgba(37, 100, 144, 1)',
+            borderWidth: 1
+          });
+        <% end %>
+
+        const evolutionChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: labels,
+            datasets: datasets
+          },
+          options: {
+            scales: {
+              x: {
+                title: {
+                  display: true,
+                  text: 'Escalas'
+                }
+              },
+              y: {
+                beginAtZero: true,
+                title: {
+                  display: true,
+                  text: 'Nivel de Severidad'
+                }
+              }
+            },
+            tooltips: {
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  var label = data.datasets[tooltipItem.datasetIndex].label || '';
+                  if (label) {
+                    label += ': ';
+                  }
+                  label += tooltipItem.yLabel;
+                  return label;
+                }
+              }
+            }
+          }
+        });
+      <% end %>
+    });
+  </script>
 </body>
 </html>
+
+
+

@@ -13,12 +13,18 @@ class PatientsController < ApplicationController
   def show
     @patient = current_user.patients.find(params[:id])
     @has_diagnosis_with_levels = @patient.diagnoses.any? { |d| d.levels.present? }
+
+    all_scales = @patient.diagnoses.flat_map { |diagnosis| diagnosis.levels.map(&:escala) }.uniq
+
     @diagnosis_data = @patient.diagnoses.includes(:levels).map do |diagnosis|
-      {
-        date: diagnosis.date,
-        levels: diagnosis.levels.map { |level| { escala: level.escala, severidad: level.severidad } }
-      }
+      level_data = all_scales.map do |scale|
+        level = diagnosis.levels.find { |l| l.escala == scale }
+        level ? level.severidad : nil
+      end
+      { date: diagnosis.date, levels: level_data }
     end
+
+    @scales = all_scales
     @diagnoses = @patient.diagnoses.includes(:guss_scale)
   end
 
@@ -61,6 +67,7 @@ class PatientsController < ApplicationController
     params.require(:patient).permit(:name, :rut, :birthdate, :sex, :email)
   end
 end
+
 
   
  
