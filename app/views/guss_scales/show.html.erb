@@ -80,9 +80,11 @@
     <div class="header">Detalles de la Escala GUSS</div>
     <div class="content">
       <div class="details-box">
-        <p>Puntaje Total: <%= @guss_scale.total_score %></p>
+      <% total_score = @guss_scale.total_score %>
+      
+      <p>Puntaje Total: <%= total_score %></p>
 
-        <% case @guss_scale.total_score %>
+        <% case total_score %>
         <% when 0..9 %>
           <p>Resultados: Fracaso en investigación preliminar</p>
           <p>Código: Disfagia con alto riesgo</p>

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   devise_for :users
   root 'pages#index'
 
@@ -11,14 +10,16 @@ Rails.application.routes.draw do
   get 'home/fils', to: 'pages#fils'
   get 'home/fois', to: 'pages#fois'
   get 'home/doss', to: 'pages#doss'
-  get 'diagnostico', to: 'pages#diagnostico'
+  
+  # Eliminar o comentar la ruta antigua de diagnóstico
+  # get 'diagnostico', to: 'pages#diagnostico'
+  # get 'diagnostico/:patient_id', to: 'pages#diagnostico', as: :diagnostico_patient
+  
   get 'mispacientes', to: 'patients#index', as: :mispacientes
-  get 'diagnostico/:patient_id', to: 'pages#diagnostico', as: :diagnostico_patient
   post '/transformar', to: 'degluconversor#transformar'
   post '/enviar', to: 'degluconversor#enviar'
   post '/especificar', to: 'degluconversor#especificar'
-
-
+  resources :diagnoses, only: [:index]
   resources :patients do
     resources :diagnoses, only: [:new, :create, :show, :index] do
       resources :levels, only: [:new, :create]
@@ -33,6 +34,7 @@ Rails.application.routes.draw do
 
   resources :guss_scales, only: [:show]
 end
+
 
 
 
