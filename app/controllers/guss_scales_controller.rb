@@ -25,13 +25,13 @@ class GussScalesController < ApplicationController
       render :edit_semi_solids
     when 'liquids'
       if @guss_scale.semi_solids_score < 5
-        redirect_to intermediate_view_diagnosis_guss_scale_path(@diagnosis.patient_id, @diagnosis.id, @guss_scale.id), alert: 'Semi-solids check failed. Additional tests required.'
+        redirect_to intermediate_view_patient_diagnosis_guss_scale_path(@diagnosis.patient_id, @diagnosis.id, @guss_scale.id), alert: 'Semi-solids check failed. Additional tests required.'
       else
         render :edit_liquids
       end
     when 'solids'
       if @guss_scale.liquids_score < 5
-        redirect_to intermediate_view_diagnosis_guss_scale_path(@diagnosis.patient_id, @diagnosis.id, @guss_scale.id), alert: 'Liquids check failed. Additional tests required.'
+        redirect_to intermediate_view_patient_diagnosis_guss_scale_path(@diagnosis.patient_id, @diagnosis.id, @guss_scale.id), alert: 'Liquids check failed. Additional tests required.'
       else
         render :edit_solids
       end
@@ -76,13 +76,12 @@ class GussScalesController < ApplicationController
   
   private
 
-
   def set_diagnosis
     @diagnosis = Diagnosis.find(params[:diagnosis_id])
   end
 
   def set_guss_scale
-    @guss_scale = @diagnosis.guss_scale
+    @guss_scale = GussScale.find(params[:id])
   end
 
   def guss_scale_params

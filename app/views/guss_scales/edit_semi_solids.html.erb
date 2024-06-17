@@ -170,7 +170,6 @@
             <p>Si no hay síntomas: dispensar 3 - 5 cucharaditas y evaluar después de la quinta cucharadita.</p>
           </div>
         </div>
-
         <%= form_with(model: [@diagnosis, @guss_scale], url: patient_diagnosis_guss_scale_path(@diagnosis, @guss_scale, phase: 'semi_solids'), method: :patch, local: true) do |form| %>
           <div class="field">
             <%= form.label :semi_solids_swallow, "¿Cómo es la degluación del paciente?" %><br>
