@@ -79,48 +79,107 @@ class PatientsController < ApplicationController
   
   def generate_csv(patients)
     headers = ["Nombre", "RUT", "Fecha de Nacimiento", "Sexo", "Email", "Fecha del Diagnóstico", "Descripción", "Historia Desde", "Pérdida de Peso", "Historia de Condición", "Historia de Cirugía", "Episodios de Atragantamiento o Tos", "Dificultad para Tragar", "Sensación de Comida Atascada", "Dolor al Tragar", "Frecuencia de Problemas para Tragar", "Evita Alimentos", "Cansancio al Comer o Beber", "Tiempo para Almorzar", "Nuevos Síntomas", "Escala", "Severidad", "Puntaje Total GUSS"]
-
+  
     CSV.generate(headers: true) do |csv|
       csv << headers
-
+  
       patients.each do |patient|
-        patient.diagnoses.each do |diagnosis|
-          diagnosis.levels.each do |level|
-            guss = diagnosis.guss_scale
-            guss_total = guss.present? ? guss.total_score : nil
-
-            csv << [
-              patient.name,
-              patient.rut,
-              patient.birthdate,
-              patient.sex,
-              patient.email,
-              diagnosis.date,
-              diagnosis.description,
-              diagnosis.historia_desde,
-              diagnosis.perdida_peso,
-              diagnosis.historia_condicion,
-              diagnosis.historia_cirugia,
-              diagnosis.sintomas_episodios,
-              diagnosis.sintomas_dificultad,
-              diagnosis.sintomas_sensacion,
-              diagnosis.sintomas_dolor,
-              diagnosis.sintomas_frecuencia,
-              diagnosis.sintomas_evita_alimentos,
-              diagnosis.sintomas_cansancio,
-              diagnosis.sintomas_tiempo,
-              diagnosis.sintomas_nuevo,
-              level.escala,
-              level.severidad,
-              guss_total
-            ]
+        if patient.diagnoses.any?
+          patient.diagnoses.each do |diagnosis|
+            if diagnosis.levels.any?
+              diagnosis.levels.each do |level|
+                guss = diagnosis.guss_scale
+                guss_total = guss.present? ? guss.total_score : nil
+  
+                csv << [
+                  patient.name,
+                  patient.rut,
+                  patient.birthdate,
+                  patient.sex,
+                  patient.email,
+                  diagnosis.date,
+                  diagnosis.description,
+                  diagnosis.historia_desde,
+                  diagnosis.perdida_peso,
+                  diagnosis.historia_condicion,
+                  diagnosis.historia_cirugia,
+                  diagnosis.sintomas_episodios,
+                  diagnosis.sintomas_dificultad,
+                  diagnosis.sintomas_sensacion,
+                  diagnosis.sintomas_dolor,
+                  diagnosis.sintomas_frecuencia,
+                  diagnosis.sintomas_evita_alimentos,
+                  diagnosis.sintomas_cansancio,
+                  diagnosis.sintomas_tiempo,
+                  diagnosis.sintomas_nuevo,
+                  level.escala,
+                  level.severidad,
+                  guss_total
+                ]
+              end
+            else
+              guss = diagnosis.guss_scale
+              guss_total = guss.present? ? guss.total_score : nil
+              csv << [
+                patient.name,
+                patient.rut,
+                patient.birthdate,
+                patient.sex,
+                patient.email,
+                diagnosis.date,
+                diagnosis.description,
+                diagnosis.historia_desde,
+                diagnosis.perdida_peso,
+                diagnosis.historia_condicion,
+                diagnosis.historia_cirugia,
+                diagnosis.sintomas_episodios,
+                diagnosis.sintomas_dificultad,
+                diagnosis.sintomas_sensacion,
+                diagnosis.sintomas_dolor,
+                diagnosis.sintomas_frecuencia,
+                diagnosis.sintomas_evita_alimentos,
+                diagnosis.sintomas_cansancio,
+                diagnosis.sintomas_tiempo,
+                diagnosis.sintomas_nuevo,
+                nil,  # No level.escala
+                nil,  # No level.severidad
+                guss_total
+              ]
+            end
           end
+        else
+          csv << [
+            patient.name,
+            patient.rut,
+            patient.birthdate,
+            patient.sex,
+            patient.email,
+            nil,  # No diagnosis date
+            nil,  # No diagnosis description
+            nil,  # No diagnosis historia_desde
+            nil,  # No diagnosis perdida_peso
+            nil,  # No diagnosis historia_condicion
+            nil,  # No diagnosis historia_cirugia
+            nil,  # No diagnosis sintomas_episodios
+            nil,  # No diagnosis sintomas_dificultad
+            nil,  # No diagnosis sintomas_sensacion
+            nil,  # No diagnosis sintomas_dolor
+            nil,  # No diagnosis sintomas_frecuencia
+            nil,  # No diagnosis sintomas_evita_alimentos
+            nil,  # No diagnosis sintomas_cansancio
+            nil,  # No diagnosis sintomas_tiempo
+            nil,  # No diagnosis sintomas_nuevo
+            nil,  # No level.escala
+            nil,  # No level.severidad
+            nil   # No guss_total
+          ]
         end
       end
     end
   end
 end
-
+  
+ 
   
  
   
