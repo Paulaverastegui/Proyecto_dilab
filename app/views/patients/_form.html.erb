@@ -1,49 +1,127 @@
-<%= form_with(model: @patient, local: true) do |form| %>
-  <% if @patient.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@patient.errors.count, "error") %> impidieron guardar el paciente:</h2>
-      <ul>
-        <% @patient.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="header">Nuevo Paciente</div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuevo Paciente</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+    .header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2.5em;
+      margin-top: 60px;
+      margin-bottom: 30px;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      width: 100%;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+    .container {
+      margin-top: 200px;
+      width: 90%;
+      text-align: center;
+    }
+    .field {
+      text-align: left;
+      margin-bottom: 10px;
+    }
+    .field input[type="text"], .field input[type="email"], .field select, .field textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 1em;
+    }
+    .actions {
+      margin-top: 20px;
+    }
+    .btn {
+      border-radius: 5px;
+      background-color: #256490;
+      color: #FFFFFF;
+      padding: 10px 20px;
+      text-decoration: none;
+    }
+    #error_explanation {
+      background-color: #f8d7da;
+      border-color: #f5c6cb;
+      color: #721c24;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+    }
+    #error_explanation h2 {
+      margin-top: 0;
+    }
+    #error_explanation ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+    #error_explanation ul li {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">Nuevo Paciente</div>
+    <%= form_with(model: @patient, local: true) do |form| %>
+      <% if @patient.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@patient.errors.count, "error") %> impidieron guardar el paciente:</h2>
+          <ul>
+            <% @patient.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-    <div class="field">
-      <%= form.label :name, "Ingresa el nombre de tu paciente:" %>
-      <%= form.text_field :name %>
-    </div>
+      <div class="field">
+        <%= form.label :name, "Ingresa el nombre de tu paciente:" %>
+        <%= form.text_field :name %>
+      </div>
 
-    <div class="field">
-      <%= form.label :rut, "Ingresa el RUT de tu paciente:" %>
-      <%= form.text_field :rut %>
-    </div>
+      <div class="field">
+        <%= form.label :rut, "Ingresa el RUT de tu paciente:" %>
+        <%= form.text_field :rut %>
+      </div>
 
-    <div class="field">
-      <%= form.label :birthdate, "Ingresa la fecha de nacimiento de tu paciente:" %>
-      <%= form.date_select :birthdate, start_year: 1924, end_year: Date.current.year, prompt: { day: 'Día', month: 'Mes', year: 'Año' } %>
-    </div>
+      <div class="field">
+        <%= form.label :birthdate, "Ingresa la fecha de nacimiento de tu paciente:" %>
+        <%= form.date_select :birthdate, start_year: 1924, end_year: Date.current.year, prompt: { day: 'Día', month: 'Mes', year: 'Año' } %>
+      </div>
 
-    <div class="field">
-      <%= form.label :sex, "Selecciona el sexo de tu paciente:" %>
-      <%= form.select :sex, ['Masculino', 'Femenino', 'Otro'], prompt: '' %>
-    </div>
+      <div class="field">
+        <%= form.label :sex, "Selecciona el sexo de tu paciente:" %>
+        <%= form.select :sex, ['Masculino', 'Femenino', 'Otro'], prompt: '' %>
+      </div>
 
-    <div class="field">
-      <%= form.label :email, "Ingresa el email de tu paciente:" %>
-      <%= form.email_field :email %>
-    </div>
+      <div class="field">
+        <%= form.label :email, "Ingresa el email de tu paciente:" %>
+        <%= form.email_field :email %>
+      </div>
 
-    <div class="actions">
-      <%= form.submit "Guardar", class: 'btn' %>
-    </div>
-<% end %>
-
-
-
-
-
-
-
+      <div class="actions">
+        <%= form.submit "Guardar", class: 'btn' %>
+      </div>
+    <% end %>
+  </div>
+</body>
+</html>
