@@ -71,7 +71,7 @@ class GussScalesController < ApplicationController
 
   def intermediate_view
     @diagnosis = Diagnosis.find(params[:diagnosis_id])
-    @guss_scale = @diagnosis.guss_scale
+    @guss_scale = GussScale.find(params[:id])
   end
   
   private
