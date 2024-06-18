@@ -81,10 +81,46 @@
       border-radius: 15px;
       text-decoration: none;
       display: inline-block;
+      margin: 10px 0; /* Añadir margen vertical */
     }
     .btn-comenzar:hover {
       background-color: #709795;
       color: white;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0,0,0);
+      background-color: rgba(0,0,0,0.4);
+      padding-top: 60px;
+    }
+    .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 700px;
+      border-radius: 10px;
+      text-align: left;
+    }
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -104,6 +140,7 @@
       <%= link_to mispacientes_path, class: 'btn btn-pacientes' do %>
         <img src="<%= asset_path('logomispaciente.png') %>" alt="Mis Pacientes Logo">Mis Pacientes
       <% end %>
+      <button id="bibliografiaBtn" class="btn-comenzar">Bibliografía</button>
       <%= button_to(
         "Cerrar sesión",
         destroy_user_session_path,
@@ -112,5 +149,44 @@
       ) %>
     </div>
   </div>
+
+  <!-- El Modal -->
+  <div id="bibliografiaModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Bibliografía</h2>
+      <p>Prieto, S. B. (2019). <i>Escalas de severidad de la disfagia: Importancia de su uso en logopedia</i>. Universidad de Valladolid.</p>
+      <p>Edu.co. (s.f.). <i>Tamizaje de la deglución</i>. Recuperado el 18 de junio de 2024, de <a href="https://www.fumc.edu.co/documentos/investigacion/tamizajedeladeglucion.pdf" target="_blank">https://www.fumc.edu.co/documentos/investigacion/tamizajedeladeglucion.pdf</a></p>
+      <p>Movander, K., Palmquist, T. L., Hägglund, P., y Bergström, L. (2023). Translation, and validation of Dysphagia Outcome and Severity Scale (DOSS): Swedish version. BMC Research Notes, 16(1). <a href="https://doi.org/10.1186/s13104-023-06637-z" target="_blank">https://doi.org/10.1186/s13104-023-06637-z</a></p>
+    </div>
+  </div>
+
+  <script>
+    // Obtener el modal
+    var modal = document.getElementById("bibliografiaModal");
+
+    // Obtener el botón que abre el modal
+    var btn = document.getElementById("bibliografiaBtn");
+
+    // Obtener el <span> que cierra el modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // Cuando el usuario haga clic en el botón, abrir el modal 
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+
+    // Cuando el usuario haga clic en <span> (x), cerrar el modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // Cuando el usuario haga clic en cualquier lugar fuera del modal, cerrarlo
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
 </body>
 </html>
