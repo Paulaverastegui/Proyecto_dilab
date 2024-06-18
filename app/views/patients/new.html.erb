@@ -6,77 +6,80 @@
   <title>Nuevo Diagnóstico</title>
   <style>
     body {
-      background-color: #256490;
+      background-color: #FFFFFF;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
       height: 100vh;
       margin: 0;
       font-family: 'Arial', sans-serif;
     }
-    .container {
-      text-align: center;
-      color: #FFFFFF;
-    }
-    h1 {
-      font-size: 3em;
-    }
-
-    .btn {
-      background-color: #FFFFFF;
-      color: #256490;
-      padding: 0.5em 1em;
-      border: none;
-      cursor: pointer;
-      font-size: 1.2em;
-      border-radius: 15px;
-      text-decoration: none;
-      display: inline-block;
-      margin: 20px;
-    }
-
-    .btn:hover {
-      background-color: #709795;
+    .header {
+      background-color: #256490;
       color: white;
-    }
-
-    form {
-      background-color: #FFFFFF;
-      padding: 20px;
-      border-radius: 15px;
-      width: 50%;
-      margin: auto;
-    }
-
-    .field {
-      margin-bottom: 20px;
-    }
-
-    label {
-      display: block;
-      font-size: 1.2em;
-      margin-bottom: 5px;
-      color: #256490;
-      margin-left: 0; /* Alineación izquierda */
-    }
-
-    input[type="text"], select {
+      padding: 1em;
+      font-size: 2.5em;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
       width: 100%;
-      padding: 0.5em;
-      border-radius: 5px;
-      border: 1px solid #CCCCCC;
-    }
-
-    .actions {
+      margin-top:50px;
       text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+    .container {
+      width: 90%;
+      text-align: center;
+    }
+    .field {
+      text-align: left;
+      margin-bottom: 10px;
+    }
+    .field input[type="text"], .field input[type="email"], .field select, .field textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 1em;
+    }
+    .actions {
+      margin-top: 20px;
+    }
+    .btn {
+      border-radius: 5px;
+      background-color: #256490;
+      color: #FFFFFF;
+      padding: 10px 20px;
+      text-decoration: none;
+    }
+    #error_explanation {
+      background-color: #f8d7da;
+      border-color: #f5c6cb;
+      color: #721c24;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+    }
+    #error_explanation h2 {
+      margin-top: 0;
+    }
+    #error_explanation ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+    #error_explanation ul li {
+      margin: 0;
     }
   </style>
 </head>
 <body>
   <%= render 'shared/header' %>
-  <div class="container">
-    <h1>Ingresa a tu paciente</h1>
-    <%= render 'form' %>
-  </div>
+  <div class="header">Nuevo Paciente</div>
+    <div class="container">
+      <%= render 'form' %>
+    </div>
 </body>
 </html>
