@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Consistencia: Líquidos </title>
+  <title>Consistencia: Líquidos</title>
   <style>
     body {
       background-color: #FFFFFF;
@@ -68,7 +68,7 @@
       display: block;
       margin-bottom: 5px;
       font-weight: bold;
-      color: #256490; /* Cambia el color del texto de las preguntas */
+      color: #256490;
     }
     .radio-group {
       display: flex;
@@ -77,12 +77,12 @@
     .radio-group label {
       margin-right: 10px;
       font-weight: normal;
-      color: black; 
+      color: black;
     }
     .radio-group input[type="radio"] {
       margin-right: 5px;
-      accent-color: #709795; 
-      transform: scale(1.5); /* Aumenta el tamaño de los botones de radio */
+      accent-color: #709795;
+      transform: scale(1.5);
     }
     .radio-group-vertical {
       display: flex;
@@ -200,7 +200,7 @@
             <%= form.label :liquids_sialorrhea, "Sialorrea" %><br>
             <div class="radio-group">
               <%= form.label :liquids_sialorrhea_no, "No" %> <%= form.radio_button :liquids_sialorrhea, 1 %>
-              <%= form.label :liquids_yes, "Sí" %> <%= form.radio_button :liquids_sialorrhea, 0 %>
+              <%= form.label :liquids_sialorrhea_yes, "Sí" %> <%= form.radio_button :liquids_sialorrhea, 0 %>
             </div>
           </div>
 
@@ -249,6 +249,6 @@
 </script>
 </body>
 </html>
-  
+
   
   
