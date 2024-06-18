@@ -128,15 +128,15 @@
       border-radius: 15px;
     }
     .modal-body {
-      background-color: #256490;
-      color: white;
+      background-color: white;
+      color: #256490;
       padding: 20px;
       border-radius: 15px;
     }
     .form-control {
       background-color: #FFFFFF;
       color: #256490;
-      border: none;
+      border: 2px solid #256490; /* Borde azul */
       border-radius: 5px;
       padding: 10px;
       margin-bottom: 10px;
@@ -150,6 +150,9 @@
       border: none;
       padding: 10px 20px;
       border-radius: 5px;
+    }
+    .modal-dialog.custom-modal {
+      margin-top: 110px; /* Ajusta este valor para cambiar la posición vertical */
     }
   </style>
 </head>
@@ -182,7 +185,7 @@
   </div>
   <!-- Modal -->
   <div class="modal fade" id="newPatientModal" tabindex="-1" role="dialog" aria-labelledby="newPatientModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog custom-modal" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="newPatientModalLabel">Agregar Nuevo Paciente</h5>
