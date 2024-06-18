@@ -41919,3 +41919,104 @@ Processing by PatientsController#show as HTML
 Completed 200 OK in 176ms (Views: 116.9ms | ActiveRecord: 6.2ms | Allocations: 42868)
 
 
+Started GET "/patients/7" for 127.0.0.1 at 2024-06-18 13:19:20 -0400
+Processing by PatientsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.9ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:73:in `set_patient'
+  [1m[36mCACHE Patient Load (0.0ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = ? AND "patients"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:15:in `show'
+  [1m[36mDiagnosis Load (1.7ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."patient_id" = ?[0m  [["patient_id", 7]]
+  ↳ app/controllers/patients_controller.rb:16:in `show'
+  [1m[36mLevel Load (1.2ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 6]]
+  ↳ app/controllers/patients_controller.rb:16:in `block in show'
+  [1m[36mLevel Load (0.2ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 7]]
+  ↳ app/controllers/patients_controller.rb:18:in `map'
+  [1m[36mLevel Load (0.4ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 8]]
+  ↳ app/controllers/patients_controller.rb:18:in `map'
+  [1m[36mLevel Load (0.1ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 9]]
+  ↳ app/controllers/patients_controller.rb:18:in `map'
+  [1m[36mLevel Load (0.1ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 10]]
+  ↳ app/controllers/patients_controller.rb:18:in `map'
+  [1m[36mLevel Load (0.3ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 11]]
+  ↳ app/controllers/patients_controller.rb:18:in `map'
+  [1m[36mLevel Load (0.3ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 12]]
+  ↳ app/controllers/patients_controller.rb:18:in `map'
+  [1m[36mLevel Load (0.5ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 13]]
+  ↳ app/controllers/patients_controller.rb:18:in `map'
+  [1m[36mLevel Load (0.2ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 14]]
+  ↳ app/controllers/patients_controller.rb:18:in `map'
+  [1m[36mLevel Load (0.2ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 15]]
+  ↳ app/controllers/patients_controller.rb:18:in `map'
+  [1m[36mLevel Load (0.3ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 16]]
+  ↳ app/controllers/patients_controller.rb:18:in `map'
+  [1m[36mLevel Load (0.2ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 17]]
+  ↳ app/controllers/patients_controller.rb:18:in `map'
+  [1m[36mLevel Load (0.1ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 18]]
+  ↳ app/controllers/patients_controller.rb:18:in `map'
+  [1m[36mLevel Load (0.5ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 19]]
+  ↳ app/controllers/patients_controller.rb:18:in `map'
+  [1m[36mLevel Load (0.3ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 20]]
+  ↳ app/controllers/patients_controller.rb:18:in `map'
+  [1m[36mLevel Load (0.3ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 21]]
+  ↳ app/controllers/patients_controller.rb:18:in `map'
+  [1m[36mLevel Load (0.2ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 22]]
+  ↳ app/controllers/patients_controller.rb:18:in `map'
+  [1m[36mLevel Load (0.2ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 23]]
+  ↳ app/controllers/patients_controller.rb:18:in `map'
+  [1m[36mLevel Load (0.2ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 24]]
+  ↳ app/controllers/patients_controller.rb:18:in `map'
+  [1m[36mCACHE Diagnosis Load (0.0ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."patient_id" = ?[0m  [["patient_id", 7]]
+  ↳ app/controllers/patients_controller.rb:20:in `map'
+  [1m[36mLevel Load (0.5ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["diagnosis_id", 6], ["diagnosis_id", 7], ["diagnosis_id", 8], ["diagnosis_id", 9], ["diagnosis_id", 10], ["diagnosis_id", 11], ["diagnosis_id", 12], ["diagnosis_id", 13], ["diagnosis_id", 14], ["diagnosis_id", 15], ["diagnosis_id", 16], ["diagnosis_id", 17], ["diagnosis_id", 18], ["diagnosis_id", 19], ["diagnosis_id", 20], ["diagnosis_id", 21], ["diagnosis_id", 22], ["diagnosis_id", 23], ["diagnosis_id", 24]]
+  ↳ app/controllers/patients_controller.rb:20:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering patients/show.html.erb within layouts/application
+  [1m[36mCACHE Diagnosis Load (0.1ms)[0m  [1m[34mSELECT "diagnoses".* FROM "diagnoses" WHERE "diagnoses"."patient_id" = ?[0m  [["patient_id", 7]]
+  ↳ app/views/patients/show.html.erb:58:in `each_with_index'
+  [1m[36mGussScale Load (1.1ms)[0m  [1m[34mSELECT "guss_scales".* FROM "guss_scales" WHERE "guss_scales"."diagnosis_id" IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["diagnosis_id", 6], ["diagnosis_id", 7], ["diagnosis_id", 8], ["diagnosis_id", 9], ["diagnosis_id", 10], ["diagnosis_id", 11], ["diagnosis_id", 12], ["diagnosis_id", 13], ["diagnosis_id", 14], ["diagnosis_id", 15], ["diagnosis_id", 16], ["diagnosis_id", 17], ["diagnosis_id", 18], ["diagnosis_id", 19], ["diagnosis_id", 20], ["diagnosis_id", 21], ["diagnosis_id", 22], ["diagnosis_id", 23], ["diagnosis_id", 24]]
+  ↳ app/views/patients/show.html.erb:58:in `each_with_index'
+  [1m[36mCACHE Level Load (0.0ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 6]]
+  ↳ app/views/patients/show.html.erb:76
+  [1m[36mCACHE Level Load (0.1ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 7]]
+  ↳ app/views/patients/show.html.erb:76
+  [1m[36mCACHE Level Load (0.0ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 8]]
+  ↳ app/views/patients/show.html.erb:76
+  [1m[36mCACHE Level Load (0.0ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 9]]
+  ↳ app/views/patients/show.html.erb:76
+  [1m[36mCACHE Level Load (0.0ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 10]]
+  ↳ app/views/patients/show.html.erb:76
+  [1m[36mCACHE Level Load (0.0ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 11]]
+  ↳ app/views/patients/show.html.erb:76
+  [1m[36mCACHE Level Load (0.0ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 12]]
+  ↳ app/views/patients/show.html.erb:76
+  [1m[36mCACHE Level Load (0.0ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 13]]
+  ↳ app/views/patients/show.html.erb:76
+  [1m[36mCACHE Level Load (0.0ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 14]]
+  ↳ app/views/patients/show.html.erb:76
+  [1m[36mCACHE Level Load (0.0ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 15]]
+  ↳ app/views/patients/show.html.erb:76
+  [1m[36mCACHE Level Load (0.1ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 16]]
+  ↳ app/views/patients/show.html.erb:76
+  [1m[36mCACHE Level Load (0.0ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 17]]
+  ↳ app/views/patients/show.html.erb:76
+  [1m[36mCACHE Level Load (0.0ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 18]]
+  ↳ app/views/patients/show.html.erb:76
+  [1m[36mCACHE Level Load (0.0ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 19]]
+  ↳ app/views/patients/show.html.erb:76
+  [1m[36mCACHE Level Load (0.0ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 20]]
+  ↳ app/views/patients/show.html.erb:76
+  [1m[36mCACHE Level Load (0.0ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 21]]
+  ↳ app/views/patients/show.html.erb:76
+  [1m[36mCACHE Level Load (0.0ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 22]]
+  ↳ app/views/patients/show.html.erb:76
+  [1m[36mCACHE Level Load (0.0ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 23]]
+  ↳ app/views/patients/show.html.erb:76
+  [1m[36mCACHE Level Load (0.0ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."diagnosis_id" = ?[0m  [["diagnosis_id", 24]]
+  ↳ app/views/patients/show.html.erb:76
+  Rendered patients/show.html.erb within layouts/application (Duration: 141.0ms | Allocations: 16783)
+  Rendered layout layouts/application.html.erb (Duration: 172.2ms | Allocations: 23475)
+Completed 200 OK in 345ms (Views: 175.6ms | ActiveRecord: 13.4ms | Allocations: 43212)
+
+

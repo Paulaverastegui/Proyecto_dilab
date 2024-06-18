@@ -85,38 +85,47 @@
                 <% end %>
 
                 <% if diagnosis.historia_desde.present? %>
-                  <div class="detail-item"><strong>Historia Desde:</strong> <%= diagnosis.historia_desde %></div>
+                  <div class="detail-item"><strong>¿Desde cuándo ha tenido problemas para tragar?:</strong> <%= diagnosis.historia_desde %></div>
                 <% end %>
                 <% if diagnosis.perdida_peso.present? %>
-                  <div class="detail-item"><strong>Pérdida de Peso:</strong> <%= diagnosis.perdida_peso %></div>
+                  <div class="detail-item"><strong>¿Ha notado pérdida de peso no intencional?:</strong> <%= diagnosis.perdida_peso %></div>
                 <% end %>
                 <% if diagnosis.historia_condicion.present? %>
-                  <div class="detail-item"><strong>Historia de Condición:</strong> <%= diagnosis.historia_condicion %></div>
+                  <div class="detail-item"><strong>¿Tiene alguna condición médica que pueda estar relacionada?:</strong> <%= diagnosis.historia_condicion %></div>
                 <% end %>
                 <% if diagnosis.historia_cirugia.present? %>
-                  <div class="detail-item"><strong>Historia de Cirugía:</strong> <%= diagnosis.historia_cirugia %></div>
+                  <div class="detail-item"><strong>¿Ha tenido cirugías recientes?:</strong> <%= diagnosis.historia_cirugia %></div>
                 <% end %>
                 <% if diagnosis.sintomas_episodios.present? %>
-                  <div class="detail-item"><strong>Episodios de Atragantamiento o Tos:</strong> <%= diagnosis.sintomas_episodios %></div>
+                  <div class="detail-item"><strong>¿Ha tenido episodios de atragantamiento o tos al comer o beber?:</strong> <%= diagnosis.sintomas_episodios %></div>
                 <% end %>
                 <% if diagnosis.sintomas_dificultad.present? %>
-                  <div class="detail-item"><strong>Dificultad para Tragar:</strong> <%= diagnosis.sintomas_dificultad %></div>
+                  <div class="detail-item"><strong>¿Tiene dificultad para tragar líquidos, sólidos o ambos?:</strong> <%= diagnosis.sintomas_dificultad %></div>
                 <% end %>
                 <% if diagnosis.sintomas_sensacion.present? %>
-                  <div class="detail-item"><strong>Sensación de Comida Atascada:</strong> <%= diagnosis.sintomas_sensacion %></div>
+                  <div class="detail-item"><strong>¿Tiene la sensación de que la comida se le queda atascada en la garganta o el pecho?:</strong> <%= diagnosis.sintomas_sensacion %></div>
                 <% end %>
                 <% if diagnosis.sintomas_dolor.present? %>
-                  <div class="detail-item"><strong>Dolor al Tragar:</strong> <%= diagnosis.sintomas_dolor %></div>
+                  <div class="detail-item"><strong>¿Experimenta dolor al tragar?:</strong> <%= diagnosis.sintomas_dolor %></div>
                 <% end %>
                 <% if diagnosis.sintomas_frecuencia.present? %>
-                  <div class="detail-item"><strong>Frecuencia de Problemas para Tragar:</strong> <%= diagnosis.sintomas_frecuencia %></div>
+                  <div class="detail-item"><strong>¿Qué tan frecuente tiene problemas para tragar?:</strong> <%= diagnosis.sintomas_frecuencia %></div>
                 <% end %>
                 <% if diagnosis.sintomas_evita_alimentos.present? %>
-                  <div class="detail-item"><strong>Evita Alimentos:</strong> <%= diagnosis.sintomas_evita_alimentos %></div>
+                  <div class="detail-item"><strong>¿Evita ciertos alimentos debido a la dificultad para tragar?:</strong> <%= diagnosis.sintomas_evita_alimentos %></div>
                 <% end %>
                 <% if diagnosis.sintomas_cansancio.present? %>
-                  <div class="detail-item"><strong>Cansancio al Comer o Beber:</strong> <%= diagnosis.sintomas_cansancio %></div>
+                  <div class="detail-item"><strong>¿Se cansa cuando está comiendo o bebiendo?:</strong> <%= diagnosis.sintomas_cansancio %></div>
                 <% end %>
+
+                <% if diagnosis.sintomas_tiempo.present? %>
+                  <div class="detail-item"><strong>¿Cuánto tiempo se demora almorzando?:</strong> <%= diagnosis.sintomas_tiempo %></div>
+                <% end %>
+
+                <% if diagnosis.sintomas_nuevo.present? %>
+                  <div class="detail-item"><strong>¿Ha sentido algo nuevo que no le ocurría antes?:</strong> <%= diagnosis.sintomas_nuevo %></div>
+                <% end %>
+
                 <% if diagnosis.guss_scale.present? %>
                   <div class="guss-details">
                     <% total_score = diagnosis.guss_scale.total_score%>
