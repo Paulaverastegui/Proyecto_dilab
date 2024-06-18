@@ -128,7 +128,8 @@
         <% else %>
           <p>Resultados no disponibles para el puntaje proporcionado</p>
         <% end %>
-        
+
+        <%= link_to 'Registrar un nivel de disfagia', new_patient_diagnosis_level_path(@guss_scale.diagnosis.patient, @guss_scale.diagnosis), class: 'btn' %>
         <%= link_to 'Volver a menú principal', menu_path, class: 'btn' %>
       </div>
     </div>
