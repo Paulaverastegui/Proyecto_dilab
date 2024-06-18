@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <style>
     body {
       background-color: #FFFFFF;
@@ -23,7 +27,7 @@
       margin-top: 200px;
     }
     .form-group { margin-bottom: 15px; }
-    .submit-button { 
+    .submit-button, .btn-info { 
       padding: 10px 20px; 
       background-color: #709795;
       color: white;
@@ -83,6 +87,9 @@
       left: 0;
       z-index: 999;
     }
+    .modal-dialog {
+      margin-top: 50px;
+    }
   </style>
   <script>
     function updateDestinoOptions() {
@@ -127,7 +134,74 @@
         <%= f.submit "Guardar", class: "submit-button" %>
       </div>
     <% end %>
+    <!-- Botón para abrir el modal -->
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#diagnosisModal">
+      Ver detalles del diagnóstico
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="diagnosisModal" tabindex="-1" aria-labelledby="diagnosisModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" style="margin-top: 100px;">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="diagnosisModalLabel">Detalles del Diagnóstico</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="detail-item"><strong>Fecha:</strong> <%= @diagnosis.date %></div>
+
+            <% if @diagnosis.description.present? %>
+              <div class="detail-item"><strong>Descripción:</strong> <%= @diagnosis.description %></div>
+            <% end %>
+
+            <% if @diagnosis.historia_desde.present? %>
+              <div class="detail-item"><strong>¿Desde cuándo ha tenido problemas para tragar?:</strong> <%= @diagnosis.historia_desde %></div>
+            <% end %>
+            <% if @diagnosis.perdida_peso.present? %>
+              <div class="detail-item"><strong>¿Ha notado pérdida de peso no intencional?:</strong> <%= @diagnosis.perdida_peso %></div>
+            <% end %>
+            <% if @diagnosis.historia_condicion.present? %>
+              <div class="detail-item"><strong>¿Tiene alguna condición médica que pueda estar relacionada?:</strong> <%= @diagnosis.historia_condicion %></div>
+            <% end %>
+            <% if @diagnosis.historia_cirugia.present? %>
+              <div class="detail-item"><strong>¿Ha tenido cirugías recientes?:</strong> <%= @diagnosis.historia_cirugia %></div>
+            <% end %>
+            <% if @diagnosis.sintomas_episodios.present? %>
+              <div class="detail-item"><strong>¿Ha tenido episodios de atragantamiento o tos al comer o beber?:</strong> <%= @diagnosis.sintomas_episodios %></div>
+            <% end %>
+            <% if @diagnosis.sintomas_dificultad.present? %>
+              <div class="detail-item"><strong>¿Tiene dificultad para tragar líquidos, sólidos o ambos?:</strong> <%= @diagnosis.sintomas_dificultad %></div>
+            <% end %>
+            <% if @diagnosis.sintomas_sensacion.present? %>
+              <div class="detail-item"><strong>¿Tiene la sensación de que la comida se le queda atascada en la garganta o el pecho?:</strong> <%= @diagnosis.sintomas_sensacion %></div>
+            <% end %>
+            <% if @diagnosis.sintomas_dolor.present? %>
+              <div class="detail-item"><strong>¿Experimenta dolor al tragar?:</strong> <%= @diagnosis.sintomas_dolor %></div>
+            <% end %>
+            <% if @diagnosis.sintomas_frecuencia.present? %>
+              <div class="detail-item"><strong>¿Qué tan frecuente tiene problemas para tragar?:</strong> <%= @diagnosis.sintomas_frecuencia %></div>
+            <% end %>
+            <% if @diagnosis.sintomas_evita_alimentos.present? %>
+              <div class="detail-item"><strong>¿Evita ciertos alimentos debido a la dificultad para tragar?:</strong> <%= @diagnosis.sintomas_evita_alimentos %></div>
+            <% end %>
+            <% if @diagnosis.sintomas_cansancio.present? %>
+              <div class="detail-item"><strong>¿Se cansa cuando está comiendo o bebiendo?:</strong> <%= @diagnosis.sintomas_cansancio %></div>
+            <% end %>
+            <% if @diagnosis.sintomas_tiempo.present? %>
+              <div class="detail-item"><strong>¿Cuánto tiempo se demora almorzando?:</strong> <%= @diagnosis.sintomas_tiempo %></div>
+            <% end %>
+            <% if @diagnosis.sintomas_nuevo.present? %>
+              <div class="detail-item"><strong>¿Ha sentido algo nuevo que no le ocurría antes?:</strong> <%= @diagnosis.sintomas_nuevo %></div>
+            <% end %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
-</html>
 
