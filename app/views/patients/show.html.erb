@@ -116,13 +116,6 @@
                 <% if diagnosis.sintomas_cansancio.present? %>
                   <div class="detail-item"><strong>Cansancio al Comer o Beber:</strong> <%= diagnosis.sintomas_cansancio %></div>
                 <% end %>
-                <% if diagnosis.sintomas_tiempo.present? %>
-                  <div class="detail-item"><strong>Tiempo para Almorzar:</strong> <%= diagnosis.sintomas_tiempo %></div>
-                <% end %>
-                <% if diagnosis.sintomas_nuevo.present? %>
-                  <div class="detail-item"><strong>Nuevos Síntomas:</strong> <%= diagnosis.sintomas_nuevo %></div>
-                <% end %>
-
                 <% if diagnosis.guss_scale.present? %>
                   <div class="guss-details">
                     <% total_score = diagnosis.guss_scale.total_score%>
@@ -185,12 +178,104 @@
         </div>
       <% end %>
     </div>
+    <% if @has_diagnosis_with_levels %>
+      <!-- Botón para abrir el modal del gráfico -->
+      <button type="button" class="btn btn-custom" data-toggle="modal" data-target="#chartModal">
+        Ver Evolución de Diagnósticos
+      </button>
 
-    <a href="<%= patients_path %>" class="btn btn-custom">Volver</a>
+      <!-- Modal del gráfico -->
+      <div class="modal fade" id="chartModal" tabindex="-1" aria-labelledby="chartModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="chartModalLabel">Evolución de Diagnósticos</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <canvas id="evolutionChart"></canvas>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+     <% end %>
+  <div class="back-button">
+  <%= link_to 'Volver', mispacientes_path, class: 'btn btn-custom' %>
   </div>
+</div>
 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      $('#chartModal').on('shown.bs.modal', function() {
+        // Crear el gráfico cuando se muestre el modal
+        if (!$('#evolutionChart').hasClass('initialized')) {
+          $('#evolutionChart').addClass('initialized');
+
+          const ctx = document.getElementById('evolutionChart').getContext('2d');
+        
+          // Obtener las etiquetas y los datos desde el controlador
+          const labels = <%= @scales.to_json.html_safe %>;
+          const datasets = [];
+
+          <% @diagnosis_data.each_with_index do |diagnosis, index| %>
+            datasets.push({
+              label: "Diagnóstico - <%= diagnosis[:date] %>",
+              data: <%= diagnosis[:levels].to_json.html_safe %>,
+              backgroundColor: 'rgba(37, 100, 144, 0.6)',
+              borderColor: 'rgba(37, 100, 144, 1)',
+              borderWidth: 1
+            });
+          <% end %>
+
+          const evolutionChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: labels,
+              datasets: datasets
+            },
+            options: {
+              scales: {
+                x: {
+                  title: {
+                    display: true,
+                    text: 'Escalas'
+                  }
+                },
+                y: {
+                  beginAtZero: true,
+                  title: {
+                    display: true,
+                    text: 'Nivel de Severidad'
+                  }
+                }
+              },
+              tooltips: {
+                callbacks: {
+                  label: function(tooltipItem, data) {
+                    var label = data.datasets[tooltipItem.datasetIndex].label || '';
+                    if (label) {
+                      label += ': ';
+                    }
+                    label += tooltipItem.yLabel;
+                    return label;
+                  }
+                }
+              }
+            }
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
