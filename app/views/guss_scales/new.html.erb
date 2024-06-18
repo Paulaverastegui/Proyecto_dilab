@@ -97,6 +97,42 @@
       border: none;
       font-size: 1em;
     }
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0,0,0);
+      background-color: rgba(0,0,0,0.4);
+      padding-top: 60px;
+    }
+    .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 500px;
+      text-align: center;
+      border-radius: 10px;
+    }
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -106,7 +142,7 @@
     <div class="content">
       <div class="details">
         <h2>Investigación Preliminar / Prueba indirecta de la deglución</h2>
-        <%= form_with(model: [@diagnosis, @guss_scale], url: patient_diagnosis_guss_scales_path(@diagnosis.patient, @diagnosis), method: :post) do |form| %>
+        <%= form_with(model: [@diagnosis, @guss_scale], url: patient_diagnosis_guss_scales_path(@diagnosis.patient, @diagnosis), method: :post, id: "gussForm") do |form| %>
           <div class="field">
             <%= form.label :vigilance, "1. Vigilancia, el paciente debe estar alerta al menos 15 minutos:" %><br>
             <div class="radio-group">
@@ -154,5 +190,52 @@
       </div>
     </div>
   </div>
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Por favor, responde todas las preguntas antes de enviar el formulario.</p>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var form = document.getElementById('gussForm');
+      var modal = document.getElementById("myModal");
+      var span = document.getElementsByClassName("close")[0];
+
+      form.addEventListener('submit', function(event) {
+        var allFilled = true;
+        var radioGroups = document.querySelectorAll('.radio-group');
+        radioGroups.forEach(function(group) {
+          var radios = group.querySelectorAll('input[type="radio"]');
+          var oneChecked = false;
+          radios.forEach(function(radio) {
+            if (radio.checked) {
+              oneChecked = true;
+            }
+          });
+          if (!oneChecked) {
+            allFilled = false;
+          }
+        });
+
+        if (!allFilled) {
+          event.preventDefault();
+          modal.style.display = "block";
+        }
+      });
+
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+    });
+  </script>
 </body>
 </html>

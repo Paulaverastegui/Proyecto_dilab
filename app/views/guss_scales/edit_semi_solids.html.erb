@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Consistencia: Semi solidos</title>
+  <title>Consistencia: Semi sólidos</title>
   <style>
     body {
       background-color: #FFFFFF;
@@ -153,10 +153,10 @@
 <body>
   <%= render 'shared/header' %>
   <div class="container">
-    <div class="header">Semisolidos</div>
+    <div class="header">Semisólidos</div>
     <div class="content">
       <div class="details">
-        <h2>Prueba Semisolidos</h2>
+        <h2>Prueba Semisólidos</h2>
 
         <!-- Botón para abrir el modal -->
         <button id="instruccionesBtn" class="start-button">Ver Instrucciones</button>
@@ -165,14 +165,14 @@
         <div id="instruccionesModal" class="modal">
           <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Instrucciones para Semisolidos</h2>
+            <h2>Instrucciones para Semisólidos</h2>
             <p>Administrar 1/3 y 1/2 cucharadita de agua con espesante (consistencia como pudín).</p>
             <p>Si no hay síntomas: dispensar 3 - 5 cucharaditas y evaluar después de la quinta cucharadita.</p>
           </div>
         </div>
-        <%= form_with(model: [@diagnosis, @guss_scale], url: patient_diagnosis_guss_scale_path(@diagnosis, @guss_scale, phase: 'semi_solids'), method: :patch, local: true) do |form| %>
+        <%= form_with(model: [@diagnosis, @guss_scale], url: patient_diagnosis_guss_scale_path(@diagnosis, @guss_scale, phase: 'semi_solids'), method: :patch, local: true, id: "semiSolidsForm") do |form| %>
           <div class="field">
-            <%= form.label :semi_solids_swallow, "¿Cómo es la degluación del paciente?" %><br>
+            <%= form.label :semi_solids_swallow, "¿Cómo es la deglución del paciente?" %><br>
             <div class="radio-group-vertical">
               <label class="radio-with-image">
                 <%= form.radio_button :semi_solids_swallow, 0 %>
@@ -223,30 +223,72 @@
     </div>
   </div>
 
+  <!-- Modal de advertencia -->
+  <div id="warningModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Por favor, responde todas las preguntas antes de enviar el formulario.</p>
+    </div>
+  </div>
+
   <script>
-    // Obtener el modal
-    var modal = document.getElementById("instruccionesModal");
+    // Obtener el modal de instrucciones
+    var instruccionesModal = document.getElementById("instruccionesModal");
 
-    // Obtener el botón que abre el modal
-    var btn = document.getElementById("instruccionesBtn");
+    // Obtener el botón que abre el modal de instrucciones
+    var instruccionesBtn = document.getElementById("instruccionesBtn");
 
-    // Obtener el <span> que cierra el modal
-    var span = document.getElementsByClassName("close")[0];
+    // Obtener el <span> que cierra el modal de instrucciones
+    var closeInstrucciones = document.getElementsByClassName("close")[0];
 
-    // Cuando el usuario haga clic en el botón, abrir el modal 
-    btn.onclick = function() {
-      modal.style.display = "block";
+    // Cuando el usuario haga clic en el botón, abrir el modal de instrucciones
+    instruccionesBtn.onclick = function() {
+      instruccionesModal.style.display = "block";
     }
 
-    // Cuando el usuario haga clic en <span> (x), cerrar el modal
-    span.onclick = function() {
-      modal.style.display = "none";
+    // Cuando el usuario haga clic en <span> (x), cerrar el modal de instrucciones
+    closeInstrucciones.onclick = function() {
+      instruccionesModal.style.display = "none";
     }
 
     // Cuando el usuario haga clic en cualquier lugar fuera del modal, cerrarlo
     window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
+      if (event.target == instruccionesModal) {
+        instruccionesModal.style.display = "none";
+      }
+    }
+
+    // Validación del formulario
+    document.getElementById("semiSolidsForm").onsubmit = function(event) {
+      var form = event.target;
+      var radiosSwallow = form.querySelectorAll('input[name="guss_scale[semi_solids_swallow]"]');
+      var radiosCough = form.querySelectorAll('input[name="guss_scale[semi_solids_cough]"]');
+      var radiosSialorrhea = form.querySelectorAll('input[name="guss_scale[semi_solids_sialorrhea]"]');
+      var radiosVoiceChanges = form.querySelectorAll('input[name="guss_scale[semi_solids_voice_changes]"]');
+
+      var isValid = Array.from(radiosSwallow).some(radio => radio.checked) &&
+                    Array.from(radiosCough).some(radio => radio.checked) &&
+                    Array.from(radiosSialorrhea).some(radio => radio.checked) &&
+                    Array.from(radiosVoiceChanges).some(radio => radio.checked);
+
+      if (!isValid) {
+        event.preventDefault();
+        var warningModal = document.getElementById("warningModal");
+        warningModal.style.display = "block";
+      }
+    }
+
+    // Cerrar el modal de advertencia
+    var closeWarningModal = document.getElementsByClassName("close")[1];
+    closeWarningModal.onclick = function() {
+      var warningModal = document.getElementById("warningModal");
+      warningModal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      var warningModal = document.getElementById("warningModal");
+      if (event.target == warningModal) {
+        warningModal.style.display = "none";
       }
     }
   </script>

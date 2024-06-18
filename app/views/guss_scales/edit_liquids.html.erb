@@ -167,7 +167,7 @@
             <p>Evaluar y parar según criterio.</p>
           </div>
         </div>
-        <%= form_with(model: [@diagnosis, @guss_scale], url: patient_diagnosis_guss_scale_path(@diagnosis, @guss_scale, phase: 'liquids'), method: :patch, local: true) do |form| %>
+        <%= form_with(model: [@diagnosis, @guss_scale], url: patient_diagnosis_guss_scale_path(@diagnosis, @guss_scale, phase: 'liquids'), method: :patch, local: true, id: "liquidsForm") do |form| %>
           <div class="field">
             <%= form.label :liquids_swallow, "¿Cómo es la degluación del paciente?" %><br>
             <div class="radio-group-vertical">
@@ -220,14 +220,21 @@
     </div>
   </div>
   
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Por favor, responde todas las preguntas antes de enviar el formulario.</p>
+    </div>
+  </div>
+  
   <script>
-  // Obtener el modal
+  // Obtener el modal de instrucciones
   var modal = document.getElementById("instruccionesModal");
 
-  // Obtener el botón que abre el modal
+  // Obtener el botón que abre el modal de instrucciones
   var btn = document.getElementById("instruccionesBtn");
 
-  // Obtener el <span> que cierra el modal
+  // Obtener el <span> que cierra el modal de instrucciones
   var span = document.getElementsByClassName("close")[0];
 
   // Cuando el usuario haga clic en el botón, abrir el modal 
@@ -246,9 +253,40 @@
       modal.style.display = "none";
     }
   }
-</script>
+
+  // Validación del formulario
+  document.getElementById("liquidsForm").onsubmit = function(event) {
+    var form = event.target;
+    var radiosSwallow = form.querySelectorAll('input[name="guss_scale[liquids_swallow]"]');
+    var radiosCough = form.querySelectorAll('input[name="guss_scale[liquids_cough]"]');
+    var radiosSialorrhea = form.querySelectorAll('input[name="guss_scale[liquids_sialorrhea]"]');
+    var radiosVoiceChanges = form.querySelectorAll('input[name="guss_scale[liquids_voice_changes]"]');
+
+    var isValid = Array.from(radiosSwallow).some(radio => radio.checked) &&
+                  Array.from(radiosCough).some(radio => radio.checked) &&
+                  Array.from(radiosSialorrhea).some(radio => radio.checked) &&
+                  Array.from(radiosVoiceChanges).some(radio => radio.checked);
+
+    if (!isValid) {
+      event.preventDefault();
+      var myModal = document.getElementById("myModal");
+      myModal.style.display = "block";
+    }
+  }
+
+  // Cerrar el modal de advertencia
+  var closeModal = document.getElementsByClassName("close")[1];
+  closeModal.onclick = function() {
+    var myModal = document.getElementById("myModal");
+    myModal.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    var myModal = document.getElementById("myModal");
+    if (event.target == myModal) {
+      myModal.style.display = "none";
+    }
+  }
+  </script>
 </body>
 </html>
-
-  
-  
