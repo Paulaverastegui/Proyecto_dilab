@@ -29615,3 +29615,33 @@ Processing by PatientsController#index as HTML
 Completed 200 OK in 22ms (Views: 14.4ms | ActiveRecord: 0.5ms | Allocations: 10390)
 
 
+Started GET "/patients/new" for 127.0.0.1 at 2024-06-17 20:12:11 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PatientsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering patients/new.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 1.2ms | Allocations: 784)
+  Rendered patients/_form.html.erb (Duration: 7.9ms | Allocations: 6425)
+  Rendered patients/new.html.erb within layouts/application (Duration: 12.1ms | Allocations: 7985)
+  Rendered layout layouts/application.html.erb (Duration: 72.8ms | Allocations: 41042)
+Completed 200 OK in 140ms (Views: 78.2ms | ActiveRecord: 1.2ms | Allocations: 64005)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2024-06-17 20:12:18 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 28ms (ActiveRecord: 0.3ms | Allocations: 3421)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-17 20:12:18 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1126)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 7485)
+Completed 200 OK in 16ms (Views: 14.9ms | ActiveRecord: 0.0ms | Allocations: 8370)
+
+
