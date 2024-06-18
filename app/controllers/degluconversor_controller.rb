@@ -247,7 +247,9 @@ class DegluconversorController < ApplicationController
     puts @numeros_niveles_posibles_array[1]
 
     # Características faltantes que debes obtener de alguna fuente de datos
-    @faltantes = calcular_faltantes(@tabla_destino, @numeros_niveles_posibles_array[0], @tabla_seleccionada, @nivel_seleccionado)
+    @faltantes = @numeros_niveles_posibles_array.flat_map do |nivel_destino|
+      calcular_faltantes(@tabla_destino, nivel_destino, @tabla_seleccionada, @nivel_seleccionado)
+    end.uniq
 
     if params[:commit]
       respuestas = params.permit(@faltantes).to_h
