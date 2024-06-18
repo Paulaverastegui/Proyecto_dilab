@@ -73,14 +73,15 @@
               </div>
               <div class="modal-body">
                 <div class="detail-item"><strong>Fecha:</strong> <%= diagnosis.date %></div>
-                <% if diagnosis.description.present? %>
-                  <div class="detail-item"><strong>Descripción:</strong> <%= diagnosis.description %></div>
-                <% end %>
                 <% if diagnosis.levels.present? %>
                   <% diagnosis.levels.each do |level| %>
                     <div class="detail-item level-text"><strong>Escala:</strong> <%= level.escala %></div>
                     <div class="detail-item level-text"><strong>Severidad:</strong> <%= level.severidad %></div>
                   <% end %>
+                <% end %>
+
+                <% if diagnosis.description.present? %>
+                  <div class="detail-item"><strong>Descripción:</strong> <%= diagnosis.description %></div>
                 <% end %>
 
                 <% if diagnosis.historia_desde.present? %>

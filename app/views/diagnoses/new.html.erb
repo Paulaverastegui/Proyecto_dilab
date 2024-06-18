@@ -155,6 +155,11 @@
             <%= form.text_area :sintomas_nuevo, rows: 3, class: 'input-field' %>
            </div>
 
+           <div class="field">
+            <%= form.label :description, "¿Quieres agregar alguna obeservación?" %>
+            <%= form.text_area :description, rows: 3, class: 'input-field' %>
+          </div>
+
           <div class="actions">
             <%= form.submit "Guardar Diagnóstico", class: "start-button" %>
           </div>

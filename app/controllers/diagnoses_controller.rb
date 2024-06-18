@@ -28,7 +28,7 @@ class DiagnosesController < ApplicationController
   private
 
   def diagnosis_params
-    params.require(:diagnosis).permit(:historia_desde, :perdida_peso, :historia_condicion, :historia_cirugia, :sintomas_episodios, :sintomas_dificultad, :sintomas_sensacion, :sintomas_dolor, :sintomas_frecuencia, :sintomas_evita_alimentos, :sintomas_cansancio, :sintomas_tiempo, :sintomas_nuevo)
+    params.require(:diagnosis).permit(:historia_desde, :perdida_peso, :historia_condicion, :historia_cirugia, :sintomas_episodios, :sintomas_dificultad, :sintomas_sensacion, :sintomas_dolor, :sintomas_frecuencia, :sintomas_evita_alimentos, :sintomas_cansancio, :sintomas_tiempo, :sintomas_nuevo, :description)
   end
 end
 
