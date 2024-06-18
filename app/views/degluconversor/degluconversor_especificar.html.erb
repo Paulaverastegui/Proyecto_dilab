@@ -1,124 +1,18 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Degluconversor Especificar</title>
-  <style>
-    body {
-      background-color: white;
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-    }
-  
-    .header {
-      background-color: #256490;
-      color: white;
-      padding: 1em;
-      font-size: 2.5em;
-      border-bottom-left-radius: 80px;
-      border-bottom-right-radius: 80px;
-      width: 100%;
-      text-align: center;
-    }
+<%= form_with url: especificar_path, method: :post do |form| %>
+  <%= hidden_field_tag :tabla_seleccionada, @tabla_seleccionada %>
+  <%= hidden_field_tag :nivel_seleccionado, @nivel_seleccionado %>
+  <%= hidden_field_tag :tabla_destino, @tabla_destino %>
+  <%= hidden_field_tag :numeros_niveles_posibles, @numeros_niveles_posibles %>
 
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      align-items: center;
-      padding: 20px;
-    }
+  <% @faltantes.each do |caracteristica| %>
+    <div class="field">
+      <%= label_tag caracteristica, caracteristica.humanize %>
+      <%= text_field_tag caracteristica %>
+    </div>
+  <% end %>
 
-    .square {
-      height: auto; 
-      background-color: white;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 10px;
-      font-size: 1.8em; 
-      color: #256490;
-      border-radius: 20px;
-      width: 45%;
-    }
-
-    .text {
-      height: auto; 
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 10px;
-      font-size: 1.8em; 
-      color: #256490;
-      width: 90%;
-    }
-
-    .form-group {
-      margin-bottom: 15px;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 1.2em;
-      color: #256490;
-    }
-
-    .form-group input, .form-group select {
-      width: 100%;
-      padding: 8px;
-      font-size: 1em;
-      border: 1px solid #256490;
-      border-radius: 5px;
-    }
-
-    .submit-button {
-      background-color: #256490;
-      color: white;
-      padding: 10px 20px;
-      font-size: 1.2em;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .submit-button:hover {
-      background-color: #1e5372;
-    }
-  </style>
-</head>
-<body>
-  <%= render 'shared/header' %>
-  <div class="header">Especificar diagnóstico</div>
-  <div class="container">
-    <div class="text">Por favor, completa las características adicionales para mejorar el diagnóstico:</div>
-    <%= form_with url: especificar_path, method: :post do |f| %>
-      <% options = {
-            "Cantidad de alimentación por vía oral" => ["nada", "mínima", "normal", "total"],
-            "Vía de alimentación" => ["alternativa", "oral", "alternativa y oral"],
-            "Cantidad de alimentación oral al día" => ["1", "2", "3"],
-            "Supervisión/Asistencia en la alimentación" => ["true", "false", "supervisión intermitente", "supervisión a distancia"],
-            "Cantidad de consistencias" => ["0", "1"],
-            "default" => ["True", "False", "None"]
-          } %>
-      <% @faltantes.each do |caracteristica| %>
-        <div class="form-group">
-          <label for="<%= caracteristica %>"><%= caracteristica.to_s.humanize %>:</label>
-          <% caracteristica_options = options.fetch(caracteristica, options["default"]) %>
-          <%= f.select caracteristica, options_for_select(caracteristica_options), { include_blank: 'Selecciona una opción' }, { id: caracteristica } %>
-        </div>
-      <% end %>
-      <%= f.hidden_field :tabla_seleccionada, value: @tabla_seleccionada %>
-      <%= f.hidden_field :nivel_seleccionado, value: @nivel_seleccionado %>
-      <%= f.hidden_field :tabla_destino, value: @tabla_destino %>
-      <div class="form-group"> 
-        <button type="submit" class="submit-button">Enviar</button>
-      </div>
-    <% end %>
+  <div class="actions">
+    <%= submit_tag "Enviar" %>
   </div>
-</body>
-</html>
+<% end %>
+

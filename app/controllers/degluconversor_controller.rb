@@ -1,284 +1,75 @@
-require 'json'
-
 class DegluconversorController < ApplicationController
   helper DegluconversorHelper
 
   def transformar
-    @niveles_fils = (1..10).to_a  # Asigna niveles del 1 al 10 para FILS
-    @niveles_fois = (1..7).to_a   # Asigna niveles del 1 al 7 para FOIS
-    @niveles_doss = (1..7).to_a   # Asigna niveles del 1 al 7 para DOSS
+    @niveles_fils = (1..10).to_a
+    @niveles_fois = (1..7).to_a
+    @niveles_doss = (1..7).to_a
     @tabla_seleccionada = params[:tabla_seleccionada]
-    @nivel_seleccionado = params[:nivel_seleccionado]
+    @nivel_seleccionado = params[:nivel_seleccionado].to_i
     @tabla_destino = params[:tabla_destino]
+
+    tablas = {"fils" => fils, "doss" => doss, "fois" => fois}
     
-    
-    fils = {
-      1 => {
-        "Nombre" => "Deglución severa nivel 1",
-        "Aspiración" => true,
-        "Reflejo de la deglución" => false,
-        "Posible entrenamiento de la deglución" => false,
-        "Alimentación por vía oral" => false,
-        "Vía de alimentación" => "Alternativa"
-      },
-      2 => {
-        "Nombre" => "Deglución severa nivel 2",
-        "Aspiración" => true,
-        "Posible entrenamiento de la deglución" => true,
-        "Reflejo de la deglución" => false,
-        "Alimentación por vía oral" => false,
-        "Vía de alimentación" => "Alternativa"
-      },
-      3 => {
-        "Nombre" => "Deglución severa nivel 3",
-        "Aspiración" => true,
-        "Posible entrenamiento de la deglución" => true,
-        "Reflejo de la deglución" => true,
-        "Alimentación por vía oral" => true,
-        "Vía de alimentación" => "Alternativa y oral"
-      },
-      4 => {
-        "Nombre" => "Disfagia moderada nivel 4",
-        "Aspiración" => false,
-        "Posible entrenamiento de la deglución" => true,
-        "Alimentación por vía oral" => true,
-        "Reflejo de la deglución" => true,
-        "Vía de alimentación" => "Alternativa y oral"
-      },
-      5 => {
-        "Nombre" => "Disfagia moderada nivel 5",
-        "Posible entrenamiento de la deglución" => true,
-        "Alimentación vía oral" => true,
-        "Vía de alimentación" => "Alternativa y oral",
-        "Cantidad de alimentacion oral al dia" => 1 || 2,
-        "Vía de alimentacion enteral para el agua" => true
-      },
-      6 => {
-        "Nombre" => "Disfagia moderada nivel 6",
-        "Posible entrenamiento de la deglución" => true,
-        "Alimentación vía oral" => true,
-        "Vía de alimentación" => "Alternativa y oral",
-        "Cantidad de alimentacion oral al dia" => 3,
-        "Vía de alimentacion enteral para el agua" => true
-      },
-      7 => {
-        "Nombre" => "Disfagia leve nivel 7",
-        "Posible entrenamiento de la deglución" => true,
-        "Alimentación vía oral" => true,
-        "Vía de alimentación" => "Oral",
-        "Cantidad de alimentacion oral al dia" => 3,
-        "Vía de alimentacion enteral para el agua" => true
-      },
-      8 => {
-        "Nombre" => "Disfagia leve nivel 8",
-        "Posible entrenamiento de la deglución" => true,
-        "Alimentación vía oral" => true,
-        "Vía de alimentación" => "Oral",
-        "Vía de alimentacion enteral para el agua" => false,
-        "Agua con espesante" => true
-      },
-      9 => {
-        "Nombre" => "Disfagia leve nivel 9",
-        "Posible entrenamiento de la deglución" => true,
-        "Alimentación vía oral" => true,
-        "Vía de alimentación" => "Oral",
-        "Vía de alimentacion enteral para el agua" => false,
-        "Agua con espesante" => false,
-        "Supervisión" => true
-      },
-      10 => {
-        "Nombre" => "Disfagia leve nivel 10",
-        "Posible entrenamiento de la deglución" => true,
-        "Alimentación vía oral" => true,
-        "Vía de alimentación" => "Oral",
-        "Vía de alimentacion enteral para el agua" => false,
-        "Agua con espesante" => false,
-        "Supervisión" => false
-      }
-    }
+    via_de_alimentacion = tablas[@tabla_seleccionada][@nivel_seleccionado]["Vía de alimentación"]
+    @niveles_posibles = tablas[@tabla_destino].select { |nivel, datos| datos["Vía de alimentación"] == via_de_alimentacion }.keys
 
-    doss = {
-      1 => {
-        "Nombre" => "Disfagia severa",
-        "Aspiración" => true,
-        "Retención del bolo" => true,
-        "Tos" => true,
-        "Alimentación por vía oral" => false,
-        "Cantidad de consistencias" => 0,
-        "Vía de alimentación" => "Alternativa"
-      },
-      2 => {
-        "Nombre" => "Disfagia moderada/severa",
-        "Aspiración" => true,
-        "Retención del bolo" => true,
-        "Tos" => false,
-        "Alimentación por vía oral" => false,
-        "Penetración en la vía aérea" => true,
-        "Supervisión/Asistencia en la alimentación" => true,
-        "Cantidad de consistencias" => 1,
-        "Vía de alimentación" => "Alternativa y oral"
-      },
-      3 => {
-        "Nombre" => "Disfagia moderada",
-        "Alimentación por vía oral" => true,
-        "Supervisión/Asistencia en la alimentación" => true,
-        "Cantidad de consistencias" => 1,
-        "Vía de alimentación" => "Oral"
-      },
-      4 => {
-        "Nombre" => "Disfagia leve a moderada",
-        "Alimentación por vía oral" => true,
-        "Supervisión/Asistencia en la alimentación" => "Supervisión intermitente",
-        "Vía de alimentación" => "Oral"
-      },
-      5 => {
-        "Nombre" => "Disfagia leve",
-        "Alimentación por vía oral" => true,
-        "Supervisión/Asistencia en la alimentación" => "Supervisión a distancia",
-        "Vía de alimentación" => "Oral"
-      },
-      6 => {
-        "Nombre" => "Disfagia dentro de límites funcionales",
-        "Alimentación por vía oral" => true,
-        "Penetración en la vía aérea" => false,
-        "Vía de alimentación" => "Oral"
-      },
-      7 => {
-        "Nombre" => "Disfagia dentro de límites de normalidad",
-        "Alimentación por vía oral" => true,
-        "Vía de alimentación" => "Oral",
-        "Supervisión/Asistencia en la alimentación" => false
-      }
-    }
-
-    fois = {
-      1 => {
-        "Nombre" => "Nivel 1",
-        "Alimentación por vía oral" => false,
-        "Cantidad de alimentación por vía oral" => "nada",
-        "Vía de alimentación" => "Alternativa"
-      },
-      2 => {
-        "Nombre" => "Nivel 2",
-        "Alimentación por vía oral" => true,
-        "Cantidad de alimentación por vía oral" => "mínima",
-        "Vía de alimentación" => "Alternativa y oral"
-      },
-      3 => {
-        "Nombre" => "Nivel 3",
-        "Alimentación por vía oral" => true,
-        "Cantidad de alimentación por vía oral" => "normal",
-        "Vía de alimentación" => "Alternativa y oral"
-      },
-      4 => {
-        "Nombre" => "Nivel 4",
-        "Alimentación por vía oral" => true,
-        "Cantidad de alimentación por vía oral" => "total",
-        "Vía de alimentación" => "Oral"
-      },
-      5 => {
-        "Nombre" => "Nivel 5",
-        "Alimentación por vía oral" => true,
-        "Vía de alimentación" => "Oral",
-        "Múltiples consistencias" => true,
-        "Necesidad de preparación especial" => true
-      },
-      6 => {
-        "Nombre" => "Nivel 6",
-        "Alimentación por vía oral" => true,
-        "Vía de alimentación" => "Oral",
-        "Múltiples consistencias" => true,
-        "Necesidad de preparación especial" => false,
-        "Restricciones alimenticias" => true
-      },
-      7 => {
-        "Nombre" => "Nivel 7",
-        "Alimentación por vía oral" => true,
-        "Vía de alimentación" => "Oral",
-        "Múltiples consistencias" => true,
-        "Necesidad de preparación especial" => false,
-        "Restricciones alimenticias" => false
-      }
-    }
-    tablas = { "fils" => fils, "doss" => doss, "fois" => fois }
-
-    tabla_seleccionada = params[:tabla_seleccionada]
-    nivel_seleccionado = params[:nivel_seleccionado].to_i
-    tabla_destino = params[:tabla_destino]
-
-    via_de_alimentacion = tablas[tabla_seleccionada][nivel_seleccionado]["Vía de alimentación"]
-    niveles_posibles = tablas[tabla_destino].select { |nivel, datos| datos["Vía de alimentación"] == via_de_alimentacion }.keys
-
-    if niveles_posibles.one?
-      nivel_equivalente = niveles_posibles.first
-      @resultado = tablas[tabla_destino][nivel_equivalente]
-      @nivel = niveles_posibles.map { |nivel| { nivel: nivel, nombre: tablas[tabla_destino][nivel]["Nombre"] } }
+    if @niveles_posibles.one?
+      nivel_equivalente = @niveles_posibles.first
+      @resultado = tablas[@tabla_destino][nivel_equivalente]
+      @nivel = @niveles_posibles.map { |nivel| { nivel: nivel, nombre: tablas[@tabla_destino][nivel]["Nombre"] } }
     else
       @resultado = nil
-      @niveles_posibles = niveles_posibles.map { |nivel| { nivel: nivel, nombre: tablas[tabla_destino][nivel]["Nombre"] } }
+      @niveles_posibles = @niveles_posibles.map { |nivel| { nivel: nivel, nombre: tablas[@tabla_destino][nivel]["Nombre"] } }
     end
-    render 'degluconversor1'  
+    render 'degluconversor1'
   end
 
   def enviar
     @tabla_seleccionada = params[:tabla_seleccionada]
-    @nivel_seleccionado = params[:nivel_seleccionado]
+    @nivel_seleccionado = params[:nivel_seleccionado].to_i
     @tabla_destino = params[:tabla_destino]
-    @nivel = params[:nivel] 
+    @nivel = params[:nivel].to_i
     @descripcion_seleccionado = obtener_descripcion(@tabla_seleccionada, @nivel_seleccionado)
     @descripcion_destino = obtener_descripcion(@tabla_destino, @nivel)
-    render 'degluconversor_tablas' 
+    render 'degluconversor_tablas'
   end
 
   def especificar
     @tabla_seleccionada = params[:tabla_seleccionada]
-    @nivel_seleccionado = eval(params[:nivel_seleccionado])
+    @nivel_seleccionado = params[:nivel_seleccionado].to_i
     @tabla_destino = params[:tabla_destino]
-    # En tu controlador
     @numeros_niveles_posibles = params[:numeros_niveles_posibles]
     @numeros_niveles_posibles_array = eval(@numeros_niveles_posibles)
-
-
-
-    # Obtén los niveles posibles desde alguna fuente de datos
-    puts "tabla_seleccionada: " + @tabla_seleccionada
-    puts "tabla_destino: " + @tabla_destino
-    puts @nivel_seleccionado
-    puts @numeros_niveles_posibles_array[1]
-
-    # Características faltantes que debes obtener de alguna fuente de datos
-    @faltantes = calcular_faltantes(@tabla_destino, @numeros_niveles_posibles_array[0], @tabla_seleccionada, @nivel_seleccionado)
-
+    
+    tablas = {"fils" => fils, "doss" => doss, "fois" => fois}
+    
+    @faltantes = @numeros_niveles_posibles_array.flat_map do |nivel_destino|
+      calcular_faltantes(@tabla_destino, nivel_destino, @tabla_seleccionada, @nivel_seleccionado)
+    end.uniq
+  
     if params[:commit]
-      respuestas = params.permit(@faltantes).to_h
+      respuestas = params.permit(@faltantes).to_h.transform_keys(&:to_s)
       mejor_coincidencia = nil
       coincidencias_maximas = 0
-      preguntadas = {}
-
-      @niveles_posibles.each do |nivel_hash|
-        nivel = nivel_hash[:nivel]
+  
+      @numeros_niveles_posibles_array.each do |nivel|
         caracteristicas_destino = tablas[@tabla_destino][nivel]
         caracteristicas_seleccionadas = tablas[@tabla_seleccionada][@nivel_seleccionado].merge(respuestas)
-        faltantes = caracteristicas_destino.keys - caracteristicas_seleccionadas.keys
-
-        coincidencias = 0
-        caracteristicas_destino.each do |caracteristica, valor|
-          next if caracteristica == "Nombre"
-          if caracteristicas_seleccionadas[caracteristica] == valor
-            coincidencias += 1
-          end
+        
+        coincidencias = caracteristicas_destino.count do |caracteristica, valor|
+          caracteristicas_seleccionadas[caracteristica] == valor
         end
-
+  
         if coincidencias > coincidencias_maximas
           mejor_coincidencia = nivel
           coincidencias_maximas = coincidencias
         end
-        preguntadas.merge!(respuestas)
       end
-
+  
       if mejor_coincidencia
-        nombre_mejor_coincidencia = tablas[@tabla_destino][mejor_coincidencia]["Nombre"]
-        @resultado = { nivel: mejor_coincidencia, nombre: nombre_mejor_coincidencia }
+        @resultado = { nivel: mejor_coincidencia, nombre: tablas[@tabla_destino][mejor_coincidencia]["Nombre"] }
+        redirect_to enviar_path(tabla_seleccionada: @tabla_seleccionada, nivel_seleccionado: @nivel_seleccionado, tabla_destino: @tabla_destino, nivel: mejor_coincidencia) and return
       else
         @resultado = nil
         flash[:notice] = "Lo siento, no se encontró un nivel que coincida con las características seleccionadas."
@@ -286,218 +77,23 @@ class DegluconversorController < ApplicationController
     end
     render 'degluconversor_especificar'
   end
+  
+
+  private
 
   def calcular_faltantes(tabla_destino, nivel_destino, tabla_seleccionada, nivel_seleccionado)
-    fils = {
-      1 => {
-        "Nombre" => "Deglución severa nivel 1",
-        "Aspiración" => true,
-        "Reflejo de la deglución" => false,
-        "Posible entrenamiento de la deglución" => false,
-        "Alimentación por vía oral" => false,
-        "Vía de alimentación" => "Alternativa"
-      },
-      2 => {
-        "Nombre" => "Deglución severa nivel 2",
-        "Aspiración" => true,
-        "Posible entrenamiento de la deglución" => true,
-        "Reflejo de la deglución" => false,
-        "Alimentación por vía oral" => false,
-        "Vía de alimentación" => "Alternativa"
-      },
-      3 => {
-        "Nombre" => "Deglución severa nivel 3",
-        "Aspiración" => true,
-        "Posible entrenamiento de la deglución" => true,
-        "Reflejo de la deglución" => true,
-        "Alimentación por vía oral" => true,
-        "Vía de alimentación" => "Alternativa y oral"
-      },
-      4 => {
-        "Nombre" => "Disfagia moderada nivel 4",
-        "Aspiración" => false,
-        "Posible entrenamiento de la deglución" => true,
-        "Alimentación por vía oral" => true,
-        "Reflejo de la deglución" => true,
-        "Vía de alimentación" => "Alternativa y oral"
-      },
-      5 => {
-        "Nombre" => "Disfagia moderada nivel 5",
-        "Posible entrenamiento de la deglución" => true,
-        "Alimentación vía oral" => true,
-        "Vía de alimentación" => "Alternativa y oral",
-        "Cantidad de alimentacion oral al dia" => 1 || 2,
-        "Vía de alimentacion enteral para el agua" => true
-      },
-      6 => {
-        "Nombre" => "Disfagia moderada nivel 6",
-        "Posible entrenamiento de la deglución" => true,
-        "Alimentación vía oral" => true,
-        "Vía de alimentación" => "Alternativa y oral",
-        "Cantidad de alimentacion oral al dia" => 3,
-        "Vía de alimentacion enteral para el agua" => true
-      },
-      7 => {
-        "Nombre" => "Disfagia leve nivel 7",
-        "Posible entrenamiento de la deglución" => true,
-        "Alimentación vía oral" => true,
-        "Vía de alimentación" => "Oral",
-        "Cantidad de alimentacion oral al dia" => 3,
-        "Vía de alimentacion enteral para el agua" => true
-      },
-      8 => {
-        "Nombre" => "Disfagia leve nivel 8",
-        "Posible entrenamiento de la deglución" => true,
-        "Alimentación vía oral" => true,
-        "Vía de alimentación" => "Oral",
-        "Vía de alimentacion enteral para el agua" => false,
-        "Agua con espesante" => true
-      },
-      9 => {
-        "Nombre" => "Disfagia leve nivel 9",
-        "Posible entrenamiento de la deglución" => true,
-        "Alimentación vía oral" => true,
-        "Vía de alimentación" => "Oral",
-        "Vía de alimentacion enteral para el agua" => false,
-        "Agua con espesante" => false,
-        "Supervisión" => true
-      },
-      10 => {
-        "Nombre" => "Disfagia leve nivel 10",
-        "Posible entrenamiento de la deglución" => true,
-        "Alimentación vía oral" => true,
-        "Vía de alimentación" => "Oral",
-        "Vía de alimentacion enteral para el agua" => false,
-        "Agua con espesante" => false,
-        "Supervisión" => false
-      }
-    }
-  
-    doss = {
-      1 => {
-        "Nombre" => "Disfagia severa",
-        "Aspiración" => true,
-        "Retención del bolo" => true,
-        "Tos" => true,
-        "Alimentación por vía oral" => false,
-        "Cantidad de consistencias" => 0,
-        "Vía de alimentación" => "Alternativa"
-      },
-      2 => {
-        "Nombre" => "Disfagia moderada/severa",
-        "Aspiración" => true,
-        "Retención del bolo" => true,
-        "Tos" => false,
-        "Alimentación por vía oral" => false,
-        "Penetración en la vía aérea" => true,
-        "Supervisión/Asistencia en la alimentación" => true,
-        "Cantidad de consistencias" => 1,
-        "Vía de alimentación" => "Alternativa y oral"
-      },
-      3 => {
-        "Nombre" => "Disfagia moderada",
-        "Alimentación por vía oral" => true,
-        "Supervisión/Asistencia en la alimentación" => true,
-        "Cantidad de consistencias" => 1,
-        "Vía de alimentación" => "Oral"
-      },
-      4 => {
-        "Nombre" => "Disfagia leve a moderada",
-        "Alimentación por vía oral" => true,
-        "Supervisión/Asistencia en la alimentación" => "Supervisión intermitente",
-        "Vía de alimentación" => "Oral"
-      },
-      5 => {
-        "Nombre" => "Disfagia leve",
-        "Alimentación por vía oral" => true,
-        "Supervisión/Asistencia en la alimentación" => "Supervisión a distancia",
-        "Vía de alimentación" => "Oral"
-      },
-      6 => {
-        "Nombre" => "Disfagia dentro de límites funcionales",
-        "Alimentación por vía oral" => true,
-        "Penetración en la vía aérea" => false,
-        "Vía de alimentación" => "Oral"
-      },
-      7 => {
-        "Nombre" => "Disfagia dentro de límites de normalidad",
-        "Alimentación por vía oral" => true,
-        "Vía de alimentación" => "Oral",
-        "Supervisión/Asistencia en la alimentación" => false
-      }
-    }
-  
-    fois = {
-      1 => {
-        "Nombre" => "Nivel 1",
-        "Alimentación por vía oral" => false,
-        "Cantidad de alimentación por vía oral" => "nada",
-        "Vía de alimentación" => "Alternativa"
-      },
-      2 => {
-        "Nombre" => "Nivel 2",
-        "Alimentación por vía oral" => true,
-        "Cantidad de alimentación por vía oral" => "mínima",
-        "Vía de alimentación" => "Alternativa y oral"
-      },
-      3 => {
-        "Nombre" => "Nivel 3",
-        "Alimentación por vía oral" => true,
-        "Cantidad de alimentación por vía oral" => "normal",
-        "Vía de alimentación" => "Alternativa y oral"
-      },
-      4 => {
-        "Nombre" => "Nivel 4",
-        "Alimentación por vía oral" => true,
-        "Cantidad de alimentación por vía oral" => "total",
-        "Vía de alimentación" => "Oral"
-      },
-      5 => {
-        "Nombre" => "Nivel 5",
-        "Alimentación por vía oral" => true,
-        "Vía de alimentación" => "Oral",
-        "Múltiples consistencias" => true,
-        "Necesidad de preparación especial" => true
-      },
-      6 => {
-        "Nombre" => "Nivel 6",
-        "Alimentación por vía oral" => true,
-        "Vía de alimentación" => "Oral",
-        "Múltiples consistencias" => true,
-        "Necesidad de preparación especial" => false,
-        "Restricciones alimenticias" => true
-      },
-      7 => {
-        "Nombre" => "Nivel 7",
-        "Alimentación por vía oral" => true,
-        "Vía de alimentación" => "Oral",
-        "Múltiples consistencias" => true,
-        "Necesidad de preparación especial" => false,
-        "Restricciones alimenticias" => false
-      }
-    }
-  
-    tablas = { "fils" => fils, "doss" => doss, "fois" => fois }
-  
-    # Aquí accedemos al primer nivel de la tabla fois
-    puts tablas[tabla_seleccionada][nivel_seleccionado]
+    tablas = {"fils" => fils, "doss" => doss, "fois" => fois}
+    
     caracteristicas_destino = tablas[tabla_destino][nivel_destino].keys
     caracteristicas_seleccionadas = tablas[tabla_seleccionada][nivel_seleccionado].keys
-    faltantes = caracteristicas_destino - caracteristicas_seleccionadas
-    faltantes
+    caracteristicas_destino - caracteristicas_seleccionadas
   end
-
-  
-    
-  
 
   def obtener_descripcion(tabla, nivel)
     descripcion_niveles
     @descripciones[tabla.to_sym][nivel]
   end
-  
-  
-  private
+
   def descripcion_niveles
     @descripciones = {
       fils: {
@@ -554,6 +150,198 @@ class DegluconversorController < ApplicationController
         "6" => "Nutrición por vía oral. Dieta normal. Con límites funcionales/independencia modificada: Dieta normal, deglución funcional. El paciente puede tener un leve retraso en la fase oral o faríngea, que no compromete significativamente la seguridad, sin restricciones dietéticas. " +
             "El paciente puede necesitar de tiempo extra para las comidas. No hay aspiraciones ni penetraciones en todas las consistencias.",
         "7" => "Nutrición por vía oral. Dieta normal. Deglución funcional: No presenta disfagia."
+      }
+    }
+  end
+  def fils
+    {
+      1 => {
+        "Nombre" => "Deglución severa nivel 1",
+        "Aspiración" => true,
+        "Reflejo de la deglución" => false,
+        "Posible entrenamiento de la deglución" => false,
+        "Alimentación por vía oral" => false,
+        "Vía de alimentación" => "Alternativa"
+      },
+      2 => {
+        "Nombre" => "Deglución severa nivel 2",
+        "Aspiración" => true,
+        "Posible entrenamiento de la deglución" => true,
+        "Reflejo de la deglución" => false,
+        "Alimentación por vía oral" => false,
+        "Vía de alimentación" => "Alternativa"
+      },
+      3 => {
+        "Nombre" => "Deglución severa nivel 3",
+        "Aspiración" => true,
+        "Posible entrenamiento de la deglución" => true,
+        "Reflejo de la deglución" => true,
+        "Alimentación por vía oral" => true,
+        "Vía de alimentación" => "Alternativa y oral"
+      },
+      4 => {
+        "Nombre" => "Disfagia moderada nivel 4",
+        "Aspiración" => false,
+        "Posible entrenamiento de la deglución" => true,
+        "Alimentación por vía oral" => true,
+        "Reflejo de la deglución" => true,
+        "Vía de alimentación" => "Alternativa y oral"
+      },
+      5 => {
+        "Nombre" => "Disfagia moderada nivel 5",
+        "Posible entrenamiento de la deglución" => true,
+        "Alimentación vía oral" => true,
+        "Vía de alimentación" => "Alternativa y oral",
+        "Cantidad de alimentacion oral al dia" => 1 || 2,
+        "Vía de alimentacion enteral para el agua" => true
+      },
+      6 => {
+        "Nombre" => "Disfagia moderada nivel 6",
+        "Posible entrenamiento de la deglución" => true,
+        "Alimentación vía oral" => true,
+        "Vía de alimentación" => "Alternativa y oral",
+        "Cantidad de alimentacion oral al dia" => 3,
+        "Vía de alimentacion enteral para el agua" => true
+      },
+      7 => {
+        "Nombre" => "Disfagia leve nivel 7",
+        "Posible entrenamiento de la deglución" => true,
+        "Alimentación vía oral" => true,
+        "Vía de alimentación" => "Oral",
+        "Cantidad de alimentacion oral al dia" => 3,
+        "Vía de alimentacion enteral para el agua" => true
+      },
+      8 => {
+        "Nombre" => "Disfagia leve nivel 8",
+        "Posible entrenamiento de la deglución" => true,
+        "Alimentación vía oral" => true,
+        "Vía de alimentación" => "Oral",
+        "Vía de alimentacion enteral para el agua" => false,
+        "Agua con espesante" => true
+      },
+      9 => {
+        "Nombre" => "Disfagia leve nivel 9",
+        "Posible entrenamiento de la deglución" => true,
+        "Alimentación vía oral" => true,
+        "Vía de alimentación" => "Oral",
+        "Vía de alimentacion enteral para el agua" => false,
+        "Agua con espesante" => false,
+        "Supervisión" => true
+      },
+      10 => {
+        "Nombre" => "Disfagia leve nivel 10",
+        "Posible entrenamiento de la deglución" => true,
+        "Alimentación vía oral" => true,
+        "Vía de alimentación" => "Oral",
+        "Vía de alimentacion enteral para el agua" => false,
+        "Agua con espesante" => false,
+        "Supervisión" => false
+      }
+    }
+  end 
+  def fois
+    {
+      1 => {
+        "Nombre" => "Nivel 1",
+        "Alimentación por vía oral" => false,
+        "Cantidad de alimentación por vía oral" => "nada",
+        "Vía de alimentación" => "Alternativa"
+      },
+      2 => {
+        "Nombre" => "Nivel 2",
+        "Alimentación por vía oral" => true,
+        "Cantidad de alimentación por vía oral" => "mínima",
+        "Vía de alimentación" => "Alternativa y oral"
+      },
+      3 => {
+        "Nombre" => "Nivel 3",
+        "Alimentación por vía oral" => true,
+        "Cantidad de alimentación por vía oral" => "normal",
+        "Vía de alimentación" => "Alternativa y oral"
+      },
+      4 => {
+        "Nombre" => "Nivel 4",
+        "Alimentación por vía oral" => true,
+        "Cantidad de alimentación por vía oral" => "total",
+        "Vía de alimentación" => "Oral"
+      },
+      5 => {
+        "Nombre" => "Nivel 5",
+        "Alimentación por vía oral" => true,
+        "Vía de alimentación" => "Oral",
+        "Múltiples consistencias" => true,
+        "Necesidad de preparación especial" => true
+      },
+      6 => {
+        "Nombre" => "Nivel 6",
+        "Alimentación por vía oral" => true,
+        "Vía de alimentación" => "Oral",
+        "Múltiples consistencias" => true,
+        "Necesidad de preparación especial" => false,
+        "Restricciones alimenticias" => true
+      },
+      7 => {
+        "Nombre" => "Nivel 7",
+        "Alimentación por vía oral" => true,
+        "Vía de alimentación" => "Oral",
+        "Múltiples consistencias" => true,
+        "Necesidad de preparación especial" => false,
+        "Restricciones alimenticias" => false
+      }
+    }
+  end
+  def doss
+    {
+      1 => {
+        "Nombre" => "Disfagia severa",
+        "Aspiración" => true,
+        "Retención del bolo" => true,
+        "Tos" => true,
+        "Alimentación por vía oral" => false,
+        "Cantidad de consistencias" => 0,
+        "Vía de alimentación" => "Alternativa"
+      },
+      2 => {
+        "Nombre" => "Disfagia moderada/severa",
+        "Aspiración" => true,
+        "Retención del bolo" => true,
+        "Tos" => false,
+        "Alimentación por vía oral" => false,
+        "Penetración en la vía aérea" => true,
+        "Supervisión/Asistencia en la alimentación" => true,
+        "Cantidad de consistencias" => 1,
+        "Vía de alimentación" => "Alternativa y oral"
+      },
+      3 => {
+        "Nombre" => "Disfagia moderada",
+        "Alimentación por vía oral" => true,
+        "Supervisión/Asistencia en la alimentación" => true,
+        "Cantidad de consistencias" => 1,
+        "Vía de alimentación" => "Oral"
+      },
+      4 => {
+        "Nombre" => "Disfagia leve a moderada",
+        "Alimentación por vía oral" => true,
+        "Supervisión/Asistencia en la alimentación" => "Supervisión intermitente",
+        "Vía de alimentación" => "Oral"
+      },
+      5 => {
+        "Nombre" => "Disfagia leve",
+        "Alimentación por vía oral" => true,
+        "Supervisión/Asistencia en la alimentación" => "Supervisión a distancia",
+        "Vía de alimentación" => "Oral"
+      },
+      6 => {
+        "Nombre" => "Disfagia dentro de límites funcionales",
+        "Alimentación por vía oral" => true,
+        "Penetración en la vía aérea" => false,
+        "Vía de alimentación" => "Oral"
+      },
+      7 => {
+        "Nombre" => "Disfagia dentro de límites de normalidad",
+        "Alimentación por vía oral" => true,
+        "Vía de alimentación" => "Oral",
+        "Supervisión/Asistencia en la alimentación" => false
       }
     }
   end
