@@ -1,7 +1,16 @@
-<!-- app/views/degluconversor/resultad_degluconversor.html.erb -->
+<!-- app/views/degluconversor/resultado_degluconversor.html.erb -->
 <h1>El nivel que coincide es: <%= @resultado[:nivel] %></h1>
 <p>Nombre: <%= @resultado[:nombre] %></p>
 <p>Otras escalas y detalles aquí...</p>
+
+<form action="/enviar" method="post">
+  <input type="hidden" name="tabla_seleccionada" value="<%= @tabla_seleccionada %>">
+  <input type="hidden" name="nivel_seleccionado" value="<%= @nivel_seleccionado %>">
+  <input type="hidden" name="tabla_destino" value="<%= @tabla_destino %>">
+  <input type="hidden" name="nivel" value="<%= @resultado[:nivel] %>">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="submit" class="submit-button" value='ⓘ Ver detalles'>
+</form>
 
 <%= link_to 'Volver', root_path %>
 
