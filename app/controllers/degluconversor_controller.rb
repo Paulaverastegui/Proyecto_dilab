@@ -2,28 +2,25 @@ class DegluconversorController < ApplicationController
   helper DegluconversorHelper
 
   def transformar
-    @niveles_fils = (1..10).to_a  # Asigna niveles del 1 al 10 para FILS
-    @niveles_fois = (1..7).to_a   # Asigna niveles del 1 al 7 para FOIS
-    @niveles_doss = (1..7).to_a   # Asigna niveles del 1 al 7 para DOSS
-    @tabla_seleccionada = params[:tabla_seleccionada]
-    @nivel_seleccionado = params[:nivel_seleccionado]
-    @tabla_destino = params[:tabla_destino]
+    @niveles_fils = (1..10).to_a
+    @niveles_fois = (1..7).to_a
+    @niveles_doss = (1..7).to_a
+
     tablas = { "fils" => fils, "doss" => doss, "fois" => fois }
+    @tabla_seleccionada = params[:tabla_seleccionada]
+    @nivel_seleccionado = params[:nivel_seleccionado].to_i
+    @tabla_destino = params[:tabla_destino]
 
-    tabla_seleccionada = params[:tabla_seleccionada]
-    nivel_seleccionado = params[:nivel_seleccionado].to_i
-    tabla_destino = params[:tabla_destino]
-
-    via_de_alimentacion = tablas[tabla_seleccionada][nivel_seleccionado]["Vía de alimentación"]
-    niveles_posibles = tablas[tabla_destino].select { |nivel, datos| datos["Vía de alimentación"] == via_de_alimentacion }.keys
+    via_de_alimentacion = tablas[@tabla_seleccionada][@nivel_seleccionado]["Vía de alimentación"]
+    niveles_posibles = tablas[@tabla_destino].select { |nivel, datos| datos["Vía de alimentación"] == via_de_alimentacion }.keys
 
     if niveles_posibles.one?
       nivel_equivalente = niveles_posibles.first
-      @resultado = tablas[tabla_destino][nivel_equivalente]
-      @nivel = niveles_posibles.map { |nivel| { nivel: nivel, nombre: tablas[tabla_destino][nivel]["Nombre"] } }
+      @resultado = tablas[@tabla_destino][nivel_equivalente]
+      @nivel = niveles_posibles.map { |nivel| { nivel: nivel, nombre: tablas[@tabla_destino][nivel]["Nombre"] } }
     else
       @resultado = nil
-      @niveles_posibles = niveles_posibles.map { |nivel| { nivel: nivel, nombre: tablas[tabla_destino][nivel]["Nombre"] } }
+      @niveles_posibles = niveles_posibles.map { |nivel| { nivel: nivel, nombre: tablas[@tabla_destino][nivel]["Nombre"] } }
     end
     render 'degluconversor1'
   end
@@ -44,48 +41,64 @@ class DegluconversorController < ApplicationController
     @nivel_seleccionado = params[:nivel_seleccionado].to_i
     @tabla_destino = params[:tabla_destino]
     @numeros_niveles_posibles = params[:numeros_niveles_posibles].split(',').map(&:to_i)
-
+  
+    # Calcula los faltantes
     @faltantes = @numeros_niveles_posibles.flat_map do |nivel_destino|
       calcular_faltantes(@tabla_destino, nivel_destino, @tabla_seleccionada, @nivel_seleccionado)
     end.uniq
-
+  
     if params[:commit]
       respuestas = params.permit(@faltantes).to_h
       mejor_coincidencia = nil
       coincidencias_maximas = 0
-
+  
       @numeros_niveles_posibles.each do |nivel|
         caracteristicas_destino = tablas[@tabla_destino][nivel]
         caracteristicas_seleccionadas = tablas[@tabla_seleccionada][@nivel_seleccionado].merge(respuestas)
-        faltantes = caracteristicas_destino.keys - caracteristicas_seleccionadas.keys
-
         coincidencias = 0
+  
         caracteristicas_destino.each do |caracteristica, valor|
           next if caracteristica == "Nombre"
-          if caracteristicas_seleccionadas[caracteristica] == valor
+          
+          # Asegúrate de que los valores sean comparables (booleanos)
+          valor = (valor == "true" || valor == true) if ["Penetración en la vía aérea", "Supervisión/Asistencia en la alimentación"].include?(caracteristica)
+          seleccionada = (caracteristicas_seleccionadas[caracteristica] == "true" || caracteristicas_seleccionadas[caracteristica] == true) if ["Penetración en la vía aérea", "Supervisión/Asistencia en la alimentación"].include?(caracteristica)
+          
+          # Comparación de valores
+          if seleccionada == valor
             coincidencias += 1
           end
         end
-
+  
+        # Agrega puts para depuración
+        puts "Analizando nivel: #{nivel}"
+        puts "Coincidencias: #{coincidencias}"
+        puts "Características destino: #{caracteristicas_destino}"
+        puts "Características seleccionadas: #{caracteristicas_seleccionadas}"
+  
         if coincidencias > coincidencias_maximas
           mejor_coincidencia = nivel
           coincidencias_maximas = coincidencias
         end
       end
-
+  
       if mejor_coincidencia
         nombre_mejor_coincidencia = tablas[@tabla_destino][mejor_coincidencia]["Nombre"]
         @resultado = { nivel: mejor_coincidencia, nombre: nombre_mejor_coincidencia }
+        puts "Mejor coincidencia encontrada: Nivel #{mejor_coincidencia}, Nombre: #{nombre_mejor_coincidencia}"
         render 'resultado_degluconversor'
       else
         flash[:notice] = "Lo siento, no se encontró un nivel que coincida con las características seleccionadas."
+        puts "No se encontró ninguna coincidencia."
         render 'no_coincidencia_degluconversor'
       end
     else
       render 'degluconversor_especificar'
     end
   end
-
+  
+  
+  
   def calcular_faltantes(tabla_destino, nivel_destino, tabla_seleccionada, nivel_seleccionado)
     tablas = { "fils" => fils, "doss" => doss, "fois" => fois }
     caracteristicas_destino = tablas[tabla_destino][nivel_destino].keys
@@ -196,7 +209,7 @@ class DegluconversorController < ApplicationController
         "Retención del bolo" => true,
         "Tos" => true,
         "Alimentación por vía oral" => false,
-        "Cantidad de consistencias" => 0,
+        "Cantidad de consistencias" => "0",
         "Vía de alimentación" => "Alternativa"
       },
       2 => {
@@ -207,39 +220,48 @@ class DegluconversorController < ApplicationController
         "Alimentación por vía oral" => false,
         "Penetración en la vía aérea" => true,
         "Supervisión/Asistencia en la alimentación" => true,
-        "Cantidad de consistencias" => 1,
+        "Cantidad de consistencias" => "1",
         "Vía de alimentación" => "Alternativa y oral"
       },
       3 => {
         "Nombre" => "Disfagia moderada",
         "Alimentación por vía oral" => true,
+        "Penetración en la vía aérea" => true,
         "Supervisión/Asistencia en la alimentación" => true,
-        "Cantidad de consistencias" => 1,
+        "Cantidad de consistencias" => "1",
         "Vía de alimentación" => "Oral"
       },
       4 => {
         "Nombre" => "Disfagia leve a moderada",
         "Alimentación por vía oral" => true,
+        "Penetración en la vía aérea" => true,
         "Supervisión/Asistencia en la alimentación" => "Supervisión intermitente",
+        "Cantidad de consistencias" => "1 o más",
         "Vía de alimentación" => "Oral"
       },
       5 => {
         "Nombre" => "Disfagia leve",
         "Alimentación por vía oral" => true,
+        "Penetración en la vía aérea" => true,
         "Supervisión/Asistencia en la alimentación" => "Supervisión a distancia",
+        "Cantidad de consistencias" => "1 o más",
         "Vía de alimentación" => "Oral"
       },
       6 => {
         "Nombre" => "Disfagia dentro de límites funcionales",
         "Alimentación por vía oral" => true,
         "Penetración en la vía aérea" => false,
+        "Supervisión/Asistencia en la alimentación" => false,
+        "Cantidad de consistencias" => "1 o más",
         "Vía de alimentación" => "Oral"
       },
       7 => {
         "Nombre" => "Disfagia dentro de límites de normalidad",
         "Alimentación por vía oral" => true,
-        "Vía de alimentación" => "Oral",
-        "Supervisión/Asistencia en la alimentación" => false
+        "Penetración en la vía aérea" => true,
+        "Supervisión/Asistencia en la alimentación" => false,
+        "Cantidad de consistencias" => "1 o más",
+        "Vía de alimentación" => "Oral"
       }
     }
   end
