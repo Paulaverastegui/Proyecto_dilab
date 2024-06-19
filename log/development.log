@@ -44147,3 +44147,1155 @@ No template found for DegluconversorController#especificar, rendering head :no_c
 Completed 204 No Content in 7ms (ActiveRecord: 0.2ms | Allocations: 2054)
 
 
+Started GET "/degluconversor" for 127.0.0.1 at 2024-06-18 23:44:01 -0400
+Processing by PagesController#degluconversor as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/degluconversor.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.7ms | Allocations: 362)
+  Rendered pages/degluconversor.html.erb within layouts/application (Duration: 10.4ms | Allocations: 6948)
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | Allocations: 8944)
+Completed 200 OK in 28ms (Views: 15.6ms | ActiveRecord: 1.3ms | Allocations: 14672)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-18 23:44:08 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"3", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.6ms | Allocations: 375)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 1.2ms | Allocations: 524)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 6967)
+Completed 200 OK in 20ms (Views: 14.1ms | ActiveRecord: 0.2ms | Allocations: 9328)
+
+
+Started GET "/degluconversor" for 127.0.0.1 at 2024-06-18 23:44:10 -0400
+Processing by PagesController#degluconversor as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/degluconversor.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 1.3ms | Allocations: 293)
+  Rendered pages/degluconversor.html.erb within layouts/application (Duration: 22.1ms | Allocations: 6553)
+  Rendered layout layouts/application.html.erb (Duration: 25.5ms | Allocations: 8534)
+Completed 200 OK in 34ms (Views: 26.7ms | ActiveRecord: 0.3ms | Allocations: 10286)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-18 23:44:15 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.8ms | Allocations: 290)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 1.6ms | Allocations: 436)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 6714)
+Completed 200 OK in 24ms (Views: 17.8ms | ActiveRecord: 0.4ms | Allocations: 8413)
+
+
+Started POST "/especificar" for 127.0.0.1 at 2024-06-18 23:44:15 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+No template found for DegluconversorController#especificar, rendering head :no_content
+Completed 204 No Content in 7ms (ActiveRecord: 0.2ms | Allocations: 1977)
+
+
+Started POST "/especificar" for 127.0.0.1 at 2024-06-18 23:44:17 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+No template found for DegluconversorController#especificar, rendering head :no_content
+Completed 204 No Content in 5ms (ActiveRecord: 0.2ms | Allocations: 1958)
+
+
+Started POST "/especificar" for 127.0.0.1 at 2024-06-18 23:45:00 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor_especificar.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.8ms | Allocations: 392)
+  Rendered degluconversor/degluconversor_especificar.html.erb within layouts/application (Duration: 3.5ms | Allocations: 4544)
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 11095)
+Completed 200 OK in 29ms (Views: 15.8ms | ActiveRecord: 1.1ms | Allocations: 17430)
+
+
+Started POST "/especificar" for 127.0.0.1 at 2024-06-18 23:45:14 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor_especificar.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.7ms | Allocations: 290)
+  Rendered degluconversor/degluconversor_especificar.html.erb within layouts/application (Duration: 5.4ms | Allocations: 4406)
+  Rendered layout layouts/application.html.erb (Duration: 22.1ms | Allocations: 10684)
+Completed 200 OK in 30ms (Views: 23.0ms | ActiveRecord: 0.2ms | Allocations: 12947)
+
+
+Started POST "/especificar" for 127.0.0.1 at 2024-06-18 23:45:26 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "Supervisión/Asistencia en la alimentación"=>"true", "Cantidad de consistencias"=>"0", "Penetración en la vía aérea"=>"True", "tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor_especificar.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 1.1ms | Allocations: 290)
+  Rendered degluconversor/degluconversor_especificar.html.erb within layouts/application (Duration: 6.6ms | Allocations: 4406)
+  Rendered layout layouts/application.html.erb (Duration: 20.4ms | Allocations: 10685)
+Completed 200 OK in 26ms (Views: 21.3ms | ActiveRecord: 0.2ms | Allocations: 12755)
+
+
+Started POST "/especificar" for 127.0.0.1 at 2024-06-18 23:45:27 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "Supervisión/Asistencia en la alimentación"=>"", "Cantidad de consistencias"=>"", "Penetración en la vía aérea"=>"", "tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor_especificar.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.9ms | Allocations: 290)
+  Rendered degluconversor/degluconversor_especificar.html.erb within layouts/application (Duration: 5.0ms | Allocations: 4406)
+  Rendered layout layouts/application.html.erb (Duration: 21.6ms | Allocations: 10791)
+Completed 200 OK in 29ms (Views: 22.6ms | ActiveRecord: 0.9ms | Allocations: 12867)
+
+
+Started POST "/especificar" for 127.0.0.1 at 2024-06-18 23:45:27 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "Supervisión/Asistencia en la alimentación"=>"", "Cantidad de consistencias"=>"", "Penetración en la vía aérea"=>"", "tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor_especificar.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.9ms | Allocations: 290)
+  Rendered degluconversor/degluconversor_especificar.html.erb within layouts/application (Duration: 5.8ms | Allocations: 4404)
+  Rendered layout layouts/application.html.erb (Duration: 22.1ms | Allocations: 10682)
+Completed 200 OK in 28ms (Views: 23.4ms | ActiveRecord: 0.2ms | Allocations: 12751)
+
+
+Started POST "/especificar" for 127.0.0.1 at 2024-06-18 23:45:27 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "Supervisión/Asistencia en la alimentación"=>"", "Cantidad de consistencias"=>"", "Penetración en la vía aérea"=>"", "tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor_especificar.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.6ms | Allocations: 290)
+  Rendered degluconversor/degluconversor_especificar.html.erb within layouts/application (Duration: 5.0ms | Allocations: 4404)
+  Rendered layout layouts/application.html.erb (Duration: 20.3ms | Allocations: 10682)
+Completed 200 OK in 28ms (Views: 22.1ms | ActiveRecord: 0.2ms | Allocations: 12739)
+
+
+Started POST "/especificar" for 127.0.0.1 at 2024-06-18 23:45:27 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "Supervisión/Asistencia en la alimentación"=>"", "Cantidad de consistencias"=>"", "Penetración en la vía aérea"=>"", "tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor_especificar.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.5ms | Allocations: 290)
+  Rendered degluconversor/degluconversor_especificar.html.erb within layouts/application (Duration: 5.1ms | Allocations: 4404)
+  Rendered layout layouts/application.html.erb (Duration: 21.3ms | Allocations: 10682)
+Completed 200 OK in 30ms (Views: 22.3ms | ActiveRecord: 0.2ms | Allocations: 12775)
+
+
+Started POST "/especificar" for 127.0.0.1 at 2024-06-18 23:45:27 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "Supervisión/Asistencia en la alimentación"=>"", "Cantidad de consistencias"=>"", "Penetración en la vía aérea"=>"", "tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor_especificar.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.5ms | Allocations: 290)
+  Rendered degluconversor/degluconversor_especificar.html.erb within layouts/application (Duration: 4.2ms | Allocations: 4404)
+  Rendered layout layouts/application.html.erb (Duration: 28.5ms | Allocations: 10756)
+Completed 200 OK in 35ms (Views: 29.9ms | ActiveRecord: 0.4ms | Allocations: 12811)
+
+
+Started POST "/especificar" for 127.0.0.1 at 2024-06-18 23:45:28 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "Supervisión/Asistencia en la alimentación"=>"", "Cantidad de consistencias"=>"", "Penetración en la vía aérea"=>"", "tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor_especificar.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 1.1ms | Allocations: 290)
+  Rendered degluconversor/degluconversor_especificar.html.erb within layouts/application (Duration: 10.4ms | Allocations: 4405)
+  Rendered layout layouts/application.html.erb (Duration: 31.3ms | Allocations: 10683)
+Completed 200 OK in 39ms (Views: 32.4ms | ActiveRecord: 0.2ms | Allocations: 12764)
+
+
+Started POST "/especificar" for 127.0.0.1 at 2024-06-18 23:45:28 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "Supervisión/Asistencia en la alimentación"=>"", "Cantidad de consistencias"=>"", "Penetración en la vía aérea"=>"", "tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor_especificar.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.8ms | Allocations: 290)
+  Rendered degluconversor/degluconversor_especificar.html.erb within layouts/application (Duration: 4.3ms | Allocations: 4407)
+  Rendered layout layouts/application.html.erb (Duration: 17.8ms | Allocations: 10732)
+Completed 200 OK in 23ms (Views: 18.5ms | ActiveRecord: 0.2ms | Allocations: 12837)
+
+
+Started POST "/especificar" for 127.0.0.1 at 2024-06-19 08:55:45 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "Supervisión/Asistencia en la alimentación"=>"true", "Cantidad de consistencias"=>"1", "Penetración en la vía aérea"=>"True", "tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor_especificar.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 9.5ms | Allocations: 290)
+  Rendered degluconversor/degluconversor_especificar.html.erb within layouts/application (Duration: 36.5ms | Allocations: 4406)
+  Rendered layout layouts/application.html.erb (Duration: 88.9ms | Allocations: 10745)
+Completed 200 OK in 192ms (Views: 97.2ms | ActiveRecord: 19.0ms | Allocations: 13028)
+
+
+Started GET "/degluconversor" for 127.0.0.1 at 2024-06-19 09:02:21 -0400
+Processing by PagesController#degluconversor as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/degluconversor.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 2.9ms | Allocations: 603)
+  Rendered pages/degluconversor.html.erb within layouts/application (Duration: 32.7ms | Allocations: 7579)
+  Rendered layout layouts/application.html.erb (Duration: 38.0ms | Allocations: 9752)
+Completed 200 OK in 70ms (Views: 42.2ms | ActiveRecord: 2.6ms | Allocations: 15330)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-19 09:02:29 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.8ms | Allocations: 375)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 7.2ms | Allocations: 1193)
+  Rendered layout layouts/application.html.erb (Duration: 23.6ms | Allocations: 7634)
+Completed 200 OK in 37ms (Views: 28.6ms | ActiveRecord: 0.2ms | Allocations: 10137)
+
+
+Started POST "/especificar" for 127.0.0.1 at 2024-06-19 09:02:34 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Parámetros recibidos: #<ActionController::Parameters {"tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7", "authenticity_token"=>"JjktsALYVKZ7SDbSnMCjUZ7_jDPuhrLk16T4UTmEjX8o9eS4t2V1Eyn6SeIXkww8ZuWtIIpv4zQOYqSRZ8_5hw", "controller"=>"degluconversor", "action"=>"especificar"} permitted: false>
+Faltantes: ["Supervisión/Asistencia en la alimentación", "Cantidad de consistencias", "Penetración en la vía aérea"]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor_especificar.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 1.7ms | Allocations: 290)
+  Rendered degluconversor/degluconversor_especificar.html.erb within layouts/application (Duration: 43.7ms | Allocations: 5091)
+  Rendered layout layouts/application.html.erb (Duration: 61.2ms | Allocations: 11481)
+Completed 200 OK in 72ms (Views: 63.0ms | ActiveRecord: 0.3ms | Allocations: 13847)
+
+
+Started POST "/especificar" for 127.0.0.1 at 2024-06-19 09:02:56 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "Supervisión/Asistencia en la alimentación"=>"true", "Cantidad de consistencias"=>"1", "Penetración en la vía aérea"=>"True", "tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7", "commit"=>"Enviar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Parámetros recibidos: #<ActionController::Parameters {"authenticity_token"=>"IwaNcNdk0ulOku469DIl_RfaPQWIaBEefVT-Lunw6vZhfHecCnBNz65JAijZKTyAJZ0qDlB8l6vv1Q7PVaSbCg", "Supervisión/Asistencia en la alimentación"=>"true", "Cantidad de consistencias"=>"1", "Penetración en la vía aérea"=>"True", "tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7", "commit"=>"Enviar", "controller"=>"degluconversor", "action"=>"especificar"} permitted: false>
+Faltantes: ["Supervisión/Asistencia en la alimentación", "Cantidad de consistencias", "Penetración en la vía aérea"]
+Formulario enviado con commit: Enviar
+[31mUnpermitted parameters: :authenticity_token, :tabla_seleccionada, :nivel_seleccionado, :tabla_destino, :numeros_niveles_posibles, :commit. Context: { controller: DegluconversorController, action: especificar, request: #<ActionDispatch::Request:0x000000010a6bb510>, params: {"authenticity_token"=>"[FILTERED]", "Supervisión/Asistencia en la alimentación"=>"true", "Cantidad de consistencias"=>"1", "Penetración en la vía aérea"=>"True", "tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7", "commit"=>"Enviar", "controller"=>"degluconversor", "action"=>"especificar"} }[0m
+Respuestas recibidas: {"Supervisión/Asistencia en la alimentación"=>"true", "Cantidad de consistencias"=>"1", "Penetración en la vía aérea"=>"True"}
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.2ms | Allocations: 8821)
+
+
+  
+NameError (undefined local variable or method `tablas' for #<DegluconversorController:0x00000000072588>
+
+        caracteristicas_destino = tablas[@tabla_destino][nivel]
+                                  ^^^^^^):
+  
+app/controllers/degluconversor_controller.rb:255:in `block in especificar'
+app/controllers/degluconversor_controller.rb:254:in `each'
+app/controllers/degluconversor_controller.rb:254:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-19 09:08:26 -0400
+  
+SyntaxError (/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:575: syntax error, unexpected local variable or method, expecting '}'
+      doss => {
+      ^~~~
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:576: syntax error, unexpected integer literal, expecting label or ** or **arg or string literal
+        1 => {
+        ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:577: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+          "Nombre" => "Disfagia severa",
+                 ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:577: syntax error, unexpected ',', expecting `end'
+... "Nombre" => "Disfagia severa",
+...                              ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:579: syntax error, unexpected `true', expecting local variable or method
+...  "Retención del bolo" => true,
+...                           ^~~~
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:579: Can't assign to true
+...  "Retención del bolo" => true,
+...                           ^~~~
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:580: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+          "Tos" => true,
+                ^~
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:580: Can't assign to true
+          "Tos" => true,
+                   ^~~~
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:581: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+...Alimentación por vía oral" => false,
+...                             ^~
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:581: Can't assign to false
+...tación por vía oral" => false,
+...                          ^~~~~
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:582: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+... "Cantidad de consistencias" => 0,
+...                             ^~
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:584: syntax error, unexpected '}', expecting `end'
+        },
+        ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:586: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+          "Nombre" => "Disfagia moderada/severa...
+                 ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:586: syntax error, unexpected ',', expecting `end'
+... => "Disfagia moderada/severa",
+...                              ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:588: syntax error, unexpected `true', expecting local variable or method
+...  "Retención del bolo" => true,
+...                           ^~~~
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:588: Can't assign to true
+...  "Retención del bolo" => true,
+...                           ^~~~
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:589: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+          "Tos" => false,
+                ^~
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:589: Can't assign to false
+          "Tos" => false,
+                   ^~~~~
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:590: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+...Alimentación por vía oral" => false,
+...                             ^~
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:590: Can't assign to false
+...tación por vía oral" => false,
+...                          ^~~~~
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:591: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+...etración en la vía aérea" => true,
+...                             ^~
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:591: Can't assign to true
+...ión en la vía aérea" => true,
+...                           ^~~~
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:592: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+...stencia en la alimentación" => true,
+...                             ^~
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:592: Can't assign to true
+...ia en la alimentación" => true,
+...                           ^~~~
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:593: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+... "Cantidad de consistencias" => 1,
+...                             ^~
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:595: syntax error, unexpected '}', expecting `end'
+        },
+        ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:597: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+          "Nombre" => "Disfagia moderada",
+                 ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:597: syntax error, unexpected ',', expecting `end'
+...Nombre" => "Disfagia moderada",
+...                              ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:599: syntax error, unexpected `true', expecting local variable or method
+...ia en la alimentación" => true,
+...                           ^~~~
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:599: Can't assign to true
+...ia en la alimentación" => true,
+...                           ^~~~
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:600: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+... "Cantidad de consistencias" => 1,
+...                             ^~
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:602: syntax error, unexpected '}', expecting `end'
+        },
+        ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:604: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+          "Nombre" => "Disfagia leve a moderada...
+                 ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:604: syntax error, unexpected ',', expecting `end'
+... => "Disfagia leve a moderada",
+...                              ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:606: syntax error, unexpected string literal, expecting local variable or method
+...encia en la alimentación" => "Supervisión intermitente",
+...                              ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:606: syntax error, unexpected ',', expecting `end'
+...=> "Supervisión intermitente",
+...                              ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:608: syntax error, unexpected '}', expecting `end'
+        },
+        ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:610: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+          "Nombre" => "Disfagia leve",
+                 ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:610: syntax error, unexpected ',', expecting `end'
+...   "Nombre" => "Disfagia leve",
+...                              ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:612: syntax error, unexpected string literal, expecting local variable or method
+...encia en la alimentación" => "Supervisión a distancia",
+...                              ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:612: syntax error, unexpected ',', expecting `end'
+... => "Supervisión a distancia",
+...                              ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:614: syntax error, unexpected '}', expecting `end'
+        },
+        ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:616: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+          "Nombre" => "Disfagia dentro de lími...
+                 ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:616: syntax error, unexpected ',', expecting `end'
+...entro de límites funcionales",
+...                              ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:618: syntax error, unexpected `false', expecting local variable or method
+...ón en la vía aérea" => false,
+...                          ^~~~~
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:618: Can't assign to false
+...ón en la vía aérea" => false,
+...                          ^~~~~
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:619: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+...     "Vía de alimentación" => "Oral"
+...                             ^~
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:620: syntax error, unexpected '}', expecting `end'
+        },
+        ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:622: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+          "Nombre" => "Disfagia dentro de lími...
+                 ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:622: syntax error, unexpected ',', expecting `end'
+...tro de límites de normalidad",
+...                              ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:624: syntax error, unexpected string literal, expecting local variable or method
+...   "Vía de alimentación" => "Oral",
+...                              ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:624: syntax error, unexpected ',', expecting `end'
+...ía de alimentación" => "Oral",
+...                               ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:626: syntax error, unexpected '}', expecting `end'
+        }
+        ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:630: syntax error, unexpected integer literal, expecting label or ** or **arg or string literal
+        1 => {
+        ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:631: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+          "Nombre" => "Nivel 1",
+                 ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:631: syntax error, unexpected ',', expecting `end'
+...         "Nombre" => "Nivel 1",
+...                              ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:633: syntax error, unexpected string literal, expecting local variable or method
+...imentación por vía oral" => "nada",
+...                              ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:633: syntax error, unexpected ',', expecting `end'
+...ción por vía oral" => "nada",
+...                              ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:635: syntax error, unexpected '}', expecting `end'
+        },
+        ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:637: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+          "Nombre" => "Nivel 2",
+                 ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:637: syntax error, unexpected ',', expecting `end'
+...         "Nombre" => "Nivel 2",
+...                              ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:639: syntax error, unexpected string literal, expecting local variable or method
+...imentación por vía oral" => "mínima",
+...                              ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:639: syntax error, unexpected ',', expecting `end'
+...ón por vía oral" => "mínima",
+...                               ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:641: syntax error, unexpected '}', expecting `end'
+        },
+        ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:643: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+          "Nombre" => "Nivel 3",
+                 ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:643: syntax error, unexpected ',', expecting `end'
+...         "Nombre" => "Nivel 3",
+...                              ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:645: syntax error, unexpected string literal, expecting local variable or method
+...imentación por vía oral" => "normal",
+...                              ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:645: syntax error, unexpected ',', expecting `end'
+...ón por vía oral" => "normal",
+...                              ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:647: syntax error, unexpected '}', expecting `end'
+        },
+        ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:649: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+          "Nombre" => "Nivel 4",
+                 ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:649: syntax error, unexpected ',', expecting `end'
+...         "Nombre" => "Nivel 4",
+...                              ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:651: syntax error, unexpected string literal, expecting local variable or method
+...imentación por vía oral" => "total",
+...                              ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:651: syntax error, unexpected ',', expecting `end'
+...ión por vía oral" => "total",
+...                              ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:653: syntax error, unexpected '}', expecting `end'
+        },
+        ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:655: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+          "Nombre" => "Nivel 5",
+                 ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:655: syntax error, unexpected ',', expecting `end'
+...         "Nombre" => "Nivel 5",
+...                              ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:657: syntax error, unexpected string literal, expecting local variable or method
+...   "Vía de alimentación" => "Oral",
+...                              ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:657: syntax error, unexpected ',', expecting `end'
+...ía de alimentación" => "Oral",
+...                               ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:659: syntax error, unexpected `true', expecting local variable or method
+... preparación especial" => true
+...                           ^~~~
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:662: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+          "Nombre" => "Nivel 6",
+                 ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:662: syntax error, unexpected ',', expecting `end'
+...         "Nombre" => "Nivel 6",
+...                              ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:664: syntax error, unexpected string literal, expecting local variable or method
+...   "Vía de alimentación" => "Oral",
+...                              ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:664: syntax error, unexpected ',', expecting `end'
+...ía de alimentación" => "Oral",
+...                               ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:666: syntax error, unexpected `false', expecting local variable or method
+...preparación especial" => false,
+...                          ^~~~~
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:666: Can't assign to false
+...preparación especial" => false,
+...                          ^~~~~
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:667: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+..."Restricciones alimenticias" => true
+...                             ^~
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:670: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+          "Nombre" => "Nivel 7",
+                 ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:670: syntax error, unexpected ',', expecting `end'
+...         "Nombre" => "Nivel 7",
+...                              ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:672: syntax error, unexpected string literal, expecting local variable or method
+...   "Vía de alimentación" => "Oral",
+...                              ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:672: syntax error, unexpected ',', expecting `end'
+...ía de alimentación" => "Oral",
+...                               ^
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:674: syntax error, unexpected `false', expecting local variable or method
+...preparación especial" => false,
+...                          ^~~~~
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:674: Can't assign to false
+...preparación especial" => false,
+...                          ^~~~~
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:675: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+..."Restricciones alimenticias" => false
+...                             ^~
+/Users/paulaverastegui/Downloads/Universidad/semestre 7/dilab_github/Proyecto_dilab/app/controllers/degluconversor_controller.rb:744: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/degluconversor_controller.rb:575: syntax error, unexpected local variable or method, expecting '}'
+app/controllers/degluconversor_controller.rb:576: syntax error, unexpected integer literal, expecting label or ** or **arg or string literal
+app/controllers/degluconversor_controller.rb:577: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+app/controllers/degluconversor_controller.rb:577: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:579: syntax error, unexpected `true', expecting local variable or method
+app/controllers/degluconversor_controller.rb:579: Can't assign to true
+app/controllers/degluconversor_controller.rb:580: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+app/controllers/degluconversor_controller.rb:580: Can't assign to true
+app/controllers/degluconversor_controller.rb:581: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+app/controllers/degluconversor_controller.rb:581: Can't assign to false
+app/controllers/degluconversor_controller.rb:582: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+app/controllers/degluconversor_controller.rb:584: syntax error, unexpected '}', expecting `end'
+app/controllers/degluconversor_controller.rb:586: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+app/controllers/degluconversor_controller.rb:586: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:588: syntax error, unexpected `true', expecting local variable or method
+app/controllers/degluconversor_controller.rb:588: Can't assign to true
+app/controllers/degluconversor_controller.rb:589: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+app/controllers/degluconversor_controller.rb:589: Can't assign to false
+app/controllers/degluconversor_controller.rb:590: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+app/controllers/degluconversor_controller.rb:590: Can't assign to false
+app/controllers/degluconversor_controller.rb:591: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+app/controllers/degluconversor_controller.rb:591: Can't assign to true
+app/controllers/degluconversor_controller.rb:592: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+app/controllers/degluconversor_controller.rb:592: Can't assign to true
+app/controllers/degluconversor_controller.rb:593: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+app/controllers/degluconversor_controller.rb:595: syntax error, unexpected '}', expecting `end'
+app/controllers/degluconversor_controller.rb:597: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+app/controllers/degluconversor_controller.rb:597: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:599: syntax error, unexpected `true', expecting local variable or method
+app/controllers/degluconversor_controller.rb:599: Can't assign to true
+app/controllers/degluconversor_controller.rb:600: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+app/controllers/degluconversor_controller.rb:602: syntax error, unexpected '}', expecting `end'
+app/controllers/degluconversor_controller.rb:604: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+app/controllers/degluconversor_controller.rb:604: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:606: syntax error, unexpected string literal, expecting local variable or method
+app/controllers/degluconversor_controller.rb:606: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:608: syntax error, unexpected '}', expecting `end'
+app/controllers/degluconversor_controller.rb:610: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+app/controllers/degluconversor_controller.rb:610: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:612: syntax error, unexpected string literal, expecting local variable or method
+app/controllers/degluconversor_controller.rb:612: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:614: syntax error, unexpected '}', expecting `end'
+app/controllers/degluconversor_controller.rb:616: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+app/controllers/degluconversor_controller.rb:616: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:618: syntax error, unexpected `false', expecting local variable or method
+app/controllers/degluconversor_controller.rb:618: Can't assign to false
+app/controllers/degluconversor_controller.rb:619: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+app/controllers/degluconversor_controller.rb:620: syntax error, unexpected '}', expecting `end'
+app/controllers/degluconversor_controller.rb:622: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+app/controllers/degluconversor_controller.rb:622: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:624: syntax error, unexpected string literal, expecting local variable or method
+app/controllers/degluconversor_controller.rb:624: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:626: syntax error, unexpected '}', expecting `end'
+app/controllers/degluconversor_controller.rb:630: syntax error, unexpected integer literal, expecting label or ** or **arg or string literal
+app/controllers/degluconversor_controller.rb:631: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+app/controllers/degluconversor_controller.rb:631: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:633: syntax error, unexpected string literal, expecting local variable or method
+app/controllers/degluconversor_controller.rb:633: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:635: syntax error, unexpected '}', expecting `end'
+app/controllers/degluconversor_controller.rb:637: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+app/controllers/degluconversor_controller.rb:637: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:639: syntax error, unexpected string literal, expecting local variable or method
+app/controllers/degluconversor_controller.rb:639: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:641: syntax error, unexpected '}', expecting `end'
+app/controllers/degluconversor_controller.rb:643: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+app/controllers/degluconversor_controller.rb:643: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:645: syntax error, unexpected string literal, expecting local variable or method
+app/controllers/degluconversor_controller.rb:645: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:647: syntax error, unexpected '}', expecting `end'
+app/controllers/degluconversor_controller.rb:649: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+app/controllers/degluconversor_controller.rb:649: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:651: syntax error, unexpected string literal, expecting local variable or method
+app/controllers/degluconversor_controller.rb:651: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:653: syntax error, unexpected '}', expecting `end'
+app/controllers/degluconversor_controller.rb:655: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+app/controllers/degluconversor_controller.rb:655: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:657: syntax error, unexpected string literal, expecting local variable or method
+app/controllers/degluconversor_controller.rb:657: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:659: syntax error, unexpected `true', expecting local variable or method
+app/controllers/degluconversor_controller.rb:662: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+app/controllers/degluconversor_controller.rb:662: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:664: syntax error, unexpected string literal, expecting local variable or method
+app/controllers/degluconversor_controller.rb:664: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:666: syntax error, unexpected `false', expecting local variable or method
+app/controllers/degluconversor_controller.rb:666: Can't assign to false
+app/controllers/degluconversor_controller.rb:667: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+app/controllers/degluconversor_controller.rb:670: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+app/controllers/degluconversor_controller.rb:670: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:672: syntax error, unexpected string literal, expecting local variable or method
+app/controllers/degluconversor_controller.rb:672: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:674: syntax error, unexpected `false', expecting local variable or method
+app/controllers/degluconversor_controller.rb:674: Can't assign to false
+app/controllers/degluconversor_controller.rb:675: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+app/controllers/degluconversor_controller.rb:744: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/degluconversor_controller.rb:575: syntax error, unexpected local variable or method, expecting '}'
+app/controllers/degluconversor_controller.rb:576: syntax error, unexpected integer literal, expecting label or ** or **arg or string literal
+app/controllers/degluconversor_controller.rb:577: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+app/controllers/degluconversor_controller.rb:577: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:579: syntax error, unexpected `true', expecting local variable or method
+app/controllers/degluconversor_controller.rb:579: Can't assign to true
+app/controllers/degluconversor_controller.rb:580: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+app/controllers/degluconversor_controller.rb:580: Can't assign to true
+app/controllers/degluconversor_controller.rb:581: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+app/controllers/degluconversor_controller.rb:581: Can't assign to false
+app/controllers/degluconversor_controller.rb:582: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+app/controllers/degluconversor_controller.rb:584: syntax error, unexpected '}', expecting `end'
+app/controllers/degluconversor_controller.rb:586: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+app/controllers/degluconversor_controller.rb:586: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:588: syntax error, unexpected `true', expecting local variable or method
+app/controllers/degluconversor_controller.rb:588: Can't assign to true
+app/controllers/degluconversor_controller.rb:589: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+app/controllers/degluconversor_controller.rb:589: Can't assign to false
+app/controllers/degluconversor_controller.rb:590: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+app/controllers/degluconversor_controller.rb:590: Can't assign to false
+app/controllers/degluconversor_controller.rb:591: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+app/controllers/degluconversor_controller.rb:591: Can't assign to true
+app/controllers/degluconversor_controller.rb:592: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+app/controllers/degluconversor_controller.rb:592: Can't assign to true
+app/controllers/degluconversor_controller.rb:593: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+app/controllers/degluconversor_controller.rb:595: syntax error, unexpected '}', expecting `end'
+app/controllers/degluconversor_controller.rb:597: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+app/controllers/degluconversor_controller.rb:597: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:599: syntax error, unexpected `true', expecting local variable or method
+app/controllers/degluconversor_controller.rb:599: Can't assign to true
+app/controllers/degluconversor_controller.rb:600: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+app/controllers/degluconversor_controller.rb:602: syntax error, unexpected '}', expecting `end'
+app/controllers/degluconversor_controller.rb:604: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+app/controllers/degluconversor_controller.rb:604: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:606: syntax error, unexpected string literal, expecting local variable or method
+app/controllers/degluconversor_controller.rb:606: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:608: syntax error, unexpected '}', expecting `end'
+app/controllers/degluconversor_controller.rb:610: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+app/controllers/degluconversor_controller.rb:610: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:612: syntax error, unexpected string literal, expecting local variable or method
+app/controllers/degluconversor_controller.rb:612: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:614: syntax error, unexpected '}', expecting `end'
+app/controllers/degluconversor_controller.rb:616: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+app/controllers/degluconversor_controller.rb:616: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:618: syntax error, unexpected `false', expecting local variable or method
+app/controllers/degluconversor_controller.rb:618: Can't assign to false
+app/controllers/degluconversor_controller.rb:619: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+app/controllers/degluconversor_controller.rb:620: syntax error, unexpected '}', expecting `end'
+app/controllers/degluconversor_controller.rb:622: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+app/controllers/degluconversor_controller.rb:622: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:624: syntax error, unexpected string literal, expecting local variable or method
+app/controllers/degluconversor_controller.rb:624: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:626: syntax error, unexpected '}', expecting `end'
+app/controllers/degluconversor_controller.rb:630: syntax error, unexpected integer literal, expecting label or ** or **arg or string literal
+app/controllers/degluconversor_controller.rb:631: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+app/controllers/degluconversor_controller.rb:631: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:633: syntax error, unexpected string literal, expecting local variable or method
+app/controllers/degluconversor_controller.rb:633: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:635: syntax error, unexpected '}', expecting `end'
+app/controllers/degluconversor_controller.rb:637: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+app/controllers/degluconversor_controller.rb:637: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:639: syntax error, unexpected string literal, expecting local variable or method
+app/controllers/degluconversor_controller.rb:639: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:641: syntax error, unexpected '}', expecting `end'
+app/controllers/degluconversor_controller.rb:643: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+app/controllers/degluconversor_controller.rb:643: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:645: syntax error, unexpected string literal, expecting local variable or method
+app/controllers/degluconversor_controller.rb:645: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:647: syntax error, unexpected '}', expecting `end'
+app/controllers/degluconversor_controller.rb:649: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+app/controllers/degluconversor_controller.rb:649: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:651: syntax error, unexpected string literal, expecting local variable or method
+app/controllers/degluconversor_controller.rb:651: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:653: syntax error, unexpected '}', expecting `end'
+app/controllers/degluconversor_controller.rb:655: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+app/controllers/degluconversor_controller.rb:655: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:657: syntax error, unexpected string literal, expecting local variable or method
+app/controllers/degluconversor_controller.rb:657: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:659: syntax error, unexpected `true', expecting local variable or method
+app/controllers/degluconversor_controller.rb:662: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+app/controllers/degluconversor_controller.rb:662: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:664: syntax error, unexpected string literal, expecting local variable or method
+app/controllers/degluconversor_controller.rb:664: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:666: syntax error, unexpected `false', expecting local variable or method
+app/controllers/degluconversor_controller.rb:666: Can't assign to false
+app/controllers/degluconversor_controller.rb:667: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+app/controllers/degluconversor_controller.rb:670: syntax error, unexpected terminator, expecting literal content or tSTRING_DBEG or tSTRING_DVAR or tLABEL_END
+app/controllers/degluconversor_controller.rb:670: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:672: syntax error, unexpected string literal, expecting local variable or method
+app/controllers/degluconversor_controller.rb:672: syntax error, unexpected ',', expecting `end'
+app/controllers/degluconversor_controller.rb:674: syntax error, unexpected `false', expecting local variable or method
+app/controllers/degluconversor_controller.rb:674: Can't assign to false
+app/controllers/degluconversor_controller.rb:675: syntax error, unexpected =>, expecting '.' or &. or :: or '['
+app/controllers/degluconversor_controller.rb:744: syntax error, unexpected end-of-input, expecting `end'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-19 09:30:25 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "Supervisión/Asistencia en la alimentación"=>"true", "Cantidad de consistencias"=>"1", "Penetración en la vía aérea"=>"True", "tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7", "commit"=>"Enviar"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 8.0ms | Allocations: 10759)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass
+
+    puts tablas[tabla_seleccionada][nivel_seleccionado]
+                                   ^^^^^^^^^^^^^^^^^^^^):
+  
+app/controllers/degluconversor_controller.rb:472:in `calcular_faltantes'
+app/controllers/degluconversor_controller.rb:239:in `block in especificar'
+app/controllers/degluconversor_controller.rb:238:in `each'
+app/controllers/degluconversor_controller.rb:238:in `flat_map'
+app/controllers/degluconversor_controller.rb:238:in `especificar'
+Started GET "/degluconversor" for 127.0.0.1 at 2024-06-19 09:32:34 -0400
+Processing by PagesController#degluconversor as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/degluconversor.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.7ms | Allocations: 362)
+  Rendered pages/degluconversor.html.erb within layouts/application (Duration: 16.4ms | Allocations: 6948)
+  Rendered layout layouts/application.html.erb (Duration: 19.1ms | Allocations: 8944)
+Completed 200 OK in 38ms (Views: 20.9ms | ActiveRecord: 2.9ms | Allocations: 14739)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-19 09:32:36 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"1", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.7ms | Allocations: 375)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 1.6ms | Allocations: 524)
+  Rendered layout layouts/application.html.erb (Duration: 17.8ms | Allocations: 6967)
+Completed 200 OK in 27ms (Views: 20.2ms | ActiveRecord: 0.3ms | Allocations: 9316)
+
+
+Started POST "/enviar" for 127.0.0.1 at 2024-06-19 09:32:37 -0400
+Processing by DegluconversorController#enviar as HTML
+  Parameters: {"tabla_seleccionada"=>"fils", "nivel_seleccionado"=>"1", "tabla_destino"=>"doss", "nivel"=>"1", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor_tablas.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.6ms | Allocations: 290)
+  Rendered degluconversor/degluconversor_tablas.html.erb within layouts/application (Duration: 3.6ms | Allocations: 721)
+  Rendered layout layouts/application.html.erb (Duration: 20.3ms | Allocations: 6999)
+Completed 200 OK in 27ms (Views: 22.5ms | ActiveRecord: 0.2ms | Allocations: 9052)
+
+
+Started GET "/degluconversor" for 127.0.0.1 at 2024-06-19 09:32:39 -0400
+Processing by PagesController#degluconversor as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/degluconversor.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 1.3ms | Allocations: 293)
+  Rendered pages/degluconversor.html.erb within layouts/application (Duration: 27.8ms | Allocations: 6569)
+  Rendered layout layouts/application.html.erb (Duration: 30.0ms | Allocations: 8550)
+Completed 200 OK in 36ms (Views: 30.9ms | ActiveRecord: 0.2ms | Allocations: 10103)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-19 09:32:45 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.9ms | Allocations: 290)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 1.5ms | Allocations: 436)
+  Rendered layout layouts/application.html.erb (Duration: 18.5ms | Allocations: 6714)
+Completed 200 OK in 24ms (Views: 19.3ms | ActiveRecord: 0.2ms | Allocations: 8401)
+
+
+Started POST "/especificar" for 127.0.0.1 at 2024-06-19 09:32:46 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.1ms | Allocations: 6800)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass
+
+    puts tablas[tabla_seleccionada][nivel_seleccionado]
+                                   ^^^^^^^^^^^^^^^^^^^^):
+  
+app/controllers/degluconversor_controller.rb:469:in `calcular_faltantes'
+app/controllers/degluconversor_controller.rb:239:in `block in especificar'
+app/controllers/degluconversor_controller.rb:238:in `each'
+app/controllers/degluconversor_controller.rb:238:in `flat_map'
+app/controllers/degluconversor_controller.rb:238:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-19 09:34:05 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 3.5ms | Allocations: 11488)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass
+
+    puts tablas[tabla_seleccionada][nivel_seleccionado]
+                                   ^^^^^^^^^^^^^^^^^^^^):
+  
+app/controllers/degluconversor_controller.rb:659:in `calcular_faltantes'
+app/controllers/degluconversor_controller.rb:429:in `block in especificar'
+app/controllers/degluconversor_controller.rb:428:in `each'
+app/controllers/degluconversor_controller.rb:428:in `flat_map'
+app/controllers/degluconversor_controller.rb:428:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-19 09:35:04 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+No template found for DegluconversorController#especificar, rendering head :no_content
+Completed 204 No Content in 19ms (ActiveRecord: 2.4ms | Allocations: 6197)
+
+
+Started POST "/especificar" for 127.0.0.1 at 2024-06-19 09:35:05 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+No template found for DegluconversorController#especificar, rendering head :no_content
+Completed 204 No Content in 7ms (ActiveRecord: 0.2ms | Allocations: 2030)
+
+
+Started POST "/especificar" for 127.0.0.1 at 2024-06-19 09:35:06 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+No template found for DegluconversorController#especificar, rendering head :no_content
+Completed 204 No Content in 8ms (ActiveRecord: 1.0ms | Allocations: 1979)
+
+
+Started POST "/especificar" for 127.0.0.1 at 2024-06-19 09:36:21 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 3.1ms | Allocations: 11454)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass
+
+    puts tablas[tabla_seleccionada][nivel_seleccionado]
+                                   ^^^^^^^^^^^^^^^^^^^^):
+  
+app/controllers/degluconversor_controller.rb:657:in `calcular_faltantes'
+app/controllers/degluconversor_controller.rb:426:in `block in especificar'
+app/controllers/degluconversor_controller.rb:425:in `each'
+app/controllers/degluconversor_controller.rb:425:in `flat_map'
+app/controllers/degluconversor_controller.rb:425:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-19 09:38:33 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor_especificar.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.8ms | Allocations: 392)
+  Rendered degluconversor/degluconversor_especificar.html.erb within layouts/application (Duration: 3.5ms | Allocations: 4622)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 11172)
+Completed 200 OK in 30ms (Views: 16.4ms | ActiveRecord: 2.4ms | Allocations: 17518)
+
+
+Started POST "/especificar" for 127.0.0.1 at 2024-06-19 09:38:40 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "Supervisión/Asistencia en la alimentación"=>"true", "Cantidad de consistencias"=>"1", "Penetración en la vía aérea"=>"True", "tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7", "commit"=>"Enviar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[31mUnpermitted parameters: :authenticity_token, :tabla_seleccionada, :nivel_seleccionado, :tabla_destino, :numeros_niveles_posibles, :commit. Context: { controller: DegluconversorController, action: especificar, request: #<ActionDispatch::Request:0x000000010b891bb8>, params: {"authenticity_token"=>"[FILTERED]", "Supervisión/Asistencia en la alimentación"=>"true", "Cantidad de consistencias"=>"1", "Penetración en la vía aérea"=>"True", "tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7", "commit"=>"Enviar", "controller"=>"degluconversor", "action"=>"especificar"} }[0m
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.2ms | Allocations: 8823)
+
+
+  
+NameError (undefined local variable or method `tablas' for #<DegluconversorController:0x000000000a7260>
+
+        caracteristicas_destino = tablas[@tabla_destino][nivel]
+                                  ^^^^^^):
+  
+app/controllers/degluconversor_controller.rb:247:in `block in especificar'
+app/controllers/degluconversor_controller.rb:246:in `each'
+app/controllers/degluconversor_controller.rb:246:in `especificar'
+Started POST "/especificar" for 127.0.0.1 at 2024-06-19 09:39:42 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor_especificar.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.5ms | Allocations: 392)
+  Rendered degluconversor/degluconversor_especificar.html.erb within layouts/application (Duration: 3.2ms | Allocations: 4622)
+  Rendered layout layouts/application.html.erb (Duration: 15.2ms | Allocations: 11172)
+Completed 200 OK in 35ms (Views: 16.9ms | ActiveRecord: 3.2ms | Allocations: 17621)
+
+
+Started POST "/especificar" for 127.0.0.1 at 2024-06-19 09:39:48 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "Supervisión/Asistencia en la alimentación"=>"true", "Cantidad de consistencias"=>"1", "Penetración en la vía aérea"=>"True", "tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7", "commit"=>"Enviar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[31mUnpermitted parameters: :authenticity_token, :tabla_seleccionada, :nivel_seleccionado, :tabla_destino, :numeros_niveles_posibles, :commit. Context: { controller: DegluconversorController, action: especificar, request: #<ActionDispatch::Request:0x000000010b32a008>, params: {"authenticity_token"=>"[FILTERED]", "Supervisión/Asistencia en la alimentación"=>"true", "Cantidad de consistencias"=>"1", "Penetración en la vía aérea"=>"True", "tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7", "commit"=>"Enviar", "controller"=>"degluconversor", "action"=>"especificar"} }[0m
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/resultado_degluconversor.html.erb within layouts/application
+  Rendered degluconversor/resultado_degluconversor.html.erb within layouts/application (Duration: 2.1ms | Allocations: 212)
+  Rendered layout layouts/application.html.erb (Duration: 19.5ms | Allocations: 6490)
+Completed 200 OK in 27ms (Views: 21.3ms | ActiveRecord: 0.2ms | Allocations: 9149)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-19 09:42:20 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 1157)
+  Rendered layout layouts/application.html.erb (Duration: 23.5ms | Allocations: 7636)
+Completed 200 OK in 32ms (Views: 28.2ms | ActiveRecord: 0.0ms | Allocations: 8427)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-19 09:42:27 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/menu
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 6ms (ActiveRecord: 0.2ms | Allocations: 1881)
+
+
+Started GET "/menu" for 127.0.0.1 at 2024-06-19 09:42:27 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 14.3ms | Allocations: 3151)
+  Rendered layout layouts/application.html.erb (Duration: 31.8ms | Allocations: 9316)
+Completed 200 OK in 39ms (Views: 32.8ms | ActiveRecord: 0.2ms | Allocations: 11000)
+
+
+Started GET "/degluconversor" for 127.0.0.1 at 2024-06-19 09:42:28 -0400
+Processing by PagesController#degluconversor as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/degluconversor.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 1.1ms | Allocations: 298)
+  Rendered pages/degluconversor.html.erb within layouts/application (Duration: 15.1ms | Allocations: 6569)
+  Rendered layout layouts/application.html.erb (Duration: 17.9ms | Allocations: 8550)
+Completed 200 OK in 25ms (Views: 18.7ms | ActiveRecord: 0.3ms | Allocations: 10117)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-19 09:42:35 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.7ms | Allocations: 290)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 1.9ms | Allocations: 437)
+  Rendered layout layouts/application.html.erb (Duration: 15.5ms | Allocations: 6715)
+Completed 200 OK in 22ms (Views: 16.7ms | ActiveRecord: 0.2ms | Allocations: 8403)
+
+
+Started POST "/especificar" for 127.0.0.1 at 2024-06-19 09:42:37 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor_especificar.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.6ms | Allocations: 290)
+  Rendered degluconversor/degluconversor_especificar.html.erb within layouts/application (Duration: 5.6ms | Allocations: 4498)
+  Rendered layout layouts/application.html.erb (Duration: 27.8ms | Allocations: 10798)
+Completed 200 OK in 35ms (Views: 28.9ms | ActiveRecord: 0.2ms | Allocations: 12940)
+
+
+Started POST "/especificar" for 127.0.0.1 at 2024-06-19 09:42:45 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "Supervisión/Asistencia en la alimentación"=>"true", "Cantidad de consistencias"=>"1", "Penetración en la vía aérea"=>"True", "tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7", "commit"=>"Enviar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[31mUnpermitted parameters: :authenticity_token, :tabla_seleccionada, :nivel_seleccionado, :tabla_destino, :numeros_niveles_posibles, :commit. Context: { controller: DegluconversorController, action: especificar, request: #<ActionDispatch::Request:0x000000010a46eaf0>, params: {"authenticity_token"=>"[FILTERED]", "Supervisión/Asistencia en la alimentación"=>"true", "Cantidad de consistencias"=>"1", "Penetración en la vía aérea"=>"True", "tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7", "commit"=>"Enviar", "controller"=>"degluconversor", "action"=>"especificar"} }[0m
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/resultado_degluconversor.html.erb within layouts/application
+  Rendered degluconversor/resultado_degluconversor.html.erb within layouts/application (Duration: 0.3ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 16.7ms | Allocations: 6318)
+Completed 200 OK in 24ms (Views: 17.7ms | ActiveRecord: 0.2ms | Allocations: 8678)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-19 09:43:26 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 742)
+  Rendered layout layouts/application.html.erb (Duration: 24.9ms | Allocations: 7077)
+Completed 200 OK in 27ms (Views: 25.8ms | ActiveRecord: 0.0ms | Allocations: 7345)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-19 09:43:28 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/menu
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 6ms (ActiveRecord: 0.3ms | Allocations: 1449)
+
+
+Started GET "/menu" for 127.0.0.1 at 2024-06-19 09:43:28 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 5.7ms | Allocations: 2523)
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 8696)
+Completed 200 OK in 22ms (Views: 18.1ms | ActiveRecord: 0.1ms | Allocations: 10241)
+
+
+Started GET "/degluconversor" for 127.0.0.1 at 2024-06-19 09:43:32 -0400
+Processing by PagesController#degluconversor as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/degluconversor.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.5ms | Allocations: 293)
+  Rendered pages/degluconversor.html.erb within layouts/application (Duration: 16.1ms | Allocations: 6552)
+  Rendered layout layouts/application.html.erb (Duration: 18.4ms | Allocations: 8533)
+Completed 200 OK in 24ms (Views: 19.0ms | ActiveRecord: 0.2ms | Allocations: 10111)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-19 09:43:39 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.8ms | Allocations: 290)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 1.9ms | Allocations: 436)
+  Rendered layout layouts/application.html.erb (Duration: 18.1ms | Allocations: 6714)
+Completed 200 OK in 26ms (Views: 19.0ms | ActiveRecord: 0.2ms | Allocations: 8406)
+
+
+Started POST "/especificar" for 127.0.0.1 at 2024-06-19 09:43:41 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor_especificar.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.9ms | Allocations: 290)
+  Rendered degluconversor/degluconversor_especificar.html.erb within layouts/application (Duration: 4.7ms | Allocations: 4475)
+  Rendered layout layouts/application.html.erb (Duration: 18.7ms | Allocations: 10753)
+Completed 200 OK in 26ms (Views: 19.8ms | ActiveRecord: 0.2ms | Allocations: 12909)
+
+
+Started POST "/especificar" for 127.0.0.1 at 2024-06-19 09:43:47 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "Supervisión/Asistencia en la alimentación"=>"true", "Cantidad de consistencias"=>"1", "Penetración en la vía aérea"=>"True", "tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7", "commit"=>"Enviar"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[31mUnpermitted parameters: :authenticity_token, :tabla_seleccionada, :nivel_seleccionado, :tabla_destino, :numeros_niveles_posibles, :commit. Context: { controller: DegluconversorController, action: especificar, request: #<ActionDispatch::Request:0x000000010ba1af70>, params: {"authenticity_token"=>"[FILTERED]", "Supervisión/Asistencia en la alimentación"=>"true", "Cantidad de consistencias"=>"1", "Penetración en la vía aérea"=>"True", "tabla_seleccionada"=>"fois", "nivel_seleccionado"=>"4", "tabla_destino"=>"doss", "numeros_niveles_posibles"=>"3,4,5,6,7", "commit"=>"Enviar", "controller"=>"degluconversor", "action"=>"especificar"} }[0m
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/resultado_degluconversor.html.erb within layouts/application
+  Rendered degluconversor/resultado_degluconversor.html.erb within layouts/application (Duration: 0.5ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 6318)
+Completed 200 OK in 24ms (Views: 18.1ms | ActiveRecord: 0.3ms | Allocations: 8683)
+
+
+Started GET "/" for 127.0.0.1 at 2024-06-19 09:43:50 -0400
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 740)
+  Rendered layout layouts/application.html.erb (Duration: 18.1ms | Allocations: 7090)
+Completed 200 OK in 21ms (Views: 19.7ms | ActiveRecord: 0.0ms | Allocations: 7358)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-06-19 09:43:52 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/menu
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 0.3ms | Allocations: 1444)
+
+
+Started GET "/menu" for 127.0.0.1 at 2024-06-19 09:43:52 -0400
+Processing by PagesController#menu as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/menu.html.erb within layouts/application
+  Rendered pages/menu.html.erb within layouts/application (Duration: 5.9ms | Allocations: 2522)
+  Rendered layout layouts/application.html.erb (Duration: 19.2ms | Allocations: 8727)
+Completed 200 OK in 23ms (Views: 19.9ms | ActiveRecord: 0.1ms | Allocations: 10290)
+
+
+Started GET "/degluconversor" for 127.0.0.1 at 2024-06-19 09:43:53 -0400
+Processing by PagesController#degluconversor as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering pages/degluconversor.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.9ms | Allocations: 293)
+  Rendered pages/degluconversor.html.erb within layouts/application (Duration: 16.9ms | Allocations: 6552)
+  Rendered layout layouts/application.html.erb (Duration: 19.4ms | Allocations: 8533)
+Completed 200 OK in 24ms (Views: 20.1ms | ActiveRecord: 0.2ms | Allocations: 10072)
+
+
+Started POST "/transformar" for 127.0.0.1 at 2024-06-19 09:44:01 -0400
+Processing by DegluconversorController#transformar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"6", "tabla_destino"=>"fois"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor1.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.7ms | Allocations: 290)
+  Rendered degluconversor/degluconversor1.html.erb within layouts/application (Duration: 1.6ms | Allocations: 430)
+  Rendered layout layouts/application.html.erb (Duration: 18.0ms | Allocations: 6708)
+Completed 200 OK in 24ms (Views: 18.9ms | ActiveRecord: 0.2ms | Allocations: 8420)
+
+
+Started POST "/especificar" for 127.0.0.1 at 2024-06-19 09:44:02 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"6", "tabla_destino"=>"fois", "numeros_niveles_posibles"=>"4,5,6,7", "authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/degluconversor_especificar.html.erb within layouts/application
+  Rendered shared/_header.html.erb (Duration: 0.8ms | Allocations: 290)
+  Rendered degluconversor/degluconversor_especificar.html.erb within layouts/application (Duration: 6.3ms | Allocations: 5077)
+  Rendered layout layouts/application.html.erb (Duration: 21.6ms | Allocations: 11408)
+Completed 200 OK in 28ms (Views: 22.9ms | ActiveRecord: 0.2ms | Allocations: 13467)
+
+
+Started POST "/especificar" for 127.0.0.1 at 2024-06-19 09:44:12 -0400
+Processing by DegluconversorController#especificar as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "Cantidad de alimentación por vía oral"=>"total", "Múltiples consistencias"=>"True", "Necesidad de preparación especial"=>"False", "Restricciones alimenticias"=>"None", "tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"6", "tabla_destino"=>"fois", "numeros_niveles_posibles"=>"4,5,6,7", "commit"=>"Enviar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[31mUnpermitted parameters: :authenticity_token, :tabla_seleccionada, :nivel_seleccionado, :tabla_destino, :numeros_niveles_posibles, :commit. Context: { controller: DegluconversorController, action: especificar, request: #<ActionDispatch::Request:0x000000010b539650>, params: {"authenticity_token"=>"[FILTERED]", "Cantidad de alimentación por vía oral"=>"total", "Múltiples consistencias"=>"True", "Necesidad de preparación especial"=>"False", "Restricciones alimenticias"=>"None", "tabla_seleccionada"=>"doss", "nivel_seleccionado"=>"6", "tabla_destino"=>"fois", "numeros_niveles_posibles"=>"4,5,6,7", "commit"=>"Enviar", "controller"=>"degluconversor", "action"=>"especificar"} }[0m
+  Rendering layout layouts/application.html.erb
+  Rendering degluconversor/resultado_degluconversor.html.erb within layouts/application
+  Rendered degluconversor/resultado_degluconversor.html.erb within layouts/application (Duration: 0.2ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 17.3ms | Allocations: 6318)
+Completed 200 OK in 24ms (Views: 18.3ms | ActiveRecord: 0.2ms | Allocations: 8606)
+
+

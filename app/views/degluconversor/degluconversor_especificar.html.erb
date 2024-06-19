@@ -108,7 +108,7 @@
       <%= f.hidden_field :tabla_destino, value: @tabla_destino %>
       <%= f.hidden_field :numeros_niveles_posibles, value: @numeros_niveles_posibles.join(',') %>
       <div class="form-group"> 
-        <button type="submit" class="submit-button">Enviar</button>
+        <%= f.submit 'Enviar', name: 'commit', class: 'submit-button' %>
       </div>
     <% end %>
   </div>
