@@ -232,22 +232,11 @@ class DegluconversorController < ApplicationController
 
   def especificar
     @tabla_seleccionada = params[:tabla_seleccionada]
-    @nivel_seleccionado = eval(params[:nivel_seleccionado])
+    @nivel_seleccionado = params[:nivel_seleccionado].to_i
     @tabla_destino = params[:tabla_destino]
-    # En tu controlador
-    @numeros_niveles_posibles = params[:numeros_niveles_posibles]
-    @numeros_niveles_posibles_array = eval(@numeros_niveles_posibles)
+    @numeros_niveles_posibles = params[:numeros_niveles_posibles].split(',').map(&:to_i)
 
-
-
-    # Obtén los niveles posibles desde alguna fuente de datos
-    puts "tabla_seleccionada: " + @tabla_seleccionada
-    puts "tabla_destino: " + @tabla_destino
-    puts @nivel_seleccionado
-    puts @numeros_niveles_posibles_array[1]
-
-    # Características faltantes que debes obtener de alguna fuente de datos
-    @faltantes = @numeros_niveles_posibles_array.flat_map do |nivel_destino|
+    @faltantes = @numeros_niveles_posibles.flat_map do |nivel_destino|
       calcular_faltantes(@tabla_destino, nivel_destino, @tabla_seleccionada, @nivel_seleccionado)
     end.uniq
 
@@ -255,10 +244,8 @@ class DegluconversorController < ApplicationController
       respuestas = params.permit(@faltantes).to_h
       mejor_coincidencia = nil
       coincidencias_maximas = 0
-      preguntadas = {}
 
-      @niveles_posibles.each do |nivel_hash|
-        nivel = nivel_hash[:nivel]
+      @numeros_niveles_posibles.each do |nivel|
         caracteristicas_destino = tablas[@tabla_destino][nivel]
         caracteristicas_seleccionadas = tablas[@tabla_seleccionada][@nivel_seleccionado].merge(respuestas)
         faltantes = caracteristicas_destino.keys - caracteristicas_seleccionadas.keys
@@ -275,18 +262,17 @@ class DegluconversorController < ApplicationController
           mejor_coincidencia = nivel
           coincidencias_maximas = coincidencias
         end
-        preguntadas.merge!(respuestas)
       end
 
       if mejor_coincidencia
         nombre_mejor_coincidencia = tablas[@tabla_destino][mejor_coincidencia]["Nombre"]
         @resultado = { nivel: mejor_coincidencia, nombre: nombre_mejor_coincidencia }
+        render 'resultado_degluconversor'  # Redirigir a la vista de resultado
       else
-        @resultado = nil
         flash[:notice] = "Lo siento, no se encontró un nivel que coincida con las características seleccionadas."
+        render 'no_coincidencia_degluconversor'  # Redirigir a la vista de no coincidencia
       end
     end
-    render 'degluconversor_especificar'
   end
 
   def calcular_faltantes(tabla_destino, nivel_destino, tabla_seleccionada, nivel_seleccionado)
