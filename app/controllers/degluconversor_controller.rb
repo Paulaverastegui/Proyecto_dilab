@@ -41,47 +41,45 @@ class DegluconversorController < ApplicationController
     @nivel_seleccionado = params[:nivel_seleccionado].to_i
     @tabla_destino = params[:tabla_destino]
     @numeros_niveles_posibles = params[:numeros_niveles_posibles].split(',').map(&:to_i)
-  
+
     # Calcula los faltantes
     @faltantes = @numeros_niveles_posibles.flat_map do |nivel_destino|
       calcular_faltantes(@tabla_destino, nivel_destino, @tabla_seleccionada, @nivel_seleccionado)
     end.uniq
-  
+
     if params[:commit]
-      respuestas = params.permit(@faltantes).to_h
+      # Permite los parámetros faltantes
+      respuestas = params.permit(*@faltantes).to_h
       mejor_coincidencia = nil
       coincidencias_maximas = 0
-  
+
       @numeros_niveles_posibles.each do |nivel|
         caracteristicas_destino = tablas[@tabla_destino][nivel]
         caracteristicas_seleccionadas = tablas[@tabla_seleccionada][@nivel_seleccionado].merge(respuestas)
         coincidencias = 0
-  
+
         caracteristicas_destino.each do |caracteristica, valor|
           next if caracteristica == "Nombre"
-          
-          # Asegúrate de que los valores sean comparables (booleanos)
-          valor = (valor == "true" || valor == true) if ["Penetración en la vía aérea", "Supervisión/Asistencia en la alimentación"].include?(caracteristica)
-          seleccionada = (caracteristicas_seleccionadas[caracteristica] == "true" || caracteristicas_seleccionadas[caracteristica] == true) if ["Penetración en la vía aérea", "Supervisión/Asistencia en la alimentación"].include?(caracteristica)
-          
+          seleccionada = caracteristicas_seleccionadas[caracteristica].to_s
+          valor = valor.to_s
           # Comparación de valores
           if seleccionada == valor
             coincidencias += 1
           end
         end
-  
+
         # Agrega puts para depuración
         puts "Analizando nivel: #{nivel}"
         puts "Coincidencias: #{coincidencias}"
         puts "Características destino: #{caracteristicas_destino}"
         puts "Características seleccionadas: #{caracteristicas_seleccionadas}"
-  
+
         if coincidencias > coincidencias_maximas
           mejor_coincidencia = nivel
           coincidencias_maximas = coincidencias
         end
       end
-  
+
       if mejor_coincidencia
         nombre_mejor_coincidencia = tablas[@tabla_destino][mejor_coincidencia]["Nombre"]
         @resultado = { nivel: mejor_coincidencia, nombre: nombre_mejor_coincidencia }
@@ -96,9 +94,7 @@ class DegluconversorController < ApplicationController
       render 'degluconversor_especificar'
     end
   end
-  
-  
-  
+
   def calcular_faltantes(tabla_destino, nivel_destino, tabla_seleccionada, nivel_seleccionado)
     tablas = { "fils" => fils, "doss" => doss, "fois" => fois }
     caracteristicas_destino = tablas[tabla_destino][nivel_destino].keys
@@ -118,85 +114,85 @@ class DegluconversorController < ApplicationController
     {
       1 => {
         "Nombre" => "Deglución severa nivel 1",
-        "Aspiración" => true,
-        "Reflejo de la deglución" => false,
-        "Posible entrenamiento de la deglución" => false,
-        "Alimentación por vía oral" => false,
+        "Aspiración" => "true",
+        "Reflejo de la deglución" => "false",
+        "Posible entrenamiento de la deglución" => "false",
+        "Alimentación por vía oral" => "false",
         "Vía de alimentación" => "Alternativa"
       },
       2 => {
         "Nombre" => "Deglución severa nivel 2",
-        "Aspiración" => true,
-        "Posible entrenamiento de la deglución" => true,
-        "Reflejo de la deglución" => false,
-        "Alimentación por vía oral" => false,
+        "Aspiración" => "true",
+        "Posible entrenamiento de la deglución" => "true",
+        "Reflejo de la deglución" => "false",
+        "Alimentación por vía oral" => "false",
         "Vía de alimentación" => "Alternativa"
       },
       3 => {
         "Nombre" => "Deglución severa nivel 3",
-        "Aspiración" => true,
-        "Posible entrenamiento de la deglución" => true,
-        "Reflejo de la deglución" => true,
-        "Alimentación por vía oral" => true,
+        "Aspiración" => "true",
+        "Posible entrenamiento de la deglución" => "true",
+        "Reflejo de la deglución" => "true",
+        "Alimentación por vía oral" => "true",
         "Vía de alimentación" => "Alternativa y oral"
       },
       4 => {
         "Nombre" => "Disfagia moderada nivel 4",
-        "Aspiración" => false,
-        "Posible entrenamiento de la deglución" => true,
-        "Alimentación por vía oral" => true,
-        "Reflejo de la deglución" => true,
+        "Aspiración" => "false",
+        "Posible entrenamiento de la deglución" => "true",
+        "Alimentación por vía oral" => "true",
+        "Reflejo de la deglución" => "true",
         "Vía de alimentación" => "Alternativa y oral"
       },
       5 => {
         "Nombre" => "Disfagia moderada nivel 5",
-        "Posible entrenamiento de la deglución" => true,
-        "Alimentación vía oral" => true,
+        "Posible entrenamiento de la deglución" => "true",
+        "Alimentación vía oral" => "true",
         "Vía de alimentación" => "Alternativa y oral",
         "Cantidad de alimentacion oral al dia" => 1 || 2,
-        "Vía de alimentacion enteral para el agua" => true
+        "Vía de alimentacion enteral para el agua" => "true"
       },
       6 => {
         "Nombre" => "Disfagia moderada nivel 6",
-        "Posible entrenamiento de la deglución" => true,
-        "Alimentación vía oral" => true,
+        "Posible entrenamiento de la deglución" => "true",
+        "Alimentación vía oral" => "true",
         "Vía de alimentación" => "Alternativa y oral",
         "Cantidad de alimentacion oral al dia" => 3,
-        "Vía de alimentacion enteral para el agua" => true
+        "Vía de alimentacion enteral para el agua" => "true"
       },
       7 => {
         "Nombre" => "Disfagia leve nivel 7",
-        "Posible entrenamiento de la deglución" => true,
-        "Alimentación vía oral" => true,
+        "Posible entrenamiento de la deglución" => "true",
+        "Alimentación vía oral" => "true",
         "Vía de alimentación" => "Oral",
         "Cantidad de alimentacion oral al dia" => 3,
-        "Vía de alimentacion enteral para el agua" => true
+        "Vía de alimentacion enteral para el agua" => "true"
       },
       8 => {
         "Nombre" => "Disfagia leve nivel 8",
-        "Posible entrenamiento de la deglución" => true,
-        "Alimentación vía oral" => true,
+        "Posible entrenamiento de la deglución" => "true",
+        "Alimentación vía oral" => "true",
         "Vía de alimentación" => "Oral",
-        "Vía de alimentacion enteral para el agua" => false,
-        "Agua con espesante" => true
+        "Vía de alimentacion enteral para el agua" => "false",
+        "Agua con espesante" => "true"
       },
       9 => {
         "Nombre" => "Disfagia leve nivel 9",
-        "Posible entrenamiento de la deglución" => true,
-        "Alimentación vía oral" => true,
+        "Posible entrenamiento de la deglución" => "true",
+        "Alimentación vía oral" => "true",
         "Vía de alimentación" => "Oral",
-        "Vía de alimentacion enteral para el agua" => false,
-        "Agua con espesante" => false,
-        "Supervisión" => true
+        "Vía de alimentacion enteral para el agua" => "false",
+        "Agua con espesante" => "false",
+        "Supervisión" => "true"
       },
       10 => {
         "Nombre" => "Disfagia leve nivel 10",
-        "Posible entrenamiento de la deglución" => true,
-        "Alimentación vía oral" => true,
+        "Posible entrenamiento de la deglución" => "true",
+        "Alimentación vía oral" => "true",
         "Vía de alimentación" => "Oral",
-        "Vía de alimentacion enteral para el agua" => false,
-        "Agua con espesante" => false,
-        "Supervisión" => false
+        "Vía de alimentacion enteral para el agua" => "false",
+        "Agua con espesante" => "false",
+        "Supervisión" => "false"
       }
     }
   end
@@ -205,63 +201,70 @@ class DegluconversorController < ApplicationController
     {
       1 => {
         "Nombre" => "Disfagia severa",
-        "Aspiración" => true,
-        "Retención del bolo" => true,
-        "Tos" => true,
-        "Alimentación por vía oral" => false,
+        "Aspiración" => "true",
+        "Retención del bolo" => "true",
+        "Tos" => "true",
+        "Alimentación por vía oral" => "false",
         "Cantidad de consistencias" => "0",
-        "Vía de alimentación" => "Alternativa"
+        "Vía de alimentación" => "Alternativa",
+        "Deglución 100% normal" => "false"
       },
       2 => {
         "Nombre" => "Disfagia moderada/severa",
-        "Aspiración" => true,
-        "Retención del bolo" => true,
-        "Tos" => false,
-        "Alimentación por vía oral" => false,
-        "Penetración en la vía aérea" => true,
-        "Supervisión/Asistencia en la alimentación" => true,
+        "Aspiración" => "true",
+        "Retención del bolo" => "true",
+        "Tos" => "false",
+        "Alimentación por vía oral" => "false",
+        "Penetración en la vía aérea" => "true",
+        "Supervisión/Asistencia en la alimentación" => "true",
         "Cantidad de consistencias" => "1",
-        "Vía de alimentación" => "Alternativa y oral"
+        "Vía de alimentación" => "Alternativa y oral",
+        "Deglución 100% normal" => "false"
       },
       3 => {
         "Nombre" => "Disfagia moderada",
-        "Alimentación por vía oral" => true,
-        "Penetración en la vía aérea" => true,
-        "Supervisión/Asistencia en la alimentación" => true,
+        "Alimentación por vía oral" => "true",
+        "Penetración en la vía aérea" => "true",
+        "Supervisión/Asistencia en la alimentación" => "true",
         "Cantidad de consistencias" => "1",
-        "Vía de alimentación" => "Oral"
+        "Vía de alimentación" => "Oral",
+        "Deglución 100% normal" => "false"
       },
       4 => {
         "Nombre" => "Disfagia leve a moderada",
-        "Alimentación por vía oral" => true,
-        "Penetración en la vía aérea" => true,
+        "Alimentación por vía oral" => "true",
+        "Penetración en la vía aérea" => "true",
         "Supervisión/Asistencia en la alimentación" => "Supervisión intermitente",
         "Cantidad de consistencias" => "1 o más",
-        "Vía de alimentación" => "Oral"
+        "Vía de alimentación" => "Oral",
+        "Deglución 100% normal" => "false"
       },
       5 => {
         "Nombre" => "Disfagia leve",
-        "Alimentación por vía oral" => true,
-        "Penetración en la vía aérea" => true,
+        "Alimentación por vía oral" => "true",
+        "Penetración en la vía aérea" => "true",
         "Supervisión/Asistencia en la alimentación" => "Supervisión a distancia",
         "Cantidad de consistencias" => "1 o más",
-        "Vía de alimentación" => "Oral"
+        "Vía de alimentación" => "Oral",
+        "Deglución 100% normal" => "false"
       },
       6 => {
         "Nombre" => "Disfagia dentro de límites funcionales",
-        "Alimentación por vía oral" => true,
-        "Penetración en la vía aérea" => false,
-        "Supervisión/Asistencia en la alimentación" => false,
+        "Alimentación por vía oral" => "true",
+        "Penetración en la vía aérea" => "false",
+        "Supervisión/Asistencia en la alimentación" => "false",
         "Cantidad de consistencias" => "1 o más",
-        "Vía de alimentación" => "Oral"
+        "Vía de alimentación" => "Oral",
+        "Deglución 100% normal" => "false"
       },
       7 => {
         "Nombre" => "Disfagia dentro de límites de normalidad",
-        "Alimentación por vía oral" => true,
-        "Penetración en la vía aérea" => true,
-        "Supervisión/Asistencia en la alimentación" => false,
+        "Alimentación por vía oral" => "true",
+        "Penetración en la vía aérea" => "false",
+        "Supervisión/Asistencia en la alimentación" => "false",
         "Cantidad de consistencias" => "1 o más",
-        "Vía de alimentación" => "Oral"
+        "Vía de alimentación" => "Oral",
+        "Deglución 100% normal" => "true"
       }
     }
   end
@@ -270,50 +273,51 @@ class DegluconversorController < ApplicationController
     {
       1 => {
         "Nombre" => "Nivel 1",
-        "Alimentación por vía oral" => false,
+        "Alimentación por vía oral" => "false",
         "Cantidad de alimentación por vía oral" => "nada",
         "Vía de alimentación" => "Alternativa"
       },
       2 => {
         "Nombre" => "Nivel 2",
-        "Alimentación por vía oral" => true,
+        "Alimentación por vía oral" => "true",
         "Cantidad de alimentación por vía oral" => "mínima",
         "Vía de alimentación" => "Alternativa y oral"
       },
       3 => {
         "Nombre" => "Nivel 3",
-        "Alimentación por vía oral" => true,
+        "Alimentación por vía oral" => "true",
         "Cantidad de alimentación por vía oral" => "normal",
         "Vía de alimentación" => "Alternativa y oral"
       },
       4 => {
         "Nombre" => "Nivel 4",
-        "Alimentación por vía oral" => true,
+        "Alimentación por vía oral" => "true",
         "Cantidad de alimentación por vía oral" => "total",
         "Vía de alimentación" => "Oral"
       },
       5 => {
         "Nombre" => "Nivel 5",
-        "Alimentación por vía oral" => true,
+        "Alimentación por vía oral" => "true",
         "Vía de alimentación" => "Oral",
-        "Múltiples consistencias" => true,
-        "Necesidad de preparación especial" => true
+        "Múltiples consistencias" => "true",
+        "Necesidad de preparación especial" => "true"
       },
       6 => {
         "Nombre" => "Nivel 6",
-        "Alimentación por vía oral" => true,
+        "Alimentación por vía oral" => "true",
         "Vía de alimentación" => "Oral",
-        "Múltiples consistencias" => true,
-        "Necesidad de preparación especial" => false,
-        "Restricciones alimenticias" => true
+        "Múltiples consistencias" => "true",
+        "Necesidad de preparación especial" => "false",
+        "Restricciones alimenticias" => "true",
+
       },
       7 => {
         "Nombre" => "Nivel 7",
-        "Alimentación por vía oral" => true,
+        "Alimentación por vía oral" => "true",
         "Vía de alimentación" => "Oral",
-        "Múltiples consistencias" => true,
-        "Necesidad de preparación especial" => false,
-        "Restricciones alimenticias" => false
+        "Múltiples consistencias" => "true",
+        "Necesidad de preparación especial" => "false",
+        "Restricciones alimenticias" => "false",
       }
     }
   end
