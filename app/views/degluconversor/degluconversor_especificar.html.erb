@@ -10,18 +10,16 @@
       margin: 0;
       font-family: 'Arial', sans-serif;
     }
-  
     .header {
       background-color: #256490;
       color: white;
-      padding: 1em;
+      padding: 1.6em;
       font-size: 2.5em;
       border-bottom-left-radius: 80px;
       border-bottom-right-radius: 80px;
       width: 100%;
       text-align: center;
     }
-
     .container {
       display: flex;
       flex-wrap: wrap;
@@ -29,7 +27,6 @@
       align-items: center;
       padding: 20px;
     }
-
     .square {
       height: auto; 
       background-color: white;
@@ -44,7 +41,6 @@
       border-radius: 20px;
       width: 45%;
     }
-
     .text {
       height: auto; 
       margin-bottom: 10px;
@@ -57,25 +53,21 @@
       color: #256490;
       width: 90%;
     }
-
     .form-group {
       margin-bottom: 15px;
     }
-
     .form-group label {
       display: block;
       font-size: 1.2em;
       color: #256490;
     }
-
-    .form-group input, .form-group select {
+    .form-group select {
       width: 100%;
       padding: 8px;
       font-size: 1em;
       border: 1px solid #256490;
       border-radius: 5px;
     }
-
     .submit-button {
       background-color: #256490;
       color: white;
@@ -85,25 +77,38 @@
       border-radius: 5px;
       cursor: pointer;
     }
-
     .submit-button:hover {
       background-color: #1e5372;
     }
   </style>
-</head>
-<body>
+  </head>
+  <body>
   <%= render 'shared/header' %>
   <div class="header">Especificar diagnóstico</div>
   <div class="container">
     <div class="text">Por favor, completa las características adicionales para mejorar el diagnóstico:</div>
     <%= form_with url: especificar_path, method: :post do |f| %>
       <% options = {
+            "Nombre" => ["Deglución severa nivel 1", "Deglución severa nivel 2", "Deglución severa nivel 3", "Disfagia moderada nivel 4", "Disfagia moderada nivel 5", "Disfagia moderada nivel 6", "Disfagia leve nivel 7", "Disfagia leve nivel 8", "Disfagia leve nivel 9", "Disfagia leve nivel 10", "Disfagia severa", "Disfagia moderada/severa", "Disfagia moderada", "Disfagia leve a moderada", "Disfagia leve", "Disfagia dentro de límites funcionales", "Disfagia dentro de límites de normalidad", "Nivel 1", "Nivel 2", "Nivel 3", "Nivel 4", "Nivel 5", "Nivel 6", "Nivel 7"],
+            "Aspiración" => ["Verdadero", "Falso"],
+            "Reflejo de la deglución" => ["Verdadero", "Falso"],
+            "Posible entrenamiento de la deglución" => ["Verdadero", "Falso"],
+            "Alimentación por vía oral" => ["Verdadero", "Falso"],
+            "Alimentación vía oral" => ["Verdadero", "Falso"],
+            "Vía de alimentación" => ["Alternativa", "Oral", "Alternativa y oral"],
+            "Cantidad de alimentación oral al día" => ["No se alimenta vía oral", "Pequeñas cantidades en entrenamiento", "1", "2", "3", "3 o más"],
+            "Vía de alimentación enteral para el agua" => ["Verdadero", "Falso"],
+            "Supervisión" => ["Verdadero", "Falso"],
+            "Retención del bolo" => ["Verdadero", "Falso", "Leve"],
+            "Tos" => ["Verdadero", "Falso"],
+            "Penetración en la vía aérea" => ["Verdadero", "Falso"],
+            "Supervisión/Asistencia en la alimentación" => ["Verdadero", "Falso", "Supervisión intermitente", "Supervisión a distancia"],
+            "Cantidad de consistencias" => ["0", "1", "1 o más"],
             "Cantidad de alimentación por vía oral" => ["nada", "mínima", "normal", "total"],
-            "Vía de alimentación" => ["alternativa", "oral", "alternativa y oral"],
-            "Cantidad de alimentación oral al día" => ["1", "2", "3"],
-            "Supervisión/Asistencia en la alimentación" => ["true", "false", "supervisión intermitente", "supervisión a distancia"],
-            "Cantidad de consistencias" => ["0", "1"],
-            "default" => ["True", "False", "None"]
+            "Múltiples consistencias" => ["Verdadero", "Falso"],
+            "Necesidad de preparación especial" => ["Verdadero", "Falso"],
+            "Restricciones alimenticias" => ["Verdadero", "Falso"],
+            "default" => ["Verdadero", "Falso", "Ninguno"]
           } %>
       <% @faltantes.each do |caracteristica| %>
         <div class="form-group">
@@ -115,10 +120,14 @@
       <%= f.hidden_field :tabla_seleccionada, value: @tabla_seleccionada %>
       <%= f.hidden_field :nivel_seleccionado, value: @nivel_seleccionado %>
       <%= f.hidden_field :tabla_destino, value: @tabla_destino %>
+      <%= f.hidden_field :numeros_niveles_posibles, value: @numeros_niveles_posibles.join(',') %>
       <div class="form-group"> 
-        <button type="submit" class="submit-button">Enviar</button>
+        <%= f.submit 'Enviar', name: 'commit', class: 'submit-button' %>
       </div>
     <% end %>
   </div>
 </body>
 </html>
+
+  
+

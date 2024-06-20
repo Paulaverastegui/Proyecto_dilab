@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta name="csrf-token" content="<%= form_authenticity_token %>">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultado de Degluconversor</title>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2.5em;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      width: 100%;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
+    }
+
+    .content {
+      margin-top: 150px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 80%;
+      max-width: 800px;
+      background-color: #FFFFFF;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .content h1 {
+      font-size: 2em;
+      color: #256490;
+      margin-bottom: 10px;
+    }
+
+    .content p {
+      font-size: 1.2em;
+      color: #333333;
+      margin: 10px 0;
+    }
+
+    .result-box {
+      width: 100%;
+      background-color: #F0F0F0;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .result-box p {
+      font-size: 1.2em;
+      color: #256490;
+      margin: 5px 0;
+    }
+
+    .submit-button {
+      background-color: #256490;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .submit-button:hover {
+      background-color: #1e5372;
+    }
+
+    .link-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      color: #256490;
+      text-decoration: none;
+      border: 2px solid #256490;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .link-button:hover {
+      background-color: #256490;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">Resultado de Conversión</div>
+  <div class="content">
+    <h1>El nivel que coincide es: <%= @resultado[:nivel] %></h1>
+    <div class="result-box">
+      <p><strong>Nombre:</strong> <%= @resultado[:nombre] %></p>
+      <p>Otras escalas y detalles aquí...</p>
+    </div>
+
+    <form action="/enviar" method="post">
+      <input type="hidden" name="tabla_seleccionada" value="<%= @tabla_seleccionada %>">
+      <input type="hidden" name="nivel_seleccionado" value="<%= @nivel_seleccionado %>">
+      <input type="hidden" name="tabla_destino" value="<%= @tabla_destino %>">
+      <input type="hidden" name="nivel" value="<%= @resultado[:nivel] %>">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="submit" class="submit-button" value='ⓘ Ver detalles'>
+    </form>
+
+    <%= link_to 'Volver', menu_path, class: 'link-button' %>
+  </div>
+</body>
+</html>
+
+
+

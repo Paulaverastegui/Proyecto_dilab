@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>No Coincidencia</title>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .header {
+      background-color: #256490;
+      color: white;
+      padding: 1em;
+      font-size: 2.5em;
+      border-bottom-left-radius: 80px;
+      border-bottom-right-radius: 80px;
+      width: 100%;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
+    }
+
+    .content {
+      margin-top: 150px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 80%;
+      max-width: 800px;
+      background-color: #FFFFFF;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .content p {
+      font-size: 1.2em;
+      color: #333333;
+      margin: 20px 0;
+    }
+
+    .link-button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      color: #256490;
+      text-decoration: none;
+      border: 2px solid #256490;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .link-button:hover {
+      background-color: #256490;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">No Coincidencia</div>
+  <div class="content">
+    <p>No se encontró ningún nivel que coincida con las características seleccionadas.</p>
+    <%= link_to 'Volver', root_path, class: 'link-button' %>
+  </div>
+</body>
+</html>

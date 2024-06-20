@@ -19,7 +19,7 @@
     .header {
       background-color: #256490;
       color: white;
-      padding: 1em;
+      padding: 1.6em;
       font-size: 2.5em;
       border-bottom-left-radius: 80px;
       border-bottom-right-radius: 80px;
@@ -121,7 +121,7 @@
 
   </style>
 </head>
-</head>
+
 <body>
   <%= render 'shared/header' %>
   <div class="header">Resultado de Conversión</div>
@@ -155,7 +155,7 @@
         <input type="hidden" name="tabla_seleccionada" value="<%= @tabla_seleccionada %>">
         <input type="hidden" name="nivel_seleccionado" value="<%= @nivel_seleccionado %>">
         <input type="hidden" name="tabla_destino" value="<%= @tabla_destino %>">
-        <input type="hidden" name="numeros_niveles_posibles" value="<%= @numeros_niveles_posibles %>">
+        <input type="hidden" name="numeros_niveles_posibles" value="<%= @numeros_niveles_posibles.join(',') %>">
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
         <input type="submit" class="submit-button" value='+ Especificar diagnóstico'>
       </form>

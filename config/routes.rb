@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   post '/transformar', to: 'degluconversor#transformar'
   post '/enviar', to: 'degluconversor#enviar'
   post '/especificar', to: 'degluconversor#especificar'
+  get '/resultado', to: 'degluconversor#resultado', as: 'resultado_degluconversor'
+  get '/no_coincidencia', to: 'degluconversor#no_coincidencia', as: 'no_coincidencia_degluconversor'
   resources :diagnoses, only: [:index]
   resources :patients do
     resources :diagnoses, only: [:new, :create, :show, :index] do
