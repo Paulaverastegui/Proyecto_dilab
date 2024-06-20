@@ -109,218 +109,269 @@ class DegluconversorController < ApplicationController
   end
 
   private
-
   def fils
     {
       1 => {
         "Nombre" => "Deglución severa nivel 1",
-        "Aspiración" => "true",
-        "Reflejo de la deglución" => "false",
-        "Posible entrenamiento de la deglución" => "false",
-        "Alimentación por vía oral" => "false",
-        "Vía de alimentación" => "Alternativa"
+        "Aspiración" => "Verdadero",
+        "Reflejo de la deglución" => "Falso",
+        "Posible entrenamiento de la deglución" => "Falso",
+        "Alimentación por vía oral" => "Falso",
+        "Vía de alimentación" => "Alternativa",
+        "Cantidad de alimentación oral al día" => "No se alimenta vía oral",
+        "Vía de alimentación enteral para el agua" => "Falso",
+        "Supervisión" => "Verdadero"
       },
       2 => {
         "Nombre" => "Deglución severa nivel 2",
-        "Aspiración" => "true",
-        "Posible entrenamiento de la deglución" => "true",
-        "Reflejo de la deglución" => "false",
-        "Alimentación por vía oral" => "false",
-        "Vía de alimentación" => "Alternativa"
+        "Aspiración" => "Verdadero",
+        "Posible entrenamiento de la deglución" => "Verdadero",
+        "Reflejo de la deglución" => "Falso",
+        "Alimentación por vía oral" => "Falso",
+        "Vía de alimentación" => "Alternativa",
+        "Cantidad de alimentación oral al día" => "No se alimenta vía oral",
+        "Vía de alimentación enteral para el agua" => "Falso",
+        "Supervisión" => "Verdadero"
       },
       3 => {
         "Nombre" => "Deglución severa nivel 3",
-        "Aspiración" => "true",
-        "Posible entrenamiento de la deglución" => "true",
-        "Reflejo de la deglución" => "true",
-        "Alimentación por vía oral" => "true",
-        "Vía de alimentación" => "Alternativa y oral"
+        "Aspiración" => "Verdadero",
+        "Posible entrenamiento de la deglución" => "Verdadero",
+        "Reflejo de la deglución" => "Verdadero",
+        "Alimentación por vía oral" => "Verdadero",
+        "Vía de alimentación" => "Alternativa y oral",
+        "Cantidad de alimentación oral al día" => "Pequeñas cantidades en entrenamiento",
+        "Vía de alimentación enteral para el agua" => "Falso",
+        "Supervisión" => "Verdadero"
       },
       4 => {
         "Nombre" => "Disfagia moderada nivel 4",
-        "Aspiración" => "false",
-        "Posible entrenamiento de la deglución" => "true",
-        "Alimentación por vía oral" => "true",
-        "Reflejo de la deglución" => "true",
-        "Vía de alimentación" => "Alternativa y oral"
+        "Aspiración" => "Falso",
+        "Posible entrenamiento de la deglución" => "Verdadero",
+        "Alimentación por vía oral" => "Verdadero",
+        "Reflejo de la deglución" => "Verdadero",
+        "Vía de alimentación" => "Alternativa y oral",
+        "Cantidad de alimentación oral al día" => "Pequeñas cantidades en entrenamiento",
+        "Vía de alimentación enteral para el agua" => "Falso",
+        "Supervisión" => "Verdadero"
       },
       5 => {
         "Nombre" => "Disfagia moderada nivel 5",
-        "Posible entrenamiento de la deglución" => "true",
-        "Alimentación vía oral" => "true",
+        "Aspiración" => "Falso",
+        "Posible entrenamiento de la deglución" => "Verdadero",
+        "Alimentación vía oral" => "Verdadero",
         "Vía de alimentación" => "Alternativa y oral",
-        "Cantidad de alimentacion oral al dia" => 1 || 2,
-        "Vía de alimentacion enteral para el agua" => "true"
+        "Cantidad de alimentación oral al día" => "1 o 2",
+        "Vía de alimentación enteral para el agua" => "Verdadero",
+        "Supervisión" => "Verdadero"
       },
       6 => {
         "Nombre" => "Disfagia moderada nivel 6",
-        "Posible entrenamiento de la deglución" => "true",
-        "Alimentación vía oral" => "true",
+        "Aspiración" => "Falso",
+        "Posible entrenamiento de la deglución" => "Verdadero",
+        "Alimentación vía oral" => "Verdadero",
         "Vía de alimentación" => "Alternativa y oral",
-        "Cantidad de alimentacion oral al dia" => 3,
-        "Vía de alimentacion enteral para el agua" => "true"
+        "Cantidad de alimentación oral al día" => "3",
+        "Vía de alimentación enteral para el agua" => "Verdadero",
+        "Supervisión" => "Verdadero"
       },
       7 => {
         "Nombre" => "Disfagia leve nivel 7",
-        "Posible entrenamiento de la deglución" => "true",
-        "Alimentación vía oral" => "true",
+        "Aspiración" => "Falso",
+        "Posible entrenamiento de la deglución" => "Verdadero",
+        "Alimentación vía oral" => "Verdadero",
         "Vía de alimentación" => "Oral",
-        "Cantidad de alimentacion oral al dia" => 3,
-        "Vía de alimentacion enteral para el agua" => "true"
+        "Cantidad de alimentación oral al día" => "3 o más",
+        "Vía de alimentación enteral para el agua" => "Falso",
+        "Agua con espesante" => "Verdadero",
+        "Supervisión" => "Verdadero"
       },
       8 => {
         "Nombre" => "Disfagia leve nivel 8",
-        "Posible entrenamiento de la deglución" => "true",
-        "Alimentación vía oral" => "true",
+        "Aspiración" => "Falso",
+        "Posible entrenamiento de la deglución" => "Verdadero",
+        "Alimentación vía oral" => "Verdadero",
         "Vía de alimentación" => "Oral",
-        "Vía de alimentacion enteral para el agua" => "false",
-        "Agua con espesante" => "true"
+        "Vía de alimentación enteral para el agua" => "Falso",
+        "Cantidad de alimentación oral al día" => "3 o más",
+        "Agua con espesante" => "Verdadero",
+        "Supervisión" => "Verdadero"
       },
       9 => {
         "Nombre" => "Disfagia leve nivel 9",
-        "Posible entrenamiento de la deglución" => "true",
-        "Alimentación vía oral" => "true",
+        "Aspiración" => "Falso",
+        "Posible entrenamiento de la deglución" => "Verdadero",
+        "Alimentación vía oral" => "Verdadero",
         "Vía de alimentación" => "Oral",
-        "Vía de alimentacion enteral para el agua" => "false",
-        "Agua con espesante" => "false",
-        "Supervisión" => "true"
+        "Vía de alimentación enteral para el agua" => "Falso",
+        "Cantidad de alimentación oral al día" => "3 o más",
+        "Agua con espesante" => "Falso",
+        "Supervisión" => "Verdadero"
       },
       10 => {
         "Nombre" => "Disfagia leve nivel 10",
-        "Posible entrenamiento de la deglución" => "true",
-        "Alimentación vía oral" => "true",
+        "Aspiración" => "Falso",
+        "Posible entrenamiento de la deglución" => "Verdadero",
+        "Alimentación vía oral" => "Verdadero",
         "Vía de alimentación" => "Oral",
-        "Vía de alimentacion enteral para el agua" => "false",
-        "Agua con espesante" => "false",
-        "Supervisión" => "false"
+        "Vía de alimentación enteral para el agua" => "Falso",
+        "Cantidad de alimentación oral al día" => "3 o más",
+        "Agua con espesante" => "Falso",
+        "Supervisión" => "Falso"
       }
     }
   end
-
+  
   def doss
     {
       1 => {
         "Nombre" => "Disfagia severa",
-        "Aspiración" => "true",
-        "Retención del bolo" => "true",
-        "Tos" => "true",
-        "Alimentación por vía oral" => "false",
+        "Aspiración" => "Verdadero",
+        "Retención del bolo" => "Verdadero",
+        "Tos" => "Verdadero",
+        "Alimentación por vía oral" => "Falso",
+        "Penetración en la vía aérea" => "Verdadero",
+        "Supervisión/Asistencia en la alimentación" => "Verdadero",
         "Cantidad de consistencias" => "0",
-        "Vía de alimentación" => "Alternativa",
-        "Deglución 100% normal" => "false"
+        "Vía de alimentación" => "Alternativa"
       },
       2 => {
         "Nombre" => "Disfagia moderada/severa",
-        "Aspiración" => "true",
-        "Retención del bolo" => "true",
-        "Tos" => "false",
-        "Alimentación por vía oral" => "false",
-        "Penetración en la vía aérea" => "true",
-        "Supervisión/Asistencia en la alimentación" => "true",
+        "Aspiración" => "Verdadero",
+        "Retención del bolo" => "Verdadero",
+        "Tos" => "Falso",
+        "Alimentación por vía oral" => "Falso",
+        "Penetración en la vía aérea" => "Verdadero",
+        "Supervisión/Asistencia en la alimentación" => "Verdadero",
         "Cantidad de consistencias" => "1",
-        "Vía de alimentación" => "Alternativa y oral",
-        "Deglución 100% normal" => "false"
+        "Vía de alimentación" => "Alternativa y oral"
       },
       3 => {
         "Nombre" => "Disfagia moderada",
-        "Alimentación por vía oral" => "true",
-        "Penetración en la vía aérea" => "true",
-        "Supervisión/Asistencia en la alimentación" => "true",
+        "Alimentación por vía oral" => "Verdadero",
+        "Aspiración" => "Verdadero",
+        "Tos" => "Falso",
+        "Retención del bolo" => "Verdadero",
+        "Penetración en la vía aérea" => "Verdadero",
+        "Supervisión/Asistencia en la alimentación" => "Verdadero",
         "Cantidad de consistencias" => "1",
-        "Vía de alimentación" => "Oral",
-        "Deglución 100% normal" => "false"
+        "Vía de alimentación" => "Oral"
       },
       4 => {
         "Nombre" => "Disfagia leve a moderada",
-        "Alimentación por vía oral" => "true",
-        "Penetración en la vía aérea" => "true",
+        "Alimentación por vía oral" => "Verdadero",
+        "Tos" => "Falso",
+        "Retención del bolo" => "Verdadero",
+        "Aspiración" => "Verdadero",
+        "Penetración en la vía aérea" => "Verdadero",
         "Supervisión/Asistencia en la alimentación" => "Supervisión intermitente",
         "Cantidad de consistencias" => "1 o más",
-        "Vía de alimentación" => "Oral",
-        "Deglución 100% normal" => "false"
+        "Vía de alimentación" => "Oral"
       },
       5 => {
         "Nombre" => "Disfagia leve",
-        "Alimentación por vía oral" => "true",
-        "Penetración en la vía aérea" => "true",
+        "Alimentación por vía oral" => "Verdadero",
+        "Tos" => "Falso",
+        "Retención del bolo" => "Leve",
+        "Aspiración" => "Verdadero",
+        "Penetración en la vía aérea" => "Verdadero",
         "Supervisión/Asistencia en la alimentación" => "Supervisión a distancia",
         "Cantidad de consistencias" => "1 o más",
-        "Vía de alimentación" => "Oral",
-        "Deglución 100% normal" => "false"
+        "Vía de alimentación" => "Oral"
       },
       6 => {
         "Nombre" => "Disfagia dentro de límites funcionales",
-        "Alimentación por vía oral" => "true",
-        "Penetración en la vía aérea" => "false",
-        "Supervisión/Asistencia en la alimentación" => "false",
+        "Alimentación por vía oral" => "Verdadero",
+        "Penetración en la vía aérea" => "Falso",
+        "Aspiración" => "Falso",
+        "Tos" => "Falso",
+        "Retención del bolo" => "Leve",
+        "Supervisión/Asistencia en la alimentación" => "Falso",
         "Cantidad de consistencias" => "1 o más",
-        "Vía de alimentación" => "Oral",
-        "Deglución 100% normal" => "false"
+        "Vía de alimentación" => "Oral"
       },
       7 => {
         "Nombre" => "Disfagia dentro de límites de normalidad",
-        "Alimentación por vía oral" => "true",
-        "Penetración en la vía aérea" => "false",
-        "Supervisión/Asistencia en la alimentación" => "false",
+        "Alimentación por vía oral" => "Verdadero",
+        "Penetración en la vía aérea" => "Falso",
+        "Supervisión/Asistencia en la alimentación" => "Falso",
         "Cantidad de consistencias" => "1 o más",
         "Vía de alimentación" => "Oral",
-        "Deglución 100% normal" => "true"
+        "Aspiración" => "Falso",
+        "Tos" => "Falso",
+        "Retención del bolo" => "Falso"
       }
     }
   end
-
+  
   def fois
     {
       1 => {
         "Nombre" => "Nivel 1",
-        "Alimentación por vía oral" => "false",
+        "Alimentación por vía oral" => "Falso",
         "Cantidad de alimentación por vía oral" => "nada",
-        "Vía de alimentación" => "Alternativa"
+        "Vía de alimentación" => "Alternativa",
+        "Múltiples consistencias" => "Falso",
+        "Necesidad de preparación especial" => "Verdadero",
+        "Restricciones alimenticias" => "Verdadero"
       },
       2 => {
         "Nombre" => "Nivel 2",
-        "Alimentación por vía oral" => "true",
+        "Alimentación por vía oral" => "Verdadero",
         "Cantidad de alimentación por vía oral" => "mínima",
-        "Vía de alimentación" => "Alternativa y oral"
+        "Vía de alimentación" => "Alternativa y oral",
+        "Múltiples consistencias" => "Falso",
+        "Necesidad de preparación especial" => "Verdadero",
+        "Restricciones alimenticias" => "Verdadero"
       },
       3 => {
         "Nombre" => "Nivel 3",
-        "Alimentación por vía oral" => "true",
+        "Alimentación por vía oral" => "Verdadero",
         "Cantidad de alimentación por vía oral" => "normal",
-        "Vía de alimentación" => "Alternativa y oral"
+        "Vía de alimentación" => "Alternativa y oral",
+        "Múltiples consistencias" => "Falso",
+        "Necesidad de preparación especial" => "Verdadero",
+        "Restricciones alimenticias" => "Verdadero"
       },
       4 => {
         "Nombre" => "Nivel 4",
-        "Alimentación por vía oral" => "true",
+        "Alimentación por vía oral" => "Verdadero",
         "Cantidad de alimentación por vía oral" => "total",
-        "Vía de alimentación" => "Oral"
+        "Vía de alimentación" => "Oral",
+        "Múltiples consistencias" => "Falso",
+        "Necesidad de preparación especial" => "Verdadero",
+        "Restricciones alimenticias" => "Verdadero"
       },
       5 => {
         "Nombre" => "Nivel 5",
-        "Alimentación por vía oral" => "true",
+        "Alimentación por vía oral" => "Verdadero",
+        "Cantidad de alimentación por vía oral" => "total",
         "Vía de alimentación" => "Oral",
-        "Múltiples consistencias" => "true",
-        "Necesidad de preparación especial" => "true"
+        "Múltiples consistencias" => "Verdadero",
+        "Necesidad de preparación especial" => "Verdadero",
+        "Restricciones alimenticias" => "Verdadero"
       },
       6 => {
         "Nombre" => "Nivel 6",
-        "Alimentación por vía oral" => "true",
+        "Alimentación por vía oral" => "Verdadero",
+        "Cantidad de alimentación por vía oral" => "total",
         "Vía de alimentación" => "Oral",
-        "Múltiples consistencias" => "true",
-        "Necesidad de preparación especial" => "false",
-        "Restricciones alimenticias" => "true",
-
+        "Múltiples consistencias" => "Verdadero",
+        "Necesidad de preparación especial" => "Falso",
+        "Restricciones alimenticias" => "Verdadero"
       },
       7 => {
         "Nombre" => "Nivel 7",
-        "Alimentación por vía oral" => "true",
+        "Alimentación por vía oral" => "Verdadero",
+        "Cantidad de alimentación por vía oral" => "total",
         "Vía de alimentación" => "Oral",
-        "Múltiples consistencias" => "true",
-        "Necesidad de preparación especial" => "false",
-        "Restricciones alimenticias" => "false",
+        "Múltiples consistencias" => "Verdadero",
+        "Necesidad de preparación especial" => "Falso",
+        "Restricciones alimenticias" => "Falso"
       }
     }
   end
+  
 
   def descripcion_niveles
     @descripciones = {
