@@ -258,7 +258,7 @@ class DegluconversorController < ApplicationController
         "Alimentación por vía oral" => "Verdadero",
         "Aspiración" => "Verdadero",
         "Tos" => "Falso",
-        "Retención del bolo" => "Moderada"
+        "Retención del bolo" => "Moderada",
         "Penetración en la vía aérea" => "Verdadero",
         "Supervisión/Asistencia en la alimentación" => "Verdadero",
         "Cantidad de consistencias" => "1",
