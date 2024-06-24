@@ -122,6 +122,27 @@
       text-decoration: none;
       cursor: pointer;
     }
+    
+    .modal-content img.logo {
+      width: 100px; /* Ajusta el tamaño según sea necesario */
+      height: auto;
+      margin: 10px;
+    }
+
+    .modal-content img.logo-nosotras {
+      width: 300px; /* Ajusta el tamaño según sea necesario */
+      height: auto;
+      display: block;
+      margin: 10px auto;
+    }
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px; /* Espacio entre los logos */
+    }
+
+
   </style>
 </head>
 <body>
@@ -141,6 +162,7 @@
         <img src="<%= asset_path('logomispaciente.png') %>" alt="Mis Pacientes Logo">Mis Pacientes
       <% end %>
       <button id="bibliografiaBtn" class="btn-comenzar">Bibliografía</button>
+      <button id="sobrenosotrasBtn" class="btn-comenzar">Sobre Nosotras</button>
       <%= button_to(
         "Cerrar sesión",
         destroy_user_session_path,
@@ -150,7 +172,7 @@
     </div>
   </div>
 
-  <!-- El Modal -->
+  <!-- Modal Bibliografía -->
   <div id="bibliografiaModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
@@ -161,30 +183,59 @@
     </div>
   </div>
 
+  <!-- Modal Sobre Nosotras -->
+  <div id="sobrenosotrasModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Sobre Nosotras</h2>
+      <img src="<%= asset_path('nosotras.png') %>" class="logo-nosotras">
+      <p>Esta página se construyó en el contexto del ramo Dilab - Laboratorio de Diseño del Major de Ingeniería Diseño e Innovación de Ingeniería en la Pontificia Universidad Católica.</p>
+      <p> Se trabajó junto a la Facultad de Ingeniería UC. El proyecto fue desarrollado por Isidora Millán, Paula Verastegui y Alicia García de la Huerta, alumnas de 4to año de Ingeniería.</p>
+      <div class="logo-container">
+        <img src="<%= asset_path('logo-puc.webp') %>" class="logo">
+        <img src="<%= asset_path('logo_dilab.jpg') %>" class="logo">
+      </div>
+    </div>
+  </div>
+
+
+
   <script>
-    // Obtener el modal
-    var modal = document.getElementById("bibliografiaModal");
+    // Obtener los modales
+    var bibliografiaModal = document.getElementById("bibliografiaModal");
+    var sobreNosotrasModal = document.getElementById("sobrenosotrasModal");
 
-    // Obtener el botón que abre el modal
-    var btn = document.getElementById("bibliografiaBtn");
+    // Obtener los botones que abren los modales
+    var bibliografiaBtn = document.getElementById("bibliografiaBtn");
+    var sobreNosotrasBtn = document.getElementById("sobrenosotrasBtn");
 
-    // Obtener el <span> que cierra el modal
-    var span = document.getElementsByClassName("close")[0];
+    // Obtener los <span> que cierran los modales
+    var closeButtons = document.getElementsByClassName("close");
 
-    // Cuando el usuario haga clic en el botón, abrir el modal 
-    btn.onclick = function() {
-      modal.style.display = "block";
+    // Cuando el usuario haga clic en los botones, abrir los modales correspondientes
+    bibliografiaBtn.onclick = function() {
+      bibliografiaModal.style.display = "block";
     }
 
-    // Cuando el usuario haga clic en <span> (x), cerrar el modal
-    span.onclick = function() {
-      modal.style.display = "none";
+    sobreNosotrasBtn.onclick = function() {
+      sobreNosotrasModal.style.display = "block";
+    }
+
+    // Cuando el usuario haga clic en <span> (x), cerrar el modal correspondiente
+    for (var i = 0; i < closeButtons.length; i++) {
+      closeButtons[i].onclick = function() {
+        bibliografiaModal.style.display = "none";
+        sobreNosotrasModal.style.display = "none";
+      }
     }
 
     // Cuando el usuario haga clic en cualquier lugar fuera del modal, cerrarlo
     window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
+      if (event.target == bibliografiaModal) {
+        bibliografiaModal.style.display = "none";
+      }
+      if (event.target == sobreNosotrasModal) {
+        sobreNosotrasModal.style.display = "none";
       }
     }
   </script>
