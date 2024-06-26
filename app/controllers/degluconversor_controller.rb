@@ -109,6 +109,7 @@ class DegluconversorController < ApplicationController
   end
 
   private
+
   def fils
     {
       1 => {
@@ -125,8 +126,8 @@ class DegluconversorController < ApplicationController
       2 => {
         "Nombre" => "Deglución severa nivel 2",
         "Aspiración" => "Verdadero",
-        "Posible entrenamiento de la deglución" => "Verdadero",
         "Reflejo de la deglución" => "Falso",
+        "Posible entrenamiento de la deglución" => "Verdadero",
         "Alimentación por vía oral" => "Falso",
         "Vía de alimentación" => "Alternativa",
         "Cantidad de alimentación oral al día" => "No se alimenta vía oral",
@@ -136,8 +137,8 @@ class DegluconversorController < ApplicationController
       3 => {
         "Nombre" => "Deglución severa nivel 3",
         "Aspiración" => "Verdadero",
-        "Posible entrenamiento de la deglución" => "Verdadero",
         "Reflejo de la deglución" => "Verdadero",
+        "Posible entrenamiento de la deglución" => "Verdadero",
         "Alimentación por vía oral" => "Verdadero",
         "Vía de alimentación" => "Alternativa y oral",
         "Cantidad de alimentación oral al día" => "Pequeñas cantidades en entrenamiento",
@@ -147,9 +148,9 @@ class DegluconversorController < ApplicationController
       4 => {
         "Nombre" => "Disfagia moderada nivel 4",
         "Aspiración" => "Falso",
+        "Reflejo de la deglución" => "Verdadero",
         "Posible entrenamiento de la deglución" => "Verdadero",
         "Alimentación por vía oral" => "Verdadero",
-        "Reflejo de la deglución" => "Verdadero",
         "Vía de alimentación" => "Alternativa y oral",
         "Cantidad de alimentación oral al día" => "Pequeñas cantidades en entrenamiento",
         "Vía de alimentación enteral para el agua" => "Falso",
@@ -158,8 +159,9 @@ class DegluconversorController < ApplicationController
       5 => {
         "Nombre" => "Disfagia moderada nivel 5",
         "Aspiración" => "Falso",
+        "Reflejo de la deglución" => "Verdadero",
         "Posible entrenamiento de la deglución" => "Verdadero",
-        "Alimentación vía oral" => "Verdadero",
+        "Alimentación por vía oral" => "Verdadero",
         "Vía de alimentación" => "Alternativa y oral",
         "Cantidad de alimentación oral al día" => "1 o 2",
         "Vía de alimentación enteral para el agua" => "Verdadero",
@@ -168,8 +170,9 @@ class DegluconversorController < ApplicationController
       6 => {
         "Nombre" => "Disfagia moderada nivel 6",
         "Aspiración" => "Falso",
+        "Reflejo de la deglución" => "Verdadero",
         "Posible entrenamiento de la deglución" => "Verdadero",
-        "Alimentación vía oral" => "Verdadero",
+        "Alimentación por vía oral" => "Verdadero",
         "Vía de alimentación" => "Alternativa y oral",
         "Cantidad de alimentación oral al día" => "3",
         "Vía de alimentación enteral para el agua" => "Verdadero",
@@ -178,8 +181,9 @@ class DegluconversorController < ApplicationController
       7 => {
         "Nombre" => "Disfagia leve nivel 7",
         "Aspiración" => "Falso",
+        "Reflejo de la deglución" => "Verdadero",
         "Posible entrenamiento de la deglución" => "Verdadero",
-        "Alimentación vía oral" => "Verdadero",
+        "Alimentación por vía oral" => "Verdadero",
         "Vía de alimentación" => "Oral",
         "Cantidad de alimentación oral al día" => "3 o más",
         "Vía de alimentación enteral para el agua" => "Falso",
@@ -189,45 +193,48 @@ class DegluconversorController < ApplicationController
       8 => {
         "Nombre" => "Disfagia leve nivel 8",
         "Aspiración" => "Falso",
+        "Reflejo de la deglución" => "Verdadero",
         "Posible entrenamiento de la deglución" => "Verdadero",
-        "Alimentación vía oral" => "Verdadero",
+        "Alimentación por vía oral" => "Verdadero",
         "Vía de alimentación" => "Oral",
-        "Vía de alimentación enteral para el agua" => "Falso",
         "Cantidad de alimentación oral al día" => "3 o más",
+        "Vía de alimentación enteral para el agua" => "Falso",
         "Agua con espesante" => "Verdadero",
         "Supervisión" => "Verdadero"
       },
       9 => {
         "Nombre" => "Disfagia leve nivel 9",
         "Aspiración" => "Falso",
+        "Reflejo de la deglución" => "Verdadero",
         "Posible entrenamiento de la deglución" => "Verdadero",
-        "Alimentación vía oral" => "Verdadero",
+        "Alimentación por vía oral" => "Verdadero",
         "Vía de alimentación" => "Oral",
-        "Vía de alimentación enteral para el agua" => "Falso",
         "Cantidad de alimentación oral al día" => "3 o más",
+        "Vía de alimentación enteral para el agua" => "Falso",
         "Agua con espesante" => "Falso",
         "Supervisión" => "Verdadero"
       },
       10 => {
         "Nombre" => "Disfagia leve nivel 10",
         "Aspiración" => "Falso",
+        "Reflejo de la deglución" => "Verdadero",
         "Posible entrenamiento de la deglución" => "Verdadero",
-        "Alimentación vía oral" => "Verdadero",
+        "Alimentación por vía oral" => "Verdadero",
         "Vía de alimentación" => "Oral",
-        "Vía de alimentación enteral para el agua" => "Falso",
         "Cantidad de alimentación oral al día" => "3 o más",
+        "Vía de alimentación enteral para el agua" => "Falso",
         "Agua con espesante" => "Falso",
         "Supervisión" => "Falso"
       }
     }
   end
-  
+
   def doss
     {
       1 => {
         "Nombre" => "Disfagia severa",
         "Aspiración" => "Verdadero",
-        "Retención del bolo" => "Verdadero",
+        "Retención del bolo" => "Severa",
         "Tos" => "Verdadero",
         "Alimentación por vía oral" => "Falso",
         "Penetración en la vía aérea" => "Verdadero",
@@ -238,7 +245,7 @@ class DegluconversorController < ApplicationController
       2 => {
         "Nombre" => "Disfagia moderada/severa",
         "Aspiración" => "Verdadero",
-        "Retención del bolo" => "Verdadero",
+        "Retención del bolo" => "Severa",
         "Tos" => "Falso",
         "Alimentación por vía oral" => "Falso",
         "Penetración en la vía aérea" => "Verdadero",
@@ -251,7 +258,7 @@ class DegluconversorController < ApplicationController
         "Alimentación por vía oral" => "Verdadero",
         "Aspiración" => "Verdadero",
         "Tos" => "Falso",
-        "Retención del bolo" => "Verdadero",
+        "Retención del bolo" => "Moderada",
         "Penetración en la vía aérea" => "Verdadero",
         "Supervisión/Asistencia en la alimentación" => "Verdadero",
         "Cantidad de consistencias" => "1",
@@ -261,7 +268,7 @@ class DegluconversorController < ApplicationController
         "Nombre" => "Disfagia leve a moderada",
         "Alimentación por vía oral" => "Verdadero",
         "Tos" => "Falso",
-        "Retención del bolo" => "Verdadero",
+        "Retención del bolo" => "Moderada",
         "Aspiración" => "Verdadero",
         "Penetración en la vía aérea" => "Verdadero",
         "Supervisión/Asistencia en la alimentación" => "Supervisión intermitente",
@@ -371,7 +378,6 @@ class DegluconversorController < ApplicationController
       }
     }
   end
-  
 
   def descripcion_niveles
     @descripciones = {
